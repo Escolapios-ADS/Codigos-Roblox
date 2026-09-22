@@ -48,15 +48,15 @@ if (currentSlug) {
 }
 ---
 
-<header class="sticky top-0 z-50 backdrop-blur-xl bg-[#080c14]/85 border-b border-white/10 transition-colors">
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-[#080c14]/90 border-b border-white/10 transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       
-      <!-- Logo -->
-      <a href={`/${locale}/`} class="flex items-center gap-3 group">
+      <!-- Brand Logo -->
+      <a href={`/${locale}/`} class="flex items-center gap-3 group shrink-0">
         <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-violet-600 to-cyan-400 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300">
           <div class="w-full h-full bg-[#0b0f19] rounded-[11px] flex items-center justify-center">
-            <!-- Roblox-inspired geometric 3D cube icon -->
+            <!-- Roblox 3D cube icon -->
             <svg class="w-5 h-5 text-cyan-400 transform group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
@@ -65,9 +65,9 @@ if (currentSlug) {
           </div>
         </div>
         <div class="flex flex-col">
-          <span class="text-lg font-black tracking-tight text-white flex items-center gap-1">
+          <span class="text-lg font-black tracking-tight text-white flex items-center gap-1.5">
             {t.nav.brand}
-            <span class="text-xs px-1.5 py-0.5 rounded font-mono font-semibold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">2026</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">2026</span>
           </span>
           <span class="text-[10px] text-slate-400 tracking-wider uppercase font-medium -mt-1 hidden sm:block">
             {t.nav.brandSubtitle}
@@ -75,221 +75,480 @@ if (currentSlug) {
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+      <!-- Desktop Streamlined Navigation Bar (Hidden on Mobile) -->
+      <nav class="hidden lg:flex items-center gap-1 text-xs xl:text-sm font-medium">
+        
+        <!-- 1. Home -->
         <a 
           href={`/${locale}/`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+          class="px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
         >
           {t.nav.home}
         </a>
+
+        <!-- 2. Games -->
         <a 
           href={`/${locale}/#juegos`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+          class="px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-1"
         >
-          {t.nav.games}
+          <span>🎮</span>
+          <span>{t.nav.games}</span>
         </a>
+
+        <!-- 3. Free Drops Dropdown -->
+        <div class="relative group/dropdown">
+          <button 
+            type="button"
+            class="px-3 py-2 rounded-xl text-slate-300 group-hover/dropdown:text-white group-hover/dropdown:bg-white/5 transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>🎁</span>
+            <span>{t.nav.freeMenu}</span>
+            <span class="text-[10px] text-slate-400 group-hover/dropdown:rotate-180 transition-transform duration-200">▼</span>
+          </button>
+
+          <div class="absolute left-0 top-full pt-2 hidden group-hover/dropdown:block z-50 w-64 animate-fade-in">
+            <div class="bg-[#0b0f19] border border-white/10 rounded-2xl p-2 shadow-2xl shadow-black/80 backdrop-blur-2xl space-y-1">
+              <a 
+                href={`/${locale}/${locale === 'es' ? 'objetos-gratis/' : 'free-items/'}`}
+                class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-white/5 transition-colors group/item"
+              >
+                <span class="text-xl p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">🎁</span>
+                <div>
+                  <span class="font-bold text-white group-hover/item:text-emerald-300 text-xs block">
+                    {locale === 'es' ? 'Ropa & Objetos Gratis' : 'Free Clothes & Items'}
+                  </span>
+                  <span class="text-[10px] text-slate-400 block">{locale === 'es' ? 'Drops 0 Robux permanentes' : '0-Robux permanent drops'}</span>
+                </div>
+              </a>
+
+              <a 
+                href={`/${locale}/juego/roblox-promo-codes`}
+                class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-white/5 transition-colors group/item"
+              >
+                <span class="text-xl p-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">✨</span>
+                <div>
+                  <span class="font-bold text-white group-hover/item:text-cyan-300 text-xs block">
+                    {locale === 'es' ? 'Promo Codes Globales' : 'Global Promo Codes'}
+                  </span>
+                  <span class="text-[10px] text-slate-400 block">{locale === 'es' ? 'Recompensas oficiales activas' : 'Working official rewards'}</span>
+                </div>
+              </a>
+
+              <a 
+                href={`/${locale}/#como-canjear`}
+                class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-white/5 transition-colors group/item border-t border-white/5 pt-2"
+              >
+                <span class="text-base p-1 text-slate-400">📖</span>
+                <div>
+                  <span class="font-medium text-slate-300 group-hover/item:text-white text-xs block">
+                    {locale === 'es' ? '¿Cómo Canjear Códigos?' : 'How to Redeem Codes?'}
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. VIP Tools Mega Menu Dropdown -->
+        <div class="relative group/megamenu">
+          <button 
+            type="button"
+            class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 hover:from-indigo-500/20 hover:to-pink-500/20 text-indigo-300 hover:text-white border border-indigo-500/20 hover:border-indigo-400/40 transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+          >
+            <span>🛠️</span>
+            <span class="font-bold">{t.nav.toolsMenu}</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 uppercase font-mono font-bold">7</span>
+            <span class="text-[10px] text-indigo-400 group-hover/megamenu:rotate-180 transition-transform duration-200">▼</span>
+          </button>
+
+          <!-- Luxurious Mega Menu Panel -->
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover/megamenu:block z-50 w-[680px] animate-fade-in">
+            <div class="bg-[#0b0f19]/95 border border-white/10 rounded-3xl p-5 shadow-2xl shadow-black/90 backdrop-blur-2xl grid grid-cols-3 gap-4">
+              
+              <!-- Column 1: Blox Fruits & Economy -->
+              <div class="space-y-2">
+                <div class="px-2 pb-1 border-b border-white/5 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400">
+                  <span>⚔️</span>
+                  <span>{locale === 'es' ? 'Blox Fruits & Tradeos' : 'Blox Fruits & Trade'}</span>
+                </div>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'calculadora-tradeos-blox-fruits/' : 'blox-fruits-trade-calculator/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-amber-500/10 border border-transparent hover:border-amber-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-amber-500/10 text-amber-400 shrink-0">⚖️</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-amber-300 text-xs block">
+                      {locale === 'es' ? 'Calculadora Tradeos' : 'Trade Calculator'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Valores W/F/L en vivo' : 'Live W/F/L fruit values'}</span>
+                  </div>
+                </a>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'quiz-frutas-blox-fruits/' : 'blox-fruits-quiz/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-purple-500/10 border border-transparent hover:border-purple-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-purple-500/10 text-purple-400 shrink-0">🧠</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-purple-300 text-xs block">
+                      {locale === 'es' ? 'Quiz de Frutas' : 'Fruit Quiz'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Descubre tu build ideal' : 'Find your fruit build'}</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Column 2: Avatar & Style -->
+              <div class="space-y-2">
+                <div class="px-2 pb-1 border-b border-white/5 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-pink-400">
+                  <span>👗</span>
+                  <span>{locale === 'es' ? 'Avatar & Estilo' : 'Avatar & Style'}</span>
+                </div>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'codigos-ropa-brookhaven/' : 'brookhaven-outfit-codes/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-pink-500/10 border border-transparent hover:border-pink-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-pink-500/10 text-pink-400 shrink-0">👗</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-pink-300 text-xs block">
+                      {locale === 'es' ? 'Ropa Brookhaven' : 'Brookhaven Outfits'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Outfits e IDs de ropa' : 'Clothes & outfit IDs'}</span>
+                  </div>
+                </a>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'generador-nombres-roblox/' : 'roblox-username-generator/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-indigo-500/10 border border-transparent hover:border-indigo-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0">🎲</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-indigo-300 text-xs block">
+                      {locale === 'es' ? 'Generador Nombres' : 'Name Generator'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Apodos y tags de clanes' : 'Handles & clan tags'}</span>
+                  </div>
+                </a>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'musica/' : 'music/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-violet-500/10 border border-transparent hover:border-violet-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-violet-500/10 text-violet-400 shrink-0">🎵</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-violet-300 text-xs block">
+                      {locale === 'es' ? 'Música Boombox' : 'Boombox IDs'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Canciones verificadas' : 'Working song codes'}</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Column 3: Performance & Support -->
+              <div class="space-y-2">
+                <div class="px-2 pb-1 border-b border-white/5 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400">
+                  <span>⚡</span>
+                  <span>{locale === 'es' ? 'Rendimiento & Soporte' : 'Performance & Fixes'}</span>
+                </div>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'optimizar-roblox-fps-lag/' : 'roblox-fps-unlocker-lag-fix/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-cyan-500/10 border border-transparent hover:border-cyan-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">⚡</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-cyan-300 text-xs block">
+                      {locale === 'es' ? 'Optimizar FPS & Lag' : 'FPS Unlocker & Lag'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? '144Hz y baja de ping' : '144Hz FastFlags & ping'}</span>
+                  </div>
+                </a>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'errores-roblox/' : 'roblox-error-codes/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-rose-500/10 border border-transparent hover:border-rose-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-rose-500/10 text-rose-400 shrink-0">🔧</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-rose-300 text-xs block">
+                      {locale === 'es' ? 'Códigos de Error' : 'Error Codes Hub'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Solución a 279, 267...' : 'Fix 279, 267, 524...'}</span>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Guides -->
         <a 
           href={`/${locale}/guias/`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+          class="px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
         >
           {t.nav.guides}
         </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'calculadora-tradeos-blox-fruits/' : 'blox-fruits-trade-calculator/'}`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors font-medium"
-        >
-          {t.nav.tradeCalc}
-        </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'musica/' : 'music/'}`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
-        >
-          {t.nav.musicCodes}
-        </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'objetos-gratis/' : 'free-items/'}`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
-        >
-          {t.nav.freeItems}
-        </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'generador-nombres-roblox/' : 'roblox-username-generator/'}`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors font-medium"
-        >
-          {t.nav.nameGen}
-        </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'errores-roblox/' : 'roblox-error-codes/'}`}
-          class="px-3 py-2 rounded-lg text-rose-300/90 hover:text-rose-200 hover:bg-rose-500/10 transition-colors font-medium"
-        >
-          {t.nav.errorHub}
-        </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'codigos-ropa-brookhaven/' : 'brookhaven-outfit-codes/'}`}
-          class="px-3 py-2 rounded-lg text-pink-300/90 hover:text-pink-200 hover:bg-pink-500/10 transition-colors font-medium"
-        >
-          {t.nav.outfitHub}
-        </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'quiz-frutas-blox-fruits/' : 'blox-fruits-quiz/'}`}
-          class="px-3 py-2 rounded-lg text-amber-300/90 hover:text-amber-200 hover:bg-amber-500/10 transition-colors font-medium"
-        >
-          {t.nav.fruitQuiz}
-        </a>
-        <a 
-          href={`/${locale}/${locale === 'es' ? 'optimizar-roblox-fps-lag/' : 'roblox-fps-unlocker-lag-fix/'}`}
-          class="px-3 py-2 rounded-lg text-cyan-300/90 hover:text-cyan-200 hover:bg-cyan-500/10 transition-colors font-medium"
-        >
-          {t.nav.fpsHub}
-        </a>
+
+        <!-- 6. VIP Alerts Button with Pulse -->
         <a 
           href={`/${locale}/${locale === 'es' ? 'alertas-codigos-roblox/' : 'roblox-code-alerts/'}`}
-          class="px-3 py-2 rounded-lg text-amber-400 hover:text-amber-200 hover:bg-amber-500/10 transition-colors font-medium flex items-center gap-1"
+          class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 hover:text-white transition-all flex items-center gap-1.5 font-bold shadow-sm"
         >
-          {t.nav.codeAlerts}
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span>{t.nav.vipAlertsBtn}</span>
         </a>
-        <a 
-          href={`/${locale}/juego/roblox-promo-codes`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-1.5"
-        >
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-          {t.nav.promoCodes}
-        </a>
-        <a 
-          href={`/${locale}/#como-canjear`}
-          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
-        >
-          {t.nav.howToRedeem}
-        </a>
+
       </nav>
 
-      <!-- Right controls: Language Switcher & CTA -->
-      <div class="flex items-center gap-3">
+      <!-- Right controls: Language Switcher & Mobile Menu Trigger -->
+      <div class="flex items-center gap-2.5">
+        
         <!-- Language Switcher Pill -->
         <a
           href={targetAlternateUrl}
           aria-label={t.nav.langAria}
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-sm"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-sm"
           title={`Switch language / Cambiar idioma`}
         >
           <span class="text-sm">{locale === 'es' ? '🇪🇸' : '🇬🇧'}</span>
-          <span class="uppercase tracking-wider">{locale}</span>
+          <span class="uppercase font-mono text-[11px] tracking-wider">{locale}</span>
           <span class="text-slate-500">⇄</span>
-          <span class="text-indigo-400 uppercase tracking-wider">{otherLocale}</span>
+          <span class="text-indigo-400 uppercase font-mono text-[11px] tracking-wider">{otherLocale}</span>
         </a>
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Mobile Menu Hamburger Button -->
         <button
           type="button"
           id="mobile-menu-btn"
-          aria-label="Abrir menú"
-          class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 focus:outline-none"
+          aria-label="Abrir menú de navegación"
+          class="lg:hidden p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white focus:outline-none transition-colors cursor-pointer"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
+          <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
         </button>
+
       </div>
 
     </div>
   </div>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0b0f19] px-4 pt-3 pb-5 space-y-2">
-    <a 
-      href={`/${locale}/`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.home}
-    </a>
-    <a 
-      href={`/${locale}/#juegos`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.games}
-    </a>
-    <a 
-      href={`/${locale}/guias/`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.guides}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'calculadora-tradeos-blox-fruits/' : 'blox-fruits-trade-calculator/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.tradeCalc}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'objetos-gratis/' : 'free-items/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.freeItems}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'musica/' : 'music/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.musicCodes}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'generador-nombres-roblox/' : 'roblox-username-generator/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.nameGen}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'errores-roblox/' : 'roblox-error-codes/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-rose-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.errorHub}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'codigos-ropa-brookhaven/' : 'brookhaven-outfit-codes/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-pink-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.outfitHub}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'quiz-frutas-blox-fruits/' : 'blox-fruits-quiz/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-amber-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.fruitQuiz}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'optimizar-roblox-fps-lag/' : 'roblox-fps-unlocker-lag-fix/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-cyan-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.fpsHub}
-    </a>
-    <a 
-      href={`/${locale}/${locale === 'es' ? 'alertas-codigos-roblox/' : 'roblox-code-alerts/'}`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-amber-400 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.codeAlerts}
-    </a>
-    <a 
-      href={`/${locale}/juego/roblox-promo-codes`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.promoCodes}
-    </a>
-    <a 
-      href={`/${locale}/#como-canjear`}
-      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
-    >
-      {t.nav.howToRedeem}
-    </a>
+  <!-- Mobile Gaming Drawer (Full Screen / Modal Style for Gen Z / Mobile UX) -->
+  <div 
+    id="mobile-menu" 
+    class="hidden lg:hidden border-t border-white/10 bg-[#080c14]/98 backdrop-blur-2xl max-h-[85vh] overflow-y-auto px-4 py-5 space-y-6 animate-fade-in shadow-2xl"
+  >
+    
+    <!-- Quick Action Pills Row -->
+    <div class="grid grid-cols-3 gap-2">
+      <a 
+        href={`/${locale}/#juegos`}
+        class="mobile-quick-link p-3 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-center space-y-1 block"
+      >
+        <span class="text-xl block">🎮</span>
+        <span class="text-[11px] font-bold text-white block truncate">{t.nav.games}</span>
+      </a>
+
+      <a 
+        href={`/${locale}/${locale === 'es' ? 'objetos-gratis/' : 'free-items/'}`}
+        class="mobile-quick-link p-3 rounded-2xl bg-emerald-600/20 border border-emerald-500/30 text-center space-y-1 block"
+      >
+        <span class="text-xl block">🎁</span>
+        <span class="text-[11px] font-bold text-white block truncate">{t.nav.freeMenu}</span>
+      </a>
+
+      <a 
+        href={`/${locale}/${locale === 'es' ? 'alertas-codigos-roblox/' : 'roblox-code-alerts/'}`}
+        class="mobile-quick-link p-3 rounded-2xl bg-amber-600/20 border border-amber-500/30 text-center space-y-1 block"
+      >
+        <span class="text-xl block">🔔</span>
+        <span class="text-[11px] font-bold text-white block truncate">{t.nav.vipAlertsBtn}</span>
+      </a>
+    </div>
+
+    <!-- VIP Tools Categorized Mobile Grid -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+          {locale === 'es' ? '🛠️ Herramientas & Calculadoras VIP' : '🛠️ VIP Tools & Calculators'}
+        </span>
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">7</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2.5">
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'calculadora-tradeos-blox-fruits/' : 'blox-fruits-trade-calculator/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-amber-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">⚖️</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.tradeCalc}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Blox Fruits W/F/L' : 'Blox Fruits W/F/L'}</span>
+          </div>
+        </a>
+
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'quiz-frutas-blox-fruits/' : 'blox-fruits-quiz/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-purple-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">🧠</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.fruitQuiz}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Test de fruta & stats' : 'Find your fruit build'}</span>
+          </div>
+        </a>
+
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'codigos-ropa-brookhaven/' : 'brookhaven-outfit-codes/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-pink-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">👗</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.outfitHub}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Outfits e IDs' : 'Clothes & IDs'}</span>
+          </div>
+        </a>
+
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'generador-nombres-roblox/' : 'roblox-username-generator/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-indigo-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">🎲</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.nameGen}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Nombres pro y clanes' : 'Handles & clan tags'}</span>
+          </div>
+        </a>
+
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'optimizar-roblox-fps-lag/' : 'roblox-fps-unlocker-lag-fix/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-cyan-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">⚡</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.fpsHub}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Quitar lag & 144Hz' : 'Uncap FPS & lower ping'}</span>
+          </div>
+        </a>
+
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'errores-roblox/' : 'roblox-error-codes/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-rose-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">🔧</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.errorHub}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Arreglar 279, 267...' : 'Fix 279, 267, 524...'}</span>
+          </div>
+        </a>
+
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'musica/' : 'music/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-violet-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">🎵</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.musicCodes}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'IDs Brookhaven' : 'Boombox song IDs'}</span>
+          </div>
+        </a>
+
+        <a 
+          href={`/${locale}/juego/roblox-promo-codes`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-teal-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">✨</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.promoCodes}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Promo codes web' : 'Web promo codes'}</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Secondary Links -->
+    <div class="border-t border-white/5 pt-4 space-y-1">
+      <a 
+        href={`/${locale}/guias/`}
+        class="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+      >
+        <span class="flex items-center gap-2">
+          <span>📚</span>
+          <span>{t.nav.guides}</span>
+        </span>
+        <span class="text-slate-500">→</span>
+      </a>
+
+      <a 
+        href={`/${locale}/#como-canjear`}
+        class="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+      >
+        <span class="flex items-center gap-2">
+          <span>📖</span>
+          <span>{t.nav.howToRedeem}</span>
+        </span>
+        <span class="text-slate-500">→</span>
+      </a>
+
+      <a 
+        href={`/${locale}/sobre-nosotros`}
+        class="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+      >
+        <span class="flex items-center gap-2">
+          <span>👥</span>
+          <span>{locale === 'es' ? 'Equipo Editorial & Verificación' : 'Editorial Team & Standards'}</span>
+        </span>
+        <span class="text-slate-500">→</span>
+      </a>
+    </div>
+
   </div>
 </header>
 
 <script is:inline>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+          if (closeIcon) closeIcon.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        }
+      });
+
+      // Close menu on link click
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        });
+      });
+
+      // Close menu on Esc key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        }
+      });
+    }
+  });
 </script>
