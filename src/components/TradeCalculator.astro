@@ -1,0 +1,484 @@
+---
+import type { FruitItem } from '../types/blox-fruits';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  fruits: FruitItem[];
+  locale: SupportedLocale;
+}
+
+const { fruits, locale } = Astro.props;
+---
+
+<div class="trade-calculator-wrapper relative overflow-hidden bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-8">
+  
+  <!-- Header of the tool -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-6">
+    <div class="space-y-1">
+      <div class="inline-flex items-center gap-2 text-xs font-bold text-indigo-400 uppercase tracking-wider">
+        <span>⚖️</span>
+        <span>{locale === 'es' ? 'Simulador de Intercambio en Vivo' : 'Live Trade Simulator'}</span>
+      </div>
+      <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        {locale === 'es' ? 'Calculadora de Tradeos (W / F / L)' : 'Trading Calculator (W / F / L)'}
+      </h2>
+    </div>
+
+    <!-- Quick action: Reset button -->
+    <button
+      type="button"
+      id="reset-trade-btn"
+      class="self-start sm:self-auto px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-xs font-semibold transition-all flex items-center gap-2"
+    >
+      <span>🔄</span>
+      <span>{locale === 'es' ? 'Limpiar Todo' : 'Reset All'}</span>
+    </button>
+  </div>
+
+  <!-- The 2-Column Trade Arena -->
+  <div class="grid grid-cols-1 lg:grid-cols-11 gap-6 items-center">
+    
+    <!-- LEFT SIDE: YOU OFFER (Tu Oferta) - 5 columns -->
+    <div class="lg:col-span-5 bg-[#080c14]/90 border border-white/10 rounded-2xl p-5 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-white/5 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+          <h3 class="text-base font-bold text-white">
+            {locale === 'es' ? 'Tu Oferta (Tú das)' : 'You Offer (Your side)'}
+          </h3>
+        </div>
+        <span class="text-xs text-slate-400 font-mono" id="left-slots-count">0/4</span>
+      </div>
+
+      <!-- 4 Fruit Slots -->
+      <div class="grid grid-cols-2 gap-3" id="left-slots-container">
+        {[0, 1, 2, 3].map((slotIdx) => (
+          <button
+            type="button"
+            class="trade-slot group relative h-28 rounded-xl border border-dashed border-white/15 hover:border-indigo-400/50 bg-white/[0.02] hover:bg-indigo-950/20 transition-all flex flex-col items-center justify-center p-2 text-center"
+            data-side="left"
+            data-slot={slotIdx}
+          >
+            <div class="empty-state space-y-1">
+              <span class="text-2xl opacity-40 group-hover:opacity-100 transition-opacity">➕</span>
+              <p class="text-[11px] font-semibold text-slate-400 group-hover:text-indigo-300">
+                {locale === 'es' ? 'Añadir fruta' : 'Add fruit'}
+              </p>
+            </div>
+            <div class="filled-state hidden w-full h-full flex flex-col items-center justify-between">
+              <span class="fruit-emoji text-3xl"></span>
+              <span class="fruit-name text-xs font-bold text-white line-clamp-1"></span>
+              <span class="fruit-val font-mono text-[10px] text-amber-300"></span>
+              <span class="remove-btn absolute top-1 right-1.5 text-xs text-slate-500 hover:text-rose-400 font-bold">✕</span>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      <!-- Total summary left -->
+      <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+        <span class="text-slate-400">{locale === 'es' ? 'Valor de Mercado:' : 'Market Value:'}</span>
+        <span class="text-sm font-black text-amber-300" id="left-total-value">0</span>
+      </div>
+      <div class="flex items-center justify-between text-[11px] font-mono text-slate-500 -mt-2">
+        <span>{locale === 'es' ? 'Precio Beli Físico:' : 'Dealer Beli Price:'}</span>
+        <span id="left-total-beli">$0</span>
+      </div>
+    </div>
+
+    <!-- CENTER VERDICT (1 column) -->
+    <div class="lg:col-span-1 flex flex-col items-center justify-center py-4 lg:py-0">
+      <div 
+        id="verdict-card" 
+        class="w-full lg:w-24 h-24 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center p-2 text-center shadow-xl transition-all"
+      >
+        <span class="text-2xl" id="verdict-emoji">⚖️</span>
+        <span class="text-xs font-black tracking-wider uppercase mt-1 text-slate-300" id="verdict-title">
+          {locale === 'es' ? 'LISTO' : 'READY'}
+        </span>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: THEY OFFER (Su Oferta) - 5 columns -->
+    <div class="lg:col-span-5 bg-[#080c14]/90 border border-white/10 rounded-2xl p-5 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-white/5 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></span>
+          <h3 class="text-base font-bold text-white">
+            {locale === 'es' ? 'Su Oferta (Ellos dan)' : 'They Offer (Their side)'}
+          </h3>
+        </div>
+        <span class="text-xs text-slate-400 font-mono" id="right-slots-count">0/4</span>
+      </div>
+
+      <!-- 4 Fruit Slots -->
+      <div class="grid grid-cols-2 gap-3" id="right-slots-container">
+        {[0, 1, 2, 3].map((slotIdx) => (
+          <button
+            type="button"
+            class="trade-slot group relative h-28 rounded-xl border border-dashed border-white/15 hover:border-cyan-400/50 bg-white/[0.02] hover:bg-cyan-950/20 transition-all flex flex-col items-center justify-center p-2 text-center"
+            data-side="right"
+            data-slot={slotIdx}
+          >
+            <div class="empty-state space-y-1">
+              <span class="text-2xl opacity-40 group-hover:opacity-100 transition-opacity">➕</span>
+              <p class="text-[11px] font-semibold text-slate-400 group-hover:text-cyan-300">
+                {locale === 'es' ? 'Añadir fruta' : 'Add fruit'}
+              </p>
+            </div>
+            <div class="filled-state hidden w-full h-full flex flex-col items-center justify-between">
+              <span class="fruit-emoji text-3xl"></span>
+              <span class="fruit-name text-xs font-bold text-white line-clamp-1"></span>
+              <span class="fruit-val font-mono text-[10px] text-amber-300"></span>
+              <span class="remove-btn absolute top-1 right-1.5 text-xs text-slate-500 hover:text-rose-400 font-bold">✕</span>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      <!-- Total summary right -->
+      <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+        <span class="text-slate-400">{locale === 'es' ? 'Valor de Mercado:' : 'Market Value:'}</span>
+        <span class="text-sm font-black text-amber-300" id="right-total-value">0</span>
+      </div>
+      <div class="flex items-center justify-between text-[11px] font-mono text-slate-500 -mt-2">
+        <span>{locale === 'es' ? 'Precio Beli Físico:' : 'Dealer Beli Price:'}</span>
+        <span id="right-total-beli">$0</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Detailed Verdict & Blox Fruits 40% Beli Rule Checker -->
+  <div class="bg-black/40 border border-white/10 rounded-2xl p-5 sm:p-6 space-y-3">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+          <span>{locale === 'es' ? 'Análisis del Intercambio' : 'Trade Balance Analysis'}</span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-white/5 border border-white/10 text-indigo-300" id="verdict-diff">
+            ±0 (+0%)
+          </span>
+        </h4>
+        <p class="text-xs text-slate-400 mt-1" id="verdict-explanation">
+          {locale === 'es'
+            ? 'Selecciona frutas en ambos lados para ver si el intercambio te favorece (Win), es equilibrado (Fair) o saldrías perdiendo (Lose).'
+            : 'Select fruits on both sides to simulate whether this trade is profitable (Win), balanced (Fair), or a deficit (Lose).'}
+        </p>
+      </div>
+
+      <!-- 40% In-Game Trade Rule Pill -->
+      <div class="shrink-0 px-3.5 py-2 rounded-xl border text-xs font-mono font-bold flex items-center gap-2 bg-white/5 border-white/10 text-slate-300" id="beli-rule-badge">
+        <span>⚓</span>
+        <span id="beli-rule-text">Regla del 40% Beli: Pendiente</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FRUIT SELECTOR MODAL (Popup) -->
+<div 
+  id="fruit-modal" 
+  class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 transition-all"
+>
+  <div class="w-full max-w-2xl bg-[#0c1220] border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 max-h-[85vh] flex flex-col">
+    
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+      <div>
+        <h3 class="text-lg font-bold text-white">
+          {locale === 'es' ? 'Seleccionar Fruta de Blox Fruits' : 'Select Blox Fruit'}
+        </h3>
+        <p class="text-xs text-slate-400">
+          {locale === 'es' ? 'Elige una fruta para agregar a la oferta' : 'Pick a fruit to insert into the trade slot'}
+        </p>
+      </div>
+      <button 
+        type="button" 
+        id="close-fruit-modal" 
+        class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center text-sm font-bold"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Search in modal -->
+    <div class="relative">
+      <input
+        type="text"
+        id="modal-search-input"
+        placeholder={locale === 'es' ? 'Buscar fruta (ej. Kitsune, Dragon, Buddha)...' : 'Search fruit (e.g. Kitsune, Dragon, Buddha)...'}
+        class="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/10 focus:border-indigo-500 rounded-xl text-xs text-white placeholder-slate-400 outline-none"
+      />
+      <span class="absolute left-3.5 top-2.5 text-slate-400 text-xs">🔍</span>
+    </div>
+
+    <!-- Modal Fruit Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 overflow-y-auto pr-1 flex-grow" id="modal-fruits-list">
+      {fruits.map((fruit) => (
+        <button
+          type="button"
+          class="modal-fruit-item group p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.08] border border-white/5 hover:border-indigo-400/40 text-left transition-all flex flex-col justify-between gap-2"
+          data-id={fruit.id}
+          data-name={fruit.name}
+          data-emoji={fruit.emoji}
+          data-trade-value={fruit.tradeValue}
+          data-beli-price={fruit.beliPrice}
+          data-formatted-value={fruit.formattedTradeValue}
+          data-rarity={fruit.rarity}
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-2xl">{fruit.emoji}</span>
+            <span class="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-white/5 text-slate-400">
+              {fruit.rarityLabel[locale]}
+            </span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-1">
+              {fruit.name}
+            </h4>
+            <p class="text-[10px] font-mono text-amber-300">
+              Val: {fruit.formattedTradeValue}
+            </p>
+          </div>
+        </button>
+      ))}
+    </div>
+
+  </div>
+</div>
+
+<script is:inline define:vars={{ fruitsJson: JSON.stringify(fruits), currentLocale: locale }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fruits = JSON.parse(fruitsJson);
+
+    // State: 4 slots left, 4 slots right
+    const state = {
+      left: [null, null, null, null],
+      right: [null, null, null, null],
+      activeSide: null,
+      activeSlot: null,
+    };
+
+    const modal = document.getElementById('fruit-modal');
+    const modalClose = document.getElementById('close-fruit-modal');
+    const modalSearch = document.getElementById('modal-search-input');
+    const modalItems = document.querySelectorAll('.modal-fruit-item');
+    const resetBtn = document.getElementById('reset-trade-btn');
+
+    // UI elements
+    const leftSlots = document.querySelectorAll('#left-slots-container .trade-slot');
+    const rightSlots = document.querySelectorAll('#right-slots-container .trade-slot');
+    const leftCount = document.getElementById('left-slots-count');
+    const rightCount = document.getElementById('right-slots-count');
+    const leftTotalVal = document.getElementById('left-total-value');
+    const rightTotalVal = document.getElementById('right-total-value');
+    const leftTotalBeli = document.getElementById('left-total-beli');
+    const rightTotalBeli = document.getElementById('right-total-beli');
+
+    const verdictCard = document.getElementById('verdict-card');
+    const verdictEmoji = document.getElementById('verdict-emoji');
+    const verdictTitle = document.getElementById('verdict-title');
+    const verdictDiff = document.getElementById('verdict-diff');
+    const verdictExplanation = document.getElementById('verdict-explanation');
+    const beliRuleBadge = document.getElementById('beli-rule-badge');
+    const beliRuleText = document.getElementById('beli-rule-text');
+
+    function openModal(side, slot) {
+      state.activeSide = side;
+      state.activeSlot = slot;
+      if (modalSearch) modalSearch.value = '';
+      filterModalFruits('');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      if (modal) modal.classList.add('hidden');
+      state.activeSide = null;
+      state.activeSlot = null;
+    }
+
+    function filterModalFruits(q) {
+      const query = q.toLowerCase().trim();
+      modalItems.forEach((item) => {
+        const name = (item.getAttribute('data-name') || '').toLowerCase();
+        if (!query || name.includes(query)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    if (modalSearch) {
+      modalSearch.addEventListener('input', (e) => {
+        filterModalFruits(e.target.value);
+      });
+    }
+
+    if (modalClose) {
+      modalClose.addEventListener('click', closeModal);
+    }
+
+    modalItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const fruitId = item.getAttribute('data-id');
+        const fruit = fruits.find((f) => f.id === fruitId);
+        if (fruit && state.activeSide && state.activeSlot !== null) {
+          state[state.activeSide][state.activeSlot] = fruit;
+          renderSlots();
+          recalculate();
+          closeModal();
+          if (window.playRewardSound) window.playRewardSound();
+        }
+      });
+    });
+
+    function attachSlotEvents(slots, side) {
+      slots.forEach((slotEl, idx) => {
+        slotEl.addEventListener('click', (e) => {
+          if (e.target.classList.contains('remove-btn')) {
+            e.stopPropagation();
+            state[side][idx] = null;
+            renderSlots();
+            recalculate();
+            return;
+          }
+          openModal(side, idx);
+        });
+      });
+    }
+
+    attachSlotEvents(leftSlots, 'left');
+    attachSlotEvents(rightSlots, 'right');
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        state.left = [null, null, null, null];
+        state.right = [null, null, null, null];
+        renderSlots();
+        recalculate();
+      });
+    }
+
+    function renderSlots() {
+      ['left', 'right'].forEach((side) => {
+        const slots = side === 'left' ? leftSlots : rightSlots;
+        let count = 0;
+        state[side].forEach((fruit, idx) => {
+          const slotEl = slots[idx];
+          const empty = slotEl.querySelector('.empty-state');
+          const filled = slotEl.querySelector('.filled-state');
+          if (fruit) {
+            count++;
+            empty.classList.add('hidden');
+            filled.classList.remove('hidden');
+            filled.querySelector('.fruit-emoji').textContent = fruit.emoji;
+            filled.querySelector('.fruit-name').textContent = fruit.name;
+            filled.querySelector('.fruit-val').textContent = fruit.formattedTradeValue;
+            slotEl.classList.remove('border-dashed', 'border-white/15');
+            slotEl.classList.add('border-solid', side === 'left' ? 'border-emerald-500/40' : 'border-cyan-500/40', 'bg-white/[0.04]');
+          } else {
+            empty.classList.remove('hidden');
+            filled.classList.add('hidden');
+            slotEl.classList.add('border-dashed', 'border-white/15');
+            slotEl.classList.remove('border-solid', 'border-emerald-500/40', 'border-cyan-500/40', 'bg-white/[0.04]');
+          }
+        });
+
+        if (side === 'left' && leftCount) leftCount.textContent = `${count}/4`;
+        if (side === 'right' && rightCount) rightCount.textContent = `${count}/4`;
+      });
+    }
+
+    function recalculate() {
+      const leftVal = state.left.reduce((acc, f) => acc + (f ? f.tradeValue : 0), 0);
+      const rightVal = state.right.reduce((acc, f) => acc + (f ? f.tradeValue : 0), 0);
+      const leftBeli = state.left.reduce((acc, f) => acc + (f ? f.beliPrice : 0), 0);
+      const rightBeli = state.right.reduce((acc, f) => acc + (f ? f.beliPrice : 0), 0);
+
+      if (leftTotalVal) leftTotalVal.textContent = leftVal.toLocaleString();
+      if (rightTotalVal) rightTotalVal.textContent = rightVal.toLocaleString();
+      if (leftTotalBeli) leftTotalBeli.textContent = `$${leftBeli.toLocaleString()}`;
+      if (rightTotalBeli) rightTotalBeli.textContent = `$${rightBeli.toLocaleString()}`;
+
+      // If both sides are empty
+      if (leftVal === 0 && rightVal === 0) {
+        setVerdict('READY', '⚖️', 'bg-white/5 border-white/10 text-slate-300', '±0 (+0%)',
+          currentLocale === 'es' ? 'Selecciona frutas en ambos lados para calcular.' : 'Select fruits on both sides to compute.');
+        updateBeliRule('pending', currentLocale === 'es' ? 'Regla del 40% Beli: Pendiente' : '40% Beli Rule: Pending');
+        return;
+      }
+
+      // Check Blox Fruits 40% In-Game Rule
+      // Max price must not be more than 1.4x of the lower price (or diff <= 40%)
+      if (leftBeli > 0 && rightBeli > 0) {
+        const higherBeli = Math.max(leftBeli, rightBeli);
+        const lowerBeli = Math.min(leftBeli, rightBeli);
+        const beliDiffPct = ((higherBeli - lowerBeli) / higherBeli) * 100;
+
+        if (beliDiffPct <= 40) {
+          updateBeliRule('valid', currentLocale === 'es' ? '✓ Regla del 40% Beli: Intercambio Válido' : '✓ 40% Beli Rule: Trade Allowed in Game');
+        } else {
+          updateBeliRule('invalid', currentLocale === 'es' ? '⚠️ Regla del 40%: Diferencia de Beli excesiva (Añade frutas de relleno)' : '⚠️ 40% Rule Failed: Beli gap too high (Add trash filler fruits)');
+        }
+      } else {
+        updateBeliRule('pending', currentLocale === 'es' ? 'Regla del 40% Beli: Pendiente' : '40% Beli Rule: Pending');
+      }
+
+      // Value comparison
+      // What you receive (rightVal) minus what you give (leftVal)
+      const diffVal = rightVal - leftVal;
+      const base = leftVal === 0 ? 1 : leftVal;
+      const pct = Math.round((diffVal / base) * 100);
+      const sign = diffVal >= 0 ? '+' : '';
+      const diffText = `${sign}${diffVal.toLocaleString()} (${sign}${pct}%)`;
+
+      if (leftVal === 0) {
+        setVerdict('FREE', '🎁', 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300', diffText,
+          currentLocale === 'es' ? '¡Te están regalando frutas gratis!' : 'You are receiving free fruits!');
+      } else if (rightVal === 0) {
+        setVerdict('DONATION', '💸', 'bg-rose-500/20 border-rose-500/40 text-rose-300', diffText,
+          currentLocale === 'es' ? 'Estás regalando tus frutas sin recibir nada.' : 'You are giving away fruits with no return.');
+      } else if (pct >= 20) {
+        setVerdict('BIG WIN', '🚀', 'bg-emerald-500/30 border-emerald-400 text-emerald-300 shadow-emerald-500/20 shadow-lg', diffText,
+          currentLocale === 'es' ? '¡Victoria Masiva (Big Win)! El valor que recibes supera con creces lo que entregas.' : 'Big Win! The value you receive far exceeds what you give.');
+      } else if (pct >= 5) {
+        setVerdict('WIN', '🟢', 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300', diffText,
+          currentLocale === 'es' ? 'Victoria (Win). Tradeo favorable para ti.' : 'Win. Favorable trade for you.');
+      } else if (pct >= -5) {
+        setVerdict('FAIR', '⚖️', 'bg-indigo-500/20 border-indigo-500/40 text-indigo-300', diffText,
+          currentLocale === 'es' ? 'Intercambio Equitativo (Fair). Ambos jugadores obtienen un valor equivalente.' : 'Fair Trade. Both players get virtually equivalent market value.');
+      } else if (pct >= -20) {
+        setVerdict('LOSE', '🟡', 'bg-amber-500/20 border-amber-500/40 text-amber-300', diffText,
+          currentLocale === 'es' ? 'Pérdida ligera (Lose). Entregas más valor del que recibes en el mercado actual.' : 'Slight Loss. You give up slightly more market value than you receive.');
+      } else {
+        setVerdict('BIG LOSE', '❌', 'bg-rose-500/30 border-rose-500 text-rose-300 shadow-rose-500/20 shadow-lg', diffText,
+          currentLocale === 'es' ? '¡Pérdida Enorme (Big Lose)! No aceptes este tradeo, estás perdiendo mucho valor.' : 'Big Loss! Do not accept this trade, you are overpaying by a huge margin.');
+      }
+    }
+
+    function setVerdict(title, emoji, classStr, diffStr, expl) {
+      if (verdictTitle) verdictTitle.textContent = title;
+      if (verdictEmoji) verdictEmoji.textContent = emoji;
+      if (verdictCard) {
+        verdictCard.className = `w-full lg:w-24 h-24 rounded-2xl flex flex-col items-center justify-center p-2 text-center transition-all ${classStr}`;
+      }
+      if (verdictDiff) verdictDiff.textContent = diffStr;
+      if (verdictExplanation) verdictExplanation.textContent = expl;
+    }
+
+    function updateBeliRule(status, text) {
+      if (beliRuleText) beliRuleText.textContent = text;
+      if (beliRuleBadge) {
+        if (status === 'valid') {
+          beliRuleBadge.className = 'shrink-0 px-3.5 py-2 rounded-xl border text-xs font-mono font-bold flex items-center gap-2 bg-emerald-500/10 border-emerald-500/30 text-emerald-300';
+        } else if (status === 'invalid') {
+          beliRuleBadge.className = 'shrink-0 px-3.5 py-2 rounded-xl border text-xs font-mono font-bold flex items-center gap-2 bg-amber-500/15 border-amber-500/30 text-amber-300 animate-pulse';
+        } else {
+          beliRuleBadge.className = 'shrink-0 px-3.5 py-2 rounded-xl border text-xs font-mono font-bold flex items-center gap-2 bg-white/5 border-white/10 text-slate-400';
+        }
+      }
+    }
+  });
+</script>

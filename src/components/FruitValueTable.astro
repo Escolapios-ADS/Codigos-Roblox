@@ -1,0 +1,207 @@
+---
+import type { FruitItem } from '../types/blox-fruits';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  fruits: FruitItem[];
+  locale: SupportedLocale;
+}
+
+const { fruits, locale } = Astro.props;
+
+const rarities = [
+  { id: 'all', label: locale === 'es' ? 'Todas las Frutas' : 'All Fruits', emoji: '🌟' },
+  { id: 'mythical', label: locale === 'es' ? 'Míticas' : 'Mythical', emoji: '🟣' },
+  { id: 'legendary', label: locale === 'es' ? 'Legendarias' : 'Legendary', emoji: '🟡' },
+  { id: 'rare', label: locale === 'es' ? 'Raras' : 'Rare', emoji: '🔵' },
+];
+---
+
+<div class="space-y-6">
+  
+  <!-- Table Header and Filter Controls -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+    <div>
+      <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 uppercase tracking-wider mb-1">
+        <span>📊</span>
+        <span>{locale === 'es' ? 'Precios de Mercado Oficiales' : 'Official Market Price Guide'}</span>
+      </div>
+      <h3 class="text-2xl font-black text-white tracking-tight">
+        {locale === 'es' ? 'Lista de Valores de Blox Fruits (Septiembre 2026)' : 'Blox Fruits Value List (September 2026)'}
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+        {locale === 'es' 
+          ? 'Valores calculados semanalmente basados en transacciones verificadas en servidores de Segundo y Tercer Mar.'
+          : 'Values calibrated weekly based on verified trades in Second and Third Sea hubs.'}
+      </p>
+    </div>
+
+    <!-- Live Table Search -->
+    <div class="w-full md:w-72">
+      <div class="relative">
+        <input
+          type="text"
+          id="fruit-table-search"
+          placeholder={locale === 'es' ? 'Buscar fruta por nombre...' : 'Search fruit by name...'}
+          class="w-full pl-9 pr-4 py-2.5 bg-black/40 border border-white/10 focus:border-indigo-500 rounded-xl text-xs text-white placeholder-slate-400 outline-none transition-all"
+        />
+        <span class="absolute left-3 top-2.5 text-slate-400 text-xs">🔍</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rarity Filter Pills -->
+  <div class="flex flex-wrap items-center gap-2" id="fruit-table-filters">
+    {rarities.map((r) => (
+      <button
+        type="button"
+        class={`fruit-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+          r.id === 'all'
+            ? 'bg-indigo-600 text-white border-indigo-400 shadow-sm active-filter'
+            : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10'
+        }`}
+        data-rarity-filter={r.id}
+      >
+        <span>{r.emoji}</span> {r.label}
+      </button>
+    ))}
+  </div>
+
+  <!-- Responsive Values Table -->
+  <div class="overflow-x-auto rounded-2xl border border-white/10 bg-[#080c14]/90 shadow-xl">
+    <table class="w-full text-left text-xs sm:text-sm">
+      <thead class="bg-white/5 text-slate-300 uppercase tracking-wider text-[11px] font-mono border-b border-white/10">
+        <tr>
+          <th class="p-4">{locale === 'es' ? 'Fruta' : 'Fruit'}</th>
+          <th class="p-4">{locale === 'es' ? 'Rareza / Tipo' : 'Rarity / Type'}</th>
+          <th class="p-4 text-amber-300">{locale === 'es' ? 'Valor Físico' : 'Physical Value'}</th>
+          <th class="p-4 text-purple-300">{locale === 'es' ? 'Valor Permanente' : 'Perm Value'}</th>
+          <th class="p-4 text-slate-400">{locale === 'es' ? 'Precio Beli' : 'Dealer Beli'}</th>
+          <th class="p-4 text-center">{locale === 'es' ? 'Demanda' : 'Demand'}</th>
+          <th class="p-4 text-center">{locale === 'es' ? 'Tendencia' : 'Trend'}</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-white/5" id="fruits-table-body">
+        {fruits.map((fruit) => (
+          <tr 
+            class="fruit-row hover:bg-white/[0.02] transition-colors"
+            data-name={fruit.name.toLowerCase()}
+            data-rarity={fruit.rarity}
+          >
+            <!-- Name & Emoji -->
+            <td class="p-4">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">{fruit.emoji}</span>
+                <div>
+                  <div class="font-bold text-white line-clamp-1">{fruit.name}</div>
+                  <div class="text-[10px] text-slate-400">{fruit.robuxPrice} Robux</div>
+                </div>
+              </div>
+            </td>
+
+            <!-- Rarity -->
+            <td class="p-4">
+              <div class="space-y-0.5">
+                <span class={`inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded ${
+                  fruit.rarity === 'mythical'
+                    ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
+                    : fruit.rarity === 'legendary'
+                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                    : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                }`}>
+                  {fruit.rarityLabel[locale]}
+                </span>
+                <div class="text-[10px] text-slate-500">{fruit.typeLabel[locale]}</div>
+              </div>
+            </td>
+
+            <!-- Trade Value -->
+            <td class="p-4 font-mono font-black text-amber-300 text-sm">
+              {fruit.formattedTradeValue}
+            </td>
+
+            <!-- Perm Value -->
+            <td class="p-4 font-mono font-semibold text-purple-300 text-xs">
+              {fruit.formattedPermTradeValue}
+            </td>
+
+            <!-- Beli Price -->
+            <td class="p-4 font-mono text-slate-400 text-xs">
+              {fruit.formattedBeli}
+            </td>
+
+            <!-- Demand (1 to 10) -->
+            <td class="p-4 text-center">
+              <div class="inline-flex items-center gap-1 font-mono font-bold text-xs px-2 py-1 rounded-lg bg-white/5">
+                <span class="text-amber-400">🔥</span>
+                <span class="text-white">{fruit.demand}/10</span>
+              </div>
+            </td>
+
+            <!-- Trend -->
+            <td class="p-4 text-center">
+              <span class={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${
+                fruit.trend === 'rising'
+                  ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30'
+                  : fruit.trend === 'stable'
+                  ? 'bg-slate-500/15 text-slate-300 border border-slate-500/30'
+                  : 'bg-rose-500/15 text-rose-300 border border-rose-500/30'
+              }`}>
+                {fruit.trend === 'rising' ? '⬆️ Subiendo' : fruit.trend === 'stable' ? '➖ Estable' : '⬇️ Bajando'}
+              </span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('fruit-table-search');
+    const filterButtons = document.querySelectorAll('.fruit-filter-btn');
+    const rows = document.querySelectorAll('.fruit-row');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function filterRows() {
+      rows.forEach((row) => {
+        const name = row.getAttribute('data-name') || '';
+        const rarity = row.getAttribute('data-rarity') || '';
+
+        const matchesFilter = currentFilter === 'all' || rarity === currentFilter;
+        const matchesQuery = !searchQuery || name.includes(searchQuery);
+
+        if (matchesFilter && matchesQuery) {
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = (e.target.value || '').trim().toLowerCase();
+        filterRows();
+      });
+    }
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-sm', 'active-filter');
+          b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+        });
+
+        btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+        btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-sm', 'active-filter');
+
+        currentFilter = btn.getAttribute('data-rarity-filter') || 'all';
+        filterRows();
+      });
+    });
+  });
+</script>

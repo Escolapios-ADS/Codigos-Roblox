@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import TradeCalculator from '../../components/TradeCalculator.astro';
+import FruitValueTable from '../../components/FruitValueTable.astro';
+import { fruitsData } from '../../data/fruits';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = 'Blox Fruits Trade Calculator 2026 | Fruit Values & W/F/L Simulator';
+const pageDescription = 'Official Blox Fruits trade calculator updated today. Check whether your trade is a Win, Fair, or Loss with real market values and the in-game 40% Beli difference rule.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How does the 40% trade rule work in Blox Fruits?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Blox Fruits prevents trades if the total Beli price difference between both sides exceeds 40%. Traders bypass this by adding cheap filler fruits (trash fruits like Love, Spider, or Quake) to balance the Beli counter without altering the actual market value.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the highest value fruit in Blox Fruits?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Currently, Dragon and Kitsune dominate the market. Massive hype for the Dragon rework has elevated its trading value above 180 million in active trade hubs.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Where can you trade fruits in Blox Fruits?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Trading is available in the Second Sea (The Cafe inside the Kingdom of Rose) and the Third Sea (The Mansion inside the Floating Turtle).'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://codigosroblox.org/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blox Fruits Calculator',
+          item: 'https://codigosroblox.org/en/blox-fruits-trade-calculator/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="calc-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
+      <a href={`/${locale}/`} class="hover:text-white transition-colors">Home</a>
+      <span>/</span>
+      <a href={`/${locale}/juego/blox-fruits`} class="hover:text-white transition-colors">Blox Fruits</a>
+      <span>/</span>
+      <span class="text-indigo-400 font-semibold">Trading Calculator & Values</span>
+    </nav>
+
+    <div class="relative overflow-hidden bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Live Market Values • September 2026</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          Blox Fruits <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">Trade Calculator</span>
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Simulate player exchanges in real time and discover whether an offer is a <strong class="text-emerald-400">Win</strong>, <strong class="text-indigo-400">Fair</strong>, or <strong class="text-rose-400">Loss</strong>. Features the in-game 40% Beli difference validator and the complete physical & permanent fruit value tier list.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Trade Calculator Component -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <TradeCalculator fruits={fruitsData} locale={locale} />
+  </section>
+
+  <!-- Mid-Page Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <AdBanner slotType="horizontal" slotId="calc-mid-banner" locale={locale} />
+  </div>
+
+  <!-- Fruit Values Directory Table -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <FruitValueTable fruits={fruitsData} locale={locale} />
+  </section>
+
+  <!-- Educational Strategy Guides & E-E-A-T Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Card 1: 40% Rule explained -->
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 sm:p-7 space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-xl">
+            ⚓
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">The 40% Beli Rule Explained</h3>
+            <p class="text-xs text-amber-300">Official trading system mechanic</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          To prevent fraudulent trades and transferring high-tier items to smurf accounts, Blox Fruits blocks trades if the Beli difference exceeds 40%. When trading for high-demand but low-Beli fruits like Buddha or Portal, players add "trash filler fruits" (Quake, Spider, Love) until the Beli meter balances out.
+        </p>
+      </div>
+
+      <!-- Card 2: Physical vs Permanent -->
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 sm:p-7 space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-xl">
+            💎
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Physical vs Permanent Fruits</h3>
+            <p class="text-xs text-purple-300">Why are perms worth so much?</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Permanent fruits are bought with Robux and can be equipped infinitely from the dealer menu without ever being lost upon death. A permanent Dragon or Kitsune routinely commands 3 to 4 top-tier physical mythical fruits in trade hubs.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Editorial Methodology & Trust Box -->
+    <div class="bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-6 space-y-2">
+      <div class="flex items-center gap-2 text-indigo-300 font-bold text-sm">
+        <span>🛡️</span>
+        <span>Value Calibration Methodology (Editorial Team)</span>
+      </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        The market values and demand scores in this calculator are updated weekly by our RPG mechanics specialist <strong class="text-white">Jorge Villapún</strong> and directed by <strong class="text-white">Guillermo Beltrán</strong>. We analyze real trading data from the Second Sea (The Cafe), Third Sea (The Mansion), and verified community Discord hubs to deliver the most accurate trading benchmarks available.
+      </p>
+    </div>
+
+    <!-- Pre-FAQ Ad Placement -->
+    <AdBanner slotType="horizontal" slotId="calc-pre-faq-banner" locale={locale} />
+
+    <!-- FAQ Section -->
+    <div class="space-y-4 pt-4">
+      <h2 class="text-2xl font-black text-white tracking-tight">
+        Frequently Asked Questions about Blox Fruits Trading
+      </h2>
+
+      <div class="space-y-3">
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">At what level can I trade fruits?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            You must reach the Second Sea, which requires reaching level 700+ and clearing the Military Detective quest at the First Sea Prison.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">How do I store fruits safely?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            When holding a physical fruit, click on it and select "Store". It will be safely placed in your treasure inventory and ready for trading at any time.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">How many trades can you make per day?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Blox Fruits sets an in-game cooldown limit of 5 completed trades every 6 hours.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA back to codes -->
+    <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-lg font-bold text-white">Need free Beli or 2x EXP boosts?</h3>
+        <p class="text-xs text-slate-400 mt-1">
+          Redeem the latest active Blox Fruits codes for free stat resets and hours of double experience.
+        </p>
+      </div>
+      <a
+        href={`/${locale}/juego/blox-fruits`}
+        class="shrink-0 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-xs font-bold text-white transition-all shadow-lg shadow-indigo-600/25 border border-indigo-400/30"
+      >
+        View Blox Fruits Codes →
+      </a>
+    </div>
+
+  </section>
+</Layout>

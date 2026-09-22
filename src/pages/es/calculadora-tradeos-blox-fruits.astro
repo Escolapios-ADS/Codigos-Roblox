@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import TradeCalculator from '../../components/TradeCalculator.astro';
+import FruitValueTable from '../../components/FruitValueTable.astro';
+import { fruitsData } from '../../data/fruits';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Calculadora de Tradeos Blox Fruits 2026 | Valores de Frutas y Simulador W/F/L';
+const pageDescription = 'Calculadora oficial de tradeos de Blox Fruits actualizada hoy. Comprueba si tu intercambio es Win, Fair o Lose con valores de mercado exactos y regla del 40% de Beli.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Cómo funciona la regla del 40% en Blox Fruits?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'En Blox Fruits, el sistema de juego no permite completar un intercambio si el valor en Beli de la fruta más cara supera en más de un 40% al de la otra parte. Para sortear esta limitación sin regalar valor real, los jugadores añaden frutas de relleno baratas (trash fruits como Amor, Araña o Terremoto) para igualar el Beli sin alterar el balance de tradeo.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Qué fruta tiene el mayor valor de tradeo en Blox Fruits?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Actualmente, la fruta Dragon (Dragón) y la fruta Kitsune lideran el mercado. La expectación por el rework masivo de Dragón ha impulsado su valor por encima de los 180 millones en el mercado de tradeos.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Dónde se puede tradear en Blox Fruits?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El intercambio de frutas se desbloquea en el Segundo Mar (The Cafe en el Reino de Rose) y en el Tercer Mar (The Mansion en Floating Turtle).'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Calculadora Blox Fruits',
+          item: 'https://codigosroblox.org/es/calculadora-tradeos-blox-fruits/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="calc-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
+      <a href={`/${locale}/`} class="hover:text-white transition-colors">Inicio</a>
+      <span>/</span>
+      <a href={`/${locale}/juego/blox-fruits`} class="hover:text-white transition-colors">Blox Fruits</a>
+      <span>/</span>
+      <span class="text-indigo-400 font-semibold">Calculadora de Tradeos & Valores</span>
+    </nav>
+
+    <div class="relative overflow-hidden bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Valores de Mercado en Vivo • Septiembre 2026</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          Calculadora de Tradeos de <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">Blox Fruits</span>
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Simula intercambios en tiempo real y descubre al instante si una oferta es <strong class="text-emerald-400">Win (Ganancia)</strong>, <strong class="text-indigo-400">Fair (Equitativa)</strong> o <strong class="text-rose-400">Lose (Pérdida)</strong>. Incluye verificación de la regla del 40% de Beli y la tabla completa de valores físicos y permanentes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Trade Calculator Component -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <TradeCalculator fruits={fruitsData} locale={locale} />
+  </section>
+
+  <!-- Mid-Page Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <AdBanner slotType="horizontal" slotId="calc-mid-banner" locale={locale} />
+  </div>
+
+  <!-- Fruit Values Directory Table -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <FruitValueTable fruits={fruitsData} locale={locale} />
+  </section>
+
+  <!-- Educational Strategy Guides & E-E-A-T Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Card 1: 40% Rule explained -->
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 sm:p-7 space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-xl">
+            ⚓
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">La Regla del 40% de Beli Explicada</h3>
+            <p class="text-xs text-amber-300">Mecánica oficial del sistema de tradeo</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Para prevenir intercambios fraudulentos y el paso de frutas caras a cuentas secundarias, el juego no permite tradear si la diferencia en valor Beli supera el 40%. Si quieres intercambiar una fruta cara por otra de valor real similar pero bajo Beli (por ejemplo, Buda o Portal), deberás añadir frutas de relleno ("trash fruits" como Quake, Spider o Amor) hasta equilibrar el contador de Beli.
+        </p>
+      </div>
+
+      <!-- Card 2: Physical vs Permanent -->
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 sm:p-7 space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-xl">
+            💎
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Frutas Físicas vs Frutas Permanentes</h3>
+            <p class="text-xs text-purple-300">¿Por qué valen tanto las perms?</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Las frutas permanentes se adquieren con Robux en la tienda y permiten equiparse infinitas veces desde el inventario del vendedor de frutas sin perderse nunca. Por ello, una fruta permanente de Dragon o Kitsune puede llegar a canjearse por entre 3 y 4 frutas míticas físicas de máxima demanda.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Editorial Methodology & Trust Box -->
+    <div class="bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-6 space-y-2">
+      <div class="flex items-center gap-2 text-indigo-300 font-bold text-sm">
+        <span>🛡️</span>
+        <span>Metodología de Calibración de Valores (Equipo Editorial)</span>
+      </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Los valores de mercado y puntuaciones de demanda de esta calculadora no son números aleatorios: son actualizados semanalmente por nuestro especialista en mecánicas RPG <strong class="text-white">Jorge Villapún</strong> y coordinados por <strong class="text-white">Guillermo Beltrán</strong>. Analizamos diariamente cientos de transacciones completadas en salas de trading del Segundo Mar (The Cafe), Tercer Mar (The Mansion) y servidores verificados de Discord para ofrecerte las valoraciones más fieles del mercado de habla hispana e inglesa.
+      </p>
+    </div>
+
+    <!-- Pre-FAQ Ad Placement -->
+    <AdBanner slotType="horizontal" slotId="calc-pre-faq-banner" locale={locale} />
+
+    <!-- FAQ Section -->
+    <div class="space-y-4 pt-4">
+      <h2 class="text-2xl font-black text-white tracking-tight">
+        Preguntas Frecuentes sobre Tradeos en Blox Fruits
+      </h2>
+
+      <div class="space-y-3">
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">¿En qué nivel puedo empezar a tradear frutas?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Debes haber llegado al Segundo Mar (Second Sea), lo cual requiere alcanzar el nivel 700+ y completar la misión del Detective Militar en la Prisión del Primer Mar.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">¿Cómo almacenar frutas para que no se pierdan?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Cuando tengas una fruta física en la mano, haz clic en ella y selecciona "Almacenar" (Store). Se guardará de forma segura en tu baúl de frutas del tesoro para poder tradearla cuando quieras.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">¿Cuántos tradeos puedo hacer al día?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            El juego establece un límite de 5 intercambios exitosos cada 6 horas para proteger la economía.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA back to codes -->
+    <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-lg font-bold text-white">¿Necesitas Beli o 2x EXP para Blox Fruits?</h3>
+        <p class="text-xs text-slate-400 mt-1">
+          Canjea los códigos más recientes para conseguir reinicio de estadísticas y horas de doble experiencia gratis.
+        </p>
+      </div>
+      <a
+        href={`/${locale}/juego/blox-fruits`}
+        class="shrink-0 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-xs font-bold text-white transition-all shadow-lg shadow-indigo-600/25 border border-indigo-400/30"
+      >
+        Ver Códigos de Blox Fruits →
+      </a>
+    </div>
+
+  </section>
+</Layout>

@@ -192,6 +192,33 @@ const pageSchema = {
       </div>
     </section>
 
+    <!-- Special Blox Fruits Trade Calculator Callout -->
+    {game.slug === 'blox-fruits' && (
+      <div class="relative overflow-hidden bg-gradient-to-r from-amber-950/40 via-orange-950/40 to-rose-950/40 border border-amber-500/30 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-2xl shrink-0">
+            ⚖️
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>¿Vas a tradear frutas en el Café o la Mansión?</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300">W / F / L</span>
+            </h4>
+            <p class="text-xs text-slate-300 mt-0.5">
+              Usa nuestra Calculadora de Tradeos en vivo para saber si ganas o pierdes valor y validar la regla del 40% de Beli.
+            </p>
+          </div>
+        </div>
+        <a
+          href={`/${locale}/calculadora-tradeos-blox-fruits/`}
+          class="shrink-0 px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-white font-bold text-xs shadow-lg shadow-amber-600/30 border border-amber-400/40 transition-all flex items-center gap-1.5"
+        >
+          <span>⚖️ Abrir Calculadora</span>
+          <span>→</span>
+        </a>
+      </div>
+    )}
+
     <!-- Special Boombox Music Callout for Brookhaven & Da Hood -->
     {['brookhaven-rp', 'da-hood'].includes(game.slug) && (
       <div class="relative overflow-hidden bg-gradient-to-r from-purple-950/40 via-indigo-950/40 to-cyan-950/40 border border-indigo-500/30 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
