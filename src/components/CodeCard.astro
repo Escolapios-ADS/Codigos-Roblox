@@ -1,0 +1,66 @@
+---
+import type { CodeItem } from '../types/game';
+import type { SupportedLocale } from '../i18n/translations';
+import { getTranslations } from '../i18n/translations';
+
+interface Props {
+  codeItem: CodeItem;
+  locale: SupportedLocale;
+}
+
+const { codeItem, locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<div class="code-card relative bg-[#0d1322] border border-white/10 hover:border-indigo-500/40 rounded-xl p-4 transition-all duration-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+  
+  <!-- Left info: Code badge and reward -->
+  <div class="flex items-start sm:items-center gap-3">
+    <!-- Clickable Code Badge -->
+    <button 
+      type="button"
+      onclick={`window.copyCodeToClipboard('${codeItem.code}', this)`}
+      class="group/btn relative px-3.5 py-2 rounded-lg bg-indigo-950/60 hover:bg-indigo-900/60 border border-indigo-500/30 hover:border-indigo-400 text-indigo-200 hover:text-white font-mono font-bold text-base sm:text-lg tracking-wider text-left transition-all active:scale-95 shadow-inner"
+      title={locale === 'es' ? 'Haz clic para copiar este código' : 'Click to copy this code'}
+    >
+      <span class="select-all">{codeItem.code}</span>
+      <span class="ml-2 text-indigo-400/60 group-hover/btn:text-indigo-300 transition-colors text-xs">
+        📋
+      </span>
+    </button>
+
+    <!-- Reward Details & Badges -->
+    <div class="space-y-1">
+      <div class="flex items-center gap-2">
+        {codeItem.isNew && (
+          <span class="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            {t.gameDetail.newBadge}
+          </span>
+        )}
+        <span class="text-[11px] font-medium text-slate-400 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>{locale === 'es' ? 'Probado hoy' : 'Tested today'}</span>
+        </span>
+      </div>
+      <p class="text-sm font-medium text-slate-200">
+        {codeItem.reward[locale]}
+      </p>
+    </div>
+  </div>
+
+  <!-- Right action: 1-Click Copy Button -->
+  <div class="flex items-center gap-2 self-end sm:self-center shrink-0">
+    <button
+      type="button"
+      onclick={`window.copyCodeToClipboard('${codeItem.code}', this)`}
+      class="copy-btn px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white text-xs font-bold tracking-wide uppercase shadow-lg shadow-indigo-600/20 border border-indigo-400/30 transition-all flex items-center gap-1.5 focus:outline-none"
+    >
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>{t.gameDetail.copyButton}</span>
+    </button>
+  </div>
+
+</div>

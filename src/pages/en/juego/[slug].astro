@@ -1,0 +1,228 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import CodeCard from '../../../components/CodeCard.astro';
+import RedeemGuide from '../../../components/RedeemGuide.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { gamesData } from '../../../data/games';
+import { getTranslations } from '../../../i18n/translations';
+import type { GameItem } from '../../../types/game';
+
+export function getStaticPaths() {
+  return gamesData.map((game) => ({
+    params: { slug: game.slug },
+    props: { game },
+  }));
+}
+
+interface Props {
+  game: GameItem;
+}
+
+const { game } = Astro.props;
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = `${game.title} Codes (Updated September 2026) - Free Working Rewards | RobloxCodes`;
+const pageDescription = game.metaDescription[locale];
+
+// Schema JSON-LD for rich snippets (FAQPage + BreadcrumbList)
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: t.gameDetail.breadcrumbsHome,
+          item: 'https://codigosroblox.org/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: game.title,
+          item: `https://codigosroblox.org/en/juego/${game.slug}`
+        }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: game.faqs[locale].map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  currentSlug={game.slug}
+  schema={pageSchema}
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href={`/${locale}/`} class="hover:text-white transition-colors">{t.gameDetail.breadcrumbsHome}</a>
+      <span>/</span>
+      <a href={`/${locale}/#juegos`} class="hover:text-white transition-colors">{t.gameDetail.breadcrumbsGames}</a>
+      <span>/</span>
+      <span class="text-indigo-400 font-semibold">{game.title}</span>
+    </nav>
+
+    <!-- Game Header Card -->
+    <div class="relative overflow-hidden bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class={`w-20 h-20 rounded-2xl bg-gradient-to-tr ${game.iconGradient} p-[2px] shadow-2xl shrink-0`}>
+            <div class="w-full h-full bg-[#0b0f19] rounded-[14px] flex items-center justify-center text-4xl">
+              {game.emoji}
+            </div>
+          </div>
+          <div class="space-y-1">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">
+                {game.categoryLabel[locale]}
+              </span>
+              <span class="text-slate-600">•</span>
+              <span class="text-xs text-slate-400 font-medium">
+                By {game.developer}
+              </span>
+              {game.badge && (
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/5 border border-white/10 text-slate-200">
+                  {game.badge[locale]}
+                </span>
+              )}
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              {game.title} Codes
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300">
+              {game.tagline[locale]}
+            </p>
+          </div>
+        </div>
+
+        <!-- Official Roblox link CTA -->
+        <a 
+          href={game.robloxUrl} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="shrink-0 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-xs font-bold text-white transition-all flex items-center gap-2"
+        >
+          <span>{t.gameDetail.playOnRoblox}</span>
+          <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Live verified bar -->
+      <div class="mt-6 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-2 text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>{t.gameDetail.verifiedToday} (September 2026)</span>
+        </div>
+        <div class="flex items-center gap-4 text-slate-400">
+          <span>👍 {game.likes} likes</span>
+          <span>👁️ {game.visits} visits</span>
+          <span>⚡ {game.activePlayers} players</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Codes Section -->
+    <section class="space-y-4">
+      <div class="flex items-end justify-between">
+        <div>
+          <h2 class="text-2xl font-black text-white tracking-tight flex items-center gap-2">
+            <span>{t.gameDetail.activeCodesTitle} {game.title}</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              {game.activeCodes.length} ACTIVE
+            </span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            {t.gameDetail.activeCodesSubtitle}
+          </p>
+        </div>
+      </div>
+
+      <!-- Codes list -->
+      <div class="space-y-3">
+        {game.activeCodes.map((codeItem) => (
+          <CodeCard codeItem={codeItem} locale={locale} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Expired Codes Accordion -->
+    {game.expiredCodes.length > 0 && (
+      <section class="bg-[#0b101d] border border-white/10 rounded-2xl p-6">
+        <details class="group [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <div>
+              <h3 class="text-lg font-bold text-slate-300 group-hover:text-white transition-colors">
+                {t.gameDetail.expiredCodesTitle} ({game.expiredCodes.length})
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5">
+                {t.gameDetail.expiredCodesSubtitle}
+              </p>
+            </div>
+            <span class="text-xs text-indigo-400 group-open:rotate-180 transition-transform">
+              ▼
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-white/5 space-y-2">
+            {game.expiredCodes.map((item) => (
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.01] border border-white/5 text-xs text-slate-500">
+                <span class="font-mono line-through text-slate-400">{item.code}</span>
+                <span>{item.reward[locale]}</span>
+              </div>
+            ))}
+          </div>
+        </details>
+      </section>
+    )}
+
+    <!-- How to Redeem Section -->
+    <RedeemGuide
+      title={game.howToRedeem[locale].title}
+      steps={game.howToRedeem[locale].steps}
+      tip={game.howToRedeem[locale].tip}
+      locale={locale}
+    />
+
+    <!-- FAQ Section -->
+    <FaqSection
+      faqs={game.faqs[locale]}
+      gameTitle={game.title}
+      locale={locale}
+    />
+
+    <!-- Community Reporting Box -->
+    <div class="bg-indigo-950/30 border border-indigo-500/20 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <h4 class="text-sm font-bold text-white">{t.gameDetail.reportBroken}</h4>
+        <p class="text-xs text-slate-400">{t.gameDetail.reportBrokenText}</p>
+      </div>
+      <a 
+        href={`/${locale}/`}
+        class="shrink-0 text-xs font-semibold text-indigo-300 hover:text-white underline underline-offset-4"
+      >
+        ← Back to all Roblox games
+      </a>
+    </div>
+
+  </div>
+</Layout>

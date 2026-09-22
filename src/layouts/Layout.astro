@@ -1,0 +1,164 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { SupportedLocale } from '../i18n/translations';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: SupportedLocale;
+  currentSlug?: string;
+  ogType?: 'website' | 'article';
+  schema?: Record<string, any>;
+}
+
+const {
+  title,
+  description,
+  locale,
+  currentSlug,
+  ogType = 'website',
+  schema,
+} = Astro.props;
+
+const siteUrl = 'https://codigosroblox.org';
+const currentPath = currentSlug ? `/${locale}/juego/${currentSlug}` : `/${locale}/`;
+const canonicalUrl = `${siteUrl}${currentPath}`;
+
+// Alternates for hreflang
+const esUrl = currentSlug ? `${siteUrl}/es/juego/${currentSlug}` : `${siteUrl}/es/`;
+const enUrl = currentSlug ? `${siteUrl}/en/juego/${currentSlug}` : `${siteUrl}/en/`;
+
+// Base Schema.org
+const baseWebsiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: locale === 'es' ? 'Códigos Roblox' : 'Roblox Codes',
+  url: canonicalUrl,
+  inLanguage: locale,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/${locale}/?q={search_term_string}`
+    },
+    'query-input': 'required name=search_term_string'
+  }
+};
+---
+
+<!doctype html>
+<html lang={locale} class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Multilingual Hreflang SEO Tags -->
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_ES'} />
+    <meta property="og:site_name" content={locale === 'es' ? 'Códigos Roblox 2026' : 'Roblox Codes 2026'} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema || baseWebsiteSchema)} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#080c14] text-slate-100 antialiased selection:bg-indigo-600 selection:text-white">
+    <div id="top"></div>
+
+    <Header locale={locale} currentSlug={currentSlug} />
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer locale={locale} />
+
+    <!-- Global Toast Notification Container for One-Click Copy -->
+    <div 
+      id="copy-toast" 
+      class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-slate-900 border border-emerald-500/50 shadow-2xl shadow-emerald-500/20 px-4 py-3 rounded-xl text-sm font-semibold text-white"
+    >
+      <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-white text-xs font-bold" id="toast-title">
+          {locale === 'es' ? '¡Código copiado!' : 'Code copied!'}
+        </span>
+        <span class="text-slate-400 text-[11px]" id="toast-body">
+          {locale === 'es' ? 'Listo para pegar en Roblox' : 'Ready to paste into Roblox'}
+        </span>
+      </div>
+    </div>
+
+    <!-- Global Script for 1-Click Copy with Sound Feedback & Toast -->
+    <script is:inline>
+      window.copyCodeToClipboard = async function(code, buttonElement) {
+        try {
+          await navigator.clipboard.writeText(code);
+          
+          // Toast trigger
+          const toast = document.getElementById('copy-toast');
+          const toastBody = document.getElementById('toast-body');
+          if (toast && toastBody) {
+            toastBody.textContent = `"${code}"`;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            clearTimeout(window.__toastTimeout);
+            window.__toastTimeout = setTimeout(() => {
+              toast.classList.add('translate-y-24', 'opacity-0');
+              toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 2500);
+          }
+
+          // Visual feedback on button if passed
+          if (buttonElement) {
+            const originalContent = buttonElement.innerHTML;
+            buttonElement.classList.add('bg-emerald-600', 'text-white', 'border-emerald-400');
+            buttonElement.classList.remove('bg-indigo-600', 'bg-white/10');
+            const isSpanish = document.documentElement.lang === 'es';
+            buttonElement.innerHTML = `
+              <svg class="w-4 h-4 text-white inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>${isSpanish ? '¡Copiado!' : 'Copied!'}</span>
+            `;
+            setTimeout(() => {
+              buttonElement.innerHTML = originalContent;
+              buttonElement.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-400');
+            }, 2000);
+          }
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+      };
+    </script>
+  </body>
+</html>

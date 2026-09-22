@@ -1,0 +1,119 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+import { getTranslations } from '../i18n/translations';
+import { gamesData } from '../data/games';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const currentYear = 2026;
+---
+
+<footer class="bg-[#05080e] border-t border-white/10 pt-16 pb-12 text-slate-400 text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      
+      <!-- Brand & Mission -->
+      <div class="space-y-4 md:col-span-1">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-cyan-400 p-[1px]">
+            <div class="w-full h-full bg-[#0b0f19] rounded-[7px] flex items-center justify-center">
+              <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+            </div>
+          </div>
+          <span class="text-base font-bold text-white tracking-tight">{t.nav.brand}</span>
+        </div>
+        <p class="text-xs leading-relaxed text-slate-400">
+          {locale === 'es'
+            ? 'La plataforma más rápida y confiable para encontrar códigos de Roblox activos. Verificados diariamente por jugadores reales.'
+            : 'The fastest, most reliable hub for active Roblox codes. Tested and verified daily by passionate players.'}
+        </p>
+        <div class="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-lg w-fit">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>{locale === 'es' ? 'Sistemas en línea y actualizados' : 'Systems online & verified today'}</span>
+        </div>
+      </div>
+
+      <!-- Top Games Links -->
+      <div class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-200">
+          {locale === 'es' ? 'Juegos Principales' : 'Top Games'}
+        </h3>
+        <ul class="space-y-2 text-xs">
+          {gamesData.slice(0, 5).map((game) => (
+            <li>
+              <a 
+                href={`/${locale}/juego/${game.slug}`} 
+                class="hover:text-indigo-400 transition-colors flex items-center gap-1.5"
+              >
+                <span>{game.emoji}</span>
+                <span>{game.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Categories & Features -->
+      <div class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-200">
+          {locale === 'es' ? 'Categorías Populares' : 'Popular Categories'}
+        </h3>
+        <ul class="space-y-2 text-xs">
+          <li>
+            <a href={`/${locale}/#juegos`} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Anime & Shonen' : 'Anime & Shonen'}
+            </a>
+          </li>
+          <li>
+            <a href={`/${locale}/#juegos`} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Dodgeball & Acción' : 'Dodgeball & Action'}
+            </a>
+          </li>
+          <li>
+            <a href={`/${locale}/#juegos`} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Moda & Pasarela' : 'Fashion & Runway'}
+            </a>
+          </li>
+          <li>
+            <a href={`/${locale}/juego/roblox-promo-codes`} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Accesorios de Avatar Gratis' : 'Free Avatar Accessories'}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Disclaimer & Legal -->
+      <div class="space-y-3 text-xs">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-200">
+          {t.footer.legal}
+        </h3>
+        <p class="text-[11px] leading-relaxed text-slate-500">
+          {t.footer.disclaimer}
+        </p>
+        <p class="text-[11px] text-slate-500">
+          Roblox y el logotipo de Roblox son marcas registradas de Roblox Corporation. Todos los nombres de juegos y marcas pertenecen a sus respectivos creadores.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright -->
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>© {currentYear} {t.nav.brand}. {t.footer.allRights}</p>
+      <div class="flex items-center gap-6">
+        <a href={`/${locale}/#como-canjear`} class="hover:text-slate-300 transition-colors">{t.nav.howToRedeem}</a>
+        <a href={`/${locale}/juego/roblox-promo-codes`} class="hover:text-slate-300 transition-colors">{t.nav.promoCodes}</a>
+        <a href="#top" class="hover:text-indigo-400 transition-colors flex items-center gap-1">
+          <span>↑</span>
+          <span>{locale === 'es' ? 'Subir' : 'Back to top'}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,144 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+import { getTranslations } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+  currentSlug?: string;
+}
+
+const { locale, currentSlug } = Astro.props;
+const t = getTranslations(locale);
+
+// Compute target alternate URL for the other language
+const otherLocale: SupportedLocale = locale === 'es' ? 'en' : 'es';
+const targetAlternateUrl = currentSlug 
+  ? `/${otherLocale}/juego/${currentSlug}` 
+  : `/${otherLocale}/`;
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-[#080c14]/85 border-b border-white/10 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <a href={`/${locale}/`} class="flex items-center gap-3 group">
+        <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-violet-600 to-cyan-400 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300">
+          <div class="w-full h-full bg-[#0b0f19] rounded-[11px] flex items-center justify-center">
+            <!-- Roblox-inspired geometric 3D cube icon -->
+            <svg class="w-5 h-5 text-cyan-400 transform group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-black tracking-tight text-white flex items-center gap-1">
+            {t.nav.brand}
+            <span class="text-xs px-1.5 py-0.5 rounded font-mono font-semibold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">2026</span>
+          </span>
+          <span class="text-[10px] text-slate-400 tracking-wider uppercase font-medium -mt-1 hidden sm:block">
+            {t.nav.brandSubtitle}
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a 
+          href={`/${locale}/`}
+          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          {t.nav.home}
+        </a>
+        <a 
+          href={`/${locale}/#juegos`}
+          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          {t.nav.games}
+        </a>
+        <a 
+          href={`/${locale}/juego/roblox-promo-codes`}
+          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-1.5"
+        >
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          {t.nav.promoCodes}
+        </a>
+        <a 
+          href={`/${locale}/#como-canjear`}
+          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          {t.nav.howToRedeem}
+        </a>
+      </nav>
+
+      <!-- Right controls: Language Switcher & CTA -->
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher Pill -->
+        <a
+          href={targetAlternateUrl}
+          aria-label={t.nav.langAria}
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-sm"
+          title={`Switch language / Cambiar idioma`}
+        >
+          <span class="text-sm">{locale === 'es' ? '🇪🇸' : '🇬🇧'}</span>
+          <span class="uppercase tracking-wider">{locale}</span>
+          <span class="text-slate-500">⇄</span>
+          <span class="text-indigo-400 uppercase tracking-wider">{otherLocale}</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          aria-label="Abrir menú"
+          class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 focus:outline-none"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0b0f19] px-4 pt-3 pb-5 space-y-2">
+    <a 
+      href={`/${locale}/`}
+      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
+    >
+      {t.nav.home}
+    </a>
+    <a 
+      href={`/${locale}/#juegos`}
+      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
+    >
+      {t.nav.games}
+    </a>
+    <a 
+      href={`/${locale}/juego/roblox-promo-codes`}
+      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
+    >
+      {t.nav.promoCodes}
+    </a>
+    <a 
+      href={`/${locale}/#como-canjear`}
+      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
+    >
+      {t.nav.howToRedeem}
+    </a>
+  </div>
+</header>
+
+<script is:inline>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>

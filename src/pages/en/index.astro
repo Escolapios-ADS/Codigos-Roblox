@@ -1,17 +1,103 @@
 ---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import GameCard from '../../components/GameCard.astro';
+import RedeemGuide from '../../components/RedeemGuide.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { gamesData } from '../../data/games';
+import { getTranslations } from '../../i18n/translations';
 
+const locale = 'en';
+const t = getTranslations(locale);
+
+const totalCodes = gamesData.reduce((acc, game) => acc + game.activeCodes.length, 0);
+const totalGames = gamesData.length;
+
+// General FAQs for English homepage
+const generalFaqs = [
+  {
+    q: 'How do I redeem Roblox codes?',
+    a: 'It depends on the code type: global avatar promo codes are redeemed on the official roblox.com/redeem website, while game-specific codes (like Blox Fruits or Blade Ball) are redeemed directly in-game by clicking the Twitter bird or Codes button.',
+  },
+  {
+    q: 'Are these Roblox codes safe and free to use?',
+    a: 'Yes, 100%! All codes are officially distributed by game developers on their Twitter, YouTube, or Discord servers. They never require you to share passwords or personal info.',
+  },
+  {
+    q: 'Why do some Roblox codes expire so quickly?',
+    a: 'Developers often create codes for limited-time events, holiday weekends, or like milestones. Once the event ends, the code is deactivated. That is why we verify and update our list every day.',
+  },
+  {
+    q: 'Where can I find new working codes?',
+    a: 'At RobloxCodes.org, we continuously track official creator announcements and game updates 24/7. Bookmark this page to claim exclusive new rewards as soon as they drop.',
+  },
+];
+
+const generalRedeemSteps = [
+  'Launch Roblox on PC, mobile, console, or web browser.',
+  'Join the desired game or visit roblox.com/redeem for global avatar items.',
+  'Find the Twitter bird icon, settings cog, or gift box button in the menu.',
+  'Click the 1-click Copy button on our site, paste the code, and hit Redeem!'
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title={t.siteTitle}
+  description={t.siteDescription}
+  locale={locale}
+>
+  <!-- Hero Section with Search and Stats -->
+  <Hero locale={locale} totalCodes={totalCodes} totalGames={totalGames} />
+
+  <!-- Main Game List Grid Section -->
+  <section id="juegos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">
+          <span>🎮</span>
+          <span>Verified Catalog</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          All Games with Working Codes
+        </h2>
+      </div>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-xs sm:text-right">
+        Displaying {totalGames} top Roblox games with working rewards today.
+      </p>
+    </div>
+
+    <!-- Games Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="games-container">
+      {gamesData.map((game) => (
+        <GameCard game={game} locale={locale} />
+      ))}
+    </div>
+
+    <!-- No results fallback message -->
+    <div id="no-results-message" class="hidden text-center py-16 bg-[#0d1322] border border-white/10 rounded-2xl space-y-4">
+      <div class="text-4xl">🔍</div>
+      <h3 class="text-xl font-bold text-white">No games found</h3>
+      <p class="text-sm text-slate-400 max-w-md mx-auto">
+        Try searching for popular titles like "Blox Fruits", "Blade Ball", or "Dress to Impress".
+      </p>
+    </div>
+  </section>
+
+  <!-- How to Redeem General Guide -->
+  <section id="como-canjear" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <RedeemGuide
+      title="Quick Guide: How to Redeem Roblox Codes"
+      steps={generalRedeemSteps}
+      tip="Always use our 1-click copy button to prevent typos, case mismatch, or accidental spaces."
+      locale={locale}
+    />
+  </section>
+
+  <!-- Homepage FAQs -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <FaqSection
+      faqs={generalFaqs}
+      locale={locale}
+    />
+  </section>
+</Layout>

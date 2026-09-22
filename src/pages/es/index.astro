@@ -1,17 +1,103 @@
 ---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import GameCard from '../../components/GameCard.astro';
+import RedeemGuide from '../../components/RedeemGuide.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { gamesData } from '../../data/games';
+import { getTranslations } from '../../i18n/translations';
 
+const locale = 'es';
+const t = getTranslations(locale);
+
+const totalCodes = gamesData.reduce((acc, game) => acc + game.activeCodes.length, 0);
+const totalGames = gamesData.length;
+
+// General FAQs for homepage
+const generalFaqs = [
+  {
+    q: '¿Cómo canjeo los códigos de Roblox?',
+    a: 'Depende del tipo de código: los códigos promocionales globales se canjean en el sitio oficial roblox.com/redeem, mientras que los códigos de juegos específicos (como Blox Fruits o Blade Ball) se canjean directamente dentro de cada juego pulsando el icono de Twitter o botón de Códigos.',
+  },
+  {
+    q: '¿Son seguros y gratuitos estos códigos?',
+    a: '¡Sí, al 100%! Todos los códigos son proporcionados oficialmente por los desarrolladores de cada juego en sus redes sociales y Discord. Nunca te pedirán tu contraseña ni datos personales.',
+  },
+  {
+    q: '¿Por qué algunos códigos caducan tan rápido?',
+    a: 'Los creadores suelen activar códigos por tiempo limitado (para celebrar eventos, fines de semana o metas de likes) o con un cupo máximo de canjes. Por eso probamos y actualizamos nuestra lista todos los días.',
+  },
+  {
+    q: '¿Dónde puedo encontrar más códigos nuevos?',
+    a: 'En CodigosRoblox.org monitoreamos las cuentas oficiales de Twitter y canales de Discord de los creadores 24/7. Guarda esta página en favoritos para no perderte ninguna recompensa exclusiva.',
+  },
+];
+
+const generalRedeemSteps = [
+  'Abre Roblox en tu PC, móvil, consola o navegador.',
+  'Entra al juego deseado o visita roblox.com/redeem si es un código de avatar global.',
+  'Busca el botón con icono de pájaro de Twitter, rueda de ajustes o caja de regalo.',
+  'Copia el código de nuestra web con 1 clic, pégalo en la casilla y pulsa Canjear.'
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title={t.siteTitle}
+  description={t.siteDescription}
+  locale={locale}
+>
+  <!-- Hero Section with Search and Stats -->
+  <Hero locale={locale} totalCodes={totalCodes} totalGames={totalGames} />
+
+  <!-- Main Game List Grid Section -->
+  <section id="juegos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">
+          <span>🎮</span>
+          <span>Catálogo Verificado</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          Todos los Juegos con Códigos Activos
+        </h2>
+      </div>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-xs sm:text-right">
+        Mostrando {totalGames} juegos con recompensas activas hoy en Roblox.
+      </p>
+    </div>
+
+    <!-- Games Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="games-container">
+      {gamesData.map((game) => (
+        <GameCard game={game} locale={locale} />
+      ))}
+    </div>
+
+    <!-- No results fallback message -->
+    <div id="no-results-message" class="hidden text-center py-16 bg-[#0d1322] border border-white/10 rounded-2xl space-y-4">
+      <div class="text-4xl">🔍</div>
+      <h3 class="text-xl font-bold text-white">No encontramos ningún juego</h3>
+      <p class="text-sm text-slate-400 max-w-md mx-auto">
+        Prueba a buscar con otro nombre como "Blox Fruits", "Blade Ball" o "Dress to Impress".
+      </p>
+    </div>
+  </section>
+
+  <!-- How to Redeem General Guide -->
+  <section id="como-canjear" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <RedeemGuide
+      title="Guía Rápida: Cómo canjear códigos en Roblox"
+      steps={generalRedeemSteps}
+      tip="Copia siempre los códigos directamente con nuestro botón para evitar errores de mayúsculas o espacios accidentales."
+      locale={locale}
+    />
+  </section>
+
+  <!-- Homepage FAQs -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <FaqSection
+      faqs={generalFaqs}
+      locale={locale}
+    />
+  </section>
+</Layout>

@@ -1,0 +1,47 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  title: string;
+  steps: string[];
+  tip?: string;
+  locale: SupportedLocale;
+}
+
+const { title, steps, tip, locale } = Astro.props;
+---
+
+<section class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-lg font-bold">
+      🎮
+    </div>
+    <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+      {title}
+    </h2>
+  </div>
+
+  <!-- Numbered Steps Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {steps.map((step, index) => (
+      <div class="flex items-start gap-3.5 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+        <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-600/30 border border-indigo-500/40 text-indigo-300 font-mono font-bold text-xs shrink-0">
+          {index + 1}
+        </span>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          {step}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  {tip && (
+    <div class="flex items-start gap-3 bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 text-xs sm:text-sm text-amber-200">
+      <span class="text-base shrink-0">💡</span>
+      <div>
+        <strong class="font-bold text-amber-300">{locale === 'es' ? 'Consejo Pro:' : 'Pro Tip:'}</strong>
+        <span class="ml-1 text-slate-300">{tip}</span>
+      </div>
+    </div>
+  )}
+</section>
