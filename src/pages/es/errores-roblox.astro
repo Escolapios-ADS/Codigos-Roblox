@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import ErrorHub from '../../components/ErrorHub.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Códigos de Error Roblox 2026 | Solución Paso a Paso (279, 267, 524, 277, 529)';
+const pageDescription = 'Guía completa y verificada de códigos de error de Roblox para 2026. Soluciona el error 279, 267, 524, 277, 529, 610 y Hyperion en PC, móvil y consolas en menos de 2 minutos.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Cómo solucionar el Error 279 en Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El Error 279 es un fallo de conexión provocado principalmente por el Firewall de Windows o bloqueos DNS. Para solucionarlo: 1) Permite Roblox en Windows Defender Firewall, 2) Abre CMD como administrador y ejecuta "ipconfig /flushdns", y 3) Cambia tus DNS a las de Google (8.8.8.8 y 8.8.4.4).'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Por qué me sale el Error 267 y qué significa?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El Error 267 indica que un script del juego te ha expulsado (Kicked). Ocurre si tu cuenta de Roblox tiene menos de 15-30 días (muchos juegos lo exigen para evitar bots), si se detecta un autoclicker de fondo, o por baneo de los moderadores del juego.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cómo entrar a un servidor si me da Error 524?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El Error 524 ocurre al intentar unirte a un servidor VIP o privado sin permisos. Para resolverlo, ve a Configuración > Privacidad en Roblox y ajusta "¿Quién puede unirse a mí en experiencias?" a "Todos" o pide al dueño del servidor VIP que añada tu nombre a la lista de invitados.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Qué hago si sale el Error 529 en Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El Error 529 es un fallo en los servidores centrales de Roblox Corporation (HTTP 529). No es problema de tu ordenador o conexión. Comprueba status.roblox.com y espera entre 15 y 45 minutos a que los ingenieros restablezcan el servicio.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Códigos de Error Roblox',
+          item: 'https://codigosroblox.org/es/errores-roblox/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="error-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Inicio</a>
+      <span>/</span>
+      <span class="text-rose-400 font-medium">Códigos de Error Roblox</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold">
+        <span>🔧</span>
+        <span>Centro de Diagnóstico Técnico • Actualizado 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Códigos de Error de Roblox: <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-amber-300 to-indigo-400">Guía de Soluciones 2026</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        ¿Roblox no te deja entrar, te desconecta o te expulsa con una pantalla gris de error? Encuentra tu código numérico en segundos (279, 267, 524, 277, 529, 610, Hyperion) y sigue la solución probada paso a paso para volver a jugar sin perder progreso.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Error Diagnostic Hub -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Diagnostic Component -->
+    <ErrorHub locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="error-mid-banner" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: General Troubleshooting Checklist -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>⚡</span> Los 4 Pasos Universales para Solucionar el 90% de los Errores de Roblox
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Antes de formatear o reinstalar tu sistema operativo, la inmensa mayoría de problemas de conexión y cliente en Roblox se resuelven realizando esta secuencia de mantenimiento básica en tu equipo:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-rose-400">PASO 1</span>
+            <h4 class="text-sm font-bold text-white">Vaciar Caché DNS</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Abre el Símbolo del Sistema (CMD) en Windows y escribe <code class="text-rose-300 bg-black/40 px-1 py-0.5 rounded">ipconfig /flushdns</code> para eliminar registros de servidores caducados.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-amber-400">PASO 2</span>
+            <h4 class="text-sm font-bold text-white">Borrar Temporales %temp%</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Pulsa Windows + R, escribe <code class="text-amber-300 bg-black/40 px-1 py-0.5 rounded">%temp%</code> y elimina los archivos de sesión obsoletos que provocan conflictos de versión.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-emerald-400">PASO 3</span>
+            <h4 class="text-sm font-bold text-white">Exclusión en Firewall</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Asegúrate de que <code class="text-emerald-300 bg-black/40 px-1 py-0.5 rounded">RobloxPlayerBeta.exe</code> tiene permisos completos en redes Públicas y Privadas en tu antivirus o Firewall.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-cyan-400">PASO 4</span>
+            <h4 class="text-sm font-bold text-white">Reiniciar Router</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Apaga tu módem/router de fibra durante 30 segundos para renovar tu dirección IP pública y vaciar la tabla de rutas NAT de tu operador.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Byfron Hyperion Anti-Cheat Guide -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>🛡️</span> Qué es Byfron Hyperion y Cómo Evitar el Baneo por Error 268
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Desde su implementación global, el sistema anti-trampas a nivel de kernel de Roblox (**Byfron Hyperion**) analiza la integridad de la memoria del juego en tiempo real. Si usas mods visuales como RoShade, software de inyección o macros agresivas, Hyperion bloqueará tu cliente con el <strong>Error 268 ("Unexpected client behavior")</strong>.
+        </p>
+        <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-xs space-y-2 text-rose-200">
+          <p class="font-bold">⚠️ Recomendación de Seguridad del Equipo Técnico:</p>
+          <p class="text-slate-300 leading-relaxed">
+            Nunca utilices ejecutores de scripts de terceros, ya que no sólo provocan expulsiones permanentes del juego por Error 267 y Error 268, sino que ponen en riesgo la seguridad de tu inventario y datos personales.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-rose-950/30 border border-rose-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-rose-600/30 border border-rose-400 flex items-center justify-center text-lg font-bold text-white">
+            GB
+          </div>
+          <div>
+            <span class="text-xs text-rose-400 font-mono uppercase tracking-wider block">Escrito y Verificado por</span>
+            <h4 class="text-sm font-bold text-white">Guillermo Beltrán • Desarrollador & Analista de Sistemas</h4>
+            <p class="text-xs text-slate-400">Revisado técnicamente por Jorge Villapún y Héctor Moreno • Actualizado para 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/sobre-nosotros`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-rose-300 border border-rose-500/30 transition-colors shrink-0"
+        >
+          Conoce al Equipo Editorial →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Preguntas Frecuentes sobre Errores de Roblox
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Si Roblox está caído me pueden banear la cuenta?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            No. Cuando los servidores se caen (Error 529 o Error 503), tu cuenta y tus objetos están completamente seguros en las bases de datos de Roblox. Simplemente el sistema no puede procesar nuevas conexiones hasta que se restablezca el servicio.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Por qué Roblox me da Error 277 en el móvil?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            En dispositivos móviles (iPhone, iPad, Android), el Error 277 suele deberse al "Modo ahorro de batería", que limita la recepción de datos en segundo plano, o a una señal Wi-Fi inestable en la banda de 2.4 GHz. Activa la red de 5 GHz para una conexión constante.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Cómo arreglar el Error 103 en Xbox o PlayStation?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            El Error 103 en consolas se produce por las restricciones de privacidad de tu perfil de Xbox Live o PSN. Debes ir a los ajustes de cuenta de la consola y permitir la opción "Ver y compartir creaciones de la comunidad".
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <a 
+        href={`/${locale}/calculadora-tradeos-blox-fruits/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-amber-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚖️</span>
+        <h4 class="font-bold text-white group-hover:text-amber-300 text-sm">Calculadora Blox Fruits</h4>
+        <p class="text-xs text-slate-400">Tradeos justos W/F/L.</p>
+      </a>
+      <a 
+        href={`/${locale}/generador-nombres-roblox/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-purple-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎲</span>
+        <h4 class="font-bold text-white group-hover:text-purple-300 text-sm">Generador de Nombres</h4>
+        <p class="text-xs text-slate-400">Apodos pro y tags de clan.</p>
+      </a>
+      <a 
+        href={`/${locale}/musica/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-indigo-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎵</span>
+        <h4 class="font-bold text-white group-hover:text-indigo-300 text-sm">Música & Boombox</h4>
+        <p class="text-xs text-slate-400">IDs de canciones Brookhaven.</p>
+      </a>
+      <a 
+        href={`/${locale}/objetos-gratis/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-emerald-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎁</span>
+        <h4 class="font-bold text-white group-hover:text-emerald-300 text-sm">Objetos Gratis</h4>
+        <p class="text-xs text-slate-400">Drops de 0 Robux activos.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="error-bottom-rect" locale={locale} />
+
+  </main>
+</Layout>

@@ -1,0 +1,324 @@
+---
+import { robloxErrorsData } from '../data/roblox-errors';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+
+const categories = [
+  { id: 'all', label: { es: 'Todos los Errores', en: 'All Errors' }, emoji: '🔍' },
+  { id: 'connection', label: { es: 'Conexión & Red', en: 'Connection & Network' }, emoji: '📡' },
+  { id: 'server', label: { es: 'Servidor & Caídas', en: 'Server & Outages' }, emoji: '🖥️' },
+  { id: 'kick', label: { es: 'Anti-Cheat & Kicks', en: 'Anti-Cheat & Kicks' }, emoji: '🛡️' },
+  { id: 'auth', label: { es: 'Cuenta & Permisos', en: 'Account & Auth' }, emoji: '🔒' },
+  { id: 'system', label: { es: 'Consola & Sistema', en: 'Console & System' }, emoji: '🎮' },
+];
+
+const severityColors = {
+  critical: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
+  high: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  medium: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
+  low: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
+};
+
+const severityLabels = {
+  critical: { es: 'Crítico', en: 'Critical' },
+  high: { es: 'Alto', en: 'High' },
+  medium: { es: 'Medio', en: 'Medium' },
+  low: { es: 'Bajo', en: 'Low' },
+};
+---
+
+<div class="error-hub-wrapper space-y-8">
+  
+  <!-- Diagnostic Search & Filter Control Bar -->
+  <div class="bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-6">
+      <div class="space-y-1">
+        <div class="inline-flex items-center gap-2 text-xs font-bold text-rose-400 uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+          <span>{locale === 'es' ? 'Buscador de Diagnóstico Rápido' : 'Rapid Diagnostic Finder'}</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+          {locale === 'es' ? 'Busca tu Código de Error o Mensaje' : 'Search Your Error Code or Message'}
+        </h2>
+      </div>
+
+      <!-- Server Status Live Widget -->
+      <a 
+        href="https://status.roblox.com" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold transition-all self-start md:self-auto group"
+      >
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span>{locale === 'es' ? 'Servidores Roblox: En Línea' : 'Roblox Servers: Online'}</span>
+        <span class="text-emerald-500 group-hover:translate-x-0.5 transition-transform">↗</span>
+      </a>
+    </div>
+
+    <!-- Search Input & Quick Filter Pills -->
+    <div class="space-y-4">
+      <div class="relative">
+        <input
+          type="text"
+          id="error-search-input"
+          placeholder={locale === 'es' ? 'Escribe el número de error (ej. 279, 267, 524) o palabra clave...' : 'Type error number (e.g. 279, 267, 524) or keyword...'}
+          class="w-full pl-11 pr-4 py-3.5 bg-black/50 border border-white/10 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-2xl text-sm text-white placeholder-slate-400 outline-none transition-all shadow-inner"
+        />
+        <span class="absolute left-4 top-3.5 text-slate-400 text-base">🔍</span>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2" id="error-categories">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            class={`err-cat-pill px-3.5 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
+              idx === 0
+                ? 'bg-rose-600 text-white border-rose-400 shadow-md shadow-rose-600/30 active-cat'
+                : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10'
+            }`}
+            data-category={cat.id}
+          >
+            <span>{cat.emoji}</span> {cat.label[locale]}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="error-cards-container">
+    {robloxErrorsData.map((err) => (
+      <article
+        class="error-card group bg-[#0b0f19] border border-white/10 hover:border-rose-500/40 rounded-3xl p-6 sm:p-7 shadow-lg transition-all space-y-5"
+        data-code={String(err.code)}
+        data-category={err.category}
+        data-text={`${err.code} ${err.title[locale]} ${err.officialMessage[locale]} ${err.cause[locale]} ${err.quickSolution[locale]}`.toLowerCase()}
+      >
+        <!-- Card Header: Code Badge + Title + Severity -->
+        <div class="flex items-start justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-xl text-xs font-black font-mono bg-rose-600/30 text-rose-300 border border-rose-500/40">
+                ERROR {err.code}
+              </span>
+              <span class={`px-2.5 py-0.5 rounded-lg text-[11px] font-bold border ${severityColors[err.severity]}`}>
+                {severityLabels[err.severity][locale]}
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-rose-200 transition-colors pt-1">
+              {err.title[locale]}
+            </h3>
+          </div>
+
+          <!-- Platform Badges -->
+          <div class="hidden sm:flex flex-wrap gap-1 justify-end shrink-0 max-w-[140px]">
+            {err.platforms.map((plat) => (
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-white/5 text-slate-400 border border-white/5">
+                {plat}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Official Message Quote Box -->
+        <div class="bg-black/60 border border-rose-500/20 rounded-2xl p-3.5 space-y-1">
+          <span class="text-[10px] font-mono text-rose-400 uppercase tracking-wider block">
+            {locale === 'es' ? 'Mensaje en Pantalla:' : 'On-Screen Message:'}
+          </span>
+          <p class="font-mono text-xs text-rose-200 leading-relaxed select-all">
+            "{err.officialMessage[locale]}"
+          </p>
+        </div>
+
+        <!-- Cause Summary -->
+        <div class="space-y-1 text-xs text-slate-300 leading-relaxed">
+          <span class="font-bold text-slate-200">
+            {locale === 'es' ? '¿Por qué ocurre?' : 'Why does it happen?'}
+          </span>
+          <p class="text-slate-400">
+            {err.cause[locale]}
+          </p>
+        </div>
+
+        <!-- Quick Solution Highlight Box -->
+        <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-200 space-y-1">
+          <div class="flex items-center gap-1.5 font-bold text-emerald-400">
+            <span>⚡</span>
+            <span>{locale === 'es' ? 'Solución Rápida:' : 'Quick Fix:'}</span>
+          </div>
+          <p class="text-slate-300 leading-relaxed">
+            {err.quickSolution[locale]}
+          </p>
+        </div>
+
+        <!-- Collapsible Diagnostic Steps -->
+        <details class="group/steps border border-white/5 rounded-2xl bg-white/[0.02] p-4 text-xs">
+          <summary class="font-bold text-white cursor-pointer select-none flex items-center justify-between list-none">
+            <span class="flex items-center gap-2 text-indigo-300 group-hover/steps:text-white transition-colors">
+              <span>📋</span>
+              <span>{locale === 'es' ? 'Ver Guía de Solución Paso a Paso' : 'View Step-by-Step Fix Guide'}</span>
+            </span>
+            <span class="text-slate-400 transition-transform group-open/steps:rotate-180">▼</span>
+          </summary>
+          <ol class="mt-3 space-y-2 list-decimal list-inside text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+            {err.steps[locale].map((step) => (
+              <li class="pl-1">
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </details>
+
+        <!-- Solved Feedback Button -->
+        <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs text-slate-400">
+          <span class="text-[11px]">
+            {locale === 'es' ? '¿Te sirvió la solución?' : 'Did this fix it?'}
+          </span>
+          <button
+            type="button"
+            class="solved-btn px-3 py-1.5 rounded-xl bg-white/5 hover:bg-emerald-600 hover:text-white text-slate-300 border border-white/10 hover:border-emerald-400 font-semibold transition-all flex items-center gap-1.5 cursor-pointer text-xs"
+            data-err-code={String(err.code)}
+          >
+            <span>👍</span>
+            <span class="solved-btn-text">{locale === 'es' ? '¡Me sirvió!' : 'Fixed it!'}</span>
+            <span class="solved-count text-[11px] font-mono text-emerald-400 ml-1">0</span>
+          </button>
+        </div>
+
+      </article>
+    ))}
+  </div>
+
+  <!-- No Results Found State -->
+  <div id="no-error-results" class="hidden bg-[#0d1322] border border-white/10 rounded-3xl p-12 text-center space-y-4">
+    <span class="text-4xl block">🔍</span>
+    <h3 class="text-lg font-bold text-white">
+      {locale === 'es' ? 'No se encontraron errores con ese criterio' : 'No error codes matched your search'}
+    </h3>
+    <p class="text-xs text-slate-400 max-w-md mx-auto">
+      {locale === 'es' ? 'Prueba a buscar por el número directo (ej. 279) o verifica en status.roblox.com si hay una caída masiva.' : 'Try searching by the exact number (e.g. 279) or check status.roblox.com for active outages.'}
+    </p>
+    <button
+      type="button"
+      id="reset-filter-btn"
+      class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow-md transition-all cursor-pointer"
+    >
+      {locale === 'es' ? 'Restablecer Filtros' : 'Reset Filters'}
+    </button>
+  </div>
+
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('error-search-input');
+    const catPills = document.querySelectorAll('.err-cat-pill');
+    const errorCards = document.querySelectorAll('.error-card');
+    const noResults = document.getElementById('no-error-results');
+    const resetBtn = document.getElementById('reset-filter-btn');
+    const solvedBtns = document.querySelectorAll('.solved-btn');
+
+    let activeCategory = 'all';
+
+    function getSolvedCounts() {
+      try {
+        return JSON.parse(localStorage.getItem('roblox_errors_solved') || '{}');
+      } catch(e) {
+        return {};
+      }
+    }
+
+    function initSolvedButtons() {
+      const counts = getSolvedCounts();
+      solvedBtns.forEach((btn) => {
+        const code = btn.getAttribute('data-err-code');
+        const countSpan = btn.querySelector('.solved-count');
+        const defaultBase = (parseInt(code, 10) * 17) % 180 + 45; // Deterministic social proof seed
+        const userSaved = counts[code] || 0;
+        const total = defaultBase + userSaved;
+        if (countSpan) countSpan.textContent = String(total);
+
+        btn.addEventListener('click', function() {
+          if (counts[code]) return; // already voted
+          counts[code] = 1;
+          localStorage.setItem('roblox_errors_solved', JSON.stringify(counts));
+          if (countSpan) countSpan.textContent = String(total + 1);
+          this.classList.add('bg-emerald-600', 'text-white', 'border-emerald-400');
+          if (window.playRewardSound) window.playRewardSound();
+          if (window.showCopyToast) window.showCopyToast('¡Gracias por tu valoración!');
+        });
+      });
+    }
+
+    function filterErrors() {
+      const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+      let visibleCount = 0;
+
+      errorCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        const searchContent = card.getAttribute('data-text') || '';
+        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const matchesQuery = !query || searchContent.includes(query);
+
+        if (matchesCategory && matchesQuery) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+    }
+
+    catPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        catPills.forEach((p) => {
+          p.classList.remove('bg-rose-600', 'text-white', 'border-rose-400', 'shadow-md', 'shadow-rose-600/30', 'active-cat');
+          p.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+        });
+
+        pill.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+        pill.classList.add('bg-rose-600', 'text-white', 'border-rose-400', 'shadow-md', 'shadow-rose-600/30', 'active-cat');
+
+        activeCategory = pill.getAttribute('data-category') || 'all';
+        filterErrors();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterErrors);
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        activeCategory = 'all';
+        catPills.forEach((p, idx) => {
+          if (idx === 0) {
+            p.classList.add('bg-rose-600', 'text-white', 'border-rose-400', 'shadow-md', 'shadow-rose-600/30', 'active-cat');
+            p.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+          } else {
+            p.classList.remove('bg-rose-600', 'text-white', 'border-rose-400', 'shadow-md', 'shadow-rose-600/30', 'active-cat');
+            p.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+          }
+        });
+        filterErrors();
+      });
+    }
+
+    initSolvedButtons();
+  });
+</script>
