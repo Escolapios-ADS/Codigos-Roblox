@@ -1,0 +1,428 @@
+---
+import { gamesAlertData } from '../data/code-alerts';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+---
+
+<div class="code-alert-hub-wrapper space-y-8">
+  
+  <!-- Subscription Manager Card -->
+  <div class="bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-6">
+      <div class="space-y-1">
+        <div class="inline-flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>{locale === 'es' ? 'Centro de Suscripción a Códigos Nuevos' : 'New Codes Subscription Center'}</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+          {locale === 'es' ? 'Selecciona tus Juegos para Alertas VIP' : 'Select Your Games for VIP Drop Alerts'}
+        </h2>
+      </div>
+
+      <!-- Quick Toggles -->
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          id="select-all-btn"
+          class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-xs font-semibold transition-all cursor-pointer"
+        >
+          {locale === 'es' ? 'Seleccionar Todos' : 'Select All'}
+        </button>
+        <button
+          type="button"
+          id="deselect-all-btn"
+          class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-xs font-semibold transition-all cursor-pointer"
+        >
+          {locale === 'es' ? 'Desmarcar' : 'Deselect'}
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Subscription Status Banner -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200">
+      <div class="flex items-center gap-2 font-medium">
+        <span>🔔</span>
+        <span>
+          {locale === 'es' ? 'Juegos con alertas activas en este dispositivo:' : 'Games with active alerts on this device:'}
+          <strong id="active-subs-count" class="font-mono text-white ml-1">16</strong> / {gamesAlertData.length}
+        </span>
+      </div>
+      <span class="text-[11px] text-amber-300/80 font-mono">
+        {locale === 'es' ? 'Guardado automáticamente en tu navegador' : 'Auto-saved in browser local storage'}
+      </span>
+    </div>
+
+    <!-- Games Checkbox Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="alert-games-grid">
+      {gamesAlertData.map((game) => (
+        <label
+          class="alert-game-card group flex items-start gap-3 p-3.5 rounded-2xl bg-black/40 border border-white/5 hover:border-amber-500/40 transition-all cursor-pointer select-none"
+          data-slug={game.slug}
+        >
+          <input
+            type="checkbox"
+            checked
+            class="alert-checkbox mt-0.5 w-4 h-4 rounded text-amber-500 focus:ring-amber-500/20 accent-amber-500 cursor-pointer"
+            data-slug={game.slug}
+          />
+          <div class="space-y-1 overflow-hidden">
+            <div class="flex items-center gap-1.5">
+              <span class="text-base">{game.emoji}</span>
+              <span class="text-xs font-bold text-white group-hover:text-amber-200 transition-colors truncate">
+                {game.title}
+              </span>
+            </div>
+            <div class="flex items-center gap-2 text-[10px] text-slate-400 font-mono">
+              <span class="text-emerald-400">{game.activeCodesCount} activos</span>
+              <span>•</span>
+              <span>{game.frequency[locale]}</span>
+            </div>
+          </div>
+        </label>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Notification Activation & Sound Preview Control Panel -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    <!-- Browser Notification Activator -->
+    <div class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 space-y-4 flex flex-col justify-between">
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🌐</span>
+          <h3 class="text-base font-bold text-white">
+            {locale === 'es' ? 'Notificaciones Push de Navegador' : 'Browser Push Notifications'}
+          </h3>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          {locale === 'es'
+            ? 'Recibe un aviso sonoro directo en tu pantalla cada vez que verifiquemos un código nuevo antes de que expire.'
+            : 'Receive an instant audio pop-up whenever we verify a brand new code before it gets shut down.'}
+        </p>
+      </div>
+
+      <div class="space-y-2 pt-2">
+        <button
+          type="button"
+          id="request-push-btn"
+          class="w-full py-3 px-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>🔔</span>
+          <span id="push-btn-text">
+            {locale === 'es' ? 'Activar Notificaciones de Códigos' : 'Enable Code Drop Notifications'}
+          </span>
+        </button>
+        <span class="block text-[11px] text-center text-slate-400" id="push-status-note">
+          {locale === 'es' ? 'Compatible con Chrome, Edge, Safari, Firefox y Móvil' : 'Compatible with Chrome, Edge, Safari, Firefox & Mobile'}
+        </span>
+      </div>
+    </div>
+
+    <!-- Sound Test Widget -->
+    <div class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 space-y-4 flex flex-col justify-between">
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🔊</span>
+          <h3 class="text-base font-bold text-white">
+            {locale === 'es' ? 'Probar Timbres de Alerta VIP' : 'Test VIP Alert Sounds'}
+          </h3>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          {locale === 'es'
+            ? 'Elige el sonido con el que quieres que tu dispositivo te avise al detectar un código recién lanzado.'
+            : 'Select the audio synthesizer chime played when a newly dropped code is detected.'}
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 pt-2">
+        <select
+          id="sound-selector"
+          class="flex-1 px-3 py-2.5 bg-black/50 border border-white/10 rounded-xl text-xs text-slate-200 outline-none"
+        >
+          <option value="chime">{locale === 'es' ? '🎵 Chime Melódico' : '🎵 Melodic Chime'}</option>
+          <option value="siren">{locale === 'es' ? '🚨 Alarma Drop Mítico' : '🚨 Mythic Drop Siren'}</option>
+          <option value="laser">{locale === 'es' ? '⚡ Pulso Cyber Synth' : '⚡ Cyber Synth Pulse'}</option>
+        </select>
+
+        <button
+          type="button"
+          id="test-sound-btn"
+          class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 hover:text-white border border-white/10 font-bold text-xs transition-all cursor-pointer shrink-0"
+        >
+          <span>▶️</span> {locale === 'es' ? 'Probar' : 'Test'}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Live Verified Drops Feed Simulator -->
+  <div class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+        <h3 class="text-sm font-bold uppercase tracking-wider text-white">
+          {locale === 'es' ? 'Feed en Vivo: Últimos Códigos Detectados' : 'Live Feed: Latest Verified Code Drops'}
+        </h3>
+      </div>
+      <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg">
+        {locale === 'es' ? 'Monitoreo 24/7' : '24/7 Monitoring'}
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="live-drops-list">
+      
+      <!-- Drop 1 -->
+      <div class="flex items-center justify-between p-3.5 rounded-2xl bg-[#080c14] border border-white/5">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <span class="text-xl">⚔️</span>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white">Blox Fruits</span>
+              <span class="text-[10px] text-emerald-400 font-mono">NUEVO</span>
+            </div>
+            <code class="text-xs font-mono font-bold text-amber-300">SUB2GAMERROBOT_RESET1</code>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="feed-copy-btn px-3 py-1.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-slate-950 text-slate-300 text-xs font-bold transition-all cursor-pointer"
+          data-code="SUB2GAMERROBOT_RESET1"
+        >
+          📋 {locale === 'es' ? 'Copiar' : 'Copy'}
+        </button>
+      </div>
+
+      <!-- Drop 2 -->
+      <div class="flex items-center justify-between p-3.5 rounded-2xl bg-[#080c14] border border-white/5">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <span class="text-xl">⚽</span>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white">Blade Ball</span>
+              <span class="text-[10px] text-emerald-400 font-mono">VERIFICADO</span>
+            </div>
+            <code class="text-xs font-mono font-bold text-amber-300">SHARKATTACK</code>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="feed-copy-btn px-3 py-1.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-slate-950 text-slate-300 text-xs font-bold transition-all cursor-pointer"
+          data-code="SHARKATTACK"
+        >
+          📋 {locale === 'es' ? 'Copiar' : 'Copy'}
+        </button>
+      </div>
+
+      <!-- Drop 3 -->
+      <div class="flex items-center justify-between p-3.5 rounded-2xl bg-[#080c14] border border-white/5">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <span class="text-xl">👗</span>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white">Dress to Impress</span>
+              <span class="text-[10px] text-emerald-400 font-mono">ACTIVO</span>
+            </div>
+            <code class="text-xs font-mono font-bold text-amber-300">LANATUTU</code>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="feed-copy-btn px-3 py-1.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-slate-950 text-slate-300 text-xs font-bold transition-all cursor-pointer"
+          data-code="LANATUTU"
+        >
+          📋 {locale === 'es' ? 'Copiar' : 'Copy'}
+        </button>
+      </div>
+
+      <!-- Drop 4 -->
+      <div class="flex items-center justify-between p-3.5 rounded-2xl bg-[#080c14] border border-white/5">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <span class="text-xl">🎣</span>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white">Fisch</span>
+              <span class="text-[10px] text-emerald-400 font-mono">RECIENTE</span>
+            </div>
+            <code class="text-xs font-mono font-bold text-amber-300">FischFright2024</code>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="feed-copy-btn px-3 py-1.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-slate-950 text-slate-300 text-xs font-bold transition-all cursor-pointer"
+          data-code="FischFright2024"
+        >
+          📋 {locale === 'es' ? 'Copiar' : 'Copy'}
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script is:inline define:vars={{ currentLocale: locale }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.alert-checkbox');
+    const selectAllBtn = document.getElementById('select-all-btn');
+    const deselectAllBtn = document.getElementById('deselect-all-btn');
+    const activeSubsCount = document.getElementById('active-subs-count');
+    const requestPushBtn = document.getElementById('request-push-btn');
+    const pushBtnText = document.getElementById('push-btn-text');
+    const pushStatusNote = document.getElementById('push-status-note');
+    const testSoundBtn = document.getElementById('test-sound-btn');
+    const soundSelector = document.getElementById('sound-selector');
+    const feedCopyBtns = document.querySelectorAll('.feed-copy-btn');
+
+    // Retrieve saved games subscriptions from localStorage
+    function getSubscriptions() {
+      try {
+        const saved = localStorage.getItem('roblox_alert_games');
+        if (saved) return JSON.parse(saved);
+      } catch(e) {}
+      // Default: all games checked
+      return Array.from(checkboxes).map(c => c.getAttribute('data-slug'));
+    }
+
+    function saveSubscriptions(list) {
+      localStorage.setItem('roblox_alert_games', JSON.stringify(list));
+      updateUI();
+    }
+
+    function updateUI() {
+      const subs = getSubscriptions();
+      if (activeSubsCount) activeSubsCount.textContent = String(subs.length);
+
+      checkboxes.forEach((cb) => {
+        const slug = cb.getAttribute('data-slug');
+        cb.checked = subs.includes(slug);
+      });
+    }
+
+    checkboxes.forEach((cb) => {
+      cb.addEventListener('change', () => {
+        const checkedSlugs = Array.from(checkboxes).filter(c => c.checked).map(c => c.getAttribute('data-slug'));
+        saveSubscriptions(checkedSlugs);
+        if (window.playRewardSound) window.playRewardSound();
+      });
+    });
+
+    if (selectAllBtn) {
+      selectAllBtn.addEventListener('click', () => {
+        const allSlugs = Array.from(checkboxes).map(c => c.getAttribute('data-slug'));
+        saveSubscriptions(allSlugs);
+        if (window.playRewardSound) window.playRewardSound();
+      });
+    }
+
+    if (deselectAllBtn) {
+      deselectAllBtn.addEventListener('click', () => {
+        saveSubscriptions([]);
+      });
+    }
+
+    // Web Audio Sound Synthesizers for VIP Alert Preview
+    function playAlertSound(type) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+
+      if (type === 'siren') {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(440, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.2);
+        osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.4);
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.5);
+      } else if (type === 'laser') {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(900, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.35);
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.4);
+      } else {
+        // Melodic Chime
+        const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+        notes.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          const start = ctx.currentTime + (idx * 0.08);
+          gain.gain.setValueAtTime(0.2, start);
+          gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.4);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(start);
+          osc.stop(start + 0.4);
+        });
+      }
+    }
+
+    if (testSoundBtn) {
+      testSoundBtn.addEventListener('click', () => {
+        const soundType = soundSelector ? soundSelector.value : 'chime';
+        playAlertSound(soundType);
+      });
+    }
+
+    // Web Notifications Request
+    if (requestPushBtn) {
+      requestPushBtn.addEventListener('click', () => {
+        if ('Notification' in window) {
+          Notification.requestPermission().then((permission) => {
+            if (permission === 'granted') {
+              if (pushBtnText) pushBtnText.textContent = currentLocale === 'es' ? '✓ Notificaciones Activadas' : '✓ Notifications Enabled';
+              if (pushStatusNote) pushStatusNote.textContent = currentLocale === 'es' ? 'Recibirás alertas sonoras de códigos nuevos' : 'You will receive sound alerts for new codes';
+              requestPushBtn.classList.remove('bg-amber-500', 'hover:bg-amber-400');
+              requestPushBtn.classList.add('bg-emerald-600', 'text-white');
+              playAlertSound('chime');
+              new Notification(currentLocale === 'es' ? '¡Alertas Roblox Activadas!' : 'Roblox Alerts Activated!', {
+                body: currentLocale === 'es' ? 'Te avisaremos cuando se detecte un nuevo código.' : 'We will ping you when a new code drops.',
+                icon: '/favicon.svg'
+              });
+            } else {
+              if (window.showCopyToast) window.showCopyToast(currentLocale === 'es' ? 'Guarda esta página en favoritos (Ctrl + D)' : 'Bookmark this page (Ctrl + D)');
+            }
+          });
+        } else {
+          if (window.showCopyToast) window.showCopyToast(currentLocale === 'es' ? 'Guarda esta página en favoritos (Ctrl + D)' : 'Bookmark this page (Ctrl + D)');
+        }
+      });
+    }
+
+    // Feed copy buttons
+    feedCopyBtns.forEach((btn) => {
+      btn.addEventListener('click', function() {
+        const code = this.getAttribute('data-code');
+        if (code && window.copyCodeToClipboard) {
+          window.copyCodeToClipboard(code, this);
+        }
+      });
+    });
+
+    // Initial render
+    updateUI();
+  });
+</script>

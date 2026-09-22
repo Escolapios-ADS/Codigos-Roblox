@@ -1,0 +1,268 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import CodeAlertHub from '../../components/CodeAlertHub.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = 'Roblox Code Alerts 2026 | Instant VIP Drop Notifications';
+const pageDescription = 'Roblox code drop alert center for 2026. Subscribe for free to real-time notifications for Blox Fruits, Blade Ball, DTI, and never miss time-limited 2x EXP drops.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Why do Roblox codes expire so fast?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Experience creators on Roblox (such as Blox Fruits and Blade Ball) issue codes with strict time limits (24-48 hours) or redemption caps (e.g. first 50,000 players). Our instant alerts ensure you receive fresh codes minutes after release.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I activate browser push notifications?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Click "Enable Code Drop Notifications" in our alert center and select "Allow" on your browser prompt (Chrome, Edge, Firefox, Safari, or mobile). You will receive instant notifications whenever a verified drop occurs.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'When do new Roblox codes usually drop?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Over 80% of new codes drop during weekends (Friday evenings and Saturdays), coinciding with major weekly game updates and milestone achievements on Roblox.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Is this alert service free?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes! CodigosRoblox.org alert service is 100% free with no account registrations or fees required.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://codigosroblox.org/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Code Alerts',
+          item: 'https://codigosroblox.org/en/roblox-code-alerts/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="alert-top-leaderboard-en" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-amber-400 font-medium">Roblox Code Alerts</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
+        <span>🔔</span>
+        <span>Live Code Drops System • 2026 Season</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Roblox Code Drop Alerts: <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-rose-400">Instant VIP Notifications</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        Never miss out on free spins, gems, and 2x EXP boosts due to expired codes. Customize your favorite games, turn on browser alerts, and copy newly verified codes seconds after release.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Alert Center App Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Component -->
+    <CodeAlertHub locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="alert-mid-banner-en" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: The Code Expiration Race -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>⏱️</span> The Expiration Clock: Why Codes Shut Down So Quickly
+        </h2>
+        <p class="text-sm leading-relaxed">
+          In high-volume titles like <strong>Blox Fruits</strong>, <strong>Blade Ball</strong>, and <strong>Anime Defenders</strong>, in-game reward economies are closely monitored. Developers use reward codes to celebrate milestones (e.g. 1 million concurrent players or holiday events) but disable them within <strong>24 to 48 hours</strong> to maintain balanced progression.
+        </p>
+        <p class="text-sm leading-relaxed">
+          At <strong>CodigosRoblox.org</strong>, our editorial team tests and validates codes across live servers daily to guarantee 100% verified codes.
+        </p>
+      </section>
+
+      <!-- Section 2: Best Times for Drops -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>📅</span> Prime Days and Hours for Fresh Code Drops
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm border border-amber-500/30">1</div>
+            <h4 class="font-bold text-white text-sm">Friday Evenings</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Weekly patch deployments for experiences like Fisch and Anime Vanguards.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm border border-amber-500/30">2</div>
+            <h4 class="font-bold text-white text-sm">Saturday Midday</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Peak global player counts. Like goal celebrations in Blade Ball and DTI.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm border border-amber-500/30">3</div>
+            <h4 class="font-bold text-white text-sm">Holiday Events</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Halloween, Christmas, New Year, and summer events bring top-tier 2x EXP drops.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Add to Home Screen Tip -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>📱</span> How to Pin CodigosRoblox.org to Your Mobile Home Screen
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Access codes with 1 tap while gaming on mobile or tablet:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 text-xs">
+            <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+              <span>🍏</span> On iPhone / iPad (Safari)
+            </h4>
+            <p class="text-slate-300 leading-relaxed">
+              Open this page in Safari, tap the <strong>Share</strong> button, and choose <strong>"Add to Home Screen"</strong>.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 text-xs">
+            <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+              <span>🤖</span> On Android (Chrome)
+            </h4>
+            <p class="text-slate-300 leading-relaxed">
+              Tap the three dots in the upper right corner in Chrome and select <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-amber-950/30 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-amber-600/30 border border-amber-400 flex items-center justify-center text-lg font-bold text-white">
+            HM
+          </div>
+          <div>
+            <span class="text-xs text-amber-400 font-mono uppercase tracking-wider block">Written & Verified by</span>
+            <h4 class="text-sm font-bold text-white">Héctor Moreno • Community & Live Drops Coordinator</h4>
+            <p class="text-xs text-slate-400">Technically reviewed by Guillermo Beltrán and Jorge Villapún • Updated for 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/about`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-amber-300 border border-amber-500/30 transition-colors shrink-0"
+        >
+          Meet the Editorial Team →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Frequently Asked Questions About Code Drop Alerts
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">What if a code from an alert says "Invalid"?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Ensure you copy it with exact capitalization (Roblox codes are case-sensitive). If it still fails, the code likely reached its maximum redemption threshold.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">Can I unsubscribe from a specific game?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Yes. Simply uncheck that specific game in our alert picker and your local device preferences will immediately update.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <a 
+        href={`/${locale}/blox-fruits-trade-calculator/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-amber-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚖️</span>
+        <h4 class="font-bold text-white group-hover:text-amber-300 text-sm">Trade Calculator</h4>
+        <p class="text-xs text-slate-400">Fair Blox Fruits trades.</p>
+      </a>
+      <a 
+        href={`/${locale}/roblox-fps-unlocker-lag-fix/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-cyan-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚡</span>
+        <h4 class="font-bold text-white group-hover:text-cyan-300 text-sm">FPS Unlocker</h4>
+        <p class="text-xs text-slate-400">Uncap 144Hz & lower ping.</p>
+      </a>
+      <a 
+        href={`/${locale}/blox-fruits-quiz/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-purple-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🧠</span>
+        <h4 class="font-bold text-white group-hover:text-purple-300 text-sm">Blox Fruits Quiz</h4>
+        <p class="text-xs text-slate-400">Find your ideal fruit build.</p>
+      </a>
+      <a 
+        href={`/${locale}/brookhaven-outfit-codes/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-pink-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">👗</span>
+        <h4 class="font-bold text-white group-hover:text-pink-300 text-sm">Brookhaven Outfits</h4>
+        <p class="text-xs text-slate-400">Military & aesthetic clothes.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="alert-bottom-rect-en" locale={locale} />
+
+  </main>
+</Layout>

@@ -1,0 +1,268 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import CodeAlertHub from '../../components/CodeAlertHub.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Alertas de Códigos Roblox 2026 | Notificaciones de Drops y Códigos VIP';
+const pageDescription = 'Centro de alertas de códigos de Roblox para 2026. Suscríbete gratis a notificaciones instantáneas de drops para Blox Fruits, Blade Ball, DTI y nunca te pierdas recompensas que caducan.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Por qué caducan tan rápido los códigos de Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Muchos desarrolladores de experiencias como Blox Fruits, Blade Ball o Anime Defenders publican códigos con límites de tiempo muy estrictos (entre 24 y 48 horas) o límites de canjes máximos (ej. los primeros 50,000 jugadores). Activar nuestras alertas garantiza que recibas el código en los primeros minutos de su lanzamiento.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cómo activar las notificaciones en el navegador?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Haz clic en el botón "Activar Notificaciones de Códigos" en nuestro centro de alertas y presiona "Permitir" en la ventana emergente de tu navegador (Chrome, Edge, Firefox, Safari o móvil). Recibirás un aviso inmediato cada vez que verifiquemos un nuevo drop.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Qué días suelen salir nuevos códigos en Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El 80% de los códigos nuevos se lanzan durante los fines de semana (viernes por la noche y sábados), coincidiendo con las actualizaciones semanales de los juegos y cuando se alcanzan hitos de "Me Gusta" (Likes) en la página oficial del juego.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Es gratuito este servicio de alertas?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sí, el servicio de alertas de CodigosRoblox.org es 100% gratuito. No requiere registro de cuentas, correos electrónicos ni pagos de Robux.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Alertas de Códigos',
+          item: 'https://codigosroblox.org/es/alertas-codigos-roblox/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="alert-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Inicio</a>
+      <span>/</span>
+      <span class="text-amber-400 font-medium">Alertas de Códigos Roblox</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
+        <span>🔔</span>
+        <span>Sistema de Alertas en Vivo • Temporada 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Alertas de Códigos Roblox: <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-rose-400">Drops VIP al Instante</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        No te quedes sin tus giros gratis, gemas y multiplicadores 2x EXP por llegar tarde. Personaliza tus juegos favoritos, activa alertas en tu navegador y copia los últimos códigos probados segundos después de ser liberados por los creadores.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Alert Center App Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Component -->
+    <CodeAlertHub locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="alert-mid-banner" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: The Code Expiration Race -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>⏱️</span> La Carrera Contra el Tiempo: Por Qué los Códigos Caducan tan Rápido
+        </h2>
+        <p class="text-sm leading-relaxed">
+          En juegos masivos como <strong>Blox Fruits</strong>, <strong>Blade Ball</strong> o <strong>Anime Defenders</strong>, la economía interna de objetos está muy controlada. Los desarrolladores utilizan los códigos de regalo para celebrar hitos específicos (como llegar a 1 millón de jugadores concurrentes o un fin de semana festivo), pero desactivan los códigos tras <strong>24 a 48 horas</strong> para no desbalancear la tienda.
+        </p>
+        <p class="text-sm leading-relaxed">
+          Muchos jugadores buscan códigos en Google y encuentran listas desactualizadas de hace semanas. En <strong>CodigosRoblox.org</strong> contamos con un equipo editorial que comprueba y valida cada código en servidores reales todos los días.
+        </p>
+      </section>
+
+      <!-- Section 2: Best Times for Drops -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>📅</span> Horarios y Días con Mayor Probabilidad de Nuevos Drops
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm border border-amber-500/30">1</div>
+            <h4 class="font-bold text-white text-sm">Viernes por la Noche</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Momento de lanzamiento de parches semanales en juegos como Fisch y Anime Vanguards.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm border border-amber-500/30">2</div>
+            <h4 class="font-bold text-white text-sm">Sábados al Mediodía</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Pico máximo de jugadores globales. Se celebran metas de likes en Blade Ball y DTI.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm border border-amber-500/30">3</div>
+            <h4 class="font-bold text-white text-sm">Festivos & Vacaciones</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Halloween, Navidad, Año Nuevo y verano traen los códigos con mayores recompensas de Robux y 2x EXP.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Add to Home Screen Tip -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>📱</span> Cómo Añadir CodigosRoblox.org a tu Pantalla de Inicio en Móvil
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Para acceder a los códigos en 1 segundo mientras juegas en tu móvil o tablet:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 text-xs">
+            <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+              <span>🍏</span> En iPhone / iPad (Safari)
+            </h4>
+            <p class="text-slate-300 leading-relaxed">
+              Abre esta página en Safari, pulsa el botón <strong>Compartir</strong> (icono cuadrado con flecha hacia arriba) y selecciona <strong>"Añadir a la pantalla de inicio"</strong>.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 text-xs">
+            <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+              <span>🤖</span> En Android (Chrome)
+            </h4>
+            <p class="text-slate-300 leading-relaxed">
+              Toca los tres puntos de la esquina superior derecha en Chrome y selecciona <strong>"Instalar aplicación"</strong> o <strong>"Añadir a pantalla de inicio"</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-amber-950/30 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-amber-600/30 border border-amber-400 flex items-center justify-center text-lg font-bold text-white">
+            HM
+          </div>
+          <div>
+            <span class="text-xs text-amber-400 font-mono uppercase tracking-wider block">Escrito y Verificado por</span>
+            <h4 class="text-sm font-bold text-white">Héctor Moreno • Coordinador de Comunidad & Drops en Directo</h4>
+            <p class="text-xs text-slate-400">Revisado técnicamente por Guillermo Beltrán y Jorge Villapún • Actualizado para 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/sobre-nosotros`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-amber-300 border border-amber-500/30 transition-colors shrink-0"
+        >
+          Conoce al Equipo Editorial →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Preguntas Frecuentes sobre Alertas de Códigos
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Qué hago si un código de alerta me dice "Inválido"?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Asegúrate de copiarlo exactamente con las mismas mayúsculas y minúsculas (los códigos distinguen entre caracteres). Si sigue fallando, es probable que haya alcanzado el cupo máximo de canjes fijado por los creadores.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Puedo desactivar las alertas si ya no juego a un juego?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Sí. Simplemente desmarca la casilla del juego correspondiente en nuestro selector y tus preferencias se actualizarán inmediatamente en tu dispositivo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <a 
+        href={`/${locale}/calculadora-tradeos-blox-fruits/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-amber-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚖️</span>
+        <h4 class="font-bold text-white group-hover:text-amber-300 text-sm">Calculadora Blox Fruits</h4>
+        <p class="text-xs text-slate-400">Comprueba tradeos justos W/F/L.</p>
+      </a>
+      <a 
+        href={`/${locale}/optimizar-roblox-fps-lag/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-cyan-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚡</span>
+        <h4 class="font-bold text-white group-hover:text-cyan-300 text-sm">Optimizar FPS & Lag</h4>
+        <p class="text-xs text-slate-400">Desbloquea 144Hz y baja ping.</p>
+      </a>
+      <a 
+        href={`/${locale}/quiz-frutas-blox-fruits/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-purple-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🧠</span>
+        <h4 class="font-bold text-white group-hover:text-purple-300 text-sm">Quiz Blox Fruits</h4>
+        <p class="text-xs text-slate-400">Descubre tu fruta ideal.</p>
+      </a>
+      <a 
+        href={`/${locale}/codigos-ropa-brookhaven/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-pink-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">👗</span>
+        <h4 class="font-bold text-white group-hover:text-pink-300 text-sm">Ropa Brookhaven RP</h4>
+        <p class="text-xs text-slate-400">Outfits militares y aesthetic.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="alert-bottom-rect" locale={locale} />
+
+  </main>
+</Layout>
