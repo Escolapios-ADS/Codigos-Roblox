@@ -1,0 +1,285 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import NameGenerator from '../../components/NameGenerator.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Generador de Nombres Roblox 2026 | Nombres Pro, Aesthetic y para Clanes';
+const pageDescription = 'Generador gratuito de nombres y Display Names para Roblox en 2026. Crea apodos pro, aesthetic, anime y tags de clan con 1 clic. Guía paso a paso para cambiar tu nombre gratis.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Cuál es la diferencia entre Username y Display Name en Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El Username (nombre de usuario) es el identificador único con el que inicias sesión y cuesta 1,000 Robux cambiarlo. El Display Name (nombre visible) es el apodo que todos ven sobre tu cabeza en los juegos y se puede cambiar de forma 100% gratuita cada 7 días en la configuración de tu cuenta.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cómo cambiar mi Display Name en Roblox gratis?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Entra a Roblox, abre Configuración (icono de engranaje) > Información de la cuenta. Junto a "Nombre de visualización", haz clic en el icono de lápiz, escribe tu nuevo apodo generado y pulsa Guardar. Podrás volver a cambiarlo tras 7 días.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cuáles son las reglas de nombres en Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Los nombres deben tener entre 3 y 20 caracteres, sólo pueden contener letras, números y un único guion bajo (_) que no puede estar al inicio ni al final. Además, no deben infringir los filtros de seguridad ni contener palabras inapropiadas o datos personales.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cómo poner un nombre aesthetic o con espacios?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'En el Display Name sí se permiten ciertos caracteres y estilos visuales que simulan espacios o letras en minúsculas relajadas. Nuestro generador incluye una categoría especial "Aesthetic" configurada para cumplir las normas del filtro de Roblox sin ser bloqueada.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Generador de Nombres',
+          item: 'https://codigosroblox.org/es/generador-nombres-roblox/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="name-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Inicio</a>
+      <span>/</span>
+      <span class="text-indigo-300 font-medium">Generador de Nombres Roblox</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold">
+        <span>🎲</span>
+        <span>Herramienta Interactiva • Temporada 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Generador de Nombres para Roblox <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">Pro, Aesthetic y Clanes</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        ¿Buscando un apodo único para destacar en servidores de Blox Fruits, Brookhaven, Rivals o Da Hood? Genera combinaciones originales listas para copiar, guárdalas en tus favoritos y descubre cómo cambiar tu Display Name sin gastar un solo Robux.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Generator App Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Component -->
+    <NameGenerator locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="name-mid-banner" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: Display Name vs Username -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>💡</span> ¿Display Name vs Username: Cuál debes usar?
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Muchos jugadores confunden el <strong>Nombre de Usuario (@username)</strong> con el <strong>Nombre de Visualización (Display Name)</strong>. Esta distinción es fundamental para personalizar tu perfil en Roblox:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">Nombre de Visualización (Display Name)</span>
+            <h3 class="text-base font-bold text-white">100% Gratis y Flexible</h3>
+            <ul class="text-xs space-y-1.5 list-disc list-inside text-slate-300">
+              <li>Es el nombre que se ve arriba de tu avatar en todas las experiencias.</li>
+              <li>Se puede modificar <strong>gratis cada 7 días</strong>.</li>
+              <li>Múltiples jugadores pueden tener el mismo Display Name.</li>
+              <li>Permite mayúsculas, minúsculas y caracteres variados.</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">Nombre de Usuario (@Username)</span>
+            <h3 class="text-base font-bold text-white">Identificador Único Oficial</h3>
+            <ul class="text-xs space-y-1.5 list-disc list-inside text-slate-300">
+              <li>Es único en todo el servidor global de Roblox (con @).</li>
+              <li>Sirve para iniciar sesión y ser encontrado en el buscador principal.</li>
+              <li>Cambiarlo requiere un pago de <strong>1,000 Robux</strong>.</li>
+              <li>Si ya está cogido por otro jugador, nadie más puede usarlo.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Step-by-Step Guide to Change Name Free -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>🛠️</span> Paso a paso: Cómo cambiar tu Display Name en 2 minutos
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center text-sm border border-indigo-500/30">1</div>
+            <h4 class="font-bold text-white text-sm">Abre Configuración</h4>
+            <p class="text-xs text-slate-400">Inicia sesión en Roblox desde PC, móvil o consola y toca el icono de rueda dentada (Ajustes) en la esquina superior.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center text-sm border border-indigo-500/30">2</div>
+            <h4 class="font-bold text-white text-sm">Edita tu Apodo</h4>
+            <p class="text-xs text-slate-400">En la pestaña "Información de la cuenta", localiza la fila "Nombre de visualización" y pulsa el lápiz de edición.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center text-sm border border-indigo-500/30">3</div>
+            <h4 class="font-bold text-white text-sm">Guarda y Disfruta</h4>
+            <p class="text-xs text-slate-400">Pega el nombre que acabas de copiar en nuestro generador y pulsa Guardar. ¡Aparecerá al instante en tus partidas!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Rules and Limitations by Roblox -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>⚖️</span> Reglas Oficiales de Nombres de Roblox (Términos de Servicio)
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Para evitar que el sistema de moderación de Roblox rechace tu nuevo apodo o te asigne un nombre genérico, asegúrate de que cumpla con estas condiciones:
+        </p>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <li class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>Longitud:</strong> Entre 3 y 20 caracteres en total.</span>
+          </li>
+          <li class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>Caracteres permitidos:</strong> Letras (a-z, A-Z), números (0-9) y un guion bajo (_).</span>
+          </li>
+          <li class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2">
+            <span class="text-rose-400 font-bold">✕</span>
+            <span><strong>Sin guiones bajos seguidos:</strong> No se permiten dos guiones consecutivos (ej. Dark__King).</span>
+          </li>
+          <li class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2">
+            <span class="text-rose-400 font-bold">✕</span>
+            <span><strong>Sin datos personales:</strong> Prohibido usar apellidos reales, números de teléfono o direcciones.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-indigo-600/30 border border-indigo-400 flex items-center justify-center text-lg font-bold text-white">
+            HM
+          </div>
+          <div>
+            <span class="text-xs text-indigo-400 font-mono uppercase tracking-wider block">Escrito y Verificado por</span>
+            <h4 class="text-sm font-bold text-white">Héctor Moreno • Editor de Comunidad & Personalización</h4>
+            <p class="text-xs text-slate-400">Revisado técnicamente por Guillermo Beltrán y Jorge Villapún • Actualizado para 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/sobre-nosotros`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-indigo-300 border border-indigo-500/30 transition-colors shrink-0"
+        >
+          Conoce al Equipo Editorial →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Preguntas Frecuentes sobre Nombres en Roblox
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Por qué mi nuevo nombre aparece con almohadillas (####)?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Si tu nombre se convierte en etiquetas (#), significa que el filtro de moderación automática de Roblox detectó alguna palabra o secuencia sospechosa. Prueba a cambiar una vocal o elegir otra sugerencia de nuestro generador.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Cuánto tiempo tengo que esperar para volver a cambiar el nombre gratis?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            El Display Name gratuito tiene un tiempo de recarga obligatorio de <strong>7 días exactos</strong> desde el momento en que pulsas Guardar. Pasada la semana, puedes volver a cambiarlo cuantas veces desees sin coste.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Puedo usar estos nombres para crear un Clan o Tripulación en Blox Fruits?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            ¡Totalmente! En la pestaña "Clanes & Gremios" de nuestro generador encontrarás etiquetas como [VORTEX], [ROYAL] o [TITAN] especialmente pensadas para clanes de Blox Fruits, tripulaciones pirata y gremios competitivos de PvP.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a 
+        href={`/${locale}/calculadora-tradeos-blox-fruits/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-amber-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚖️</span>
+        <h4 class="font-bold text-white group-hover:text-amber-300 text-sm">Calculadora Blox Fruits</h4>
+        <p class="text-xs text-slate-400">Calcula tradeos justos W/F/L con valores actualizados en vivo.</p>
+      </a>
+      <a 
+        href={`/${locale}/musica/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-indigo-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎵</span>
+        <h4 class="font-bold text-white group-hover:text-indigo-300 text-sm">Códigos de Música IDs</h4>
+        <p class="text-xs text-slate-400">Canciones virales para la radio de Brookhaven y Da Hood.</p>
+      </a>
+      <a 
+        href={`/${locale}/objetos-gratis/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-emerald-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎁</span>
+        <h4 class="font-bold text-white group-hover:text-emerald-300 text-sm">Ropa & Objetos Gratis</h4>
+        <p class="text-xs text-slate-400">Reclama accesorios de 0 Robux antes de que desaparezcan.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="name-bottom-rect" locale={locale} />
+
+  </main>
+</Layout>
