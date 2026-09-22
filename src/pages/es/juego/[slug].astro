@@ -246,6 +246,33 @@ const pageSchema = {
       </div>
     )}
 
+    <!-- Special Free Items Callout for Promo Codes Page -->
+    {game.slug === 'roblox-promo-codes' && (
+      <div class="relative overflow-hidden bg-gradient-to-r from-emerald-950/40 via-teal-950/40 to-cyan-950/40 border border-emerald-500/30 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-2xl shrink-0">
+            🎁
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>¿Quieres más ropa y accesorios gratis sin gastar Robux?</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300">0 ROBUX</span>
+            </h4>
+            <p class="text-xs text-slate-300 mt-0.5">
+              Descubre más de 20 paquetes de personajes, peinados, alas y mochilas oficiales del Marketplace a coste cero.
+            </p>
+          </div>
+        </div>
+        <a
+          href={`/${locale}/objetos-gratis/`}
+          class="shrink-0 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 border border-emerald-400/40 transition-all flex items-center gap-1.5"
+        >
+          <span>🎁 Ver Objetos Gratis</span>
+          <span>→</span>
+        </a>
+      </div>
+    )}
+
     <!-- Mid-content Ad Placement (AdSense Compliant) -->
     <AdBanner slotType="horizontal" locale={locale} />
 

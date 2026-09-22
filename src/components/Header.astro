@@ -21,6 +21,8 @@ if (currentSlug) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/musica/' : '/en/music/';
 } else if (pathname.includes('/calculadora-tradeos-blox-fruits') || pathname.includes('/blox-fruits-trade-calculator')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/calculadora-tradeos-blox-fruits/' : '/en/blox-fruits-trade-calculator/';
+} else if (pathname.includes('/objetos-gratis') || pathname.includes('/free-items')) {
+  targetAlternateUrl = otherLocale === 'es' ? '/es/objetos-gratis/' : '/en/free-items/';
 } else if (pathname.includes('/guias')) {
   targetAlternateUrl = `/${otherLocale}/guias/`;
 } else if (pathname.includes('/sobre-nosotros') || pathname.includes('/about')) {
@@ -94,6 +96,12 @@ if (currentSlug) {
           {t.nav.musicCodes}
         </a>
         <a 
+          href={`/${locale}/${locale === 'es' ? 'objetos-gratis/' : 'free-items/'}`}
+          class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          {t.nav.freeItems}
+        </a>
+        <a 
           href={`/${locale}/juego/roblox-promo-codes`}
           class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-1.5"
         >
@@ -164,6 +172,12 @@ if (currentSlug) {
       class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
     >
       {t.nav.tradeCalc}
+    </a>
+    <a 
+      href={`/${locale}/${locale === 'es' ? 'objetos-gratis/' : 'free-items/'}`}
+      class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
+    >
+      {t.nav.freeItems}
     </a>
     <a 
       href={`/${locale}/${locale === 'es' ? 'musica/' : 'music/'}`}

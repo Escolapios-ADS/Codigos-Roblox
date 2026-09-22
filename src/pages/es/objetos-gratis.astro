@@ -1,0 +1,353 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import FreeItemCard from '../../components/FreeItemCard.astro';
+import { freeItemsData } from '../../data/free-items';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Objetos Gratis Roblox 2026 | Ropa, Accesorios y Pelo sin Robux';
+const pageDescription = 'Guía completa de objetos gratis de Roblox para 2026. Consigue bundles de personajes, peinados, alas, mochilas y emotes a 0 Robux con enlaces directos oficiales.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Cómo conseguir ropa y accesorios gratis en Roblox sin Robux?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Puedes conseguir ropa y accesorios gratis entrando en el Marketplace oficial de Roblox, abriendo los filtros de precio y configurando el precio mínimo y máximo en 0. También puedes obtener accesorios exclusivos superando los Roblox Creator Challenges o participando en eventos de marcas como Nike Land o Spotify Island.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Son seguros estos objetos o te pueden banear la cuenta?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Son 100% seguros y oficiales. Todos los objetos listados en nuestro portal provienen directamente de los servidores de Roblox Corporation o de marcas verificadas asociadas. Nunca utilices páginas que prometan generadores de Robux gratis, ya que son estafas ilegales.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Los objetos gratis del catálogo caducan?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Los paquetes y cabellos del catálogo base son permanentes y siempre están a 0 Robux. Los accesorios de eventos de marcas suelen ser temporales, por lo que recomendamos reclamarlos cuanto antes.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Objetos Gratis',
+          item: 'https://codigosroblox.org/es/objetos-gratis/'
+        }
+      ]
+    }
+  ]
+};
+
+const categories = [
+  { id: 'all', label: 'Todos los Objetos', emoji: '🎁' },
+  { id: 'bundles', label: 'Personajes & Bundles', emoji: '🧔' },
+  { id: 'hair', label: 'Pelo & Cabello', emoji: '💇' },
+  { id: 'hats', label: 'Gorros & Sombreros', emoji: '👒' },
+  { id: 'back', label: 'Espalda & Alas', emoji: '🎒' },
+  { id: 'events', label: 'Eventos de Marcas', emoji: '👟' },
+  { id: 'emotes', label: 'Emotes & Animaciones', emoji: '🕺' },
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="free-items-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
+      <a href={`/${locale}/`} class="hover:text-white transition-colors">Inicio</a>
+      <span>/</span>
+      <span class="text-indigo-400 font-semibold">Objetos Gratis de Avatar (0 Robux)</span>
+    </nav>
+
+    <div class="relative overflow-hidden bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>100% Legal • Sin Robux • Verificado Septiembre 2026</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          Objetos Gratis de Roblox <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">(Catálogo & Ropa a 0 R$)</span>
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Colección verificada de todos los accesorios, peinados, paquetes de personajes, mochilas y emotes gratuitos disponibles oficialmente en Roblox. Reclámalos con 1 clic directamente en el Marketplace oficial sin gastar un solo Robux.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="pt-4 max-w-xl">
+          <div class="relative flex items-center">
+            <input
+              type="text"
+              id="free-items-search-input"
+              placeholder="Buscar por accesorio (ej. Mochila, Pelo, Nike, Dennis)..."
+              class="w-full pl-11 pr-4 py-3.5 bg-black/40 border border-white/15 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 rounded-2xl text-sm text-white placeholder-slate-400 outline-none transition-all shadow-inner"
+              autocomplete="off"
+            />
+            <span class="absolute left-4 text-slate-400 text-lg">🔍</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Items Directory Grid Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-8">
+    
+    <!-- Category Filter Pills -->
+    <div class="flex flex-wrap items-center gap-2" id="category-filters-container">
+      {categories.map((c) => (
+        <button
+          type="button"
+          class={`cat-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
+            c.id === 'all'
+              ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-600/30 active-cat'
+              : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10'
+          }`}
+          data-cat-filter={c.id}
+        >
+          <span>{c.emoji}</span> {c.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Active Count & Tester credits -->
+    <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/5">
+      <div>
+        Mostrando <span id="visible-items-count" class="font-bold text-white">{freeItemsData.length}</span> objetos disponibles
+      </div>
+      <div class="text-slate-400">
+        Revisión de enlaces por <span class="text-indigo-400 font-semibold">Guillermo Beltrán</span> y <span class="text-cyan-400 font-semibold">Héctor Moreno</span>
+      </div>
+    </div>
+
+    <!-- Items Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" id="items-grid">
+      {freeItemsData.map((item) => (
+        <FreeItemCard item={item} locale={locale} />
+      ))}
+    </div>
+
+    <!-- No results container -->
+    <div id="no-free-results" class="hidden py-16 text-center space-y-4 bg-white/[0.01] border border-white/5 rounded-3xl p-8">
+      <div class="text-4xl">🛍️</div>
+      <h3 class="text-lg font-bold text-white">No se encontraron objetos con esa búsqueda</h3>
+      <p class="text-xs text-slate-400 max-w-md mx-auto">
+        Prueba con otro término de búsqueda o restaura los filtros para explorar todo el catálogo de regalos.
+      </p>
+      <button
+        type="button"
+        id="reset-free-filter-btn"
+        class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-white border border-white/10 transition-colors"
+      >
+        Ver todos los objetos gratuitos
+      </button>
+    </div>
+
+    <!-- Mid-Page In-Feed Ad -->
+    <div class="py-4">
+      <AdBanner slotType="horizontal" slotId="free-items-mid-banner" locale={locale} />
+    </div>
+
+    <!-- Trust Guides Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+      
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-xl">
+          🏷️
+        </div>
+        <h3 class="text-base font-bold text-white">El Filtro Oficial de 0 Robux</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          En la app de Roblox o en la web, ve a "Mercado" (Marketplace), pulsa el icono de filtros, selecciona "Precio" y ajusta el mínimo en 0 y el máximo en 0. Te aparecerán miles de camisetas, pantalones y modelos gratuitos aprobados por Roblox.
+        </p>
+      </div>
+
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-xl">
+          🎮
+        </div>
+        <h3 class="text-base font-bold text-white">Roblox Creator Challenges</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Roblox cuenta con experiencias educativas oficiales (Jurassic World, Star Wars, Godzilla) donde solo por responder 3 preguntas básicas sobre creación de videojuegos desbloqueas alas, mochilas y sombreros exclusivos.
+        </p>
+      </div>
+
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-xl">
+          🛡️
+        </div>
+        <h3 class="text-base font-bold text-white">Alerta contra Estafas (Scams)</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Nunca introduzcas tu contraseña de Roblox en páginas de terceros ni descargues supuestos "generadores de Robux gratis". Son estafas diseñadas para robar cuentas. Todos los métodos de nuestra web son 100% oficiales y seguros.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Editorial Trust Box -->
+    <div class="bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-6 space-y-2">
+      <div class="flex items-center gap-2 text-indigo-300 font-bold text-sm">
+        <span>🛡️</span>
+        <span>Garantía de Seguridad y Verificación Editorial</span>
+      </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Cada uno de los enlaces a objetos de esta página es inspeccionado periódicamente por <strong class="text-white">Guillermo Beltrán</strong> y <strong class="text-white">Héctor Moreno</strong>. Enlazamos única y exclusivamente a páginas verificadas dentro del dominio oficial <code class="text-indigo-300 font-mono text-[11px]">roblox.com</code> para garantizar que no existan enlaces rotos ni contenido malicioso.
+      </p>
+    </div>
+
+    <!-- Pre-FAQ Ad Placement -->
+    <AdBanner slotType="horizontal" slotId="free-items-pre-faq-banner" locale={locale} />
+
+    <!-- FAQ Section -->
+    <div class="space-y-4 pt-4">
+      <h2 class="text-2xl font-black text-white tracking-tight">
+        Preguntas Frecuentes sobre Ropa y Accesorios Gratis en Roblox
+      </h2>
+
+      <div class="space-y-3">
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">¿Cómo me pongo los objetos después de reclamarlos?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Una vez pulsas "Obtener", el accesorio se guarda de inmediato en tu perfil. Abre la pestaña "Avatar" en la aplicación de Roblox y podrás equiparlo en la categoría correspondiente (Ropa, Cabeza, Espalda, Animaciones).
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">¿Puedo vender un objeto gratuito por Robux?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            No, los objetos gratuitos del catálogo no son re-vendibles en el mercado secundario. Sin embargo, algunos objetos UGC limitados de eventos especiales pueden ganar valor coleccionable con el paso del tiempo.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">¿Hay ropa gratis para chicos y chicas?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Sí, existen cientos de opciones neutras, femeninas y masculinas. Puedes combinar piezas de paquetes como Dennis y Cindy con accesorios temáticos para crear estilos únicos sin gastar dinero real.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Client-side filter script -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('free-items-search-input');
+      const catButtons = document.querySelectorAll('.cat-filter-btn');
+      const cards = document.querySelectorAll('.free-item-card');
+      const countEl = document.getElementById('visible-items-count');
+      const noResults = document.getElementById('no-free-results');
+      const resetBtn = document.getElementById('reset-free-filter-btn');
+
+      let currentCategory = 'all';
+      let searchQuery = '';
+
+      function filterItems() {
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const title = card.getAttribute('data-title') || '';
+          const category = card.getAttribute('data-category') || '';
+
+          const matchesCat = currentCategory === 'all' || category === currentCategory;
+          const matchesQuery = !searchQuery || title.includes(searchQuery);
+
+          if (matchesCat && matchesQuery) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (countEl) countEl.textContent = String(visibleCount);
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+          } else {
+            noResults.classList.add('hidden');
+          }
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = (e.target.value || '').trim().toLowerCase();
+          filterItems();
+        });
+      }
+
+      catButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          catButtons.forEach((b) => {
+            b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+            b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+          });
+
+          btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+          btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+
+          currentCategory = btn.getAttribute('data-cat-filter') || 'all';
+          filterItems();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          searchQuery = '';
+          currentCategory = 'all';
+
+          catButtons.forEach((b) => {
+            if (b.getAttribute('data-cat-filter') === 'all') {
+              b.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+              b.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+            } else {
+              b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+              b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+            }
+          });
+
+          filterItems();
+        });
+      }
+    });
+  </script>
+</Layout>

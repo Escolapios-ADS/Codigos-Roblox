@@ -1,0 +1,353 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import FreeItemCard from '../../components/FreeItemCard.astro';
+import { freeItemsData } from '../../data/free-items';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = 'Roblox Free Items 2026 | Free Clothes, Hair, Accessories & 0 Robux Bundles';
+const pageDescription = 'Comprehensive directory of all working free Roblox items for 2026. Claim character bundles, hairstyles, wings, backpacks, and emotes at 0 Robux with official links.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How do you get free clothes and accessories on Roblox without Robux?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'You can claim free clothes and accessories by going to the official Roblox Marketplace, opening the price filter, and setting min and max price to 0. You can also earn free items by answering quick trivia in Roblox Creator Challenges or participating in brand events like NIKELAND and Spotify Island.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Are these free items safe or can your account get banned?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'They are 100% safe, official, and approved by Roblox Corporation. Never use third-party websites offering free Robux generators, as those are illegal scams.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Do free catalog items expire?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Standard character bundles and basic hairstyles in the catalog are permanently free. Brand event collaborations and limited UGC drops are temporary, so claim them as soon as possible.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://codigosroblox.org/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Free Items',
+          item: 'https://codigosroblox.org/en/free-items/'
+        }
+      ]
+    }
+  ]
+};
+
+const categories = [
+  { id: 'all', label: 'All Free Items', emoji: '🎁' },
+  { id: 'bundles', label: 'Characters & Bundles', emoji: '🧔' },
+  { id: 'hair', label: 'Hair & Hairstyles', emoji: '💇' },
+  { id: 'hats', label: 'Hats & Headwear', emoji: '👒' },
+  { id: 'back', label: 'Back & Wings', emoji: '🎒' },
+  { id: 'events', label: 'Brand Events', emoji: '👟' },
+  { id: 'emotes', label: 'Emotes & Animations', emoji: '🕺' },
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="free-items-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
+      <a href={`/${locale}/`} class="hover:text-white transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-indigo-400 font-semibold">Free Avatar Items (0 Robux)</span>
+    </nav>
+
+    <div class="relative overflow-hidden bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>100% Safe • 0 Robux • Verified September 2026</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          Roblox Free Items <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">(Catalog, Clothes & Bundles)</span>
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Verified directory of all officially available free accessories, hair, character bundles, wings, and emotes on Roblox. Claim them with 1 click directly on the official Marketplace without spending any Robux.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="pt-4 max-w-xl">
+          <div class="relative flex items-center">
+            <input
+              type="text"
+              id="free-items-search-input"
+              placeholder="Search accessories (e.g. Backpack, Hair, Nike, Dennis)..."
+              class="w-full pl-11 pr-4 py-3.5 bg-black/40 border border-white/15 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 rounded-2xl text-sm text-white placeholder-slate-400 outline-none transition-all shadow-inner"
+              autocomplete="off"
+            />
+            <span class="absolute left-4 text-slate-400 text-lg">🔍</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Items Directory Grid Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-8">
+    
+    <!-- Category Filter Pills -->
+    <div class="flex flex-wrap items-center gap-2" id="category-filters-container">
+      {categories.map((c) => (
+        <button
+          type="button"
+          class={`cat-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
+            c.id === 'all'
+              ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-600/30 active-cat'
+              : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10'
+          }`}
+          data-cat-filter={c.id}
+        >
+          <span>{c.emoji}</span> {c.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Active Count & Tester credits -->
+    <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/5">
+      <div>
+        Showing <span id="visible-items-count" class="font-bold text-white">{freeItemsData.length}</span> free items available
+      </div>
+      <div class="text-slate-400">
+        Link verification by <span class="text-indigo-400 font-semibold">Guillermo Beltrán</span> and <span class="text-cyan-400 font-semibold">Héctor Moreno</span>
+      </div>
+    </div>
+
+    <!-- Items Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" id="items-grid">
+      {freeItemsData.map((item) => (
+        <FreeItemCard item={item} locale={locale} />
+      ))}
+    </div>
+
+    <!-- No results container -->
+    <div id="no-free-results" class="hidden py-16 text-center space-y-4 bg-white/[0.01] border border-white/5 rounded-3xl p-8">
+      <div class="text-4xl">🛍️</div>
+      <h3 class="text-lg font-bold text-white">No items found matching your search</h3>
+      <p class="text-xs text-slate-400 max-w-md mx-auto">
+        Try searching with different terms or reset your filters to explore the complete catalog.
+      </p>
+      <button
+        type="button"
+        id="reset-free-filter-btn"
+        class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-white border border-white/10 transition-colors"
+      >
+        View All Free Items
+      </button>
+    </div>
+
+    <!-- Mid-Page In-Feed Ad -->
+    <div class="py-4">
+      <AdBanner slotType="horizontal" slotId="free-items-mid-banner" locale={locale} />
+    </div>
+
+    <!-- Trust Guides Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+      
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-xl">
+          🏷️
+        </div>
+        <h3 class="text-base font-bold text-white">The Official 0 Robux Filter</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          In the Roblox mobile app or browser, head to "Marketplace", tap the filter button, select "Price", and set both min and max to 0. Thousands of legitimate community shirts, pants, and models will show up.
+        </p>
+      </div>
+
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-xl">
+          🎮
+        </div>
+        <h3 class="text-base font-bold text-white">Roblox Creator Challenges</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Official educational experiences created by Roblox (Jurassic World, Star Wars, Godzilla) reward players with exclusive hats, wings, and backpacks simply for answering 3 basic game design trivia questions.
+        </p>
+      </div>
+
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-xl">
+          🛡️
+        </div>
+        <h3 class="text-base font-bold text-white">Scam Prevention Warning</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Never submit your Roblox password or credentials on external sites promising "Free Robux Generators". Those are malicious scams. All methods featured on our portal are 100% official and safe.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Editorial Trust Box -->
+    <div class="bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-6 space-y-2">
+      <div class="flex items-center gap-2 text-indigo-300 font-bold text-sm">
+        <span>🛡️</span>
+        <span>Safety & Editorial Quality Guarantee</span>
+      </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Every product link on this page is routinely audited by <strong class="text-white">Guillermo Beltrán</strong> and <strong class="text-white">Héctor Moreno</strong>. We link strictly to verified items on the official <code class="text-indigo-300 font-mono text-[11px]">roblox.com</code> domain to guarantee no broken links or deceptive redirects.
+      </p>
+    </div>
+
+    <!-- Pre-FAQ Ad Placement -->
+    <AdBanner slotType="horizontal" slotId="free-items-pre-faq-banner" locale={locale} />
+
+    <!-- FAQ Section -->
+    <div class="space-y-4 pt-4">
+      <h2 class="text-2xl font-black text-white tracking-tight">
+        Frequently Asked Questions about Free Roblox Items
+      </h2>
+
+      <div class="space-y-3">
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">How do I equip items after claiming them?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Once you click "Get", the item is instantly stored in your Roblox inventory. Open the "Avatar" editor in your app and equip it under the relevant category (Clothing, Head, Back, Animations).
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">Can you resell free items for Robux?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            No, free standard catalog items cannot be resold on the secondary marketplace. However, certain limited UGC drops from brand events may appreciate in collectible appeal over time.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">Are there free outfits for both boys and girls?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Yes, there are hundreds of neutral, female, and male free items. You can combine bundle pieces like Dennis and Cindy with thematic accessories to build unique avatar outfits with zero Robux.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Client-side filter script -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('free-items-search-input');
+      const catButtons = document.querySelectorAll('.cat-filter-btn');
+      const cards = document.querySelectorAll('.free-item-card');
+      const countEl = document.getElementById('visible-items-count');
+      const noResults = document.getElementById('no-free-results');
+      const resetBtn = document.getElementById('reset-free-filter-btn');
+
+      let currentCategory = 'all';
+      let searchQuery = '';
+
+      function filterItems() {
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const title = card.getAttribute('data-title') || '';
+          const category = card.getAttribute('data-category') || '';
+
+          const matchesCat = currentCategory === 'all' || category === currentCategory;
+          const matchesQuery = !searchQuery || title.includes(searchQuery);
+
+          if (matchesCat && matchesQuery) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (countEl) countEl.textContent = String(visibleCount);
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+          } else {
+            noResults.classList.add('hidden');
+          }
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = (e.target.value || '').trim().toLowerCase();
+          filterItems();
+        });
+      }
+
+      catButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          catButtons.forEach((b) => {
+            b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+            b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+          });
+
+          btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+          btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+
+          currentCategory = btn.getAttribute('data-cat-filter') || 'all';
+          filterItems();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          searchQuery = '';
+          currentCategory = 'all';
+
+          catButtons.forEach((b) => {
+            if (b.getAttribute('data-cat-filter') === 'all') {
+              b.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+              b.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+            } else {
+              b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-cat');
+              b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+            }
+          });
+
+          filterItems();
+        });
+      }
+    });
+  </script>
+</Layout>
