@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import SideRails from '../components/SideRails.astro';
 import type { SupportedLocale } from '../i18n/translations';
 import '../styles/global.css';
 
@@ -92,7 +93,10 @@ const baseWebsiteSchema = {
 
     <Header locale={locale} currentSlug={currentSlug} />
 
-    <main class="flex-grow">
+    <!-- Left & Right Skyscraper Side Rail Ads for Desktop Gutters -->
+    <SideRails locale={locale} />
+
+    <main class="flex-grow relative z-10">
       <slot />
     </main>
 

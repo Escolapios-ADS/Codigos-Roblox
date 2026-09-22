@@ -143,6 +143,9 @@ const pageSchema = {
       </div>
     </div>
 
+    <!-- Top Game Leaderboard Ad Slot -->
+    <AdBanner slotType="leaderboard" slotId="game-top-leaderboard" locale={locale} />
+
     <!-- Active Codes Section -->
     <section class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -228,6 +231,9 @@ const pageSchema = {
       tip={game.howToRedeem[locale].tip}
       locale={locale}
     />
+
+    <!-- Pre-FAQ In-Content Ad -->
+    <AdBanner slotType="horizontal" slotId="game-pre-faq-banner" locale={locale} />
 
     <!-- FAQ Section -->
     <FaqSection

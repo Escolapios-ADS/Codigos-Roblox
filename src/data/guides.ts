@@ -19,12 +19,12 @@ export const guidesData: GuideItem[] = [
       en: 'Tier List / Guide',
     },
     author: {
-      name: 'Carlos "Kuro" Méndez',
+      name: 'Guillermo Beltrán',
       role: {
-        es: 'Especialista en RPGs de Roblox & Max Level en Blox Fruits',
-        en: 'Roblox RPG Specialist & Max Level Blox Fruits Veteran',
+        es: 'Director Editorial & Especialista en RPGs de Roblox',
+        en: 'Editor-in-Chief & Roblox RPG Specialist',
       },
-      avatar: '🗡️',
+      avatar: '👑',
     },
     publishedDate: '2026-09-15',
     updatedDate: '2026-09-22',
@@ -135,10 +135,10 @@ export const guidesData: GuideItem[] = [
       en: 'Safety / Guides',
     },
     author: {
-      name: 'Sofía Valdés',
+      name: 'Jorge Villapún',
       role: {
-        es: 'Especialista en Ciberseguridad y Moderación en Comunidades de Gaming',
-        en: 'Cybersecurity & Community Moderation Specialist',
+        es: 'Especialista en Seguridad, Economía y Mecánicas de Roblox',
+        en: 'Roblox Security, Economy & Game Mechanics Specialist',
       },
       avatar: '🛡️',
     },
@@ -243,10 +243,10 @@ export const guidesData: GuideItem[] = [
       en: 'Strategy / Action',
     },
     author: {
-      name: 'Marcos "BladeMaster" Gil',
+      name: 'Héctor Moreno',
       role: {
-        es: 'Jugador competitivo top 500 en Blade Ball',
-        en: 'Competitive Top 500 Blade Ball Duelist',
+        es: 'Analista de Meta y Duelista Competitivo en Blade Ball',
+        en: 'Meta Analyst & Competitive Blade Ball Duelist',
       },
       avatar: '⚡',
     },
@@ -326,12 +326,12 @@ export const guidesData: GuideItem[] = [
       en: 'Fashion / Runway',
     },
     author: {
-      name: 'Elena "ChicGamer" Ross',
+      name: 'Guillermo Beltrán',
       role: {
-        es: 'Top Model & Diseñadora de Ropa en Roblox',
-        en: 'Roblox Top Model & Fashion Designer',
+        es: 'Director Editorial & Diseñador de Catálogo de Avatar',
+        en: 'Editor-in-Chief & Avatar Catalog Designer',
       },
-      avatar: '💅',
+      avatar: '👗',
     },
     publishedDate: '2026-09-17',
     updatedDate: '2026-09-22',

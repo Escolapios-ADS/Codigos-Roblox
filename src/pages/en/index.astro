@@ -48,6 +48,11 @@ const generalRedeemSteps = [
   description={t.siteDescription}
   locale={locale}
 >
+  <!-- Top Header Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="top-header-leaderboard" locale={locale} />
+  </div>
+
   <!-- Hero Section with Search and Stats -->
   <Hero locale={locale} totalCodes={totalCodes} totalGames={totalGames} />
 
@@ -142,6 +147,11 @@ const generalRedeemSteps = [
       locale={locale}
     />
   </section>
+
+  <!-- Pre-FAQ Native Ad Banner -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <AdBanner slotType="horizontal" slotId="pre-faq-banner" locale={locale} />
+  </div>
 
   <!-- Homepage FAQs -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
