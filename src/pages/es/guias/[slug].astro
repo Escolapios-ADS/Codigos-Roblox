@@ -134,58 +134,66 @@ const pageSchema = {
 
     <!-- Article Body Sections -->
     <article class="space-y-10 text-slate-300 leading-relaxed text-sm sm:text-base">
-      {guide.sections.map((section) => (
-        <section class="space-y-4">
-          <h2 class="text-2xl font-bold text-white tracking-tight pt-2 border-b border-white/5 pb-2">
-            {section.heading[locale]}
-          </h2>
+      {guide.sections.map((section, sIndex) => (
+        <>
+          <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white tracking-tight pt-2 border-b border-white/5 pb-2">
+              {section.heading[locale]}
+            </h2>
 
-          {section.content[locale].map((paragraph) => (
-            <p class="leading-relaxed text-slate-300">
-              {paragraph}
-            </p>
-          ))}
+            {section.content[locale].map((paragraph) => (
+              <p class="leading-relaxed text-slate-300">
+                {paragraph}
+              </p>
+            ))}
 
-          {section.table && (
-            <div class="overflow-x-auto my-6 border border-white/10 rounded-xl bg-[#0d1322]">
-              <table class="w-full text-left text-xs sm:text-sm">
-                <thead class="bg-white/5 text-slate-200 border-b border-white/10 font-bold uppercase tracking-wider text-[11px]">
-                  <tr>
-                    {section.table.headers[locale].map((header) => (
-                      <th class="p-3.5 sm:p-4">{header}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-white/5">
-                  {section.table.rows[locale].map((row) => (
-                    <tr class="hover:bg-white/[0.02] transition-colors">
-                      {row.map((cell, idx) => (
-                        <td class={`p-3.5 sm:p-4 ${idx === 0 ? 'font-bold text-white' : 'text-slate-300'}`}>
-                          {cell}
-                        </td>
+            {section.table && (
+              <div class="overflow-x-auto my-6 border border-white/10 rounded-xl bg-[#0d1322]">
+                <table class="w-full text-left text-xs sm:text-sm">
+                  <thead class="bg-white/5 text-slate-200 border-b border-white/10 font-bold uppercase tracking-wider text-[11px]">
+                    <tr>
+                      {section.table.headers[locale].map((header) => (
+                        <th class="p-3.5 sm:p-4">{header}</th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+                  </thead>
+                  <tbody class="divide-y divide-white/5">
+                    {section.table.rows[locale].map((row) => (
+                      <tr class="hover:bg-white/[0.02] transition-colors">
+                        {row.map((cell, idx) => (
+                          <td class={`p-3.5 sm:p-4 ${idx === 0 ? 'font-bold text-white' : 'text-slate-300'}`}>
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
 
-          {section.callout && (
-            <div class={`flex items-start gap-3 p-4 rounded-xl text-xs sm:text-sm ${
-              section.callout.type === 'tip' 
-                ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-200'
-                : section.callout.type === 'warning'
-                ? 'bg-amber-500/10 border border-amber-500/30 text-amber-200'
-                : 'bg-indigo-500/10 border border-indigo-500/30 text-indigo-200'
-            }`}>
-              <span class="text-base shrink-0">
-                {section.callout.type === 'tip' ? '💡' : section.callout.type === 'warning' ? '⚠️' : 'ℹ️'}
-              </span>
-              <div>{section.callout.text[locale]}</div>
+            {section.callout && (
+              <div class={`flex items-start gap-3 p-4 rounded-xl text-xs sm:text-sm ${
+                section.callout.type === 'tip' 
+                  ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-200'
+                  : section.callout.type === 'warning'
+                  ? 'bg-amber-500/10 border border-amber-500/30 text-amber-200'
+                  : 'bg-indigo-500/10 border border-indigo-500/30 text-indigo-200'
+              }`}>
+                <span class="text-base shrink-0">
+                  {section.callout.type === 'tip' ? '💡' : section.callout.type === 'warning' ? '⚠️' : 'ℹ️'}
+                </span>
+                <div>{section.callout.text[locale]}</div>
+              </div>
+            )}
+          </section>
+
+          {sIndex === 1 && (
+            <div class="my-6">
+              <AdBanner slotType="horizontal" slotId="guide-in-content-slot" locale={locale} />
             </div>
           )}
-        </section>
+        </>
       ))}
     </article>
 

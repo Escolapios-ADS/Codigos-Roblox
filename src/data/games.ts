@@ -1333,6 +1333,565 @@ export const gamesData: GameItem[] = [
       ],
     },
   },
+  {
+    id: 'murder-mystery-2',
+    slug: 'murder-mystery-2',
+    title: 'Murder Mystery 2 (MM2)',
+    tagline: {
+      es: 'Consigue cuchillos legendarios, mascotas gratis y skins exclusivas.',
+      en: 'Claim free legendary knives, exclusive pets, and weapon skins.',
+    },
+    badge: {
+      es: '🔪 Mega Clásico',
+      en: '🔪 Classic Hit',
+    },
+    category: 'action',
+    categoryLabel: {
+      es: 'Acción / Misterio',
+      en: 'Action / Mystery',
+    },
+    developer: 'Nikilis',
+    likes: '18.5M+',
+    visits: '18.4B+',
+    activePlayers: '180,000+',
+    robloxUrl: 'https://www.roblox.com/games/142823291/Murder-Mystery-2',
+    accentColor: 'rose',
+    iconGradient: 'from-red-600 via-rose-600 to-amber-600',
+    emoji: '🔪',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Lista completa y verificada de códigos activos de Murder Mystery 2 (MM2) en Roblox. Desbloquea cuchillos gratis y mascotas exclusivas.',
+      en: 'Complete and verified list of active Murder Mystery 2 (MM2) codes in Roblox. Unlock free knife skins and rare pets.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Murder Mystery 2 paso a paso',
+        steps: [
+          'Entra en Murder Mystery 2 en Roblox.',
+          'En el lobby principal, haz clic en el botón de Inventario (icono de cofre) en el menú lateral izquierdo.',
+          'En la esquina inferior derecha de la pantalla de inventario, localiza la casilla "EnterCode".',
+          'Escribe o pega el código activo y pulsa el botón "Redeem" para reclamar tu cuchillo o mascota al instante.'
+        ],
+        tip: 'Los códigos de cuchillos son muy codiciados en las salas de intercambio (trading rooms). ¡No los regales!',
+      },
+      en: {
+        title: 'How to Redeem Codes in Murder Mystery 2 Step-by-Step',
+        steps: [
+          'Launch Murder Mystery 2 on Roblox.',
+          'In the game lobby, click the Inventory button (chest icon) on the left sidebar.',
+          'Look at the bottom-right corner of your inventory menu for the "EnterCode" field.',
+          'Paste the active code and click the "Redeem" button to unlock your knife skin or companion.'
+        ],
+        tip: 'Keep newly unlocked code knives safe: they hold great collectible value in MM2 trading hubs!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'COMB4T2',
+        reward: {
+          es: 'Cuchillo exclusivo Combat II Knife',
+          en: 'Exclusive Combat II Knife',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'PR1SM',
+        reward: {
+          es: 'Cuchillo Prism Knife gratis',
+          en: 'Free Prism Knife',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'AL3X',
+        reward: {
+          es: 'Mascota Alex Pet de acompañamiento',
+          en: 'Alex Pet companion',
+        },
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'CORL',
+        reward: {
+          es: 'Mascota Corl Pet coleccionable',
+          en: 'Collectible Corl Pet',
+        },
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'SK3TCH',
+        reward: {
+          es: 'Mascota Sketchy Pet',
+          en: 'Sketchy Pet',
+        },
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'INF3CT3D',
+        reward: {
+          es: 'Cuchillo temático Infected Knife',
+          en: 'Infected Knife theme skin',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'G003Y', reward: { es: 'Goo Knife', en: 'Goo Knife' } },
+      { code: 'R3DL1N3', reward: { es: 'Redline Knife', en: 'Redline Knife' } },
+      { code: 'GL4SS', reward: { es: 'Prism Knife', en: 'Prism Knife' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Cómo consigo armas de nivel Godly en MM2?',
+          a: 'Las armas Godly se obtienen abriendo cajas de armas con monedas, comprándolas en eventos de temporada o intercambiando cuchillos raros con otros jugadores.',
+        },
+        {
+          q: '¿Los códigos de MM2 caducan?',
+          a: 'Sí, Nikilis publica códigos durante eventos especiales y suelen durar pocas semanas o meses. En nuestro portal verificamos a diario qué códigos siguen funcionando.',
+        },
+      ],
+      en: [
+        {
+          q: 'How do I obtain Godly tier knives in MM2?',
+          a: 'Godly weapons can be unboxed from mystery weapon crates with coins, purchased during limited events, or acquired through trading.',
+        },
+        {
+          q: 'Do Murder Mystery 2 codes expire?',
+          a: 'Yes, special promotional codes released by Nikilis expire after seasonal events. Our team verifies every code daily.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'da-hood',
+    slug: 'da-hood',
+    title: 'Da Hood',
+    tagline: {
+      es: 'Recibe millones de Da Hood Cash, cajas de armas y skins exclusivas.',
+      en: 'Get free Da Hood Cash, weapon crates, and premium skins.',
+    },
+    badge: {
+      es: '💥 PvP Callejero',
+      en: '💥 Street Combat',
+    },
+    category: 'action',
+    categoryLabel: {
+      es: 'Acción / Mundo Abierto',
+      en: 'Action / Open World',
+    },
+    developer: 'Da Hood Entertainment',
+    likes: '2.9M+',
+    visits: '3.7B+',
+    activePlayers: '45,000+',
+    robloxUrl: 'https://www.roblox.com/games/2788229376/Da-Hood',
+    accentColor: 'amber',
+    iconGradient: 'from-amber-600 via-orange-600 to-red-600',
+    emoji: '🥊',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Códigos activos de Da Hood en Roblox actualizados hoy. Canjea cientos de miles de Da Hood Cash y cajas de armas gratis.',
+      en: 'Active Da Hood codes in Roblox verified today. Claim free Da Hood Cash, weapon crates, and exclusive rolls.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Da Hood',
+        steps: [
+          'Inicia Da Hood en Roblox y únete a un servidor.',
+          'Haz clic en el icono de cofre / mochila en la esquina inferior izquierda de la pantalla.',
+          'Pulsa sobre el icono de códigos (pájaro o regalo) situado abajo.',
+          'Pega el código activo exactamente como aparece y presiona "Redeem".'
+        ],
+        tip: 'Deposita tu dinero rápidamente en el cajero automático del banco para que otros jugadores no te lo roben si caes en combate.',
+      },
+      en: {
+        title: 'How to Redeem Codes in Da Hood Step-by-Step',
+        steps: [
+          'Launch Da Hood on Roblox and enter a game lobby.',
+          'Click the backpack/chest icon in the bottom-left corner.',
+          'Select the Codes tab located inside the menu.',
+          'Enter or paste an active code and hit "Redeem" to claim your Da Hood Cash.'
+        ],
+        tip: 'Always deposit newly acquired code cash at an ATM right away to keep it safe from other players!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'DAHOOD2026',
+        reward: {
+          es: '250,000 Da Hood Cash',
+          en: '250,000 Da Hood Cash',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'TRADINGUPD',
+        reward: {
+          es: '100,000 Cash + 2 Cajas de Armas',
+          en: '100,000 Cash + 2 Weapon Crates',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'WINTERHOOD',
+        reward: {
+          es: '150,000 Da Hood Cash gratis',
+          en: '150,000 Free Da Hood Cash',
+        },
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'CASHCASH',
+        reward: {
+          es: '100,000 Cash inicial',
+          en: '100,000 Starter Cash',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'FIREWORKS', reward: { es: '100k Cash', en: '100k Cash' } },
+      { code: '2025YEAR', reward: { es: '200k Cash', en: '200k Cash' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Para qué sirve el Da Hood Cash?',
+          a: 'Sirve para comprar armamento pesado (escopetas, revólveres, rifles tácticos), blindaje corporal, vehículos y comida en los supermercados de la ciudad.',
+        },
+      ],
+      en: [
+        {
+          q: 'What is Da Hood Cash used for?',
+          a: 'You can spend Da Hood Cash on high-tier weapons, body armor, lockpicks, vehicles, and food at convenience stores.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'rivals',
+    slug: 'rivals',
+    title: 'Rivals',
+    tagline: {
+      es: 'Desbloquea llaves de armas, wraps exclusivos y potenciadores de experiencia.',
+      en: 'Unlock free weapon wraps, match keys, and competitive boosters.',
+    },
+    badge: {
+      es: '🎯 Shooter #1',
+      en: '🎯 #1 FPS Hit',
+    },
+    category: 'action',
+    categoryLabel: {
+      es: 'Shooter / FPS',
+      en: 'Shooter / FPS',
+    },
+    developer: 'Nosniy Games',
+    likes: '1.4M+',
+    visits: '920M+',
+    activePlayers: '110,000+',
+    robloxUrl: 'https://www.roblox.com/games/17625359962/RIVALS',
+    accentColor: 'emerald',
+    iconGradient: 'from-emerald-500 via-teal-600 to-cyan-600',
+    emoji: '🎯',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Códigos más recientes de Rivals en Roblox. Consigue skins de armas, llaves de cajas y potenciadores gratis para dominar el PvP.',
+      en: 'Latest verified Rivals codes in Roblox. Unlock free weapon wraps, crate keys, and competitive boosts.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Rivals',
+        steps: [
+          'Abre Rivals en Roblox.',
+          'En el menú de inicio o lobby, dirígete a la sección Tienda o Recompensas.',
+          'Haz clic en la pestaña "Códigos" (Codes).',
+          'Introduce el código activo y presiona Canjear para recibir tus llaves y camuflajes.'
+        ],
+        tip: 'Usa las llaves de códigos para abrir cajas de nivel raro y conseguir efectos de disparo personalizados.',
+      },
+      en: {
+        title: 'How to Redeem Codes in Rivals Step-by-Step',
+        steps: [
+          'Launch Rivals on Roblox.',
+          'From the main lobby screen, open the Rewards or Shop menu.',
+          'Click on the "Codes" tab.',
+          'Type the active code and click Redeem to receive your weapon wraps and crate keys.'
+        ],
+        tip: 'Save up your bonus keys for rare crate openings to secure premium bullet tracer effects!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'COMMUNITY',
+        reward: {
+          es: 'Wrap exclusivo de arma comunitario',
+          en: 'Exclusive Community Weapon Wrap',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'RELEASE',
+        reward: {
+          es: '100 Llaves + Caja de Inicio',
+          en: '100 Keys + Starter Crate',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: '100MVISITS',
+        reward: {
+          es: 'Amuleto exclusivo + 50 Llaves',
+          en: 'Exclusive Charm + 50 Keys',
+        },
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'BONUS',
+        reward: {
+          es: '1x Potenciador de EXP en partidas',
+          en: '1x Match EXP Booster',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'BETA1', reward: { es: 'Beta Key', en: 'Beta Key' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Las armas de Rivals dan ventaja de daño?',
+          a: 'No, Rivals mantiene un equilibrio competitivo estricto. Las skins y wraps desbloqueados con códigos son puramente cosméticos.',
+        },
+      ],
+      en: [
+        {
+          q: 'Do weapon skins in Rivals give competitive advantages?',
+          a: 'No, Rivals operates on strict competitive fairness. All skins, charms, and wraps from codes are 100% cosmetic.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'all-star-tower-defense',
+    slug: 'all-star-tower-defense',
+    title: 'All Star Tower Defense (ASTD)',
+    tagline: {
+      es: 'Obtén Stardust, miles de gemas gratis y tiradas para invocar personajes 6 estrellas.',
+      en: 'Get free Stardust, thousands of gems, and 6-star summon rolls.',
+    },
+    badge: {
+      es: '⭐ Legendario',
+      en: '⭐ Legendary TD',
+    },
+    category: 'anime',
+    categoryLabel: {
+      es: 'Anime / Tower Defense',
+      en: 'Anime / Tower Defense',
+    },
+    developer: 'Top Down Games',
+    likes: '4.8M+',
+    visits: '7.3B+',
+    activePlayers: '65,000+',
+    robloxUrl: 'https://www.roblox.com/games/4996049426/All-Star-Tower-Defense',
+    accentColor: 'purple',
+    iconGradient: 'from-purple-600 via-indigo-600 to-pink-600',
+    emoji: '🌟',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Códigos activos de All Star Tower Defense (ASTD) para conseguir gemas, Stardust y tiradas de invocación gratis en Roblox.',
+      en: 'Active All Star Tower Defense (ASTD) codes. Redeem free Gems, Stardust, and summons in Roblox.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en ASTD',
+        steps: [
+          'Entra en All Star Tower Defense en Roblox.',
+          'En el lobby principal, localiza el icono de rueda dentada (Ajustes / Settings) en la esquina inferior derecha.',
+          'Se abrirá una ventana con un campo de texto que dice "Enter Code".',
+          'Pega el código y se canjeará de forma automática.'
+        ],
+        tip: 'Algunos códigos de ASTD requieren haber alcanzado el nivel 40+ en el modo historia para poder canjearse.',
+      },
+      en: {
+        title: 'How to Redeem Codes in ASTD Step-by-Step',
+        steps: [
+          'Launch All Star Tower Defense on Roblox.',
+          'In the game lobby, click the Settings gear icon in the bottom-right corner.',
+          'A popup window will reveal an "Enter Code" text field.',
+          'Paste the code into the box to automatically receive your gems and stardust.'
+        ],
+        tip: 'Certain high-tier ASTD codes may require reaching Level 40+ in Story Mode to prevent alt abuse.',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'ASTD2026',
+        reward: {
+          es: '500 Stardust + 1,000 Gemas',
+          en: '500 Stardust + 1,000 Gems',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'SUMMONUPDATE',
+        reward: {
+          es: '300 Stardust + 800 Gemas',
+          en: '300 Stardust + 800 Gems',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'SUPERSUMMON',
+        reward: {
+          es: '400 Gemas + 150 Stardust',
+          en: '400 Gems + 150 Stardust',
+        },
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'NEWEXP',
+        reward: {
+          es: 'Poción de 2x Experiencia',
+          en: '2x Experience Potion',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'world3update', reward: { es: 'Gems', en: 'Gems' } },
+      { code: 'astd2025', reward: { es: 'Stardust', en: 'Stardust' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Cómo se consigue Stardust en ASTD?',
+          a: 'El Stardust se obtiene superando incursiones (raids), misiones diarias, eventos de gremio y principalmente a través de códigos promocionales oficiales.',
+        },
+      ],
+      en: [
+        {
+          q: 'How do you get Stardust in ASTD?',
+          a: 'Stardust is earned through raid clears, infinite trials, daily quests, and predominantly via official promo codes.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'shindo-life',
+    slug: 'shindo-life',
+    title: 'Shindo Life',
+    tagline: {
+      es: 'Consigue millones de RELL Coins, tiradas ninja gratis y Bloodlines míticos.',
+      en: 'Get millions of RELL Coins, free ninja spins, and mythic Bloodlines.',
+    },
+    badge: {
+      es: '🍥 Ninja RPG',
+      en: '🍥 Ninja RPG',
+    },
+    category: 'anime',
+    categoryLabel: {
+      es: 'Anime / Ninjas',
+      en: 'Anime / Ninjas',
+    },
+    developer: 'RELL World',
+    likes: '4.1M+',
+    visits: '2.6B+',
+    activePlayers: '50,000+',
+    robloxUrl: 'https://www.roblox.com/games/4616652839/Shindo-Life',
+    accentColor: 'orange',
+    iconGradient: 'from-orange-500 via-red-600 to-amber-600',
+    emoji: '🍥',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Códigos actualizados de Shindo Life en Roblox. Consigue miles de spins gratis y RELL Coins para conseguir Bloodlines legendarios.',
+      en: 'Updated Shindo Life codes on Roblox. Claim thousands of free spins and RELL Coins to roll legendary Bloodlines.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Shindo Life',
+        steps: [
+          'Entra en Shindo Life y abre el menú de personalización ("Edit") de tu ninja.',
+          'En la esquina superior derecha verás un campo de texto con el icono de YouTube/Twitter.',
+          'Escribe el código tal cual (¡incluyendo los signos de exclamación al final si los tiene!).',
+          'Presiona Enter o Canjear para recibir tus tiradas al instante.'
+        ],
+        tip: 'Recuerda que el límite máximo de giros que puedes almacenar es 500 (o 1,000 con el gamepass de giros). ¡Gástalos antes de canjear más!',
+      },
+      en: {
+        title: 'How to Redeem Codes in Shindo Life Step-by-Step',
+        steps: [
+          'Launch Shindo Life and enter the character "Edit" customization screen.',
+          'Look at the top-right corner for the YouTube/Twitter code redemption box.',
+          'Type the active code exactly as shown (including any exclamation points at the end!).',
+          'Press Enter to immediately obtain your spins and RELL Coins.'
+        ],
+        tip: 'The standard spin inventory cap is 500 spins. Be sure to spin your bloodlines before redeeming to avoid wasting codes!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'RELLGems2026!',
+        reward: {
+          es: '100,000 RELL Coins + 500 Tiradas (Spins)',
+          en: '100,000 RELL Coins + 500 Free Spins',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'ShindoSpinsNow!',
+        reward: {
+          es: '200 Tiradas ninja gratis',
+          en: '200 Free Ninja Spins',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'ShinobiStory!',
+        reward: {
+          es: '50,000 RELL Coins + 100 Spins',
+          en: '50,000 RELL Coins + 100 Spins',
+        },
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'NinjaStormUpdate!',
+        reward: {
+          es: '150 Tiradas ninja',
+          en: '150 Ninja Spins',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'rellcoin2025!', reward: { es: 'RELL Coins', en: 'RELL Coins' } },
+      { code: 'spinsboost!', reward: { es: 'Spins', en: 'Spins' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Cómo conseguir Bloodlines raros en Shindo Life?',
+          a: 'Se consiguen tirando en el menú Edit con los spins gratuitos que regalan los códigos. Los Bloodlines legendarios tienen una probabilidad de entre 1/80 y 1/200.',
+        },
+      ],
+      en: [
+        {
+          q: 'How do you roll rare Bloodlines in Shindo Life?',
+          a: 'Use your free code spins in the Edit menu. Top-tier legendary Bloodlines drop at odds between 1/80 and 1/200.',
+        },
+      ],
+    },
+  },
 ];
 
 export function getGameBySlug(slug: string): GameItem | undefined {
