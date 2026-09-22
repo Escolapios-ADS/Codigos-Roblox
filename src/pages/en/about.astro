@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+---
+
+<Layout
+  title="About Us & Editorial Standards | RobloxCodes.org"
+  description="Meet the editorial staff at RobloxCodes.org, learn our daily in-game verification process, and understand our editorial integrity guidelines."
+  locale={locale}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-8 text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+        <span>👥</span>
+        <span>Editorial Team & Quality Standards</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        About Us
+      </h1>
+      <p class="text-base text-slate-300 max-w-2xl">
+        We are an independent team of Roblox players, developers, and content writers dedicated to maintaining the most trustworthy, real-time code database and strategy hub on the web.
+      </p>
+    </div>
+
+    <!-- Mission & Testing Methodology -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl">
+          🎯
+        </div>
+        <h2 class="text-lg font-bold text-white">Our Mission</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          The gaming internet is flooded with outdated scraper sites displaying expired or deceptive codes simply to harvest ad clicks. Our pledge is to deliver 100% manually tested codes, zero clickbait, and 1-click clipboard tools that respect players' valuable time.
+        </p>
+      </div>
+
+      <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+          🔍
+        </div>
+        <h2 class="text-lg font-bold text-white">Verification Methodology</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Our staff tests every code inside actual Roblox live servers before publishing. We actively track official developer Discord servers, X/Twitter feeds, and YouTube updates to post verified working codes within minutes of release.
+        </p>
+      </div>
+    </div>
+
+    <!-- Editorial Team Profiles (E-E-A-T) -->
+    <div class="space-y-6">
+      <div class="space-y-1">
+        <h2 class="text-2xl font-black text-white tracking-tight">Editorial Staff</h2>
+        <p class="text-xs sm:text-sm text-slate-400">The experienced writers and gamers powering our guides and daily verifications.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-5 space-y-3 text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-2xl">
+            🗡️
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Carlos "Kuro" Méndez</h3>
+            <p class="text-[11px] text-indigo-400 font-medium">Editor-in-Chief & Blox Fruits Expert</p>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Over 5 years mastering Roblox RPGs. Max level in Blox Fruits and King Legacy with over 20M player bounty.
+          </p>
+        </div>
+
+        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-5 space-y-3 text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-rose-500/20 border border-rose-400/30 flex items-center justify-center text-2xl">
+            ⚡
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Marcos Gil</h3>
+            <p class="text-[11px] text-rose-400 font-medium">Blade Ball & Action Duelist</p>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Competitive dodgeball player and patch tester. Breaks down frame data, deflect angles, and clutch ability combinations.
+          </p>
+        </div>
+
+        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-5 space-y-3 text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-2xl">
+            👗
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Elena "ChicGamer" Ross</h3>
+            <p class="text-[11px] text-purple-400 font-medium">DTI Stylist & Avatar Designer</p>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Specialist in Dress to Impress runway themes and custom layers. Tracks secret code outfits and accessory drops.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Independence Statement -->
+    <div class="bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-6 text-xs sm:text-sm text-slate-400 leading-relaxed space-y-2">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2">
+        <span>⚖️</span>
+        <span>Independence & Trademark Disclosure</span>
+      </h3>
+      <p>
+        RobloxCodes.org is an independent news and community resource. We are not endorsed, sponsored, affiliated with, or associated with Roblox Corporation or any game development studio mentioned herein. Roblox and its respective logos are registered trademarks of Roblox Corporation.
+      </p>
+    </div>
+
+  </div>
+</Layout>

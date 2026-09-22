@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import CodeCard from '../../../components/CodeCard.astro';
 import RedeemGuide from '../../../components/RedeemGuide.astro';
 import FaqSection from '../../../components/FaqSection.astro';
+import AdBanner from '../../../components/AdBanner.astro';
 import { gamesData } from '../../../data/games';
 import { getTranslations } from '../../../i18n/translations';
 import type { GameItem } from '../../../types/game';
@@ -165,6 +166,9 @@ const pageSchema = {
         ))}
       </div>
     </section>
+
+    <!-- Mid-content Ad Placement (AdSense Compliant) -->
+    <AdBanner slotType="horizontal" locale={locale} />
 
     <!-- Expired Codes Accordion -->
     {game.expiredCodes.length > 0 && (

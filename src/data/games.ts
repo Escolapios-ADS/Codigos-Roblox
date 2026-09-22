@@ -950,6 +950,202 @@ export const gamesData: GameItem[] = [
       ],
     },
   },
+  {
+    id: 'fisch',
+    slug: 'fisch',
+    title: 'Fisch',
+    tagline: {
+      es: 'Monedas C$, cebos legendarios, cañas y títulos para el simulador de pesca RPG.',
+      en: 'Free C$ currency, legendary baits, bobbers, and exclusive titles for the viral fishing RPG.',
+    },
+    badge: {
+      es: '🎣 Viral #1',
+      en: '🎣 #1 Viral Hit',
+    },
+    category: 'simulator',
+    categoryLabel: {
+      es: 'RPG / Pesca',
+      en: 'RPG / Fishing',
+    },
+    developer: 'Woozy Nite',
+    likes: '1.8M+',
+    visits: '1.2B+',
+    activePlayers: '220,000+',
+    robloxUrl: 'https://www.roblox.com/games/16732694052/Fisch',
+    accentColor: 'cyan',
+    iconGradient: 'from-cyan-600 via-teal-600 to-emerald-600',
+    emoji: '🐟',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Lista actualizada de códigos activos de Fisch en Roblox. Canjea C$ gratis, cebos especiales y títulos exclusivos para pescar criaturas míticas.',
+      en: 'Active Fisch codes for Roblox. Claim free C$ cash, bait crates, and unique bobbers to catch mythical fish.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Fisch',
+        steps: [
+          'Entra a Fisch en Roblox.',
+          'En la parte superior de la pantalla, pulsa el botón de Menú.',
+          'Baja hasta el final del menú donde verás la casilla que dice "Enter code here".',
+          'Pega el código de nuestra web y pulsa Enter para recibir tus monedas y cebos al instante.'
+        ],
+        tip: 'Usa los cebos de alta calidad en zonas profundas como Moosewood o Roslit Bay para pescar peces mutados.',
+      },
+      en: {
+        title: 'How to Redeem Codes in Fisch',
+        steps: [
+          'Launch Fisch on Roblox.',
+          'Press the Menu button at the top of the game screen.',
+          'Scroll all the way down to the bottom where the "Enter code here" box is situated.',
+          'Paste our code and hit Enter to claim your free C$ and rare bait crates.'
+        ],
+        tip: 'Save rare baits for deep trench expeditions to catch high-tier mutated fish!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'FISCHTASTIC',
+        reward: {
+          es: '5,000 C$ + 3 Cajas de Cebo Raras',
+          en: '5,000 C$ + 3 Rare Bait Crates',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'THEDEPEN',
+        reward: {
+          es: '2,500 C$ gratis',
+          en: '2,500 Free C$',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'GOLDENROD',
+        reward: {
+          es: 'Flotador dorado y 1,000 C$',
+          en: 'Golden Bobber and 1,000 C$',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'RELEASE', reward: { es: '1,000 C$', en: '1,000 C$' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Qué es C$ en Fisch?',
+          a: 'C$ es la moneda principal del juego con la que puedes comprar cañas mejores, barcos más rápidos, planeadores y cebos avanzados en la tienda de Moosewood.',
+        },
+      ],
+      en: [
+        {
+          q: 'What is C$ in Fisch?',
+          a: 'C$ is the primary in-game currency used to purchase advanced rods, offshore speedboats, gliders, and premium bait from vendors.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'anime-vanguards',
+    slug: 'anime-vanguards',
+    title: 'Anime Vanguards',
+    tagline: {
+      es: 'Gemas gratis, Cristales de Rasgos y Tiradas Super Rerolls para invocar unidades monarca.',
+      en: 'Free gems, Trait Rerolls, and Super Rerolls to summon monarch-tier anime defenders.',
+    },
+    badge: {
+      es: '⭐ Top Estrategia',
+      en: '⭐ Top Strategy',
+    },
+    category: 'anime',
+    categoryLabel: {
+      es: 'Anime / Tower Defense',
+      en: 'Anime / Tower Defense',
+    },
+    developer: 'Kitawari',
+    likes: '1.6M+',
+    visits: '980M+',
+    activePlayers: '110,000+',
+    robloxUrl: 'https://www.roblox.com/games/16146832113/Anime-Vanguards',
+    accentColor: 'rose',
+    iconGradient: 'from-red-600 via-rose-600 to-amber-600',
+    emoji: '⛩️',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Códigos activos de Anime Vanguards en Roblox. Consigue miles de gemas y super rerolls para desbloquear personajes míticos.',
+      en: 'Active Anime Vanguards codes for Roblox. Claim thousands of free gems and super rerolls to unlock mythic anime heroes.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Anime Vanguards',
+        steps: [
+          'Inicia Anime Vanguards en Roblox.',
+          'En el lobby principal, acércate al NPC de "Codes" o haz clic en el icono de códigos a la derecha.',
+          'Pega el código en la casilla de texto.',
+          'Pulsa el botón "Redeem" para reclamar tus gemas de invocación.'
+        ],
+        tip: 'Ahorra tus gemas para cuando haya un evento de x2 probabilidad de míticos en el banner.',
+      },
+      en: {
+        title: 'How to Redeem Codes in Anime Vanguards',
+        steps: [
+          'Launch Anime Vanguards on Roblox.',
+          'In the central spawn lobby, walk up to the Codes NPC or tap the Codes icon on the right.',
+          'Paste your active code into the text input.',
+          'Click Redeem to instantly receive your summoning gems and trait rerolls.'
+        ],
+        tip: 'Save your gems for special 2x Mythic rate-up summon banners!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'AVUPDATE',
+        reward: {
+          es: '1,000 Gemas + 3 Super Rerolls',
+          en: '1,000 Gems + 3 Super Rerolls',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'ROKUSHIKI',
+        reward: {
+          es: '500 Gemas gratis',
+          en: '500 Free Gems',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'STANDPROUD',
+        reward: {
+          es: '800 Gemas + 1 Cristal de Rasgo',
+          en: '800 Gems + 1 Trait Crystal',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'RELEASE', reward: { es: '500 Gems', en: '500 Gems' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Para qué sirven los Super Rerolls en Anime Vanguards?',
+          a: 'Te permiten volver a tirar las habilidades pasivas de tus personajes de torre para intentar conseguir estadísticas secretas como Solar o Monarca.',
+        },
+      ],
+      en: [
+        {
+          q: 'What do Super Rerolls do in Anime Vanguards?',
+          a: 'They allow you to re-roll character traits to aim for elusive game-changing perks like Monarch, Solar, or Blitz.',
+        },
+      ],
+    },
+  },
 ];
 
 export function getGameBySlug(slug: string): GameItem | undefined {

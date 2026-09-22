@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import type { SupportedLocale } from '../i18n/translations';
 import '../styles/global.css';
 
@@ -96,6 +97,9 @@ const baseWebsiteSchema = {
     </main>
 
     <Footer locale={locale} />
+
+    <!-- GDPR & AdSense EU User Consent Banner -->
+    <CookieBanner locale={locale} />
 
     <!-- Global Toast Notification Container for One-Click Copy -->
     <div 

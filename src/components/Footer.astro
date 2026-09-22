@@ -93,11 +93,30 @@ const currentYear = 2026;
         <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-200">
           {t.footer.legal}
         </h3>
-        <p class="text-[11px] leading-relaxed text-slate-500">
+        <ul class="space-y-1.5 text-xs text-slate-300">
+          <li>
+            <a href={locale === 'es' ? '/es/sobre-nosotros' : '/en/about'} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Sobre Nosotros & Estándares Editoriales' : 'About Us & Editorial Standards'}
+            </a>
+          </li>
+          <li>
+            <a href={locale === 'es' ? '/es/privacidad' : '/en/privacy'} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Política de Privacidad (AdSense & Cookies)' : 'Privacy Policy (AdSense & Cookies)'}
+            </a>
+          </li>
+          <li>
+            <a href={locale === 'es' ? '/es/terminos' : '/en/terms'} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Términos de Servicio' : 'Terms of Service'}
+            </a>
+          </li>
+          <li>
+            <a href={locale === 'es' ? '/es/contacto' : '/en/contact'} class="hover:text-indigo-400 transition-colors">
+              {locale === 'es' ? 'Contacto y Reporte de Códigos' : 'Contact & Report Broken Codes'}
+            </a>
+          </li>
+        </ul>
+        <p class="text-[11px] leading-relaxed text-slate-500 pt-2 border-t border-white/5">
           {t.footer.disclaimer}
-        </p>
-        <p class="text-[11px] text-slate-500">
-          Roblox y el logotipo de Roblox son marcas registradas de Roblox Corporation. Todos los nombres de juegos y marcas pertenecen a sus respectivos creadores.
         </p>
       </div>
 
@@ -106,9 +125,11 @@ const currentYear = 2026;
     <!-- Bottom copyright -->
     <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <p>© {currentYear} {t.nav.brand}. {t.footer.allRights}</p>
-      <div class="flex items-center gap-6">
-        <a href={`/${locale}/#como-canjear`} class="hover:text-slate-300 transition-colors">{t.nav.howToRedeem}</a>
-        <a href={`/${locale}/juego/roblox-promo-codes`} class="hover:text-slate-300 transition-colors">{t.nav.promoCodes}</a>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+        <a href={locale === 'es' ? '/es/privacidad' : '/en/privacy'} class="hover:text-slate-300 transition-colors">{t.nav.privacy}</a>
+        <a href={locale === 'es' ? '/es/terminos' : '/en/terms'} class="hover:text-slate-300 transition-colors">{t.nav.terms}</a>
+        <a href={locale === 'es' ? '/es/sobre-nosotros' : '/en/about'} class="hover:text-slate-300 transition-colors">{t.nav.about}</a>
+        <a href={locale === 'es' ? '/es/contacto' : '/en/contact'} class="hover:text-slate-300 transition-colors">{t.nav.contact}</a>
         <a href="#top" class="hover:text-indigo-400 transition-colors flex items-center gap-1">
           <span>↑</span>
           <span>{locale === 'es' ? 'Subir' : 'Back to top'}</span>

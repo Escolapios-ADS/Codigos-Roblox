@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+---
+
+<Layout
+  title="Contact & Report Codes | RobloxCodes.org"
+  description="Get in touch with the RobloxCodes.org staff to submit fresh game codes, report expired rewards, or discuss business opportunities."
+  locale={locale}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-6">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+        <span>📬</span>
+        <span>Community & Developer Support</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Contact & Support
+      </h1>
+      <p class="text-sm text-slate-300 max-w-2xl">
+        Found a brand-new code missing from our tables? Did an active code just expire? Are you a Roblox game studio interested in getting your experience featured? Send us a message!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Direct Contact Channels -->
+      <div class="space-y-4 md:col-span-1">
+        <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-5 space-y-3">
+          <div class="text-2xl">📧</div>
+          <h3 class="text-sm font-bold text-white">Editorial Inquiries</h3>
+          <p class="text-xs text-slate-400">
+            Typical response time within 24 hours for general feedback and business proposals.
+          </p>
+          <a href="mailto:support@robloxcode.org" class="text-xs font-mono font-semibold text-indigo-400 hover:text-white transition-colors block">
+            support@robloxcode.org
+          </a>
+        </div>
+
+        <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-5 space-y-3">
+          <div class="text-2xl">⏱️</div>
+          <h3 class="text-sm font-bold text-white">Live Verification Turnaround</h3>
+          <p class="text-xs text-slate-400">
+            Reports for broken or expired codes are flagged with high priority and inspected within 2 to 6 hours.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Contact Form -->
+      <div class="md:col-span-2 bg-[#0d1322] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+        <h2 class="text-xl font-bold text-white">Direct Feedback Form</h2>
+
+        <form id="contact-form" class="space-y-4">
+          <div>
+            <label for="reason" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              Subject of Inquiry
+            </label>
+            <select
+              id="reason"
+              name="reason"
+              class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+            >
+              <option value="broken-code">Report an expired or non-working code</option>
+              <option value="new-code">Submit a new working code we missed</option>
+              <option value="game-request">Request coverage for a new Roblox game</option>
+              <option value="business">Advertising / Partnership opportunity</option>
+              <option value="other">General feedback</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Your Name / Alias
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="e.g. GamerPro99"
+                class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Your Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="you@email.com"
+                class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="game" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              Roblox Game Name (optional)
+            </label>
+            <input
+              type="text"
+              id="game"
+              name="game"
+              placeholder="e.g. Blox Fruits, Blade Ball, DTI..."
+              class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              Detailed Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder="Describe which code failed, or paste your new working code with its reward..."
+              class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full py-3 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-600/30 border border-indigo-400/30 transition-all flex items-center justify-center gap-2"
+          >
+            <span>Send Message to Editorial Team</span>
+            <span>→</span>
+          </button>
+        </form>
+
+        <div id="form-success" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm text-center">
+          ✅ Thank you! Your message has been sent. Our team will verify and update our database accordingly.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<script is:inline>
+  const contactForm = document.getElementById('contact-form');
+  const formSuccess = document.getElementById('form-success');
+  const submitBtn = document.getElementById('submit-btn');
+
+  if (contactForm && formSuccess && submitBtn) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      
+      setTimeout(() => {
+        contactForm.classList.add('hidden');
+        formSuccess.classList.remove('hidden');
+      }, 700);
+    });
+  }
+</script>

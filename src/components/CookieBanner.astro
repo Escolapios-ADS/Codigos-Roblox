@@ -1,0 +1,84 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+---
+
+<div
+  id="cookie-consent-banner"
+  class="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6 bg-[#0b101d]/95 backdrop-blur-md border-t border-white/10 shadow-2xl transition-all duration-300 transform translate-y-full"
+  aria-live="polite"
+>
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    
+    <div class="flex items-start gap-3">
+      <span class="text-2xl shrink-0">🍪</span>
+      <div class="text-xs sm:text-sm text-slate-300 space-y-1">
+        <p class="font-semibold text-white">
+          {locale === 'es' ? 'Valoramos tu privacidad y experiencia' : 'We value your privacy and experience'}
+        </p>
+        <p class="text-slate-400 text-xs leading-relaxed max-w-3xl">
+          {locale === 'es' 
+            ? 'Utilizamos cookies propias y de terceros (incluyendo Google AdSense) para analizar el tráfico, personalizar anuncios y garantizar el correcto funcionamiento del portal. Cumplimos con la normativa RGPD y las políticas de consentimiento de Google.'
+            : 'We use our own and third-party cookies (including Google AdSense) to analyze traffic, personalize advertisements, and ensure optimal portal performance in compliance with GDPR and Google User Consent policies.'}
+          <a 
+            href={locale === 'es' ? '/es/privacidad' : '/en/privacy'}
+            class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 ml-1"
+          >
+            {locale === 'es' ? 'Leer Política de Privacidad' : 'Read Privacy Policy'}
+          </a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex items-center gap-2 self-end md:self-center shrink-0">
+      <button
+        type="button"
+        id="reject-cookies-btn"
+        class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white transition-colors"
+      >
+        {locale === 'es' ? 'Solo necesarias' : 'Essential only'}
+      </button>
+      <button
+        type="button"
+        id="accept-cookies-btn"
+        class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-xs font-bold text-white shadow-lg shadow-indigo-600/25 border border-indigo-400/30 transition-all"
+      >
+        {locale === 'es' ? 'Aceptar todas' : 'Accept all'}
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('cookie-consent-banner');
+    const acceptBtn = document.getElementById('accept-cookies-btn');
+    const rejectBtn = document.getElementById('reject-cookies-btn');
+
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    const consent = localStorage.getItem('roblox_cookie_consent');
+    if (!consent) {
+      setTimeout(() => {
+        banner.classList.remove('translate-y-full');
+      }, 800);
+    }
+
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('roblox_cookie_consent', 'accepted');
+      banner.classList.add('translate-y-full');
+    });
+
+    rejectBtn.addEventListener('click', () => {
+      localStorage.setItem('roblox_cookie_consent', 'essential_only');
+      banner.classList.add('translate-y-full');
+    });
+  });
+</script>

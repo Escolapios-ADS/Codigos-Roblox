@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+---
+
+<Layout
+  title="Sobre Nosotros y Estándares Editoriales | CódigosRoblox.org"
+  description="Conoce al equipo editorial de CódigosRoblox.org, nuestro proceso de verificación diaria de códigos y nuestra política de independencia."
+  locale={locale}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-8 text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+        <span>👥</span>
+        <span>Equipo Editorial & Compromiso de Calidad</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Sobre Nosotros
+      </h1>
+      <p class="text-base text-slate-300 max-w-2xl">
+        Somos una comunidad independiente de jugadores, desarrolladores y creadores de contenido dedicados a mantener la base de datos de códigos y guías de Roblox más confiable de la red.
+      </p>
+    </div>
+
+    <!-- Mission & Testing Methodology -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl">
+          🎯
+        </div>
+        <h2 class="text-lg font-bold text-white">Nuestra Misión</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Internet está plagado de sitios web obsoletos que muestran códigos falsos o caducados solo para ganar visitas. Nuestro objetivo es ofrecer códigos 100% verificados, libres de clickbait y con herramientas interactivas de copia en 1 clic para ahorrar tiempo a los jugadores.
+        </p>
+      </div>
+
+      <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+          🔍
+        </div>
+        <h2 class="text-lg font-bold text-white">Metodología de Verificación</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Probamos manualmente cada código en servidores reales de Roblox antes de publicarlo. Monitoreamos los servidores oficiales de Discord de cada juego y las cuentas de Twitter/X de los creadores para añadir nuevas recompensas a los pocos minutos de ser lanzadas.
+        </p>
+      </div>
+    </div>
+
+    <!-- Editorial Team Profiles (E-E-A-T) -->
+    <div class="space-y-6">
+      <div class="space-y-1">
+        <h2 class="text-2xl font-black text-white tracking-tight">Equipo Editorial</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Los redactores y analistas detrás de las guías y comprobaciones diarias.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-5 space-y-3 text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-2xl">
+            🗡️
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Carlos "Kuro" Méndez</h3>
+            <p class="text-[11px] text-indigo-400 font-medium">Jefe de Redacción & Experto en Blox Fruits</p>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Más de 5 años jugando RPGs de Roblox. Máximo nivel en Blox Fruits y King Legacy con más de 20M de bounty acumulado.
+          </p>
+        </div>
+
+        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-5 space-y-3 text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-rose-500/20 border border-rose-400/30 flex items-center justify-center text-2xl">
+            ⚡
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Marcos Gil</h3>
+            <p class="text-[11px] text-rose-400 font-medium">Especialista en Blade Ball & Acción</p>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Jugador competitivo y tester de parches en Blade Ball y juegos de dodgeball rápido. Analiza frame data y timings de habilidad.
+          </p>
+        </div>
+
+        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-5 space-y-3 text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-2xl">
+            👗
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Elena "ChicGamer" Ross</h3>
+            <p class="text-[11px] text-purple-400 font-medium">Editora de DTI & Diseñadora de Avatar</p>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Especialista en Dress to Impress y personalización de catálogo. Creadora de combos de ropa y seguimiento de códigos de pasarela.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Independence Statement -->
+    <div class="bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-6 text-xs sm:text-sm text-slate-400 leading-relaxed space-y-2">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2">
+        <span>⚖️</span>
+        <span>Aviso de Independencia y Marca</span>
+      </h3>
+      <p>
+        CódigosRoblox.org es un medio de comunicación e información digital totalmente independiente. No estamos afiliados, patrocinados, respaldados ni gestionados por Roblox Corporation ni por ninguno de los estudios creadores de los juegos citados. Roblox y sus logotipos asociados son marcas registradas de Roblox Corporation.
+      </p>
+    </div>
+
+  </div>
+</Layout>
