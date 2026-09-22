@@ -29,6 +29,8 @@ if (currentSlug) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/errores-roblox/' : '/en/roblox-error-codes/';
 } else if (pathname.includes('/codigos-ropa-brookhaven') || pathname.includes('/brookhaven-outfit-codes')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/codigos-ropa-brookhaven/' : '/en/brookhaven-outfit-codes/';
+} else if (pathname.includes('/quiz-frutas-blox-fruits') || pathname.includes('/blox-fruits-quiz')) {
+  targetAlternateUrl = otherLocale === 'es' ? '/es/quiz-frutas-blox-fruits/' : '/en/blox-fruits-quiz/';
 } else if (pathname.includes('/guias')) {
   targetAlternateUrl = `/${otherLocale}/guias/`;
 } else if (pathname.includes('/sobre-nosotros') || pathname.includes('/about')) {
@@ -124,6 +126,12 @@ if (currentSlug) {
           class="px-3 py-2 rounded-lg text-pink-300/90 hover:text-pink-200 hover:bg-pink-500/10 transition-colors font-medium"
         >
           {t.nav.outfitHub}
+        </a>
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'quiz-frutas-blox-fruits/' : 'blox-fruits-quiz/'}`}
+          class="px-3 py-2 rounded-lg text-amber-300/90 hover:text-amber-200 hover:bg-amber-500/10 transition-colors font-medium"
+        >
+          {t.nav.fruitQuiz}
         </a>
         <a 
           href={`/${locale}/juego/roblox-promo-codes`}
@@ -226,6 +234,12 @@ if (currentSlug) {
       class="block px-3 py-2 rounded-lg text-base font-medium text-pink-300 hover:text-white hover:bg-white/5"
     >
       {t.nav.outfitHub}
+    </a>
+    <a 
+      href={`/${locale}/${locale === 'es' ? 'quiz-frutas-blox-fruits/' : 'blox-fruits-quiz/'}`}
+      class="block px-3 py-2 rounded-lg text-base font-medium text-amber-300 hover:text-white hover:bg-white/5"
+    >
+      {t.nav.fruitQuiz}
     </a>
     <a 
       href={`/${locale}/juego/roblox-promo-codes`}

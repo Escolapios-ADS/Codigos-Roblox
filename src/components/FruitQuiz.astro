@@ -1,0 +1,297 @@
+---
+import { quizQuestions, fruitResults } from '../data/fruit-quiz';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+---
+
+<div class="fruit-quiz-wrapper bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8 relative overflow-hidden">
+  
+  <!-- Glow accent backdrop -->
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header & Progress Bar (Hidden during result) -->
+  <div id="quiz-header" class="space-y-4 border-b border-white/5 pb-6">
+    <div class="flex items-center justify-between">
+      <div class="inline-flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
+        <span>⚡</span>
+        <span id="question-counter">{locale === 'es' ? 'Pregunta 1 de 7' : 'Question 1 of 7'}</span>
+      </div>
+      <span class="text-xs font-mono font-bold text-slate-400" id="progress-percent">14%</span>
+    </div>
+
+    <!-- Animated Progress Bar -->
+    <div class="w-full h-2.5 bg-black/50 rounded-full overflow-hidden border border-white/5">
+      <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-amber-500 via-purple-500 to-indigo-500 transition-all duration-500 rounded-full w-[14%]"></div>
+    </div>
+  </div>
+
+  <!-- Questions Screen Container -->
+  <div id="quiz-question-box" class="space-y-6">
+    <h2 id="current-question-title" class="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
+      {quizQuestions[0].question[locale]}
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="quiz-options-grid">
+      <!-- Injected by client script for seamless transitions -->
+    </div>
+  </div>
+
+  <!-- Result Screen Container (Hidden by default) -->
+  <div id="quiz-result-box" class="hidden space-y-8 text-slate-300">
+    
+    <!-- Top Result Banner -->
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold uppercase tracking-wider">
+        <span>🎉</span>
+        <span>{locale === 'es' ? '¡Tu Fruta Ideal ha sido Revelada!' : 'Your Ideal Fruit has been Revealed!'}</span>
+      </div>
+
+      <div class="flex items-center justify-center gap-3">
+        <span class="text-5xl sm:text-6xl" id="result-emoji">🦊</span>
+        <h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight" id="result-name">
+          Kitsune
+        </h3>
+      </div>
+
+      <p class="text-base sm:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-purple-300 to-pink-400" id="result-archetype">
+        El Asesino Celestial de Velocidad Absoluta
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto italic" id="result-tagline">
+        Velocidad de carrera imparable, fuego azul y dominio supremo de Bounty.
+      </p>
+    </div>
+
+    <!-- Description & Analysis -->
+    <div class="p-6 rounded-2xl bg-black/40 border border-white/5 space-y-3">
+      <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400">
+        {locale === 'es' ? 'Análisis de tu Estilo de Juego:' : 'Playstyle Analysis:'}
+      </h4>
+      <p class="text-sm text-slate-200 leading-relaxed" id="result-description">
+        ...
+      </p>
+    </div>
+
+    <!-- Strengths List -->
+    <div class="space-y-3">
+      <h4 class="text-xs font-mono uppercase tracking-wider text-amber-400">
+        {locale === 'es' ? 'Puntos Fuertes de esta Fruta:' : 'Core Strengths of this Fruit:'}
+      </h4>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="result-strengths">
+        <!-- Injected by script -->
+      </ul>
+    </div>
+
+    <!-- Market Values & Recommended Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+        <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">
+          {locale === 'es' ? 'Valor en el Mercado de Tradeos' : 'Trading Market Value'}
+        </span>
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-slate-300">{locale === 'es' ? 'Precio Beli:' : 'Beli Price:'}</span>
+          <span class="font-mono font-bold text-emerald-400" id="result-beli">$8,000,000 Beli</span>
+        </div>
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-slate-300">{locale === 'es' ? 'Valor Tradeo:' : 'Trade Value:'}</span>
+          <span class="font-mono font-bold text-amber-400" id="result-trade">115,000,000 Value</span>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+        <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">
+          {locale === 'es' ? 'Distribución Recomendada de Stats (Niv. 2550+)' : 'Recommended Stat Build (Lv. 2550+)'}
+        </span>
+        <div class="space-y-1.5 text-xs font-mono" id="result-stats">
+          <!-- Injected by script -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons & Cross Links -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-white/5">
+      <a 
+        href={`/${locale}/calculadora-tradeos-blox-fruits/`}
+        class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 text-center transition-all cursor-pointer"
+      >
+        <span>⚖️</span> {locale === 'es' ? 'Calcular Tradeos con esta Fruta' : 'Calculate Trades with this Fruit'}
+      </a>
+
+      <a 
+        href={`/${locale}/juego/blox-fruits`}
+        class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-bold text-xs border border-white/10 text-center transition-all cursor-pointer"
+      >
+        <span>🎁</span> {locale === 'es' ? 'Ver Códigos Activos de Blox Fruits' : 'View Working Blox Fruits Codes'}
+      </a>
+
+      <button 
+        type="button" 
+        id="restart-quiz-btn"
+        class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white text-xs font-medium border border-white/5 text-center transition-all cursor-pointer"
+      >
+        <span>🔄</span> {locale === 'es' ? 'Repetir Test' : 'Retake Quiz'}
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<script is:inline define:vars={{ questionsJson: JSON.stringify(quizQuestions), resultsJson: JSON.stringify(fruitResults), currentLocale: locale }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const questions = JSON.parse(questionsJson);
+    const results = JSON.parse(resultsJson);
+
+    let currentStep = 0;
+    const scores = {
+      buddha: 0,
+      kitsune: 0,
+      dough: 0,
+      dragon: 0,
+      portal: 0,
+      magma: 0,
+      leopard: 0,
+    };
+
+    const headerEl = document.getElementById('quiz-header');
+    const questionCounterEl = document.getElementById('question-counter');
+    const progressPercentEl = document.getElementById('progress-percent');
+    const progressBarEl = document.getElementById('quiz-progress-bar');
+    const questionTitleEl = document.getElementById('current-question-title');
+    const optionsGridEl = document.getElementById('quiz-options-grid');
+    const questionBoxEl = document.getElementById('quiz-question-box');
+    const resultBoxEl = document.getElementById('quiz-result-box');
+    const restartBtn = document.getElementById('restart-quiz-btn');
+
+    function renderQuestion() {
+      const q = questions[currentStep];
+      if (!q) return;
+
+      const progress = Math.round(((currentStep + 1) / questions.length) * 100);
+      if (questionCounterEl) {
+        questionCounterEl.textContent = currentLocale === 'es'
+          ? `Pregunta ${currentStep + 1} de ${questions.length}`
+          : `Question ${currentStep + 1} of ${questions.length}`;
+      }
+      if (progressPercentEl) progressPercentEl.textContent = `${progress}%`;
+      if (progressBarEl) progressBarEl.style.width = `${progress}%`;
+
+      if (questionTitleEl) questionTitleEl.textContent = q.question[currentLocale];
+      if (!optionsGridEl) return;
+
+      optionsGridEl.innerHTML = '';
+      q.options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'group p-5 rounded-2xl bg-black/40 hover:bg-white/[0.07] border border-white/10 hover:border-amber-500/50 text-left transition-all space-y-2 flex flex-col justify-between cursor-pointer';
+        btn.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="text-2xl p-2 rounded-xl bg-white/5 group-hover:scale-110 transition-transform">${opt.emoji}</span>
+            <span class="text-sm sm:text-base font-bold text-white group-hover:text-amber-200 transition-colors">
+              ${opt.text[currentLocale]}
+            </span>
+          </div>
+        `;
+
+        btn.addEventListener('click', () => {
+          // Add points
+          for (const fruit in opt.scores) {
+            if (scores[fruit] !== undefined) {
+              scores[fruit] += opt.scores[fruit];
+            }
+          }
+
+          if (window.playRewardSound) window.playRewardSound();
+
+          currentStep++;
+          if (currentStep < questions.length) {
+            renderQuestion();
+          } else {
+            showResult();
+          }
+        });
+
+        optionsGridEl.appendChild(btn);
+      });
+    }
+
+    function showResult() {
+      // Find fruit with max score
+      let highestFruit = 'kitsune';
+      let maxScore = -1;
+
+      for (const fruit in scores) {
+        if (scores[fruit] > maxScore) {
+          maxScore = scores[fruit];
+          highestFruit = fruit;
+        }
+      }
+
+      const res = results[highestFruit] || results.kitsune;
+
+      if (headerEl) headerEl.classList.add('hidden');
+      if (questionBoxEl) questionBoxEl.classList.add('hidden');
+      if (resultBoxEl) resultBoxEl.classList.remove('hidden');
+
+      // Fill in result elements
+      const resultEmoji = document.getElementById('result-emoji');
+      const resultName = document.getElementById('result-name');
+      const resultArchetype = document.getElementById('result-archetype');
+      const resultTagline = document.getElementById('result-tagline');
+      const resultDesc = document.getElementById('result-description');
+      const resultStrengths = document.getElementById('result-strengths');
+      const resultBeli = document.getElementById('result-beli');
+      const resultTrade = document.getElementById('result-trade');
+      const resultStats = document.getElementById('result-stats');
+
+      if (resultEmoji) resultEmoji.textContent = res.emoji;
+      if (resultName) resultName.textContent = res.name;
+      if (resultArchetype) resultArchetype.textContent = res.archetype[currentLocale];
+      if (resultTagline) resultTagline.textContent = `"${res.tagline[currentLocale]}"`;
+      if (resultDesc) resultDesc.textContent = res.description[currentLocale];
+      if (resultBeli) resultBeli.textContent = res.beliPrice;
+      if (resultTrade) resultTrade.textContent = res.tradeValue;
+
+      if (resultStrengths) {
+        resultStrengths.innerHTML = '';
+        res.strengths[currentLocale].forEach((str) => {
+          const li = document.createElement('li');
+          li.className = 'p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-2 text-xs';
+          li.innerHTML = `<span class="text-emerald-400 font-bold">✓</span><span>${str}</span>`;
+          resultStrengths.appendChild(li);
+        });
+      }
+
+      if (resultStats) {
+        resultStats.innerHTML = `
+          <div class="flex justify-between text-slate-300"><span>Melee:</span><span class="text-white">${res.recommendedStats.melee}</span></div>
+          <div class="flex justify-between text-slate-300"><span>Defense:</span><span class="text-white">${res.recommendedStats.defense}</span></div>
+          <div class="flex justify-between text-slate-300"><span>Sword:</span><span class="text-white">${res.recommendedStats.sword}</span></div>
+          <div class="flex justify-between text-slate-300"><span>Blox Fruit:</span><span class="text-white">${res.recommendedStats.fruit}</span></div>
+        `;
+      }
+
+      if (window.playRewardSound) window.playRewardSound();
+    }
+
+    if (restartBtn) {
+      restartBtn.addEventListener('click', () => {
+        currentStep = 0;
+        for (const k in scores) scores[k] = 0;
+        if (headerEl) headerEl.classList.remove('hidden');
+        if (questionBoxEl) questionBoxEl.classList.remove('hidden');
+        if (resultBoxEl) resultBoxEl.classList.add('hidden');
+        renderQuestion();
+      });
+    }
+
+    // Initial run
+    renderQuestion();
+  });
+</script>

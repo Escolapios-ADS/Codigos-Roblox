@@ -1,0 +1,265 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import FruitQuiz from '../../components/FruitQuiz.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = 'Blox Fruits Quiz 2026: What Devil Fruit Best Fits Your Combat Style?';
+const pageDescription = 'Interactive Blox Fruits quiz for 2026. Answer 7 fast questions about your combat habits to discover your ideal Devil Fruit (Kitsune, Buddha, Dough, Dragon, Portal). Includes recommended stat builds.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is the fastest fruit to level up in Blox Fruits?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Awakened Buddha is undisputed as the fastest leveling (grinding) fruit in Blox Fruits. Its transformation triples physical sword and melee hitboxes while granting passive 50% damage reduction against NPC mobs.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the strongest PvP fruit in 2026?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'For 30M Bounty hunting in 2026, the meta is dominated by Kitsune (extreme speed and ocean water immunity), Awakened Dough (infinite 1-shot chain stuns), and Portal (for evasive Sword Main builds).'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I reset my stats if I roll a different fruit?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'You can reset stats for free by redeeming working Blox Fruits codes (such as SUB2GAMERROBOT_RESET1) or by exchanging 2,500 Fragments with NPC Plokster in Second or Third Sea.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Should I eat a Mythical fruit in First Sea?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. Eating Mythical fruits like Kitsune or Leopard in Sea 1 is discouraged because their high Mastery requirements will drastically slow your level progression. Stick with Logia fruits like Light or Magma in First Sea.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://codigosroblox.org/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blox Fruits Quiz',
+          item: 'https://codigosroblox.org/en/blox-fruits-quiz/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="quiz-top-leaderboard-en" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-amber-400 font-medium">Blox Fruits Fruit Quiz</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
+        <span>🧠</span>
+        <span>Interactive Personality Test • 2026 Season</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Which Blox Fruits Fruit Fits You? <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-purple-300 to-pink-400">Interactive Quiz 2026</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        Unsure whether to eat Kitsune, awaken Dough, main Portal, or stick with Buddha? Answer 7 quick questions on your combat habits to discover your ideal Devil Fruit match and optimal stat point distributions.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Quiz Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Quiz Component -->
+    <FruitQuiz locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="quiz-mid-banner-en" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: Guide by Sea -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>🌊</span> How to Pick Devil Fruits According to Your Current Sea
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Consuming the wrong fruit too early can stall your character progression. Follow this golden roadmap calibrated by our 30M Bounty veteran editorial team:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">First Sea (Lv. 1 - 700)</span>
+            <h4 class="text-base font-bold text-white">Elemental / Logia Fruits</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Prioritize <strong>Light</strong>, <strong>Ice</strong>, or <strong>Magma</strong>. Passive immunity against non-Haki NPC hits lets you blast through quests without taking damage while flying swiftly across islands.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">Second Sea (Lv. 700 - 1500)</span>
+            <h4 class="text-base font-bold text-white">Reign of Buddha & Awakenings</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Obtain <strong>Buddha</strong> and awaken the Z-shift move. Pump stats into Melee and Defense to dominate Factory Raids and speedrun into Third Sea.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-purple-400 uppercase tracking-wider">Third Sea (Lv. 1500 - 2600+)</span>
+            <h4 class="text-base font-bold text-white">PvP Meta & Bounty Hunting</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              With max level unlocked, graduate into competitive Mythicals like <strong>Kitsune</strong>, <strong>Awakened Dough</strong>, <strong>Portal</strong>, or <strong>Dragon</strong> to secure 30M Bounty rankings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Stat Build Rules -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>⚖️</span> The Rookie Stat Allocation Mistake
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Novice players frequently distribute points across all 5 stats (Melee, Defense, Sword, Gun, Fruit). This severely cripples damage output:
+        </p>
+        <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-xs space-y-2 text-rose-200">
+          <p class="font-bold">⚠️ Core Meta Rule: Strict Specialization</p>
+          <p class="text-slate-300 leading-relaxed">
+            Always maximize only <strong>THREE attributes</strong> to their 2550 point cap:
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-slate-300">
+            <li><strong>Fruit Main:</strong> 2550 Melee + 2550 Defense + 2550 Blox Fruit (0 Sword, 0 Gun).</li>
+            <li><strong>Sword Main:</strong> 2550 Melee + 2550 Defense + 2550 Sword (0 Blox Fruit, 0 Gun).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 3: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-amber-950/30 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-amber-600/30 border border-amber-400 flex items-center justify-center text-lg font-bold text-white">
+            JV
+          </div>
+          <div>
+            <span class="text-xs text-amber-400 font-mono uppercase tracking-wider block">Written & Verified by</span>
+            <h4 class="text-sm font-bold text-white">Jorge Villapún • Blox Fruits Specialist & 30M Bounty Hunter</h4>
+            <p class="text-xs text-slate-400">Technically reviewed by Guillermo Beltrán and Héctor Moreno • Updated for 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/about`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-amber-300 border border-amber-500/30 transition-colors shrink-0"
+        >
+          Meet the Editorial Team →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Frequently Asked Questions About Blox Fruits
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">Do I lose my current fruit if I eat another one?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Yes. Eating a physical fruit from your backpack will immediately overwrite your active powers. However, permanent fruits purchased with Robux can be re-equipped for free at the dealer anytime.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">What is the most expensive trading fruit in 2026?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Kitsune and Dragon boast the single highest trading values in 2026, commanding between 90M and 115M market value in active server trades.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">How do I verify if a fruit trade is fair?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Use our free <strong>Blox Fruits Trade Calculator</strong>, which computes real-time trade values, demand multipliers, and the 40% Beli difference rule.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <a 
+        href={`/${locale}/blox-fruits-trade-calculator/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-amber-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚖️</span>
+        <h4 class="font-bold text-white group-hover:text-amber-300 text-sm">Trade Calculator</h4>
+        <p class="text-xs text-slate-400">Real-time W/F/L values.</p>
+      </a>
+      <a 
+        href={`/${locale}/juego/blox-fruits`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-purple-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎁</span>
+        <h4 class="font-bold text-white group-hover:text-purple-300 text-sm">Blox Fruits Codes</h4>
+        <p class="text-xs text-slate-400">Free 2x EXP & stat resets.</p>
+      </a>
+      <a 
+        href={`/${locale}/brookhaven-outfit-codes/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-pink-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">👗</span>
+        <h4 class="font-bold text-white group-hover:text-pink-300 text-sm">Brookhaven Outfits</h4>
+        <p class="text-xs text-slate-400">Military & anime clothes IDs.</p>
+      </a>
+      <a 
+        href={`/${locale}/music/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-indigo-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎵</span>
+        <h4 class="font-bold text-white group-hover:text-indigo-300 text-sm">Boombox IDs</h4>
+        <p class="text-xs text-slate-400">Trending songs with 1 click.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="quiz-bottom-rect-en" locale={locale} />
+
+  </main>
+</Layout>
