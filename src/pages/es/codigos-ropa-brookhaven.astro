@@ -1,0 +1,264 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import OutfitHub from '../../components/OutfitHub.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Códigos de Ropa Brookhaven RP 2026 | IDs de Outfits, Ropa Militar, Aesthetic y Pelo';
+const pageDescription = 'Catálogo completo y verificado de códigos de ropa para Brookhaven RP en 2026. Copia con 1 clic IDs de camisas, pantalones, trajes militares, anime y peinados para chica y chico.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Cómo poner códigos de ropa en Brookhaven RP?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'En Brookhaven RP, haz clic en el icono de avatar con un lápiz (Editor de Personaje) en la parte derecha de la pantalla. Abre la pestaña con el icono de "ID" (identificación), pega el código numérico de la prenda que has copiado en nuestra lista y pulsa Enter. La ropa se equipará al instante.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Son gratis estos códigos de ropa para Brookhaven?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sí, dentro de Brookhaven RP usar los IDs en el editor de personaje es 100% gratuito y no cuesta Robux. Puedes cambiar de outfit las veces que quieras mientras estés dentro del juego.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Por qué algunos IDs de ropa aparecen invisibles o no cargan?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Si una prenda no carga, puede deberse a que el creador original eliminó la textura o que se introdujo un ID de producto en lugar del ID de activo (Asset ID). Todas las prendas de nuestro catálogo han sido comprobadas en 2026 para garantizar que son Asset IDs funcionales.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Puedo combinar estos códigos con códigos de música de Brookhaven?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '¡Totalmente! Puedes equipar tu outfit militar o aesthetic y al mismo tiempo usar nuestro catálogo de códigos de canciones (Boombox IDs) en la radio del coche o en la boombox portátil.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Códigos de Ropa Brookhaven',
+          item: 'https://codigosroblox.org/es/codigos-ropa-brookhaven/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="outfit-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Inicio</a>
+      <span>/</span>
+      <span class="text-pink-400 font-medium">Códigos de Ropa Brookhaven RP</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-semibold">
+        <span>👗</span>
+        <span>Catálogo Oficial de IDs de Avatar • Temporada 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Códigos de Ropa para Brookhaven RP: <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-300 to-indigo-400">Outfits & IDs 2026</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        Descubre los mejores conjuntos completos para Brookhaven RP. Copia con 1 solo clic los códigos numéricos (Asset IDs) de camisas, pantalones, trajes tácticos militares, outfits aesthetic pastel, cosplay de anime y peinados para chico y chica.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Outfits App Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Component -->
+    <OutfitHub locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="outfit-mid-banner" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article id="como-poner-codigos-brookhaven" class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: How to Redeem Step-by-Step -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>🛠️</span> Cómo Poner Códigos de Ropa en Brookhaven RP (Tutorial Paso a Paso)
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Ponerte cualquier prenda de nuestro catálogo dentro de Brookhaven RP sólo toma 10 segundos. Sigue estos sencillos pasos desde PC, teléfono móvil o tablet:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-pink-500/20 text-pink-400 font-bold flex items-center justify-center text-sm border border-pink-500/30">1</div>
+            <h4 class="font-bold text-white text-sm">Abre el Editor de Avatar</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Dentro del juego, haz clic en el icono del muñeco con un lápiz que verás en el menú lateral derecho.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-pink-500/20 text-pink-400 font-bold flex items-center justify-center text-sm border border-pink-500/30">2</div>
+            <h4 class="font-bold text-white text-sm">Toca el Icono "ID"</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">En la barra superior del editor de ropa, selecciona la pestaña con la etiqueta "ID" para abrir el teclado numérico.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-pink-500/20 text-pink-400 font-bold flex items-center justify-center text-sm border border-pink-500/30">3</div>
+            <h4 class="font-bold text-white text-sm">Pega el Código y Enter</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Pega el código copiado de nuestra web y presiona Enter. ¡Tu personaje se pondrá la prenda de inmediato!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Asset ID vs Product ID (Why Some IDs Fail) -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>💡</span> Asset ID vs Product ID: ¿Por qué algunos códigos de Internet no funcionan?
+        </h2>
+        <p class="text-sm leading-relaxed">
+          En Roblox existen dos tipos de identificadores numéricos en el catálogo:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Asset ID (Válido para Brookhaven)</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Es el identificador directo de la textura gráfica renderizada. Es el único tipo de código que acepta el motor de Brookhaven RP para cargar ropa en el avatar.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">Product ID (Solo para Tienda Web)</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Es el número de la ficha de compra de la tienda web de Roblox. Si pegas este número en Brookhaven, el juego dará error o no cargará la prenda.
+            </p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400">
+          En <strong>CodigosRoblox.org</strong> todos los códigos han sido convertidos y verificados manualmente como <strong>Asset IDs genuinos</strong> para que nunca te fallen en partida.
+        </p>
+      </section>
+
+      <!-- Section 3: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-pink-950/30 border border-pink-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-pink-600/30 border border-pink-400 flex items-center justify-center text-lg font-bold text-white">
+            HM
+          </div>
+          <div>
+            <span class="text-xs text-pink-400 font-mono uppercase tracking-wider block">Escrito y Verificado por</span>
+            <h4 class="text-sm font-bold text-white">Héctor Moreno • Especialista en Comunidad & Moda de Avatar</h4>
+            <p class="text-xs text-slate-400">Revisado técnicamente por Guillermo Beltrán y Jorge Villapún • Actualizado para 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/sobre-nosotros`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-pink-300 border border-pink-500/30 transition-colors shrink-0"
+        >
+          Conoce al Equipo Editorial →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Preguntas Frecuentes sobre Ropa en Brookhaven RP
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Se guarda mi ropa cuando salgo de Brookhaven?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Brookhaven te permite guardar hasta 6 conjuntos en los huecos de guardado del propio juego. Si sales del servidor y vuelves a entrar, puedes cargar tu outfit guardado en un clic.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Puedo usar estos IDs en otros juegos como Berry Avenue o Livetopia?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            ¡Sí! Cualquier experiencia de Roblox que cuente con un editor de avatar compatible con códigos numéricos (como Berry Avenue, Livetopia o Da Hood) acepta estos mismos Asset IDs.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Por qué mi avatar no cambia de ropa en Brookhaven?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Asegúrate de quitarte primero la ropa 3D por capas (Layered Clothing) que tengas equipada en tu avatar global de Roblox, ya que la ropa 3D se superpone a las texturas 2D clásicas de Brookhaven.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <a 
+        href={`/${locale}/musica/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-indigo-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎵</span>
+        <h4 class="font-bold text-white group-hover:text-indigo-300 text-sm">Códigos de Música IDs</h4>
+        <p class="text-xs text-slate-400">Canciones para la radio de Brookhaven.</p>
+      </a>
+      <a 
+        href={`/${locale}/generador-nombres-roblox/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-purple-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎲</span>
+        <h4 class="font-bold text-white group-hover:text-purple-300 text-sm">Generador de Nombres</h4>
+        <p class="text-xs text-slate-400">Display Names y tags de clan pro.</p>
+      </a>
+      <a 
+        href={`/${locale}/objetos-gratis/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-emerald-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎁</span>
+        <h4 class="font-bold text-white group-hover:text-emerald-300 text-sm">Objetos Gratis 0 Robux</h4>
+        <p class="text-xs text-slate-400">Ropa permanente para tu inventario.</p>
+      </a>
+      <a 
+        href={`/${locale}/errores-roblox/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-rose-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🔧</span>
+        <h4 class="font-bold text-white group-hover:text-rose-300 text-sm">Códigos de Error</h4>
+        <p class="text-xs text-slate-400">Solución a error 279, 267 y 524.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="outfit-bottom-rect" locale={locale} />
+
+  </main>
+</Layout>

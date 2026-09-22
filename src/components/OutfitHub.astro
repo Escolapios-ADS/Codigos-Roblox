@@ -1,0 +1,331 @@
+---
+import { outfitsData } from '../data/outfits';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+
+const categories = [
+  { id: 'all', label: { es: 'Todos los Estilos', en: 'All Styles' }, emoji: '✨' },
+  { id: 'military', label: { es: 'Militar & SWAT', en: 'Military & SWAT' }, emoji: '🎖️' },
+  { id: 'aesthetic', label: { es: 'Aesthetic & Pastel', en: 'Aesthetic & Pastel' }, emoji: '🌸' },
+  { id: 'streetwear', label: { es: 'Streetwear & Y2K', en: 'Streetwear & Y2K' }, emoji: '🔥' },
+  { id: 'anime', label: { es: 'Anime Cosplay', en: 'Anime Cosplay' }, emoji: '🎌' },
+  { id: 'goth', label: { es: 'Gótico & Emo', en: 'Goth & Dark' }, emoji: '💀' },
+  { id: 'preppy', label: { es: 'Elegante & Suits', en: 'Preppy & Luxury' }, emoji: '💎' },
+];
+
+const genders = [
+  { id: 'all', label: { es: 'Todos', en: 'All' } },
+  { id: 'male', label: { es: '👦 Chico', en: '👦 Male' } },
+  { id: 'female', label: { es: '👧 Chica', en: '👧 Female' } },
+  { id: 'unisex', label: { es: '🌟 Unisex', en: '🌟 Unisex' } },
+];
+---
+
+<div class="outfit-hub-wrapper space-y-8">
+  
+  <!-- Search & Filter Controls -->
+  <div class="bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-6">
+      <div class="space-y-1">
+        <div class="inline-flex items-center gap-2 text-xs font-bold text-pink-400 uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
+          <span>{locale === 'es' ? 'Catálogo de Outfits para Brookhaven RP' : 'Brookhaven RP Outfit Catalog'}</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+          {locale === 'es' ? 'Explora y Copia IDs de Ropa en 1 Clic' : 'Explore & Copy Clothes IDs with 1 Click'}
+        </h2>
+      </div>
+
+      <!-- Quick tutorial button -->
+      <a 
+        href="#como-poner-codigos-brookhaven"
+        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white text-xs font-bold transition-all self-start md:self-auto cursor-pointer"
+      >
+        <span>📖</span>
+        <span>{locale === 'es' ? '¿Cómo poner IDs en el juego?' : 'How to use IDs in-game?'}</span>
+      </a>
+    </div>
+
+    <!-- Live Search Input -->
+    <div class="relative">
+      <input
+        type="text"
+        id="outfit-search-input"
+        placeholder={locale === 'es' ? 'Buscar outfit por nombre o estilo (ej. militar, gojo, rosa, y2k, traje)...' : 'Search outfit by name or tag (e.g. military, gojo, pink, y2k, suit)...'}
+        class="w-full pl-11 pr-4 py-3.5 bg-black/50 border border-white/10 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 rounded-2xl text-sm text-white placeholder-slate-400 outline-none transition-all shadow-inner"
+      />
+      <span class="absolute left-4 top-3.5 text-slate-400 text-base">🔍</span>
+    </div>
+
+    <!-- Filter Pills: Styles & Genders -->
+    <div class="space-y-3">
+      <!-- Style Filters -->
+      <div class="flex flex-wrap items-center gap-2" id="outfit-style-pills">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            class={`outfit-style-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
+              idx === 0
+                ? 'bg-pink-600 text-white border-pink-400 shadow-md shadow-pink-600/30 active-style'
+                : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10'
+            }`}
+            data-category={cat.id}
+          >
+            <span>{cat.emoji}</span> {cat.label[locale]}
+          </button>
+        ))}
+      </div>
+
+      <!-- Gender Filters -->
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-white/5" id="outfit-gender-pills">
+        <span class="text-xs font-bold text-slate-400 mr-1">{locale === 'es' ? 'Género:' : 'Gender:'}</span>
+        {genders.map((gen, idx) => (
+          <button
+            type="button"
+            class={`outfit-gen-btn px-3 py-1.5 rounded-lg text-xs font-medium transition-all border cursor-pointer ${
+              idx === 0
+                ? 'bg-indigo-600 text-white border-indigo-400 active-gender'
+                : 'bg-white/5 hover:bg-white/10 text-slate-400 border-white/5'
+            }`}
+            data-gender={gen.id}
+          >
+            {gen.label[locale]}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Outfits Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="outfits-container">
+    {outfitsData.map((item) => (
+      <article
+        class="outfit-card group bg-[#0b0f19] border border-white/10 hover:border-pink-500/40 rounded-3xl p-5 sm:p-6 shadow-lg transition-all flex flex-col justify-between space-y-4"
+        data-category={item.category}
+        data-gender={item.gender}
+        data-text={`${item.name[locale]} ${item.description[locale]} ${item.tags.join(' ')}`.toLowerCase()}
+      >
+        <!-- Card Header: Title & Badges -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-pink-500/10 text-pink-400 border border-pink-500/20">
+              {item.category}
+            </span>
+            <span class="text-xs text-slate-400 font-medium">
+              {item.gender === 'male' ? '👦 Chico' : item.gender === 'female' ? '👧 Chica' : '🌟 Unisex'}
+            </span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-pink-200 transition-colors">
+            {item.name[locale]}
+          </h3>
+
+          <p class="text-xs text-slate-400 leading-relaxed line-clamp-2">
+            {item.description[locale]}
+          </p>
+        </div>
+
+        <!-- IDs Row Chips -->
+        <div class="space-y-2 pt-2 border-t border-white/5">
+          <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+            {locale === 'es' ? 'Asset IDs para el Editor:' : 'Asset IDs for Avatar Menu:'}
+          </span>
+
+          <div class="grid grid-cols-2 gap-2">
+            {item.shirtId && (
+              <div class="flex items-center justify-between p-2 rounded-xl bg-black/40 border border-white/5 text-xs">
+                <div class="flex items-center gap-1.5 overflow-hidden">
+                  <span>👕</span>
+                  <span class="font-mono text-slate-300 text-[11px] truncate">{item.shirtId}</span>
+                </div>
+                <button
+                  type="button"
+                  class="copy-id-btn text-indigo-400 hover:text-white p-1 text-xs transition-colors shrink-0 cursor-pointer"
+                  data-id={item.shirtId}
+                  title="Copiar ID de Camisa"
+                >
+                  📋
+                </button>
+              </div>
+            )}
+
+            {item.pantsId && (
+              <div class="flex items-center justify-between p-2 rounded-xl bg-black/40 border border-white/5 text-xs">
+                <div class="flex items-center gap-1.5 overflow-hidden">
+                  <span>👖</span>
+                  <span class="font-mono text-slate-300 text-[11px] truncate">{item.pantsId}</span>
+                </div>
+                <button
+                  type="button"
+                  class="copy-id-btn text-indigo-400 hover:text-white p-1 text-xs transition-colors shrink-0 cursor-pointer"
+                  data-id={item.pantsId}
+                  title="Copiar ID de Pantalón"
+                >
+                  📋
+                </button>
+              </div>
+            )}
+
+            {item.hairId && (
+              <div class="flex items-center justify-between p-2 rounded-xl bg-black/40 border border-white/5 text-xs">
+                <div class="flex items-center gap-1.5 overflow-hidden">
+                  <span>💇</span>
+                  <span class="font-mono text-slate-300 text-[11px] truncate">{item.hairId}</span>
+                </div>
+                <button
+                  type="button"
+                  class="copy-id-btn text-indigo-400 hover:text-white p-1 text-xs transition-colors shrink-0 cursor-pointer"
+                  data-id={item.hairId}
+                  title="Copiar ID de Pelo"
+                >
+                  📋
+                </button>
+              </div>
+            )}
+
+            {item.accessoryId && (
+              <div class="flex items-center justify-between p-2 rounded-xl bg-black/40 border border-white/5 text-xs">
+                <div class="flex items-center gap-1.5 overflow-hidden">
+                  <span>🧢</span>
+                  <span class="font-mono text-slate-300 text-[11px] truncate">{item.accessoryId}</span>
+                </div>
+                <button
+                  type="button"
+                  class="copy-id-btn text-indigo-400 hover:text-white p-1 text-xs transition-colors shrink-0 cursor-pointer"
+                  data-id={item.accessoryId}
+                  title="Copiar ID de Accesorio"
+                >
+                  📋
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Copy All IDs Button -->
+        <div class="pt-2">
+          <button
+            type="button"
+            class="copy-all-btn w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-pink-600 hover:text-white text-slate-300 border border-white/10 hover:border-pink-400 text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
+            data-ids={[item.shirtId, item.pantsId, item.hairId, item.accessoryId].filter(Boolean).join(' ')}
+          >
+            <span>⚡</span>
+            <span>{locale === 'es' ? 'Copiar Todos los IDs' : 'Copy All Outfit IDs'}</span>
+          </button>
+        </div>
+
+      </article>
+    ))}
+  </div>
+
+  <!-- Empty Results State -->
+  <div id="no-outfit-results" class="hidden bg-[#0d1322] border border-white/10 rounded-3xl p-12 text-center space-y-4">
+    <span class="text-4xl block">👗</span>
+    <h3 class="text-lg font-bold text-white">
+      {locale === 'es' ? 'No se encontraron outfits para este filtro' : 'No outfits matched your search'}
+    </h3>
+    <p class="text-xs text-slate-400 max-w-md mx-auto">
+      {locale === 'es' ? 'Prueba a cambiar el estilo o busca términos como "militar", "chica", "anime" o "streetwear".' : 'Try switching styles or search terms like "military", "girl", "anime" or "streetwear".'}
+    </p>
+  </div>
+
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('outfit-search-input');
+    const styleBtns = document.querySelectorAll('.outfit-style-btn');
+    const genderBtns = document.querySelectorAll('.outfit-gen-btn');
+    const outfitCards = document.querySelectorAll('.outfit-card');
+    const noResults = document.getElementById('no-outfit-results');
+
+    let activeStyle = 'all';
+    let activeGender = 'all';
+
+    function filterOutfits() {
+      const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+      let visibleCount = 0;
+
+      outfitCards.forEach((card) => {
+        const cat = card.getAttribute('data-category');
+        const gen = card.getAttribute('data-gender');
+        const content = card.getAttribute('data-text') || '';
+
+        const matchesStyle = activeStyle === 'all' || cat === activeStyle;
+        const matchesGender = activeGender === 'all' || gen === activeGender || gen === 'unisex';
+        const matchesQuery = !query || content.includes(query);
+
+        if (matchesStyle && matchesGender && matchesQuery) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+    }
+
+    styleBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        styleBtns.forEach((b) => {
+          b.classList.remove('bg-pink-600', 'text-white', 'border-pink-400', 'shadow-md', 'shadow-pink-600/30', 'active-style');
+          b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+        });
+        btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+        btn.classList.add('bg-pink-600', 'text-white', 'border-pink-400', 'shadow-md', 'shadow-pink-600/30', 'active-style');
+        activeStyle = btn.getAttribute('data-category') || 'all';
+        filterOutfits();
+      });
+    });
+
+    genderBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        genderBtns.forEach((b) => {
+          b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'active-gender');
+          b.classList.add('bg-white/5', 'text-slate-400', 'border-white/5');
+        });
+        btn.classList.remove('bg-white/5', 'text-slate-400', 'border-white/5');
+        btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'active-gender');
+        activeGender = btn.getAttribute('data-gender') || 'all';
+        filterOutfits();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterOutfits);
+    }
+
+    // Individual ID copy buttons
+    document.querySelectorAll('.copy-id-btn').forEach((btn) => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const id = this.getAttribute('data-id');
+        if (id && window.copyCodeToClipboard) {
+          window.copyCodeToClipboard(id, this);
+        }
+      });
+    });
+
+    // Copy all IDs button
+    document.querySelectorAll('.copy-all-btn').forEach((btn) => {
+      btn.addEventListener('click', function() {
+        const ids = this.getAttribute('data-ids');
+        if (ids && window.copyCodeToClipboard) {
+          window.copyCodeToClipboard(ids, this);
+        }
+      });
+    });
+  });
+</script>

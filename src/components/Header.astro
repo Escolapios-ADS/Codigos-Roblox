@@ -27,6 +27,8 @@ if (currentSlug) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/generador-nombres-roblox/' : '/en/roblox-username-generator/';
 } else if (pathname.includes('/errores-roblox') || pathname.includes('/roblox-error-codes')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/errores-roblox/' : '/en/roblox-error-codes/';
+} else if (pathname.includes('/codigos-ropa-brookhaven') || pathname.includes('/brookhaven-outfit-codes')) {
+  targetAlternateUrl = otherLocale === 'es' ? '/es/codigos-ropa-brookhaven/' : '/en/brookhaven-outfit-codes/';
 } else if (pathname.includes('/guias')) {
   targetAlternateUrl = `/${otherLocale}/guias/`;
 } else if (pathname.includes('/sobre-nosotros') || pathname.includes('/about')) {
@@ -116,6 +118,12 @@ if (currentSlug) {
           class="px-3 py-2 rounded-lg text-rose-300/90 hover:text-rose-200 hover:bg-rose-500/10 transition-colors font-medium"
         >
           {t.nav.errorHub}
+        </a>
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'codigos-ropa-brookhaven/' : 'brookhaven-outfit-codes/'}`}
+          class="px-3 py-2 rounded-lg text-pink-300/90 hover:text-pink-200 hover:bg-pink-500/10 transition-colors font-medium"
+        >
+          {t.nav.outfitHub}
         </a>
         <a 
           href={`/${locale}/juego/roblox-promo-codes`}
@@ -212,6 +220,12 @@ if (currentSlug) {
       class="block px-3 py-2 rounded-lg text-base font-medium text-rose-300 hover:text-white hover:bg-white/5"
     >
       {t.nav.errorHub}
+    </a>
+    <a 
+      href={`/${locale}/${locale === 'es' ? 'codigos-ropa-brookhaven/' : 'brookhaven-outfit-codes/'}`}
+      class="block px-3 py-2 rounded-lg text-base font-medium text-pink-300 hover:text-white hover:bg-white/5"
+    >
+      {t.nav.outfitHub}
     </a>
     <a 
       href={`/${locale}/juego/roblox-promo-codes`}
