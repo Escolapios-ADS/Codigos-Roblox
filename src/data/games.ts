@@ -1146,6 +1146,193 @@ export const gamesData: GameItem[] = [
       ],
     },
   },
+  {
+    id: 'pet-simulator-99',
+    slug: 'pet-simulator-99',
+    title: 'Pet Simulator 99 (PS99)',
+    tagline: {
+      es: 'Diamantes gratis, pociones de suerte y monedas gigantes para eclosionar mascotas Titanic.',
+      en: 'Free diamonds, lucky potions, and massive coin boosts to hatch titanic pets.',
+    },
+    badge: {
+      es: '💎 Millones de Jugadores',
+      en: '💎 Millions of Players',
+    },
+    category: 'simulator',
+    categoryLabel: {
+      es: 'Simulador / Mascotas',
+      en: 'Simulator / Pets',
+    },
+    developer: 'BIG Games Pets',
+    likes: '2.9M+',
+    visits: '3.6B+',
+    activePlayers: '180,000+',
+    robloxUrl: 'https://www.roblox.com/games/8737899170/Pet-Simulator-99',
+    accentColor: 'indigo',
+    iconGradient: 'from-blue-600 via-indigo-600 to-cyan-500',
+    emoji: '🐾',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Códigos activos de Pet Simulator 99 (PS99) en Roblox. Consigue miles de diamantes gratis, pociones de suerte tier X y paquetes de monedas.',
+      en: 'Active Pet Simulator 99 (PS99) codes for Roblox. Claim free diamonds, lucky potions, and coin bundles to hatch huge pets.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Pet Simulator 99',
+        steps: [
+          'Entra a Pet Simulator 99 en Roblox.',
+          'Pulsa el icono del botón de la Tienda de Mascotas (icono de cesta / carrito) en la parte inferior.',
+          'Baja hasta la sección "Exclusive Shop" y pulsa el botón "Redeem" o "Codes".',
+          'Pega el código de nuestra lista y pulsa la marca de confirmación verde.'
+        ],
+        tip: '¡Eclosiona huevos mientras tienes activadas las pociones de suerte gratis para aumentar el ratio de mascotas Huge!',
+      },
+      en: {
+        title: 'How to Redeem Codes in Pet Simulator 99',
+        steps: [
+          'Launch Pet Simulator 99 on Roblox.',
+          'Tap the shopping cart / Exclusive Shop icon at the bottom of the HUD.',
+          'Scroll down through the Exclusive Store to the "Redeem" banner.',
+          'Type or paste your code and confirm to immediately collect your diamonds and potions.'
+        ],
+        tip: 'Pop your luck potions right before opening high-tier eggs to boost Huge pet odds!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'TITANICPET',
+        reward: {
+          es: '50,000 Diamantes + 5 Pociones de Suerte V',
+          en: '50,000 Diamonds + 5 Lucky Potions V',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'DIAMONDSHUNTER',
+        reward: {
+          es: '25,000 Diamantes gratis',
+          en: '25,000 Free Diamonds',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'UPDATEPETS',
+        reward: {
+          es: 'Paquete de Pociones de Daño y Velocidad',
+          en: 'Damage and Speed Potion Bundle',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'RELEASE', reward: { es: '10,000 Diamonds', en: '10,000 Diamonds' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Qué son los diamantes en Pet Simulator 99?',
+          a: 'Los diamantes son la moneda más valiosa del juego. Se utilizan para comerciar en la Plaza Comercial (Trading Plaza), comprar mejoras permanentes y desbloquear zonas secretas.',
+        },
+      ],
+      en: [
+        {
+          q: 'What are diamonds used for in PS99?',
+          a: 'Diamonds are the premier trading currency in Pet Simulator 99, used across the Trading Plaza to buy Huge pets, enchant books, and upgrade mastery.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'toilet-tower-defense',
+    slug: 'toilet-tower-defense',
+    title: 'Toilet Tower Defense (TTD)',
+    tagline: {
+      es: 'Monedas de invocación, cajas de suerte y gemas para desbloquear camarógrafos míticos.',
+      en: 'Summon coins, lucky crates, and gems to summon mythic cameramen and speakermen.',
+    },
+    badge: {
+      es: '📺 Mega Popular',
+      en: '📺 Mega Popular',
+    },
+    category: 'action',
+    categoryLabel: {
+      es: 'Tower Defense / Estrategia',
+      en: 'Tower Defense / Strategy',
+    },
+    developer: 'Telanthric Development',
+    likes: '2.1M+',
+    visits: '2.8B+',
+    activePlayers: '75,000+',
+    robloxUrl: 'https://www.roblox.com/games/13775256536/Toilet-Tower-Defense',
+    accentColor: 'amber',
+    iconGradient: 'from-amber-600 via-orange-600 to-red-600',
+    emoji: '🚽',
+    lastUpdated: '2026-09-22',
+    metaDescription: {
+      es: 'Códigos válidos de Toilet Tower Defense (TTD) en Roblox. Reclama monedas gratis y cajas de unidades para derrotar a los jefes.',
+      en: 'Valid Toilet Tower Defense (TTD) codes for Roblox. Claim free coins and summoning crates to defeat relentless waves.',
+    },
+    howToRedeem: {
+      es: {
+        title: 'Cómo canjear códigos en Toilet Tower Defense',
+        steps: [
+          'Abre Toilet Tower Defense en Roblox.',
+          'En el lado izquierdo de la pantalla, pulsa el icono de la ventana de chat o botón de "Códigos".',
+          'Escribe el código exactamente como aparece en nuestra lista.',
+          'Pulsa el botón "Canjear" para recibir tus monedas al instante.'
+        ],
+        tip: 'Únete al grupo oficial de Telanthric en Roblox para recibir un boost pasivo de +100 monedas al canjear.',
+      },
+      en: {
+        title: 'How to Redeem Codes in Toilet Tower Defense',
+        steps: [
+          'Launch Toilet Tower Defense on Roblox.',
+          'Click the Codes / chat box icon on the left side of the display.',
+          'Type or copy the active code from our table.',
+          'Click Redeem to immediately receive your coins and crates.'
+        ],
+        tip: 'Join the official Roblox development group to unlock an extra passive +100 coin bonus!',
+      },
+    },
+    activeCodes: [
+      {
+        code: 'SummonTitan',
+        reward: {
+          es: '500 Monedas + 1 Caja de Suerte',
+          en: '500 Coins + 1 Lucky Crate',
+        },
+        isNew: true,
+        verifiedDate: 'Hoy',
+      },
+      {
+        code: 'SpeakerUpgrade',
+        reward: {
+          es: '300 Monedas gratis',
+          en: '300 Free Coins',
+        },
+        verifiedDate: 'Hoy',
+      },
+    ],
+    expiredCodes: [
+      { code: 'CameraMan', reward: { es: '200 Coins', en: '200 Coins' } },
+    ],
+    faqs: {
+      es: [
+        {
+          q: '¿Cómo consigo unidades míticas en TTD?',
+          a: 'Puedes usar las monedas gratuitas de los códigos para realizar tiradas en el banner del lobby o comerciar con otros jugadores en la sala de intercambio.',
+        },
+      ],
+      en: [
+        {
+          q: 'How do I summon mythic units in TTD?',
+          a: 'Use coins claimed from verified codes to roll the summoning banner or trade with lobby players in the marketplace.',
+        },
+      ],
+    },
+  },
 ];
 
 export function getGameBySlug(slug: string): GameItem | undefined {
