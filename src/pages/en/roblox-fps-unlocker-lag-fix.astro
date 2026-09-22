@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import FpsOptimizer from '../../components/FpsOptimizer.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = 'How to Fix Lag in Roblox 2026 | Safe FPS Unlocker & Ping Reducer (144Hz)';
+const pageDescription = 'Comprehensive Roblox FPS optimization guide & interactive diagnostic tool for 2026. Fix lag, lower ping, and safely uncap 144/240 FPS via official FastFlags on PC, mobile & consoles.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Can you get banned for using a Roblox FPS Unlocker or FastFlags?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. Roblox Corporation has explicitly verified that uncapping frame rates via official FastFlags and ClientAppSettings.json is 100% allowed and safe. It does not inject unauthorized hooks into memory or trigger Byfron Hyperion anti-cheat penalties.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'How do you check your current FPS in Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'On Windows or Mac, press Shift + F5 inside any Roblox experience. An on-screen diagnostics overlay will appear in the top-left corner displaying real-time FPS, round-trip ping latency, and memory utilization.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I lower ping and eliminate lag spikes in Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'To minimize ping: 1) Switch from Wi-Fi to a wired Ethernet cable, 2) Switch DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8), 3) Flush DNS cache with "ipconfig /flushdns", and 4) Select regional servers matching your geographic location in the experience Servers tab.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the optimal in-game graphics level for low lag?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'For budget hardware, Manual Level 2 or 3 is the sweet spot: it strips resource-heavy volumetric shadows while preserving visible sword hitboxes and Blade Ball trajectory markers.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://codigosroblox.org/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Roblox FPS Unlocker & Lag Fix',
+          item: 'https://codigosroblox.org/en/roblox-fps-unlocker-lag-fix/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="fps-top-leaderboard-en" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-cyan-400 font-medium">FPS Unlocker & Lag Fix</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold">
+        <span>⚡</span>
+        <span>Official Performance Tool • 2026 Season</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        How to Fix Lag in Roblox: <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400">FPS & Ping Guide 2026</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        Struggling with stuttering, device overheating, or capped at 60 FPS on a 144Hz/240Hz gaming display? Choose your device below and generate a tailored optimization profile with safe FastFlags and calibrated settings.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Optimizer Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Optimizer Engine Component -->
+    <FpsOptimizer locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="fps-mid-banner-en" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: The 60 FPS Cap and Safe FastFlags -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>⚙️</span> Why Roblox is Capped at 60 FPS and How to Unlock It Safely
+        </h2>
+        <p class="text-sm leading-relaxed">
+          By default, Roblox’s internal task scheduler imposes a 60 FPS ceiling to ensure compatibility with standard 60 Hz office displays. However, on modern 120Hz, 144Hz, 240Hz, or 360Hz monitors, this cap induces motion judder and unnecessary input latency.
+        </p>
+        <p class="text-sm leading-relaxed">
+          Rather than relying on risky third-party background executables that could trigger <strong>Byfron Hyperion</strong> security flags, the safest and officially supported method is configuring <strong>ClientAppSettings.json</strong> using native Roblox engine flags:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Safe Approach: Native FastFlags</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Placing <code class="text-emerald-300 bg-black/40 px-1 py-0.5 rounded">ClientAppSettings.json</code> inside a <code class="text-emerald-300 bg-black/40 px-1 py-0.5 rounded">ClientSettings</code> folder tells Roblox’s own engine to target 144 or 240 FPS natively without hooking memory.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">Risky Approach: Random .exe Injectors</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Downloading unofficial executables that modify running processes risks antivirus false positives and potential Error 268 disconnects.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Step-by-Step Installation of ClientAppSettings.json -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>📁</span> Step-by-Step: Where to Place ClientAppSettings.json on Windows
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">1</div>
+            <h4 class="font-bold text-white text-sm">Open Run Prompt</h4>
+            <p class="text-xs text-slate-400">Press Windows + R, enter <code class="text-cyan-300">%localappdata%\Roblox\Versions</code> and press Enter.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">2</div>
+            <h4 class="font-bold text-white text-sm">Open Active Version</h4>
+            <p class="text-xs text-slate-400">Open the newest <code class="text-cyan-300">version-xxxxxx</code> folder containing RobloxPlayerBeta.exe.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">3</div>
+            <h4 class="font-bold text-white text-sm">Create Folder</h4>
+            <p class="text-xs text-slate-400">Create a subfolder named exactly <code class="text-cyan-300">ClientSettings</code>.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">4</div>
+            <h4 class="font-bold text-white text-sm">Save JSON File</h4>
+            <p class="text-xs text-slate-400">Save your copied code as <code class="text-cyan-300">ClientAppSettings.json</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-cyan-950/30 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-cyan-600/30 border border-cyan-400 flex items-center justify-center text-lg font-bold text-white">
+            GB
+          </div>
+          <div>
+            <span class="text-xs text-cyan-400 font-mono uppercase tracking-wider block">Written & Verified by</span>
+            <h4 class="text-sm font-bold text-white">Guillermo Beltrán • Lead Developer & Performance Engineer</h4>
+            <p class="text-xs text-slate-400">Technically reviewed by Jorge Villapún and Héctor Moreno • Updated for 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/about`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 transition-colors shrink-0"
+        >
+          Meet the Editorial Team →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Frequently Asked Questions About Roblox Performance
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">Do I have to re-add ClientAppSettings.json when Roblox updates?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Yes. When Roblox pushes its weekly client update, it creates a fresh <code class="text-cyan-300">version-xxxxxx</code> folder. Simply copy your <code class="text-cyan-300">ClientSettings</code> folder into the new version to retain your unlocked frame rate.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">Why does my game stutter even on high-end hardware?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Stutters are commonly caused by networking jitter or slow mechanical HDDs. Install Roblox on an SSD and ensure you are not connected to far-away global servers (e.g. cross-continent matchmaking).
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">How does uncapped FPS help in competitive PvP?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            In fast-paced titles like Blade Ball, Rivals, or Da Hood, jumping from 60 to 144 or 240 FPS cuts mouse input delay to under 4 milliseconds, providing faster reaction times on parries and flick shots.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <a 
+        href={`/${locale}/roblox-error-codes/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-rose-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🔧</span>
+        <h4 class="font-bold text-white group-hover:text-rose-300 text-sm">Error Codes Hub</h4>
+        <p class="text-xs text-slate-400">Fix Error 279, 277 & 267.</p>
+      </a>
+      <a 
+        href={`/${locale}/blox-fruits-trade-calculator/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-amber-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚖️</span>
+        <h4 class="font-bold text-white group-hover:text-amber-300 text-sm">Trade Calculator</h4>
+        <p class="text-xs text-slate-400">Updated fruit values.</p>
+      </a>
+      <a 
+        href={`/${locale}/blox-fruits-quiz/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-purple-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🧠</span>
+        <h4 class="font-bold text-white group-hover:text-purple-300 text-sm">Blox Fruits Quiz</h4>
+        <p class="text-xs text-slate-400">Find your dream fruit build.</p>
+      </a>
+      <a 
+        href={`/${locale}/music/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-indigo-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎵</span>
+        <h4 class="font-bold text-white group-hover:text-indigo-300 text-sm">Music IDs Hub</h4>
+        <p class="text-xs text-slate-400">Boombox viral tracks.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="fps-bottom-rect-en" locale={locale} />
+
+  </main>
+</Layout>

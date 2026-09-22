@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import FpsOptimizer from '../../components/FpsOptimizer.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Cómo Quitar el Lag en Roblox 2026 | Desbloquear FPS y Bajar Ping (144Hz)';
+const pageDescription = 'Guía definitiva y herramienta interactiva de optimización de FPS para Roblox en 2026. Quita el lag, baja el ping y desbloquea 144/240 FPS con FastFlags seguros en PC, móvil y consolas.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Te pueden banear por usar un FPS Unlocker o FastFlags en Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. Roblox Corporation ha confirmado oficialmente que desbloquear la tasa de fotogramas mediante FastFlags oficiales o el archivo ClientAppSettings.json es 100% legal y seguro. No inyecta código malicioso en la memoria ni activa el sistema anti-trampas Byfron Hyperion.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cómo ver los FPS actuales dentro de Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'En PC con Windows o Mac, presiona la combinación de teclas Shift + F5 (o Mayús + F5) dentro de cualquier experiencia de Roblox. Aparecerá en la esquina superior izquierda un panel con tus FPS en tiempo real, latencia de ping y uso de memoria.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cómo bajar el ping y evitar la desconexión en Roblox?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Para reducir el ping: 1) Conecta tu dispositivo por cable Ethernet en vez de Wi-Fi, 2) Cambia las DNS a Cloudflare (1.1.1.1) o Google (8.8.8.8), 3) Vacía la caché DNS con "ipconfig /flushdns", y 4) Elige manualmente servidores de tu misma región en la pestaña Servidores del juego.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cuál es el mejor nivel de gráficos para no tener lag en Blox Fruits o Blade Ball?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'En ordenadores modestos o teléfonos móviles, el Nivel 2 o 3 manual es el punto óptimo: desactiva el renderizado de partículas pesadas y reflejos de agua, pero mantiene visible el rango de ataque de las espadas y la pelota de Blade Ball.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Optimizar FPS y Quitar Lag',
+          item: 'https://codigosroblox.org/es/optimizar-roblox-fps-lag/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="fps-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Breadcrumbs & Hero -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+      <a href={`/${locale}/`} class="hover:text-indigo-400 transition-colors">Inicio</a>
+      <span>/</span>
+      <span class="text-cyan-400 font-medium">Optimizar FPS & Lag</span>
+    </nav>
+
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold">
+        <span>⚡</span>
+        <span>Herramienta Oficial de Rendimiento • Temporada 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Cómo Quitar el Lag en Roblox: <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400">Guía de FPS y Ping 2026</span>
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        ¿Roblox te va a tirones, se calienta tu móvil o juegas en un monitor de 144Hz/240Hz pero el juego está bloqueado a 60 FPS? Selecciona tu equipo abajo y genera al instante tu perfil de optimización con FastFlags seguros y ajustes recomendados.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Optimizer Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+    
+    <!-- Interactive Optimizer Engine Component -->
+    <FpsOptimizer locale={locale} />
+
+    <!-- In-Content Ad Banner -->
+    <AdBanner slotType="banner" slotId="fps-mid-banner" locale={locale} />
+
+    <!-- Educational & High-Value SEO Content Section -->
+    <article class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-10 text-slate-300">
+      
+      <!-- Section 1: The 60 FPS Cap and Safe FastFlags -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>⚙️</span> ¿Por Qué Roblox Viene Bloqueado a 60 FPS y Cómo Desbloquearlo?
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Por defecto, el motor de Roblox utiliza un limitador interno en su planificador de tareas (Task Scheduler) configurado a 60 fotogramas por segundo para garantizar compatibilidad con pantallas estándar. Sin embargo, para pantallas de 120Hz, 144Hz, 240Hz o 360Hz, este límite produce una sensación de arrastre y mayor retraso de entrada (input lag).
+        </p>
+        <p class="text-sm leading-relaxed">
+          En lugar de recurrir a programas externos ejecutables que puedan ser sospechosos para el sistema anti-trampas <strong>Byfron Hyperion</strong>, el método más seguro y oficial consiste en utilizar el archivo de configuración <strong>ClientAppSettings.json</strong> con las variables oficiales de Roblox:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Método Seguro: FastFlags Nativos</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Crea una carpeta llamada <code class="text-emerald-300 bg-black/40 px-1 py-0.5 rounded">ClientSettings</code> en tu directorio de Roblox y coloca el archivo <code class="text-emerald-300 bg-black/40 px-1 py-0.5 rounded">ClientAppSettings.json</code>. No modifica ejecutables y es 100% indetectable y permitido.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2">
+            <span class="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">Método No Recomendado: Inyectores .exe</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Descargar ejecutables no oficiales que manipulan procesos en memoria activa falsos positivos en Windows Defender y puede provocar expulsiones temporales por Error 268 (Hyperion).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Step-by-Step Installation of ClientAppSettings.json -->
+      <section class="space-y-4 border-t border-white/5 pt-8">
+        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+          <span>📁</span> Paso a Paso: Dónde colocar ClientAppSettings.json en Windows
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">1</div>
+            <h4 class="font-bold text-white text-sm">Abre Ejecutar</h4>
+            <p class="text-xs text-slate-400">Pulsa Windows + R, escribe <code class="text-cyan-300">%localappdata%\Roblox\Versions</code> y pulsa Enter.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">2</div>
+            <h4 class="font-bold text-white text-sm">Entra a la Versión</h4>
+            <p class="text-xs text-slate-400">Abre la carpeta llamada <code class="text-cyan-300">version-xxxxxx</code> que contenga el archivo RobloxPlayerBeta.exe.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">3</div>
+            <h4 class="font-bold text-white text-sm">Crea ClientSettings</h4>
+            <p class="text-xs text-slate-400">Crea una nueva carpeta con el nombre exacto <code class="text-cyan-300">ClientSettings</code>.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-white/5 space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/30">4</div>
+            <h4 class="font-bold text-white text-sm">Guarda el JSON</h4>
+            <p class="text-xs text-slate-400">Pega el código copiado de nuestra herramienta en un archivo llamado <code class="text-cyan-300">ClientAppSettings.json</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Author Review Box (E-E-A-T) -->
+      <div class="p-5 rounded-2xl bg-cyan-950/30 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-cyan-600/30 border border-cyan-400 flex items-center justify-center text-lg font-bold text-white">
+            GB
+          </div>
+          <div>
+            <span class="text-xs text-cyan-400 font-mono uppercase tracking-wider block">Escrito y Verificado por</span>
+            <h4 class="text-sm font-bold text-white">Guillermo Beltrán • Desarrollador & Especialista en Rendimiento</h4>
+            <p class="text-xs text-slate-400">Revisado técnicamente por Jorge Villapún y Héctor Moreno • Actualizado para 2026</p>
+          </div>
+        </div>
+        <a 
+          href={`/${locale}/sobre-nosotros`}
+          class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 transition-colors shrink-0"
+        >
+          Conoce al Equipo Editorial →
+        </a>
+      </div>
+
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="bg-[#0b0f19] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+        <span>❓</span> Preguntas Frecuentes sobre Rendimiento en Roblox
+      </h2>
+      <div class="divide-y divide-white/5">
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Tengo que volver a poner el archivo ClientAppSettings.json cuando Roblox se actualiza?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Sí. Cuando Roblox lanza una actualización semanal, crea una nueva carpeta <code class="text-cyan-300">version-xxxxxx</code>. Simplemente copia tu carpeta <code class="text-cyan-300">ClientSettings</code> dentro de la nueva versión para conservar tus FPS desbloqueados.
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Por qué mi juego sigue teniendo tirones con buen PC?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Muchos tirones no se deben a la tarjeta gráfica, sino al ping o a un disco duro lento. Instala Roblox en un disco SSD y asegúrate de no estar jugando en servidores lejanos (ej. jugar en servidores de Asia o EE.UU. desde Europa).
+          </p>
+        </div>
+        <div class="py-4 space-y-1.5">
+          <h3 class="text-sm sm:text-base font-bold text-white">¿Cómo ayuda desbloquear FPS en juegos PvP competitivos?</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            En títulos de reflejos como Blade Ball, Rivals o Da Hood, pasar de 60 a 144 o 240 FPS reduce el retraso del ratón a menos de 4 milisegundos, permitiendo responder mucho antes a desvíos y disparos enemigos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links to other tools -->
+    <section class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <a 
+        href={`/${locale}/errores-roblox/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-rose-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🔧</span>
+        <h4 class="font-bold text-white group-hover:text-rose-300 text-sm">Códigos de Error</h4>
+        <p class="text-xs text-slate-400">Solución a error 279, 277 y 267.</p>
+      </a>
+      <a 
+        href={`/${locale}/calculadora-tradeos-blox-fruits/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-amber-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">⚖️</span>
+        <h4 class="font-bold text-white group-hover:text-amber-300 text-sm">Calculadora Blox Fruits</h4>
+        <p class="text-xs text-slate-400">Valores de frutas actualizados.</p>
+      </a>
+      <a 
+        href={`/${locale}/quiz-frutas-blox-fruits/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-purple-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🧠</span>
+        <h4 class="font-bold text-white group-hover:text-purple-300 text-sm">Quiz Blox Fruits</h4>
+        <p class="text-xs text-slate-400">Descubre tu fruta y build ideal.</p>
+      </a>
+      <a 
+        href={`/${locale}/musica/`}
+        class="p-5 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-indigo-500/40 transition-all group space-y-2 block"
+      >
+        <span class="text-2xl">🎵</span>
+        <h4 class="font-bold text-white group-hover:text-indigo-300 text-sm">Música & Boombox</h4>
+        <p class="text-xs text-slate-400">Canciones virales para tu radio.</p>
+      </a>
+    </section>
+
+    <!-- Bottom Ad Slot -->
+    <AdBanner slotType="rectangle" slotId="fps-bottom-rect" locale={locale} />
+
+  </main>
+</Layout>

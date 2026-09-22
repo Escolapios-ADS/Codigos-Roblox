@@ -1,0 +1,279 @@
+---
+import { deviceOptions, issueOptions, optimizationMatrix } from '../data/fps-presets';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+---
+
+<div class="fps-optimizer-wrapper bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-8 relative overflow-hidden">
+  
+  <!-- Glow accent backdrop -->
+  <div class="absolute -top-20 -right-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-6">
+    <div class="space-y-1">
+      <div class="inline-flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>{locale === 'es' ? 'Herramienta de Diagnóstico de Rendimiento' : 'Performance Diagnostic Tool'}</span>
+      </div>
+      <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        {locale === 'es' ? 'Calculadora de Optimización de FPS & Reducción de Lag' : 'FPS Optimization & Lag Reduction Engine'}
+      </h2>
+    </div>
+
+    <!-- FPS Counter Tip Badge -->
+    <div class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300 self-start md:self-auto">
+      <span>{locale === 'es' ? '💡 Tip: Pulsa Shift + F5 para ver FPS en PC' : '💡 Tip: Press Shift + F5 for in-game FPS'}</span>
+    </div>
+  </div>
+
+  <!-- Step 1: Device Selection -->
+  <div class="space-y-3">
+    <label class="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+      {locale === 'es' ? '1. ¿En qué dispositivo juegas?' : '1. Which device do you play on?'}
+    </label>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3" id="device-selector">
+      {deviceOptions.map((dev, idx) => (
+        <button
+          type="button"
+          class={`device-btn p-4 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between space-y-2 ${
+            idx === 0
+              ? 'bg-cyan-600/20 border-cyan-400 text-white shadow-lg shadow-cyan-500/10 active-device'
+              : 'bg-black/40 border-white/10 text-slate-400 hover:text-white hover:bg-white/5'
+          }`}
+          data-device={dev.id}
+        >
+          <span class="text-2xl">{dev.emoji}</span>
+          <span class="text-xs sm:text-sm font-bold block">{dev.label[locale]}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Step 2: Problem Selection -->
+  <div class="space-y-3">
+    <label class="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+      {locale === 'es' ? '2. ¿Cuál es tu problema principal?' : '2. What is your primary issue?'}
+    </label>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3" id="issue-selector">
+      {issueOptions.map((iss, idx) => (
+        <button
+          type="button"
+          class={`issue-btn p-4 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between space-y-2 ${
+            idx === 0
+              ? 'bg-cyan-600/20 border-cyan-400 text-white shadow-lg shadow-cyan-500/10 active-issue'
+              : 'bg-black/40 border-white/10 text-slate-400 hover:text-white hover:bg-white/5'
+          }`}
+          data-issue={iss.id}
+        >
+          <span class="text-2xl">{iss.emoji}</span>
+          <span class="text-xs sm:text-sm font-bold block">{iss.label[locale]}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Dynamic Diagnosis & Solution Container -->
+  <div id="optimization-result-box" class="bg-[#080c14] border border-cyan-500/30 rounded-3xl p-6 sm:p-8 space-y-6">
+    
+    <!-- Top Highlights Banner -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-6">
+      <div class="space-y-1">
+        <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider block">
+          {locale === 'es' ? 'Plan de Optimización Generado:' : 'Generated Optimization Plan:'}
+        </span>
+        <h3 class="text-xl sm:text-2xl font-black text-white" id="profile-title">
+          Perfil Ultra Rendimiento (Potato PC)
+        </h3>
+      </div>
+
+      <div class="flex items-center gap-3 shrink-0">
+        <div class="px-3.5 py-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold">
+          <span class="block text-[10px] uppercase font-sans text-slate-400">{locale === 'es' ? 'Aumento FPS' : 'FPS Boost'}</span>
+          <span id="profile-fps-gain">+70% a +120%</span>
+        </div>
+        <div class="px-3.5 py-2 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs font-bold">
+          <span class="block text-[10px] uppercase font-sans text-slate-400">{locale === 'es' ? 'Baja de Ping' : 'Ping Cut'}</span>
+          <span id="profile-ping-gain">-15ms</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" id="profile-summary">
+      ...
+    </p>
+
+    <!-- In-Game Slider Visual Recommendation -->
+    <div class="p-5 rounded-2xl bg-black/50 border border-white/5 space-y-3">
+      <div class="flex items-center justify-between text-xs">
+        <span class="font-bold text-slate-200">
+          {locale === 'es' ? 'Nivel recomendado en la barra gráfica del juego:' : 'Recommended in-game Graphics Slider level:'}
+        </span>
+        <span class="font-mono font-bold text-cyan-400" id="slider-level-text">Nivel 1 de 10</span>
+      </div>
+
+      <div class="grid grid-cols-10 gap-1 sm:gap-1.5" id="slider-visual-bars">
+        <!-- 10 segments injected by script -->
+      </div>
+    </div>
+
+    <!-- Action Steps Checklist -->
+    <div class="space-y-3">
+      <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400">
+        {locale === 'es' ? 'Pasos de Configuración Recomendados:' : 'Recommended Configuration Steps:'}
+      </h4>
+      <ol class="space-y-2.5 text-xs text-slate-300 list-decimal list-inside" id="profile-steps">
+        <!-- Injected by script -->
+      </ol>
+    </div>
+
+    <!-- FastFlags JSON Code Box (Shown if PC profile has fastFlagsSnippet) -->
+    <div id="fastflags-box" class="space-y-3 pt-4 border-t border-white/5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-white uppercase tracking-wider">
+            {locale === 'es' ? 'Código FastFlags Seguro (ClientAppSettings.json):' : 'Safe FastFlags Code (ClientAppSettings.json):'}
+          </span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            {locale === 'es' ? '100% Anti-Cheat Safe' : '100% Anti-Cheat Safe'}
+          </span>
+        </div>
+        <button
+          type="button"
+          id="copy-fastflags-btn"
+          class="px-3 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+        >
+          <span>📋</span>
+          <span>{locale === 'es' ? 'Copiar Código' : 'Copy Code'}</span>
+        </button>
+      </div>
+
+      <pre class="p-4 rounded-2xl bg-black/80 border border-white/10 font-mono text-xs text-cyan-300 overflow-x-auto select-all"><code id="fastflags-code">...</code></pre>
+
+      <p class="text-[11px] text-slate-400">
+        {locale === 'es'
+          ? '📁 Dónde colocarlo: En Windows, pulsa Win + R, escribe %localappdata%\\Roblox\\Versions, entra en la carpeta de versión más reciente, crea una subcarpeta llamada "ClientSettings" y guarda el archivo con el nombre "ClientAppSettings.json".'
+          : '📁 Location: On Windows, press Win + R, enter %localappdata%\\Roblox\\Versions, open the latest version folder, create a "ClientSettings" subfolder, and save this file named "ClientAppSettings.json".'}
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<script is:inline define:vars={{ matrixJson: JSON.stringify(optimizationMatrix), currentLocale: locale }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const matrix = JSON.parse(matrixJson);
+    let selectedDevice = 'low-pc';
+    let selectedIssue = 'under-30';
+
+    const deviceBtns = document.querySelectorAll('.device-btn');
+    const issueBtns = document.querySelectorAll('.issue-btn');
+
+    const profileTitle = document.getElementById('profile-title');
+    const profileFpsGain = document.getElementById('profile-fps-gain');
+    const profilePingGain = document.getElementById('profile-ping-gain');
+    const profileSummary = document.getElementById('profile-summary');
+    const profileSteps = document.getElementById('profile-steps');
+    const sliderLevelText = document.getElementById('slider-level-text');
+    const sliderBars = document.getElementById('slider-visual-bars');
+    const fastflagsBox = document.getElementById('fastflags-box');
+    const fastflagsCode = document.getElementById('fastflags-code');
+    const copyFastflagsBtn = document.getElementById('copy-fastflags-btn');
+
+    function updateProfile() {
+      const key = `${selectedDevice}_${selectedIssue}`;
+      const data = matrix[key] || matrix['low-pc_under-30'];
+
+      if (profileTitle) profileTitle.textContent = data.title[currentLocale];
+      if (profileFpsGain) profileFpsGain.textContent = data.fpsGain;
+      if (profilePingGain) profilePingGain.textContent = data.pingGain;
+      if (profileSummary) profileSummary.textContent = data.summary[currentLocale];
+
+      if (sliderLevelText) {
+        sliderLevelText.textContent = currentLocale === 'es'
+          ? `Nivel ${data.recommendedSlider} de 10`
+          : `Level ${data.recommendedSlider} of 10`;
+      }
+
+      if (sliderBars) {
+        sliderBars.innerHTML = '';
+        for (let i = 1; i <= 10; i++) {
+          const bar = document.createElement('div');
+          bar.className = `h-3 rounded-full transition-all ${
+            i <= data.recommendedSlider
+              ? 'bg-cyan-400 shadow-sm shadow-cyan-400/50'
+              : 'bg-white/10'
+          }`;
+          sliderBars.appendChild(bar);
+        }
+      }
+
+      if (profileSteps) {
+        profileSteps.innerHTML = '';
+        data.steps[currentLocale].forEach((step) => {
+          const li = document.createElement('li');
+          li.className = 'leading-relaxed pl-1';
+          li.textContent = step;
+          profileSteps.appendChild(li);
+        });
+      }
+
+      if (fastflagsBox && fastflagsCode) {
+        if (data.fastFlagsSnippet) {
+          fastflagsBox.classList.remove('hidden');
+          fastflagsCode.textContent = data.fastFlagsSnippet;
+        } else {
+          fastflagsBox.classList.add('hidden');
+        }
+      }
+    }
+
+    deviceBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        deviceBtns.forEach((b) => {
+          b.classList.remove('bg-cyan-600/20', 'border-cyan-400', 'text-white', 'shadow-lg', 'shadow-cyan-500/10', 'active-device');
+          b.classList.add('bg-black/40', 'border-white/10', 'text-slate-400');
+        });
+        btn.classList.remove('bg-black/40', 'border-white/10', 'text-slate-400');
+        btn.classList.add('bg-cyan-600/20', 'border-cyan-400', 'text-white', 'shadow-lg', 'shadow-cyan-500/10', 'active-device');
+        selectedDevice = btn.getAttribute('data-device') || 'low-pc';
+        if (window.playRewardSound) window.playRewardSound();
+        updateProfile();
+      });
+    });
+
+    issueBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        issueBtns.forEach((b) => {
+          b.classList.remove('bg-cyan-600/20', 'border-cyan-400', 'text-white', 'shadow-lg', 'shadow-cyan-500/10', 'active-issue');
+          b.classList.add('bg-black/40', 'border-white/10', 'text-slate-400');
+        });
+        btn.classList.remove('bg-black/40', 'border-white/10', 'text-slate-400');
+        btn.classList.add('bg-cyan-600/20', 'border-cyan-400', 'text-white', 'shadow-lg', 'shadow-cyan-500/10', 'active-issue');
+        selectedIssue = btn.getAttribute('data-issue') || 'under-30';
+        if (window.playRewardSound) window.playRewardSound();
+        updateProfile();
+      });
+    });
+
+    if (copyFastflagsBtn && fastflagsCode) {
+      copyFastflagsBtn.addEventListener('click', () => {
+        const text = fastflagsCode.textContent || '';
+        if (window.copyCodeToClipboard) {
+          window.copyCodeToClipboard(text, copyFastflagsBtn);
+        }
+      });
+    }
+
+    // Initial render
+    updateProfile();
+  });
+</script>
