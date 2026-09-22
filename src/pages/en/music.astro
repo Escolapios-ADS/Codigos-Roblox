@@ -1,0 +1,380 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import SongCard from '../../components/SongCard.astro';
+import { songsData } from '../../data/songs';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = 'Roblox Song IDs & Music Codes 2026 | Working Boombox Audio Codes for Brookhaven & Da Hood';
+const pageDescription = 'Verified and working list of Roblox song IDs and music codes for 2026. Discover viral TikTok tracks, Phonk, Pop, and Anime OSTs with 1-click copy for Brookhaven RP and Da Hood boomboxes.';
+
+// Schema.org FAQ & Breadcrumbs
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How do you play music in the Brookhaven RP radio?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'In Brookhaven RP, open the props / vehicles menu, equip the Boombox (or enter any car radio), click on it to open the audio menu, paste a numeric song ID from our table, and press Play.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Why do some old Roblox song IDs give an audio error?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Roblox rolled out an Audio Privacy Update that made user-uploaded sound files over 6 seconds private. All codes on our portal are verified in 2026 and confirmed to have public streaming permissions.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Are these Roblox music codes free to use?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, all AssetId audio codes are completely free. Note that specific games like Da Hood require you to own the in-game Boombox Gamepass to equip the radio.'
+          }
+        }
+      ]
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://codigosroblox.org/en/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Music Codes',
+          item: 'https://codigosroblox.org/en/music/'
+        }
+      ]
+    }
+  ]
+};
+
+const genres = [
+  { id: 'all', label: 'All Genres', emoji: '🎵' },
+  { id: 'trending', label: 'Trending Hits', emoji: '🔥' },
+  { id: 'phonk', label: 'Phonk & Bass', emoji: '⚡' },
+  { id: 'pop', label: 'Pop & Viral TikTok', emoji: '✨' },
+  { id: 'anime', label: 'Anime OST', emoji: '🎌' },
+  { id: 'meme', label: 'Memes & Trolls', emoji: '🤣' },
+  { id: 'gaming', label: 'Gaming OST', emoji: '🎮' },
+  { id: 'trap', label: 'Trap & Urban', emoji: '🎧' },
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <AdBanner slotType="leaderboard" slotId="music-top-leaderboard" locale={locale} />
+  </div>
+
+  <!-- Music Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
+      <a href={`/${locale}/`} class="hover:text-white transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-indigo-400 font-semibold">Roblox Song IDs & Boombox Codes</span>
+    </nav>
+
+    <div class="relative overflow-hidden bg-[#0d1322] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Verified Today • September 2026</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          Roblox Song IDs & Music Codes <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">(Boombox Catalog)</span>
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Comprehensive directory of verified audio codes for the radio and Boombox in <strong class="text-white">Brookhaven RP</strong>, <strong class="text-white">Da Hood</strong>, <strong class="text-white">Mic Up</strong>, and catalog experiences. Copy numeric IDs in 1 click and blast your favorite tracks.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="pt-4 max-w-xl">
+          <div class="relative flex items-center">
+            <input
+              type="text"
+              id="music-search-input"
+              placeholder="Search by song, artist or genre (e.g. Phonk, Bad Bunny, JVKE)..."
+              class="w-full pl-11 pr-4 py-3.5 bg-black/40 border border-white/15 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 rounded-2xl text-sm text-white placeholder-slate-400 outline-none transition-all shadow-inner"
+              autocomplete="off"
+            />
+            <span class="absolute left-4 text-slate-400 text-lg">🔍</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Music Catalog Grid -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-8">
+    
+    <!-- Genre Filter Pills -->
+    <div class="flex flex-wrap items-center gap-2" id="genre-filters-container">
+      {genres.map((g) => (
+        <button
+          type="button"
+          class={`genre-btn px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
+            g.id === 'all'
+              ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-600/30 active-genre'
+              : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10'
+          }`}
+          data-genre-filter={g.id}
+        >
+          <span>{g.emoji}</span> {g.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Active Song Count Indicator -->
+    <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/5">
+      <div>
+        Showing <span id="visible-count" class="font-bold text-white">{songsData.length}</span> verified tracks
+      </div>
+      <div class="text-slate-400">
+        Tested on live servers by <span class="text-indigo-400 font-semibold">Guillermo Beltrán</span> and <span class="text-cyan-400 font-semibold">Jorge Villapún</span>
+      </div>
+    </div>
+
+    <!-- Songs Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="songs-grid">
+      {songsData.map((song) => (
+        <SongCard song={song} locale={locale} />
+      ))}
+    </div>
+
+    <!-- No results message -->
+    <div id="no-music-results" class="hidden py-16 text-center space-y-4 bg-white/[0.01] border border-white/5 rounded-3xl p-8">
+      <div class="text-4xl">📻</div>
+      <h3 class="text-lg font-bold text-white">No tracks found</h3>
+      <p class="text-xs text-slate-400 max-w-md mx-auto">
+        Try searching with different keywords or reset filters to display the full audio directory.
+      </p>
+      <button
+        type="button"
+        id="reset-music-filter-btn"
+        class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-white border border-white/10 transition-colors"
+      >
+        View All Songs
+      </button>
+    </div>
+
+    <!-- Mid-Catalog Ad Placement -->
+    <div class="py-4">
+      <AdBanner slotType="horizontal" slotId="music-mid-catalog-banner" locale={locale} />
+    </div>
+
+    <!-- How to use Boombox in Brookhaven & Da Hood -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+      
+      <!-- Guide 1: Brookhaven RP -->
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 sm:p-7 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-xl">
+            🏡
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">How to use the Radio in Brookhaven RP</h3>
+            <p class="text-xs text-indigo-400">Step-by-step beginner guide</p>
+          </div>
+        </div>
+
+        <ol class="space-y-3 text-xs text-slate-300 leading-relaxed list-decimal list-inside">
+          <li>Launch <strong>Brookhaven RP</strong> on your mobile device, PC, or console.</li>
+          <li>Click the <strong>Props / Accessories</strong> menu and select the <strong>Boombox</strong> (or hop into any vehicle).</li>
+          <li>Click the radio icon to open the audio input interface.</li>
+          <li>Paste any numeric ID from our verified catalog into the <strong>Roblox ID</strong> box.</li>
+          <li>Hit <strong>Play</strong> and your song will blast through the server for all nearby players.</li>
+        </ol>
+      </div>
+
+      <!-- Guide 2: Da Hood -->
+      <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-6 sm:p-7 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-xl">
+            🥊
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">How to use the Boombox in Da Hood</h3>
+            <p class="text-xs text-amber-300">Boombox Pass & Commands</p>
+          </div>
+        </div>
+
+        <ol class="space-y-3 text-xs text-slate-300 leading-relaxed list-decimal list-inside">
+          <li>Join a <strong>Da Hood</strong> lobby (make sure you own the Boombox gamepass).</li>
+          <li>Equip the Boombox item into your hand from your backpack inventory.</li>
+          <li>Click while holding the radio to display the sound ID popup.</li>
+          <li>Type or paste the verified code and confirm playback.</li>
+          <li>Double-check that in-game music volume is not muted in your Roblox settings.</li>
+        </ol>
+      </div>
+
+    </div>
+
+    <!-- Roblox Audio Privacy Notice (E-E-A-T) -->
+    <div class="bg-indigo-950/20 border border-indigo-500/20 rounded-2xl p-6 space-y-2">
+      <div class="flex items-center gap-2 text-indigo-300 font-bold text-sm">
+        <span>ℹ️</span>
+        <span>Important Note on Roblox Song Codes (Audio Privacy Policy)</span>
+      </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Following Roblox's audio licensing update, user-created audio files longer than 6 seconds became private and cannot be played in third-party experiences. Our editorial team (<strong>Guillermo Beltrán</strong>, <strong>Jorge Villapún</strong>, and <strong>Héctor Moreno</strong>) manually verifies each audio ID in public servers of <strong>Brookhaven RP</strong> and <strong>Da Hood</strong> to ensure crisp, uninterrupted playback.
+      </p>
+    </div>
+
+    <!-- Pre-FAQ Ad Slot -->
+    <AdBanner slotType="horizontal" slotId="music-pre-faq-banner" locale={locale} />
+
+    <!-- FAQ Section -->
+    <div class="space-y-4 pt-4">
+      <h2 class="text-2xl font-black text-white tracking-tight">
+        Frequently Asked Questions about Music Codes
+      </h2>
+
+      <div class="space-y-3">
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">How do I get a Boombox in Roblox?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            In games like Brookhaven RP and Catalog Avatar Creator, the radio is 100% free for all players. In action games like Da Hood or Murder Mystery 2, the Boombox is sold as a Gamepass in the game store for Robux.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">Can I play any YouTube or Spotify song?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Not directly. Roblox only plays audio assets registered with a valid numeric AssetId on Roblox servers. That is why our portal curates and publishes working IDs so you can find them instantly.
+          </p>
+        </div>
+
+        <div class="bg-[#0b101d] border border-white/10 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">How often are new songs added?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            We update our catalog weekly with trending TikTok sounds, Phonk anthems, and viral anime intros requested by the community.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Client-side filtering script -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('music-search-input');
+      const genreButtons = document.querySelectorAll('.genre-btn');
+      const cards = document.querySelectorAll('.song-card');
+      const countEl = document.getElementById('visible-count');
+      const noResults = document.getElementById('no-music-results');
+      const resetBtn = document.getElementById('reset-music-filter-btn');
+
+      let currentGenre = 'all';
+      let currentQuery = '';
+
+      function filterSongs() {
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const title = card.getAttribute('data-title') || '';
+          const artist = card.getAttribute('data-artist') || '';
+          const code = card.getAttribute('data-code') || '';
+          const genre = card.getAttribute('data-genre') || '';
+          const isTrending = card.getAttribute('data-trending') === 'true';
+
+          let matchesGenre = false;
+          if (currentGenre === 'all') {
+            matchesGenre = true;
+          } else if (currentGenre === 'trending') {
+            matchesGenre = isTrending;
+          } else {
+            matchesGenre = genre === currentGenre;
+          }
+
+          const matchesQuery = !currentQuery || 
+            title.includes(currentQuery) || 
+            artist.includes(currentQuery) || 
+            code.includes(currentQuery);
+
+          if (matchesGenre && matchesQuery) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (countEl) countEl.textContent = String(visibleCount);
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+          } else {
+            noResults.classList.add('hidden');
+          }
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = (e.target.value || '').trim().toLowerCase();
+          filterSongs();
+        });
+      }
+
+      genreButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          genreButtons.forEach((b) => {
+            b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-genre');
+            b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+          });
+
+          btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+          btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-genre');
+
+          currentGenre = btn.getAttribute('data-genre-filter') || 'all';
+          filterSongs();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          currentQuery = '';
+          currentGenre = 'all';
+
+          genreButtons.forEach((b) => {
+            if (b.getAttribute('data-genre-filter') === 'all') {
+              b.classList.add('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-genre');
+              b.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+            } else {
+              b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-400', 'shadow-md', 'shadow-indigo-600/30', 'active-genre');
+              b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+            }
+          });
+
+          filterSongs();
+        });
+      }
+    });
+  </script>
+</Layout>

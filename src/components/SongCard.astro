@@ -1,0 +1,79 @@
+---
+import type { SongItem } from '../types/song';
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  song: SongItem;
+  locale: SupportedLocale;
+}
+
+const { song, locale } = Astro.props;
+---
+
+<div 
+  class="song-card group relative overflow-hidden bg-[#0d1322]/80 hover:bg-[#11192e] border border-white/5 hover:border-indigo-500/30 rounded-2xl p-4 sm:p-5 transition-all duration-300 shadow-lg hover:shadow-indigo-500/10 flex flex-col justify-between gap-4"
+  data-title={song.title.toLowerCase()}
+  data-artist={song.artist.toLowerCase()}
+  data-code={song.code}
+  data-genre={song.genre}
+  data-trending={song.isTrending ? 'true' : 'false'}
+>
+  <!-- Top: Header Info & Tag -->
+  <div class="space-y-2">
+    <div class="flex items-center justify-between gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-indigo-300">
+        {song.genreLabel[locale]}
+      </span>
+      {song.isTrending && (
+        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 flex items-center gap-1">
+          <span>🔥</span>
+          <span>{locale === 'es' ? 'En Tendencia' : 'Trending'}</span>
+        </span>
+      )}
+    </div>
+
+    <div>
+      <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-200 transition-colors line-clamp-1">
+        {song.title}
+      </h3>
+      <p class="text-xs text-slate-400 font-medium">
+        {song.artist}
+      </p>
+    </div>
+  </div>
+
+  <!-- Middle: Verified Games Badges -->
+  <div class="flex flex-wrap items-center gap-1.5 text-[11px] text-slate-400">
+    <span class="text-slate-400 font-mono text-[10px]">🎮 {locale === 'es' ? 'Compatible con:' : 'Tested on:'}</span>
+    {song.verifiedGames.map((gameName) => (
+      <span class="px-1.5 py-0.5 rounded bg-white/[0.03] border border-white/5 text-[10px] text-slate-300 font-medium">
+        {gameName}
+      </span>
+    ))}
+  </div>
+
+  <!-- Bottom: Asset Code Box & 1-Click Copy -->
+  <div class="pt-3 border-t border-white/5 flex items-center justify-between gap-3">
+    <div class="space-y-0.5">
+      <div class="text-[9px] uppercase tracking-wider text-slate-400 font-mono font-medium">
+        {locale === 'es' ? 'ID de Sonido (AssetId)' : 'Roblox Song ID'}
+      </div>
+      <div class="font-mono text-sm sm:text-base font-black text-amber-300 tracking-wider">
+        {song.code}
+      </div>
+    </div>
+
+    <button
+      type="button"
+      onclick={`window.copyCode('${song.code}', this)`}
+      class="copy-btn shrink-0 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold text-xs shadow-lg shadow-indigo-600/20 border border-indigo-400/30 transition-all flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400/50"
+      aria-label={`Copiar código ${song.code}`}
+    >
+      <svg class="w-3.5 h-3.5 copy-icon text-indigo-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span class="copy-text">{locale === 'es' ? 'Copiar ID' : 'Copy ID'}</span>
+    </button>
+  </div>
+</div>
