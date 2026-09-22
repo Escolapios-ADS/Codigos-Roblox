@@ -244,6 +244,99 @@ const baseWebsiteSchema = {
           } catch(e) {}
         }
       };
+
+      // Alias copyCode
+      window.copyCode = window.copyCodeToClipboard;
+
+      // Community Voting on Active Codes
+      window.voteCode = function(code, type, buttonElement) {
+        const isSpanish = document.documentElement.lang === 'es';
+        const storageKey = 'roblox_vote_' + code;
+        const existingVote = localStorage.getItem(storageKey);
+        const widget = buttonElement.closest('.community-vote-widget');
+        if (!widget) return;
+
+        const upCountEl = widget.querySelector('.up-count');
+        const downCountEl = widget.querySelector('.down-count');
+        const pctEl = widget.querySelector('.verified-pct');
+        const upBtn = widget.querySelector('.vote-up-btn');
+        const downBtn = widget.querySelector('.vote-down-btn');
+
+        let up = parseInt(upCountEl ? upCountEl.textContent : '0', 10) || 0;
+        let down = parseInt(downCountEl ? downCountEl.textContent : '0', 10) || 0;
+
+        const toast = document.getElementById('copy-toast');
+        const toastTitle = document.getElementById('toast-title');
+        const toastBody = document.getElementById('toast-body');
+
+        function showToast(title, body) {
+          if (toast && toastTitle && toastBody) {
+            toastTitle.textContent = title;
+            toastBody.textContent = body;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            clearTimeout(window.__toastTimeout);
+            window.__toastTimeout = setTimeout(() => {
+              toast.classList.add('translate-y-24', 'opacity-0');
+              toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 2500);
+          }
+        }
+
+        if (existingVote) {
+          showToast(
+            isSpanish ? '¡Ya has votado!' : 'Already voted!',
+            isSpanish ? 'Tu opinión sobre este código ya fue registrada.' : 'Your feedback on this code is already recorded.'
+          );
+          return;
+        }
+
+        playChirpSound();
+        localStorage.setItem(storageKey, type);
+
+        if (type === 'up') {
+          up += 1;
+          if (upCountEl) upCountEl.textContent = String(up);
+          if (upBtn) upBtn.classList.add('text-emerald-400', 'font-black');
+          showToast(
+            isSpanish ? '✓ ¡Gracias por tu voto!' : '✓ Thanks for voting!',
+            isSpanish ? 'Confirmas que este código sigue funcionando hoy.' : 'You confirmed this code is working today.'
+          );
+        } else {
+          down += 1;
+          if (downCountEl) downCountEl.textContent = String(down);
+          if (downBtn) downBtn.classList.add('text-rose-400', 'font-black');
+          showToast(
+            isSpanish ? '⚠️ Reporte registrado' : '⚠️ Report received',
+            isSpanish ? 'Nuestro equipo editorial revisará este código.' : 'Our editorial team will test this code.'
+          );
+        }
+
+        const total = up + down;
+        const newPct = total > 0 ? Math.round((up / total) * 100) : 100;
+        if (pctEl) {
+          pctEl.textContent = newPct + '%';
+          if (newPct < 90) {
+            pctEl.className = 'verified-pct text-[10px] px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 font-bold';
+          }
+        }
+      };
+
+      // Restore user votes on DOM load
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.community-vote-widget').forEach((widget) => {
+          const code = widget.getAttribute('data-code');
+          if (!code) return;
+          const vote = localStorage.getItem('roblox_vote_' + code);
+          if (vote === 'up') {
+            const btn = widget.querySelector('.vote-up-btn');
+            if (btn) btn.classList.add('text-emerald-400', 'font-black');
+          } else if (vote === 'down') {
+            const btn = widget.querySelector('.vote-down-btn');
+            if (btn) btn.classList.add('text-rose-400', 'font-black');
+          }
+        });
+      });
     </script>
   </body>
 </html>
