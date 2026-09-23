@@ -3,4 +3,34 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
+  X-DNS-Prefetch-Control: on
+  Timing-Allow-Origin: *
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
   Content-Security-Policy: upgrade-insecure-requests;
+
+# Immutable long-term caching for hashed Astro build assets (JS, CSS)
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# High-efficiency cache for static images and favicons
+/*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/*.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/*.ico
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# Web Manifest & Robots
+/site.webmanifest
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+/robots.txt
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+
+# Sitemaps & Feeds
+/sitemap*.xml
+  Cache-Control: public, max-age=3600, stale-while-revalidate=7200
+/*rss.xml
+  Cache-Control: public, max-age=3600, stale-while-revalidate=7200

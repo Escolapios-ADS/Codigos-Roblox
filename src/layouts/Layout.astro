@@ -63,6 +63,15 @@ const unifiedSchema = buildUnifiedGraph({
     <meta name="apple-mobile-web-app-title" content="CódigosRoblox" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Performance & Speed Optimization: Resource Hints -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="dns-prefetch" href="https://tr.rbxcdn.com" />
+    <link rel="dns-prefetch" href="https://thumbnails.roblox.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://tr.rbxcdn.com" crossorigin />
+
     <!-- Automatic HTTPS Enforcement & Mixed Content Shield -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <script is:inline>
@@ -192,11 +201,17 @@ const unifiedSchema = buildUnifiedGraph({
 
     <!-- Global Script for 1-Click Copy with Sound Feedback & Toast -->
     <script is:inline>
+      let _globalAudioCtx = null;
       function playChirpSound() {
         try {
-          const AudioContext = window.AudioContext || window.webkitAudioContext;
-          if (!AudioContext) return;
-          const ctx = new AudioContext();
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          if (!_globalAudioCtx || _globalAudioCtx.state === 'closed') {
+            _globalAudioCtx = new AudioContextClass();
+          } else if (_globalAudioCtx.state === 'suspended') {
+            _globalAudioCtx.resume();
+          }
+          const ctx = _globalAudioCtx;
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'sine';

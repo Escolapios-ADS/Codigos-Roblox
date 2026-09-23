@@ -17,8 +17,18 @@ export default defineConfig({
       redirectToDefaultLocale: false
     }
   },
+  compressHTML: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover'
+  },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      cssCodeSplit: true,
+      minify: 'esbuild',
+      assetsInlineLimit: 4096
+    }
   },
 
   integrations: [
