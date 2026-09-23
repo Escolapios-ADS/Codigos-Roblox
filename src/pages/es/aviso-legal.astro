@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+const lastUpdated = '23 de septiembre de 2026';
+
+const pageTitle = 'Aviso Legal y Condiciones de Uso (LSSI-CE) | CódigosRoblox.org';
+const pageDescription = 'Aviso legal oficial de CódigosRoblox.org en cumplimiento de la LSSI-CE (Ley 34/2002), exención de responsabilidad de marcas registradas de Roblox Corporation y condiciones de uso.';
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: 'es',
+  publisher: {
+    '@type': 'Organization',
+    name: 'CódigosRoblox.org',
+    url: 'https://codigosroblox.org'
+  }
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-8 text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+        <span>⚖️</span>
+        <span>Cumplimiento Normativo LSSI-CE & RGPD</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Aviso Legal
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-400">
+        Última actualización: {lastUpdated} • En cumplimiento del artículo 10 de la Ley 34/2002 (LSSI-CE).
+      </p>
+    </div>
+
+    <!-- Official Non-Affiliation Disclaimer Banner -->
+    <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-5 sm:p-6 space-y-2">
+      <div class="flex items-center gap-2 text-amber-400 font-bold text-sm sm:text-base">
+        <span>⚠️</span>
+        <h2>Declaración Oficial de Independencia de Marca (Roblox Disclaimer)</h2>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <strong>CódigosRoblox.org</strong> es un portal informativo comunitario, editorial y lúdico completamente independiente. 
+        <strong>NO estamos afiliados, asociados, autorizados, respaldados ni conectados de ninguna manera oficial con Roblox Corporation</strong>, 
+        ni con ninguna de sus subsidiarias o entidades filiales.
+      </p>
+    </div>
+
+    <!-- Main Legal Content -->
+    <div class="space-y-8 text-sm text-slate-300 leading-relaxed">
+      
+      <!-- Section 1 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">1.</span>
+          <span>Datos Identificativos del Responsable (Art. 10 LSSI-CE)</span>
+        </h2>
+        <p>
+          En cumplimiento del deber de información estipulado en el artículo 10 de la <em>Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE)</em>, se exponen a continuación los datos identificativos del presente sitio web:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400">
+          <li><strong>Denominación del portal:</strong> CódigosRoblox.org</li>
+          <li><strong>Dominio web:</strong> <code class="text-indigo-300 font-mono">https://codigosroblox.org</code></li>
+          <li><strong>Naturaleza del proyecto:</strong> Portal editorial y divulgativo independiente sobre videojuegos, guías de estrategia y base de datos de recompensas virtuales públicas.</li>
+          <li><strong>Equipo gestor y editorial:</strong> Equipo independiente coordinado por <em>Guillechum</em> (Dirección editorial y analítica técnica), <em>Pepote</em> (Mecánicas de juego y verificación) y <em>Thedrittus</em> (Comunidad y analítica competitiva).</li>
+          <li><strong>Correo electrónico de contacto y notificaciones legales:</strong> <a href="mailto:contacto@codigosroblox.org" class="text-indigo-400 underline">contacto@codigosroblox.org</a></li>
+          <li><strong>Canal de comunicación directo:</strong> Disponible a través de nuestro <a href="/es/contacto" class="text-indigo-400 underline">Formulario de Contacto Oficial</a>.</li>
+        </ul>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">2.</span>
+          <span>Objeto y Condiciones de Acceso al Portal</span>
+        </h2>
+        <p>
+          El presente Aviso Legal regula el acceso, navegación y uso del portal web <strong>CódigosRoblox.org</strong>.
+        </p>
+        <p>
+          El acceso a todas nuestras guías, calculadoras interactivas, directorios de códigos y herramientas es <strong>completamente gratuito</strong> para todos los usuarios. La condición de usuario implica la aceptación plena y sin reservas de todas y cada una de las disposiciones incluidas en este Aviso Legal, en nuestra <a href="/es/privacidad" class="text-indigo-400 underline">Política de Privacidad</a> y en los <a href="/es/terminos" class="text-indigo-400 underline">Términos de Servicio</a>.
+        </p>
+        <p>
+          El usuario se compromete a hacer un uso diligente y de buena fe de los contenidos y herramientas, absteniéndose de realizar ataques de denegación de servicio (DDoS), inyecciones de código malicioso o scraping automatizado no autorizado que vulnere la estabilidad de la infraestructura.
+        </p>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">3.</span>
+          <span>Marcas Comerciales y Propiedad Intelectual de Terceros</span>
+        </h2>
+        <p>
+          El nombre <strong>ROBLOX</strong>, su logotipo tridimensional o bidimensional, y los términos asociados son marcas registradas propiedad exclusiva de <strong>Roblox Corporation</strong>.
+        </p>
+        <p>
+          Asimismo, los títulos, personajes, avatares, logotipos y mecánicas de juegos específicos (tales como <em>Blox Fruits, Blade Ball, Brookhaven RP, Dress to Impress, King Legacy, Fisch, Anime Vanguards</em> y análogos) son propiedad intelectual exclusiva de sus respectivos estudios desarrolladores independientes en la plataforma Roblox.
+        </p>
+        <p class="text-xs text-slate-400">
+          La inclusión de estas marcas y nombres en CódigosRoblox.org se realiza con carácter puramente nominativo, referencial y descriptivo bajo el principio de <em>uso leal (fair use)</em> y derecho de cita con propósitos informativos y periodísticos para la comunidad de jugadores.
+        </p>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">4.</span>
+          <span>Propiedad Intelectual del Contenido Original</span>
+        </h2>
+        <p>
+          Son propiedad exclusiva de <strong>CódigosRoblox.org</strong> todos los derechos de propiedad intelectual e industrial sobre:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400">
+          <li>El diseño visual, interfaz gráfica, maquetación, paleta cromática y experiencia de usuario (UX/UI).</li>
+          <li>El código fuente, arquitectura web en Astro/Tailwind CSS, lógica algorítmica y scripts interactivos.</li>
+          <li>Las herramientas originales y calculadoras interactivas desarrolladas por el portal (Calculadora de Tradeos de Blox Fruits, Conversor DevEx de Robux a Dinero Real, Generador de Gamer ID Cards 3D, Generador de Nombres y Quiz interactivo).</li>
+          <li>Los textos redactados de las guías estratégicas, comparativas, análisis de errores técnicos y recopilaciones documentales.</li>
+        </ul>
+        <p class="text-xs text-slate-400">
+          Queda terminantemente prohibida la reproducción total o parcial de estos contenidos con fines lucrativos o comerciales sin la previa autorización por escrito del titular del portal.
+        </p>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">5.</span>
+          <span>Exención de Responsabilidad sobre Códigos y Caducidad</span>
+        </h2>
+        <p>
+          Los códigos promocionales listados en este portal son creados y distribuidos gratuitamente por los desarrolladores de cada juego en Roblox. Por consiguiente:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400">
+          <li><strong>Caducidad imprevista:</strong> Los desarrolladores tienen la facultad soberana de activar, modificar las recompensas o desactivar códigos en cualquier momento sin previo aviso. Aunque nuestro equipo prueba diariamente los códigos, CódigosRoblox.org no garantiza la vigencia ininterrumpida de ningún código publicado.</li>
+          <li><strong>Gratuidad absoluta:</strong> CódigosRoblox.org no vende códigos, no cobra por ventajas dentro del juego ni comercializa Robux. Desaconsejamos tajantemente cualquier sitio web que solicite dinero real a cambio de códigos.</li>
+          <li><strong>Enlaces externos:</strong> Los enlaces a plataformas de terceros (Discord, Twitter/X, YouTube o roblox.com) se facilitan únicamente con fines informativos. No asumimos responsabilidad alguna por el contenido, políticas de privacidad o disponibilidad de dichos sitios ajenos.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="space-y-3 bg-rose-500/10 border border-rose-500/30 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-rose-300 flex items-center gap-2">
+          <span>🛡️</span>
+          <span>6. Compromiso de Seguridad del Usuario y Advertencia Anti-Phishing</span>
+        </h2>
+        <p class="text-slate-300">
+          La seguridad de nuestros lectores, especialmente del público joven y familias, es nuestra máxima prioridad:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-300">
+          <li><strong>CódigosRoblox.org NUNCA te solicitará tu contraseña de Roblox</strong>, correo electrónico de acceso, número de teléfono ni datos de pago o tarjeta de crédito.</li>
+          <li><strong>NUNCA descargues archivos ejecutables (.exe, .zip con contraseñas, extensiones de navegador sospechosas)</strong> para supuestamente obtener "Robux gratis". Los métodos fraudulentos de este tipo son estafas destinadas al robo de cuentas (phishing/malware).</li>
+          <li>Todos los códigos legítimos de Roblox se canjean de manera 100% segura dentro del propio juego oficial en la app de Roblox o en la página oficial verificada <code class="text-indigo-300 font-mono">roblox.com/redeem</code>.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">7.</span>
+          <span>Publicidad Programática y Transparencia Comercial</span>
+        </h2>
+        <p>
+          Para mantener la infraestructura de servidores de alta velocidad, las comprobaciones diarias de códigos y el acceso gratuito para toda la comunidad, este portal muestra anuncios publicitarios gestionados por redes certificadas, principalmente <strong>Google AdSense</strong>.
+        </p>
+        <p class="text-xs text-slate-400">
+          Dichos anuncios están etiquetados de forma inequívoca y nunca interfieren con los botones de acción del sitio. Para más detalles sobre el uso de cookies y opciones de exclusión publicitaria, consulta nuestra <a href="/es/privacidad" class="text-indigo-400 underline">Política de Privacidad y Cookies</a>.
+        </p>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">8.</span>
+          <span>Legislación Aplicable y Jurisdicción</span>
+        </h2>
+        <p>
+          Las relaciones entre CódigosRoblox.org y el usuario se regirán por la normativa española vigente y por los reglamentos de la Unión Europea de aplicación directa.
+        </p>
+        <p class="text-xs text-slate-400">
+          Para la resolución de cualquier conflicto o litigio derivado del uso de este sitio web, las partes acuerdan someterse expresamente a la jurisdicción de los Juzgados y Tribunales que resulten legalmente competentes de conformidad con la legislación de consumidores y usuarios.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Contact & Feedback Link -->
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <p>¿Tienes dudas legales, quieres notificar un error o comunicarte con nuestro equipo?</p>
+      <a 
+        href="/es/contacto" 
+        class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shrink-0 shadow-lg shadow-indigo-600/20"
+      >
+        Canal de Contacto y Reportes
+      </a>
+    </div>
+
+  </div>
+</Layout>

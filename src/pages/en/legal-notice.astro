@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+const lastUpdated = 'September 23, 2026';
+
+const pageTitle = 'Legal Notice & Terms of Use | RobloxCodes';
+const pageDescription = 'Official legal notice, LSSI-CE compliance, Roblox Corporation non-affiliation disclaimer, intellectual property rights, and terms of use for RobloxCodes.';
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: 'en',
+  publisher: {
+    '@type': 'Organization',
+    name: 'RobloxCodes',
+    url: 'https://codigosroblox.org/en'
+  }
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-8 text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+        <span>⚖️</span>
+        <span>Regulatory Compliance & Legal Transparency</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Legal Notice
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-400">
+        Last updated: {lastUpdated} • Information society provider disclosures pursuant to Article 10 of Act 34/2002 (LSSI-CE).
+      </p>
+    </div>
+
+    <!-- Official Non-Affiliation Disclaimer Banner -->
+    <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-5 sm:p-6 space-y-2">
+      <div class="flex items-center gap-2 text-amber-400 font-bold text-sm sm:text-base">
+        <span>⚠️</span>
+        <h2>Official Brand Independence Disclosure (Roblox Corporation Disclaimer)</h2>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <strong>RobloxCodes.org</strong> is an independent editorial gaming portal, community hub, and reference database. 
+        <strong>We are NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with Roblox Corporation</strong>, 
+        or any of its subsidiaries or affiliates.
+      </p>
+    </div>
+
+    <!-- Main Legal Content -->
+    <div class="space-y-8 text-sm text-slate-300 leading-relaxed">
+      
+      <!-- Section 1 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">1.</span>
+          <span>Entity & Publisher Identification (Art. 10 LSSI-CE)</span>
+        </h2>
+        <p>
+          In accordance with the information duty set forth in statutory regulations for information society services, the identity details of this platform are set out below:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400">
+          <li><strong>Platform Title:</strong> RobloxCodes (CódigosRoblox.org)</li>
+          <li><strong>Domain URL:</strong> <code class="text-indigo-300 font-mono">https://codigosroblox.org</code></li>
+          <li><strong>Nature of Project:</strong> Independent editorial gaming publication, strategy guides provider, and public promotional reward catalog.</li>
+          <li><strong>Editorial Management Team:</strong> Operated by an independent editorial team led by <em>Guillechum</em> (Editor-in-Chief & Technical Architecture), <em>Pepote</em> (Game Mechanics & Verification Specialist), and <em>Thedrittus</em> (Community & Competitive Meta Analyst).</li>
+          <li><strong>Legal Inquiries & Notifications Email:</strong> <a href="mailto:contacto@codigosroblox.org" class="text-indigo-400 underline">contacto@codigosroblox.org</a></li>
+          <li><strong>Direct Contact Channel:</strong> Available through our <a href="/en/contact" class="text-indigo-400 underline">Official Contact & Inquiry Form</a>.</li>
+        </ul>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">2.</span>
+          <span>Scope of Service & Access Conditions</span>
+        </h2>
+        <p>
+          This Legal Notice governs access, browsing, and use of the <strong>RobloxCodes.org</strong> website.
+        </p>
+        <p>
+          Access to our game code directories, interactive calculators, tactical guides, and optimization tools is <strong>100% free of charge</strong> for all visitors. Navigating this portal implies full acceptance of this Legal Notice, our <a href="/en/privacy" class="text-indigo-400 underline">Privacy Policy</a>, and the <a href="/en/terms" class="text-indigo-400 underline">Terms of Service</a>.
+        </p>
+        <p>
+          Users agree to browse fairly and lawfully, refraining from conducting denial of service (DDoS) attacks, malicious code injections, or unauthorized automated mass-scraping that disrupts server stability.
+        </p>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">3.</span>
+          <span>Trademarks & Third-Party Intellectual Property</span>
+        </h2>
+        <p>
+          The trademark <strong>ROBLOX</strong>, its distinctive 2D/3D logos, and related terms are registered trademarks owned exclusively by <strong>Roblox Corporation</strong>.
+        </p>
+        <p>
+          Furthermore, titles, character designs, 3D avatar assets, logos, and mechanics of individual games (such as <em>Blox Fruits, Blade Ball, Brookhaven RP, Dress to Impress, King Legacy, Fisch, Anime Vanguards</em> and similar titles) are the exclusive intellectual property of their respective independent developer studios.
+        </p>
+        <p class="text-xs text-slate-400">
+          The reference to these marks on this site is strictly nominative, referential, and descriptive under the doctrine of <em>fair use</em> for educational, informational, and news reporting purposes.
+        </p>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">4.</span>
+          <span>Original Content Intellectual Property</span>
+        </h2>
+        <p>
+          <strong>RobloxCodes.org</strong> retains exclusive intellectual and industrial property rights over:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400">
+          <li>The visual design, brand elements, UI/UX layouts, and typography palettes.</li>
+          <li>Source code, Astro/Tailwind CSS web architecture, reactive scripts, and client-side logic.</li>
+          <li>Original interactive web applications (Blox Fruits Trade Calculator, DevEx Robux to Real Money Converter, 3D Avatar Gamer Card Generator, Username Generator, and Interactive Quizzes).</li>
+          <li>Original written editorial text, gameplay strategy guides, technical error analyses, and curated documentation.</li>
+        </ul>
+        <p class="text-xs text-slate-400">
+          Total or partial unauthorized reproduction for commercial or derivative purposes without prior written authorization is strictly prohibited.
+        </p>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">5.</span>
+          <span>Disclaimer on Codes & Expiration</span>
+        </h2>
+        <p>
+          The promotional codes listed across our portal are generated and distributed freely by individual game developers. Consequently:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400">
+          <li><strong>Unannounced expirations:</strong> Developers maintain sovereign authority to activate, change rewards for, or deactivate codes at any time without advance warning. Although our staff verifies codes daily, we cannot guarantee that every code remains functional perpetually.</li>
+          <li><strong>Completely free access:</strong> We never charge for codes, in-game perks, or Robux. We strongly advise users against third-party websites asking for real money in exchange for codes.</li>
+          <li><strong>External links:</strong> Links to external platforms (such as Discord, Twitter/X, YouTube, or roblox.com) are provided solely for reference. We assume no liability for the content, privacy practices, or availability of external third-party sites.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="space-y-3 bg-rose-500/10 border border-rose-500/30 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-rose-300 flex items-center gap-2">
+          <span>🛡️</span>
+          <span>6. User Safety Commitment & Strict Anti-Phishing Warning</span>
+        </h2>
+        <p class="text-slate-300">
+          Protecting our audience, especially younger players and families, is our foremost priority:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-300">
+          <li><strong>RobloxCodes.org will NEVER ask for your Roblox password</strong>, account credentials, phone number, or payment/credit card details.</li>
+          <li><strong>NEVER download executable files (.exe, passworded .zip archives, suspicious browser extensions)</strong> that claim to generate "free Robux". Such fraudulent software represents phishing or malware designed to hijack accounts.</li>
+          <li>All authentic Roblox codes can be redeemed 100% securely inside the official game client or through the verified portal at <code class="text-indigo-300 font-mono">roblox.com/redeem</code>.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">7.</span>
+          <span>Programmatic Advertising & Commercial Disclosure</span>
+        </h2>
+        <p>
+          To maintain high-speed server infrastructure, daily verification routines, and free community access, this site serves advertising operated by verified ad partners, primarily <strong>Google AdSense</strong>.
+        </p>
+        <p class="text-xs text-slate-400">
+          Ad slots are strictly demarcated and never disguise action or navigation buttons. For cookie details and personalized advertising opt-outs, please refer to our <a href="/en/privacy" class="text-indigo-400 underline">Privacy & Cookie Policy</a>.
+        </p>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">8.</span>
+          <span>Applicable Law & Jurisdiction</span>
+        </h2>
+        <p>
+          These terms and conditions are governed by applicable Spanish law and European Union consumer directives.
+        </p>
+        <p class="text-xs text-slate-400">
+          In the event of any controversy or claim arising from the use of this website, the parties submit to the courts and tribunals of competent jurisdiction in accordance with prevailing consumer protection legislation.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Contact & Feedback Link -->
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <p>Have legal questions, inquiries, or feedback for our team?</p>
+      <a 
+        href="/en/contact" 
+        class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shrink-0 shadow-lg shadow-indigo-600/20"
+      >
+        Contact & Inquiries Channel
+      </a>
+    </div>
+
+  </div>
+</Layout>
