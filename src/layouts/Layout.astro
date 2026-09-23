@@ -58,6 +58,14 @@ const baseWebsiteSchema = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Automatic HTTPS Enforcement & Mixed Content Shield -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <script is:inline>
+      if (typeof window !== 'undefined' && location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+        location.replace('https:' + window.location.href.substring(window.location.protocol.length));
+      }
+    </script>
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />

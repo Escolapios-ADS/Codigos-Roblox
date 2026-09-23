@@ -1,0 +1,4 @@
+# Enforce HTTPS redirect
+http://codigosroblox.org/* https://codigosroblox.org/:splat 301!
+http://www.codigosroblox.org/* https://codigosroblox.org/:splat 301!
+https://www.codigosroblox.org/* https://codigosroblox.org/:splat 301!
