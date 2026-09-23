@@ -19,7 +19,7 @@ export const guidesData: GuideItem[] = [
       en: 'Tier List / Guide',
     },
     author: {
-      name: 'Guillermo Beltrán',
+      name: 'Guillechum',
       role: {
         es: 'Director Editorial & Especialista en RPGs de Roblox',
         en: 'Editor-in-Chief & Roblox RPG Specialist',
@@ -135,7 +135,7 @@ export const guidesData: GuideItem[] = [
       en: 'Safety / Guides',
     },
     author: {
-      name: 'Jorge Villapún',
+      name: 'Pepote',
       role: {
         es: 'Especialista en Seguridad, Economía y Mecánicas de Roblox',
         en: 'Roblox Security, Economy & Game Mechanics Specialist',
@@ -243,7 +243,7 @@ export const guidesData: GuideItem[] = [
       en: 'Strategy / Action',
     },
     author: {
-      name: 'Héctor Moreno',
+      name: 'Thedrittus',
       role: {
         es: 'Analista de Meta y Duelista Competitivo en Blade Ball',
         en: 'Meta Analyst & Competitive Blade Ball Duelist',
@@ -326,7 +326,7 @@ export const guidesData: GuideItem[] = [
       en: 'Fashion / Runway',
     },
     author: {
-      name: 'Guillermo Beltrán',
+      name: 'Guillechum',
       role: {
         es: 'Director Editorial & Diseñador de Catálogo de Avatar',
         en: 'Editor-in-Chief & Avatar Catalog Designer',
