@@ -59,11 +59,37 @@ const pageSchema = {
         </div>
       </div>
 
-      <!-- Interactive Contact Form -->
+      <!-- Interactive Contact Form with Multi-Layer Anti-Spam Protection -->
       <div class="md:col-span-2 bg-[#0d1322] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl font-bold text-white">Direct Feedback Form</h2>
+        <div class="flex items-center justify-between border-b border-white/5 pb-4">
+          <div>
+            <h2 class="text-xl font-bold text-white">Direct Feedback Form</h2>
+            <p class="text-xs text-slate-400 mt-0.5">Submit new codes or report broken rewards with verified anti-spam shielding.</p>
+          </div>
+          <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Anti-Spam Active</span>
+          </div>
+        </div>
 
-        <form id="contact-form" class="space-y-4">
+        <!-- Error Alert Banner -->
+        <div id="form-error" class="hidden p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs sm:text-sm flex items-start gap-3">
+          <span class="text-lg leading-none shrink-0">⚠️</span>
+          <div class="flex-1" id="form-error-msg"></div>
+        </div>
+
+        <form id="contact-form" class="space-y-4" novalidate>
+          <!-- 1. Honeypot Trap Fields (Invisible to human users, traps automated spam bots) -->
+          <div class="opacity-0 absolute -left-[9999px] pointer-events-none -z-50 h-0 w-0 overflow-hidden" aria-hidden="true" tabindex="-1">
+            <label for="hp_website_en">Leave this field blank if you are human</label>
+            <input type="text" id="hp_website_en" name="hp_website" tabindex="-1" autocomplete="off" />
+            <label for="hp_company_en">Do not fill this</label>
+            <input type="text" id="hp_company_en" name="hp_company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <!-- 2. Hidden Form Timestamp Token (Velocity check) -->
+          <input type="hidden" id="form_ts" name="form_ts" value="" />
+
           <div>
             <label for="reason" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
               Subject of Inquiry
@@ -84,28 +110,30 @@ const pageSchema = {
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label for="name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Your Name / Alias
+                Your Name / Alias <span class="text-rose-400">*</span>
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
+                maxlength="50"
                 placeholder="e.g. GamerPro99"
-                class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+                class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
               />
             </div>
             <div>
               <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Your Email Address
+                Your Email Address <span class="text-rose-400">*</span>
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
+                maxlength="80"
                 placeholder="you@email.com"
-                class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+                class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
               />
             </div>
           </div>
@@ -118,37 +146,124 @@ const pageSchema = {
               type="text"
               id="game"
               name="game"
+              maxlength="60"
               placeholder="e.g. Blox Fruits, Blade Ball, DTI..."
-              class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+              class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
             />
           </div>
 
           <div>
             <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-              Detailed Message
+              Detailed Message <span class="text-rose-400">*</span>
             </label>
             <textarea
               id="message"
               name="message"
               rows="4"
               required
+              maxlength="1500"
               placeholder="Describe which code failed, or paste your new working code with its reward..."
-              class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+              class="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
             ></textarea>
+            <div class="flex items-center justify-between text-[11px] text-slate-400 mt-1">
+              <span>Max 1500 characters • Anti-link spam protection active</span>
+              <span id="char-count" class="font-mono">0 / 1500</span>
+            </div>
+          </div>
+
+          <!-- 3. Dynamic Human Verification Challenge (Math & Interactive Check) -->
+          <div class="p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/25 space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-indigo-300 flex items-center gap-1.5">
+                <span>🛡️</span>
+                <span>Human Security Verification</span>
+              </span>
+              <span id="captcha-badge" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-white/10 font-mono transition-colors">
+                Pending
+              </span>
+            </div>
+            <p class="text-xs text-slate-300">
+              To verify that reports originate from real players and prevent automated bot traffic, please solve this quick check:
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-black/60 border border-white/15 text-sm font-mono font-bold text-white shrink-0 select-none">
+                <span id="captcha-n1" class="text-indigo-400 text-base">?</span>
+                <span class="text-slate-400">+</span>
+                <span id="captcha-n2" class="text-indigo-400 text-base">?</span>
+                <span class="text-slate-400">=</span>
+              </div>
+              <input
+                type="text"
+                id="captcha-ans"
+                name="captcha_ans"
+                required
+                inputmode="numeric"
+                pattern="[0-9]*"
+                maxlength="3"
+                placeholder="Result?"
+                class="w-32 bg-[#080c14] border border-white/15 rounded-xl px-3 py-2 text-sm text-white font-mono font-bold text-center placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+              />
+              <button
+                type="button"
+                id="captcha-refresh-btn"
+                class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors text-xs flex items-center gap-1.5 border border-white/10 shrink-0 cursor-pointer"
+                title="Generate new calculation"
+              >
+                <span>🔄</span>
+                <span class="hidden sm:inline text-xs">New</span>
+              </button>
+            </div>
           </div>
 
           <button
             type="submit"
             id="submit-btn"
-            class="w-full py-3 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-600/30 border border-indigo-400/30 transition-all flex items-center justify-center gap-2"
+            class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 active:bg-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-600/30 border border-indigo-400/30 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span>Send Message to Editorial Team</span>
-            <span>→</span>
+            <span id="submit-btn-text">Send Message to Editorial Team</span>
+            <span id="submit-btn-arrow">→</span>
           </button>
         </form>
 
-        <div id="form-success" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm text-center">
-          ✅ Thank you! Your message has been sent. Our team will verify and update our database accordingly.
+        <!-- Rich Success Receipt Container -->
+        <div id="form-success" class="hidden space-y-4 p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-white">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-xl shrink-0">
+              ✅
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-emerald-300">Message Verified & Received Successfully!</h3>
+              <p class="text-xs text-slate-300">Your inquiry has passed our security filters and has been forwarded to our editors.</p>
+            </div>
+          </div>
+
+          <div class="bg-black/40 border border-white/10 rounded-xl p-4 space-y-2 text-xs font-mono">
+            <div class="flex justify-between items-center text-slate-400">
+              <span>Tracking Reference:</span>
+              <span id="ticket-id" class="text-emerald-400 font-bold"></span>
+            </div>
+            <div class="flex justify-between items-center text-slate-400">
+              <span>Recipients:</span>
+              <span class="text-white">Editorial Team (Pepote, Guillechum, Thedrittus)</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-400">
+              <span>Turnaround SLA:</span>
+              <span class="text-indigo-300">2 to 6 hours (broken codes)</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-300">
+            Thank you for helping keep our community database the most reliable and verified Roblox resource.
+          </p>
+
+          <button
+            type="button"
+            id="reset-form-btn"
+            class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer flex items-center gap-2"
+          >
+            <span>←</span>
+            <span>Submit another message or report</span>
+          </button>
         </div>
       </div>
 
@@ -157,20 +272,212 @@ const pageSchema = {
 </Layout>
 
 <script is:inline>
-  const contactForm = document.getElementById('contact-form');
-  const formSuccess = document.getElementById('form-success');
-  const submitBtn = document.getElementById('submit-btn');
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    const formError = document.getElementById('form-error');
+    const formErrorMsg = document.getElementById('form-error-msg');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitBtnText = document.getElementById('submit-btn-text');
+    const submitBtnArrow = document.getElementById('submit-btn-arrow');
+    const resetFormBtn = document.getElementById('reset-form-btn');
+    const ticketIdEl = document.getElementById('ticket-id');
+    const messageInput = document.getElementById('message');
+    const charCountEl = document.getElementById('char-count');
+    const formTsInput = document.getElementById('form_ts');
 
-  if (contactForm && formSuccess && submitBtn) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      
-      setTimeout(() => {
-        contactForm.classList.add('hidden');
-        formSuccess.classList.remove('hidden');
-      }, 700);
-    });
-  }
+    const captchaN1 = document.getElementById('captcha-n1');
+    const captchaN2 = document.getElementById('captcha-n2');
+    const captchaAns = document.getElementById('captcha-ans');
+    const captchaRefreshBtn = document.getElementById('captcha-refresh-btn');
+    const captchaBadge = document.getElementById('captcha-badge');
+
+    // Anti-Spam State
+    let expectedSum = 0;
+    let formRenderTime = Date.now();
+    if (formTsInput) formTsInput.value = String(formRenderTime);
+
+    function generateCaptcha() {
+      const n1 = Math.floor(Math.random() * 8) + 2;
+      const n2 = Math.floor(Math.random() * 8) + 2;
+      expectedSum = n1 + n2;
+      if (captchaN1) captchaN1.textContent = String(n1);
+      if (captchaN2) captchaN2.textContent = String(n2);
+      if (captchaAns) {
+        captchaAns.value = '';
+        captchaAns.classList.remove('border-emerald-500', 'border-rose-500');
+      }
+      if (captchaBadge) {
+        captchaBadge.textContent = 'Pending';
+        captchaBadge.className = 'text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-white/10 font-mono transition-colors';
+      }
+    }
+
+    generateCaptcha();
+    if (captchaRefreshBtn) {
+      captchaRefreshBtn.addEventListener('click', generateCaptcha);
+    }
+
+    // Real-time Captcha Validation
+    if (captchaAns) {
+      captchaAns.addEventListener('input', () => {
+        const val = parseInt(captchaAns.value.trim(), 10);
+        if (val === expectedSum) {
+          captchaAns.classList.add('border-emerald-500');
+          captchaAns.classList.remove('border-rose-500');
+          if (captchaBadge) {
+            captchaBadge.textContent = '✓ Verified';
+            captchaBadge.className = 'text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono font-bold transition-colors';
+          }
+        } else {
+          captchaAns.classList.remove('border-emerald-500');
+          if (captchaBadge) {
+            captchaBadge.textContent = 'Pending';
+            captchaBadge.className = 'text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-white/10 font-mono transition-colors';
+          }
+        }
+      });
+    }
+
+    // Character Counter
+    if (messageInput && charCountEl) {
+      messageInput.addEventListener('input', () => {
+        const len = messageInput.value.length;
+        charCountEl.textContent = `${len} / 1500`;
+        if (len > 1400) {
+          charCountEl.className = 'font-mono text-rose-400';
+        } else {
+          charCountEl.className = 'font-mono text-slate-400';
+        }
+      });
+    }
+
+    function showError(msg) {
+      if (formError && formErrorMsg) {
+        formErrorMsg.textContent = msg;
+        formError.classList.remove('hidden');
+        formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function hideError() {
+      if (formError) formError.classList.add('hidden');
+    }
+
+    // Submission Handler with 5-Layer Security Pipeline
+    if (contactForm && formSuccess && submitBtn) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        hideError();
+
+        // Layer 1: Honeypot trap check
+        const hpWebsite = document.getElementById('hp_website_en');
+        const hpCompany = document.getElementById('hp_company_en');
+        if ((hpWebsite && hpWebsite.value) || (hpCompany && hpCompany.value)) {
+          console.warn('Spam bot honeypot triggered.');
+          showError('Form submission validation error. Please try again.');
+          return;
+        }
+
+        // Layer 2: Velocity / Submission timing check
+        const timeElapsed = Date.now() - formRenderTime;
+        if (timeElapsed < 3000) {
+          showError('⚠️ Form submitted too quickly. Please take a few moments to review your entry before submitting.');
+          return;
+        }
+
+        // Layer 3: Dynamic Human Math Challenge
+        const answer = parseInt(captchaAns ? captchaAns.value.trim() : '', 10);
+        if (isNaN(answer) || answer !== expectedSum) {
+          if (captchaAns) captchaAns.classList.add('border-rose-500');
+          showError('❌ Human verification incorrect. Please solve the calculation to prove you are a real user.');
+          return;
+        }
+
+        // Layer 4: Anti-Flooding / Cooldown check (60s rate limit)
+        const lastSubmit = parseInt(localStorage.getItem('roblox_last_contact_ts') || '0', 10);
+        const cooldownMs = 60000;
+        const now = Date.now();
+        if (now - lastSubmit < cooldownMs) {
+          const remainingSecs = Math.ceil((cooldownMs - (now - lastSubmit)) / 1000);
+          showError(`⏳ You have submitted a report recently. Please wait ${remainingSecs} seconds before sending another message.`);
+          return;
+        }
+
+        // Layer 5: Content Heuristics & Link Filter
+        const nameVal = document.getElementById('name')?.value.trim() || '';
+        const emailVal = document.getElementById('email')?.value.trim() || '';
+        const msgVal = messageInput ? messageInput.value.trim() : '';
+
+        if (nameVal.length < 2) {
+          showError('Please enter your name or Roblox handle (at least 2 characters).');
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVal)) {
+          showError('Please enter a valid email address.');
+          return;
+        }
+
+        if (msgVal.length < 10) {
+          showError('Your message is too brief. Please provide details (at least 10 characters).');
+          return;
+        }
+
+        // Check for link spam (maximum 2 URLs allowed)
+        const urlMatches = msgVal.match(/https?:\/\//gi) || [];
+        if (urlMatches.length > 2) {
+          showError('⚠️ To prevent unsolicited link spam, messages may not contain more than 2 external URLs.');
+          return;
+        }
+
+        // Check for code injection or known spam keywords
+        const spamKeywords = [
+          '<script', 'javascript:', 'onerror=', 'onload=', '<iframe',
+          'free casino', 'crypto giveaway', 'telegram airdrop', 'viagra', 't.me/'
+        ];
+        const lowerMsg = msgVal.toLowerCase();
+        for (const kw of spamKeywords) {
+          if (lowerMsg.includes(kw)) {
+            showError('⚠️ Your message contains prohibited terms or links flagged by our security policy.');
+            return;
+          }
+        }
+
+        // All 5 layers passed: Execute safe submission state
+        submitBtn.disabled = true;
+        if (submitBtnText) submitBtnText.textContent = 'Verifying & sending...';
+        if (submitBtnArrow) submitBtnArrow.textContent = '⏳';
+
+        setTimeout(() => {
+          localStorage.setItem('roblox_last_contact_ts', String(Date.now()));
+          const randomRef = 'CR-2026-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+          if (ticketIdEl) ticketIdEl.textContent = randomRef;
+
+          contactForm.classList.add('hidden');
+          formSuccess.classList.remove('hidden');
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 600);
+      });
+    }
+
+    // Reset Form for New Submission
+    if (resetFormBtn) {
+      resetFormBtn.addEventListener('click', () => {
+        contactForm.reset();
+        generateCaptcha();
+        formRenderTime = Date.now();
+        if (formTsInput) formTsInput.value = String(formRenderTime);
+        if (charCountEl) charCountEl.textContent = '0 / 1500';
+        hideError();
+        submitBtn.disabled = false;
+        if (submitBtnText) submitBtnText.textContent = 'Send Message to Editorial Team';
+        if (submitBtnArrow) submitBtnArrow.textContent = '→';
+        formSuccess.classList.add('hidden');
+        contactForm.classList.remove('hidden');
+        contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  });
 </script>

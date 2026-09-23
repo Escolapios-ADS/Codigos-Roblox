@@ -369,6 +369,17 @@ const unifiedSchema = buildUnifiedGraph({
           }
         }
 
+        // Anti-spam velocity throttle: maximum 4 votes per 5 seconds
+        window.__recentVotes = (window.__recentVotes || []).filter(t => Date.now() - t < 5000);
+        if (window.__recentVotes.length >= 4) {
+          showToast(
+            isSpanish ? '⏳ Votación acelerada' : '⏳ Slow down',
+            isSpanish ? 'Espera unos segundos antes de enviar otro voto o reporte.' : 'Please wait a moment before casting another vote.'
+          );
+          return;
+        }
+        window.__recentVotes.push(Date.now());
+
         if (existingVote) {
           showToast(
             isSpanish ? '¡Ya has votado!' : 'Already voted!',
