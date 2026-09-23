@@ -256,7 +256,11 @@ const PRESET_AVATARS = [
                 <img
                   id="card-avatar-img"
                   src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-635A2AA0A87D473B6136800B5B86F761-Png/420/420/AvatarHeadshot/Png/noFilter"
-                  alt="Avatar"
+                  alt={isEs ? "Avatar 3D de Roblox para tarjeta Gamer Card" : "Roblox 3D avatar headshot for Gamer Card"}
+                  width="112"
+                  height="112"
+                  loading="lazy"
+                  decoding="async"
                   crossorigin="anonymous"
                   class="w-full h-full object-cover"
                 />
@@ -439,7 +443,11 @@ const PRESET_AVATARS = [
     presetAvatarButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
         const url = btn.getAttribute('data-url');
-        if (url) cardAvatarImg.src = url;
+        const name = btn.getAttribute('data-name') || 'Preset';
+        if (url) {
+          cardAvatarImg.src = url;
+          cardAvatarImg.alt = isEs ? `Avatar 3D de Roblox preset (${name})` : `Roblox 3D Avatar Preset (${name})`;
+        }
       });
     });
 
@@ -484,6 +492,7 @@ const PRESET_AVATARS = [
 
           if (thumb && thumb.imageUrl) {
             cardAvatarImg.src = thumb.imageUrl;
+            cardAvatarImg.alt = isEs ? `Avatar 3D oficial de ${user.displayName || user.name} en Roblox` : `Official 3D avatar headshot of ${user.displayName || user.name} on Roblox`;
             fetchStatusMsg.textContent = isEs ? `✓ ¡Avatar 3D cargado con éxito para ${user.name}!` : `✓ Avatar successfully loaded for ${user.name}!`;
             fetchStatusMsg.className = 'text-[11px] text-emerald-400 block font-bold';
           }
