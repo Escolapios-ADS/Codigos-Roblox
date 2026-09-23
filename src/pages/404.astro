@@ -1,0 +1,386 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { gamesData } from '../data/games';
+
+const topGames = gamesData.slice(0, 6);
+---
+
+<Layout
+  title="404: Página no encontrada | Códigos Roblox 2026"
+  description="¡Oof! La dimensión o juego que buscas no existe o ha sido trasladada. Encuentra aquí todos los códigos activos de Roblox actualizados."
+  locale="es"
+  noIndex={true}
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center space-y-10">
+    
+    <!-- Holographic 404 Glitch Hero -->
+    <div class="relative space-y-4">
+      <!-- Ambient Glow Behind 404 -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-48 bg-gradient-to-r from-rose-500/20 via-indigo-500/20 to-cyan-500/20 blur-3xl -z-10 rounded-full pointer-events-none"></div>
+
+      <!-- Disconnected Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-mono font-bold tracking-wider uppercase shadow-inner">
+        <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+        <span id="txt-badge">ERROR 404 • SERVIDOR DESCONECTADO</span>
+      </div>
+
+      <!-- Giant 404 Graphic -->
+      <div class="relative select-none">
+        <h1 class="text-8xl sm:text-9xl md:text-[11rem] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-600 drop-shadow-2xl">
+          4<span class="text-indigo-400">0</span>4
+        </h1>
+        <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+          <span class="text-9xl font-mono text-cyan-400">OOF!</span>
+        </div>
+      </div>
+
+      <!-- Headline and Subtitle -->
+      <div class="max-w-xl mx-auto space-y-3">
+        <h2 id="txt-heading" class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          ¡Oof! Esta dimensión de Roblox no existe
+        </h2>
+        <p id="txt-desc" class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Parece que te has caído del mapa, el servidor fue teletransportado o el código que buscas cambió de ubicación. No te preocupes, aquí tienes todos los códigos activos y herramientas para continuar.
+        </p>
+      </div>
+
+      <!-- Interactive Sound Button & Language Switcher -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <button
+          type="button"
+          id="btn-oof-sound"
+          class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono font-bold text-slate-200 hover:text-white transition-all flex items-center gap-2 shadow-sm"
+        >
+          <span>🔊</span>
+          <span id="txt-sound-btn">Reproducir Sonido «OOF»</span>
+        </button>
+
+        <button
+          type="button"
+          id="btn-lang-toggle"
+          class="px-4 py-2 rounded-xl bg-indigo-950/60 hover:bg-indigo-900/60 border border-indigo-500/30 text-xs font-mono font-bold text-indigo-300 hover:text-white transition-all flex items-center gap-1.5"
+        >
+          <span>🌐</span>
+          <span id="txt-lang-btn">Switch to English (US)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Instant Search Bar in 404 -->
+    <div class="max-w-xl mx-auto relative group">
+      <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+      <div class="relative flex items-center bg-[#0d1322] border border-white/15 rounded-2xl p-2 shadow-2xl">
+        <div class="pl-3 pr-2 text-slate-400">
+          <svg class="w-5 h-5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <input 
+          type="search"
+          id="search-404-input"
+          placeholder="Busca cualquier juego de Roblox (ej. Blox Fruits, Blade Ball)..."
+          class="w-full bg-transparent border-none text-white text-sm placeholder-slate-400 focus:outline-none focus:ring-0 py-2"
+          autocomplete="off"
+        />
+        <div class="pr-2 hidden sm:flex items-center gap-1 text-[11px] text-slate-400 font-mono bg-white/5 border border-white/10 px-2 py-1 rounded-md">
+          <span>Ctrl</span>
+          <span>+</span>
+          <span>K</span>
+        </div>
+      </div>
+      <!-- Instant search results dropdown -->
+      <div id="search-404-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-[#0c1220] border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-20 text-left p-2 space-y-1">
+      </div>
+    </div>
+
+    <!-- Quick Navigation Hub -->
+    <div class="space-y-6 pt-4 text-left">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h3 id="txt-popular-title" class="text-sm sm:text-base font-bold uppercase tracking-wider font-mono text-white flex items-center gap-2">
+          <span>🔥</span>
+          <span>Juegos Más Populares con Códigos Hoy</span>
+        </h3>
+        <span class="text-xs text-indigo-400 font-mono">{topGames.length} juegos</span>
+      </div>
+
+      <!-- Games Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        {topGames.map((game) => (
+          <a
+            href={`/es/juego/${game.slug}`}
+            class="group p-4 rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-indigo-500/50 hover:bg-white/[0.03] transition-all flex items-center justify-between shadow-lg"
+          >
+            <div class="flex items-center gap-3">
+              <div class={`w-11 h-11 rounded-xl bg-gradient-to-tr ${game.iconGradient} p-[1.5px] shrink-0`}>
+                <div class="w-full h-full bg-[#080c14] rounded-[9px] flex items-center justify-center text-xl">
+                  {game.emoji}
+                </div>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white group-hover:text-indigo-300 transition-colors">
+                  {game.title}
+                </h4>
+                <span class="text-[11px] text-slate-400">
+                  {game.activeCodes.length} códigos verificados
+                </span>
+              </div>
+            </div>
+            <span class="text-slate-400 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all text-sm">
+              →
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- VIP Tools Shortcuts Row -->
+    <div class="space-y-4 pt-4 text-left">
+      <h3 id="txt-tools-title" class="text-sm sm:text-base font-bold uppercase tracking-wider font-mono text-white flex items-center gap-2">
+        <span>🛠️</span>
+        <span>Herramientas & Calculadoras VIP</span>
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <a 
+          href="/es/calculadora-robux-dinero-real"
+          class="p-3.5 rounded-2xl bg-black/40 border border-white/10 hover:border-emerald-500/40 text-center space-y-1.5 transition-colors block"
+        >
+          <span class="text-2xl block">💰</span>
+          <span class="text-xs font-bold text-white block">Calculadora Robux</span>
+          <span class="text-[10px] text-slate-400 block">Euros & Dólares</span>
+        </a>
+
+        <a 
+          href="/es/calculadora-tradeos-blox-fruits"
+          class="p-3.5 rounded-2xl bg-black/40 border border-white/10 hover:border-amber-500/40 text-center space-y-1.5 transition-colors block"
+        >
+          <span class="text-2xl block">⚖️</span>
+          <span class="text-xs font-bold text-white block">Tradeos Blox Fruits</span>
+          <span class="text-[10px] text-slate-400 block">Win / Fair / Lose</span>
+        </a>
+
+        <a 
+          href="/es/codigos-ropa-brookhaven"
+          class="p-3.5 rounded-2xl bg-black/40 border border-white/10 hover:border-pink-500/40 text-center space-y-1.5 transition-colors block"
+        >
+          <span class="text-2xl block">👗</span>
+          <span class="text-xs font-bold text-white block">Ropa Brookhaven</span>
+          <span class="text-[10px] text-slate-400 block">Outfits & Estilos</span>
+        </a>
+
+        <a 
+          href="/es/objetos-gratis"
+          class="p-3.5 rounded-2xl bg-black/40 border border-white/10 hover:border-cyan-500/40 text-center space-y-1.5 transition-colors block"
+        >
+          <span class="text-2xl block">🎁</span>
+          <span class="text-xs font-bold text-white block">Objetos Gratis</span>
+          <span class="text-[10px] text-slate-400 block">Avatares & Accesorios</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Return CTA Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
+      <a 
+        href="/es/" 
+        id="btn-home-cta"
+        class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-sm tracking-wide shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center gap-2"
+      >
+        <span>🏠</span>
+        <span id="txt-home-btn">Volver al Catálogo Principal</span>
+      </a>
+
+      <a 
+        href="/es/contacto" 
+        id="btn-contact-cta"
+        class="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
+      >
+        <span>📢</span>
+        <span id="txt-contact-btn">Reportar Enlace Roto</span>
+      </a>
+    </div>
+
+  </div>
+</Layout>
+
+<!-- Client Script for Bilingual Smart Toggle & OOF Sound -->
+<script is:inline define:vars={{ gamesData }}>
+  let isEnglish = false;
+
+  // Auto-detect language preference from URL or browser
+  try {
+    const prevUrl = document.referrer || window.location.href;
+    if (prevUrl.includes('/en/') || (navigator.language && navigator.language.startsWith('en'))) {
+      isEnglish = true;
+    }
+  } catch(e) {}
+
+  const translations = {
+    es: {
+      badge: 'ERROR 404 • SERVIDOR DESCONECTADO',
+      heading: '¡Oof! Esta dimensión de Roblox no existe',
+      desc: 'Parece que te has caído del mapa, el servidor fue teletransportado o el código que buscas cambió de ubicación. No te preocupes, aquí tienes todos los códigos activos y herramientas para continuar.',
+      soundBtn: 'Reproducir Sonido «OOF»',
+      langBtn: 'Switch to English (US)',
+      searchPlaceholder: 'Busca cualquier juego de Roblox (ej. Blox Fruits, Blade Ball)...',
+      popularTitle: 'Juegos Más Populares con Códigos Hoy',
+      toolsTitle: 'Herramientas & Calculadoras VIP',
+      homeBtn: 'Volver al Catálogo Principal',
+      contactBtn: 'Reportar Enlace Roto',
+      homeUrl: '/es/',
+      contactUrl: '/es/contacto',
+      verifiedText: 'códigos verificados'
+    },
+    en: {
+      badge: 'ERROR 404 • SERVER DISCONNECTED',
+      heading: 'Oof! This Roblox dimension does not exist',
+      desc: 'Looks like you fell off the map, the server was teleported, or the page you are looking for has moved. Do not worry, all active verified Roblox codes and VIP tools are right below.',
+      soundBtn: 'Play «OOF» Sound',
+      langBtn: 'Cambiar a Español',
+      searchPlaceholder: 'Search any Roblox game (e.g. Blox Fruits, Blade Ball)...',
+      popularTitle: 'Most Popular Games with Working Codes Today',
+      toolsTitle: 'VIP Tools & Calculators',
+      homeBtn: 'Back to Home Catalog',
+      contactBtn: 'Report Broken Link',
+      homeUrl: '/en/',
+      contactUrl: '/en/contact',
+      verifiedText: 'verified codes'
+    }
+  };
+
+  function updateTexts() {
+    const t = isEnglish ? translations.en : translations.es;
+    const badgeEl = document.getElementById('txt-badge');
+    const headingEl = document.getElementById('txt-heading');
+    const descEl = document.getElementById('txt-desc');
+    const soundBtnEl = document.getElementById('txt-sound-btn');
+    const langBtnEl = document.getElementById('txt-lang-btn');
+    const inputEl = document.getElementById('search-404-input');
+    const popularEl = document.getElementById('txt-popular-title');
+    const toolsEl = document.getElementById('txt-tools-title');
+    const homeBtnEl = document.getElementById('txt-home-btn');
+    const contactBtnEl = document.getElementById('txt-contact-btn');
+    const homeCta = document.getElementById('btn-home-cta');
+    const contactCta = document.getElementById('btn-contact-cta');
+
+    if (badgeEl) badgeEl.textContent = t.badge;
+    if (headingEl) headingEl.textContent = t.heading;
+    if (descEl) descEl.textContent = t.desc;
+    if (soundBtnEl) soundBtnEl.textContent = t.soundBtn;
+    if (langBtnEl) langBtnEl.textContent = t.langBtn;
+    if (inputEl) inputEl.placeholder = t.searchPlaceholder;
+    if (popularEl) popularEl.lastElementChild.textContent = t.popularTitle;
+    if (toolsEl) toolsEl.lastElementChild.textContent = t.toolsTitle;
+    if (homeBtnEl) homeBtnEl.textContent = t.homeBtn;
+    if (contactBtnEl) contactBtnEl.textContent = t.contactBtn;
+    if (homeCta) homeCta.setAttribute('href', t.homeUrl);
+    if (contactCta) contactCta.setAttribute('href', t.contactUrl);
+  }
+
+  // Synthesize iconic classic Roblox OOF frequency sweep via Web Audio API
+  function playOofSound() {
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      const ctx = new AudioContextClass();
+      
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      // Classic pitch drop of the Roblox oof sound
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(340, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.28);
+      
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      osc.start();
+      osc.stop(ctx.currentTime + 0.3);
+    } catch(e) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateTexts();
+
+    const oofBtn = document.getElementById('btn-oof-sound');
+    if (oofBtn) {
+      oofBtn.addEventListener('click', playOofSound);
+    }
+
+    const langBtn = document.getElementById('btn-lang-toggle');
+    if (langBtn) {
+      langBtn.addEventListener('click', () => {
+        isEnglish = !isEnglish;
+        updateTexts();
+      });
+    }
+
+    // Client-side quick game search
+    const searchInput = document.getElementById('search-404-input');
+    const searchResults = document.getElementById('search-404-results');
+
+    if (searchInput && searchResults) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        if (query.length === 0) {
+          searchResults.classList.add('hidden');
+          searchResults.innerHTML = '';
+          return;
+        }
+
+        const matches = gamesData.filter(g => 
+          g.title.toLowerCase().includes(query) || 
+          g.category.toLowerCase().includes(query) ||
+          g.developer.toLowerCase().includes(query)
+        ).slice(0, 5);
+
+        if (matches.length === 0) {
+          searchResults.innerHTML = `
+            <div class="p-3 text-xs text-slate-400 text-center font-mono">
+              ${isEnglish ? 'No games found for "' + query + '"' : 'No se encontraron juegos para "' + query + '"'}
+            </div>
+          `;
+          searchResults.classList.remove('hidden');
+          return;
+        }
+
+        const localePrefix = isEnglish ? 'en' : 'es';
+        searchResults.innerHTML = matches.map(g => `
+          <a href="/${localePrefix}/juego/${g.slug}" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+            <div class="flex items-center gap-2.5">
+              <span class="text-xl">${g.emoji}</span>
+              <div>
+                <span class="text-xs font-bold text-white block">${g.title}</span>
+                <span class="text-[10px] text-slate-400 block">${g.developer}</span>
+              </div>
+            </div>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono font-bold">
+              ${g.activeCodes.length} ${isEnglish ? 'codes' : 'códigos'}
+            </span>
+          </a>
+        `).join('');
+
+        searchResults.classList.remove('hidden');
+      });
+
+      // Ctrl + K shortcut
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+
+      // Close results when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+          searchResults.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>

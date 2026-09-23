@@ -33,7 +33,7 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => page !== 'https://codigosroblox.org/',
+      filter: (page) => page !== 'https://codigosroblox.org/' && !page.includes('404'),
       serialize(item) {
         const url = new URL(item.url);
         const pathname = url.pathname;
