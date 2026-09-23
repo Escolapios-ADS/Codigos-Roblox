@@ -23,42 +23,15 @@ const { game } = Astro.props;
 const locale = 'es';
 const t = getTranslations(locale);
 
+import { buildGameSchema } from '../../../utils/structuredData';
+
 const pageTitle = `Códigos ${game.title} (2026) | CódigosRoblox`;
 const pageDescription = game.metaDescription[locale];
 
-// Schema JSON-LD for rich snippets (FAQPage + BreadcrumbList)
+// Schema JSON-LD for rich snippets (VideoGame + BreadcrumbList + FAQPage + ItemList Active Codes)
+const canonicalGameUrl = `https://codigosroblox.org/${locale}/juego/${game.slug}/`;
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: t.gameDetail.breadcrumbsHome,
-          item: 'https://codigosroblox.org/es/'
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: game.title,
-          item: `https://codigosroblox.org/es/juego/${game.slug}`
-        }
-      ]
-    },
-    {
-      '@type': 'FAQPage',
-      mainEntity: game.faqs[locale].map((faq) => ({
-        '@type': 'Question',
-        name: faq.q,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.a
-        }
-      }))
-    }
-  ]
+  '@graph': buildGameSchema(game, locale, canonicalGameUrl)
 };
 ---
 

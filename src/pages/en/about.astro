@@ -1,15 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildAboutPageSchema } from '../../utils/structuredData';
 
 const locale = 'en';
 const t = getTranslations(locale);
+
+const canonicalUrl = 'https://codigosroblox.org/en/about/';
+const pageSchema = {
+  '@graph': buildAboutPageSchema(locale, canonicalUrl)
+};
 ---
 
 <Layout
   title="About Us & Editorial Standards | RobloxCodes.org"
   description="Meet the editorial staff at RobloxCodes.org, learn our daily in-game verification process, and understand our editorial integrity guidelines."
   locale={locale}
+  pageType="AboutPage"
+  schema={pageSchema}
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
     

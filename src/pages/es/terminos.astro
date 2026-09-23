@@ -1,16 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildTermsPageSchema } from '../../utils/structuredData';
 
 const locale = 'es';
 const t = getTranslations(locale);
 const lastUpdated = '22 de septiembre de 2026';
+
+const canonicalUrl = 'https://codigosroblox.org/es/terminos/';
+const pageSchema = {
+  '@graph': buildTermsPageSchema(locale, canonicalUrl)
+};
 ---
 
 <Layout
   title="Términos de Servicio | CódigosRoblox.org"
   description="Términos y condiciones de uso del portal CódigosRoblox.org. Propiedad intelectual, exención de responsabilidad y normas de la comunidad."
   locale={locale}
+  schema={pageSchema}
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
     

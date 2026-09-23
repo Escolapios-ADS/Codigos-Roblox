@@ -1,5 +1,14 @@
 ---
 // Root landing / automatic language redirector
+import { ORGANIZATION_SCHEMA, getWebsiteSchema } from '../utils/structuredData';
+
+const rootSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    ORGANIZATION_SCHEMA,
+    getWebsiteSchema('es')
+  ]
+};
 ---
 <!doctype html>
 <html lang="es">
@@ -10,6 +19,7 @@
     <meta name="description" content="Portal oficial de códigos de Roblox actualizados hoy. Códigos activos para Blox Fruits, Blade Ball, DTI y más juegos con copia en 1 clic." />
     <meta http-equiv="refresh" content="0;url=/es/" />
     <link rel="canonical" href="https://codigosroblox.org/es/" />
+    <script type="application/ld+json" set:html={JSON.stringify(rootSchema)} />
     <script is:inline>
       const preferredLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
       if (preferredLang.startsWith('en')) {

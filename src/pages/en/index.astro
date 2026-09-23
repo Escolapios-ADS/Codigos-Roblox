@@ -41,12 +41,19 @@ const generalRedeemSteps = [
   'Find the Twitter bird icon, settings cog, or gift box button in the menu.',
   'Click the 1-click Copy button on our site, paste the code, and hit Redeem!'
 ];
+
+import { buildHomePageSchema } from '../../utils/structuredData';
+const canonicalUrl = 'https://codigosroblox.org/en/';
+const pageSchema = {
+  '@graph': buildHomePageSchema(gamesData, locale, canonicalUrl)
+};
 ---
 
 <Layout
   title={t.siteTitle}
   description={t.siteDescription}
   locale={locale}
+  schema={pageSchema}
 >
   <!-- Top Header Leaderboard Ad Slot -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">

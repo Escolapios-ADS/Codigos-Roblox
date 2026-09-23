@@ -1,15 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildContactPageSchema } from '../../utils/structuredData';
 
 const locale = 'es';
 const t = getTranslations(locale);
+
+const canonicalUrl = 'https://codigosroblox.org/es/contacto/';
+const pageSchema = {
+  '@graph': buildContactPageSchema(locale, canonicalUrl)
+};
 ---
 
 <Layout
   title="Contacto y Reporte de Códigos | CódigosRoblox.org"
   description="Contacta con el equipo de CódigosRoblox.org para enviar nuevos códigos, reportar códigos caducados o consultas de publicidad y colaboraciones."
   locale={locale}
+  pageType="ContactPage"
+  schema={pageSchema}
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
     

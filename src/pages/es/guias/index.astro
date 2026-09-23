@@ -2,16 +2,23 @@
 import Layout from '../../../layouts/Layout.astro';
 import { guidesData } from '../../../data/guides';
 import { getTranslations } from '../../../i18n/translations';
+import { buildGuidesIndexSchema } from '../../../utils/structuredData';
 import AdBanner from '../../../components/AdBanner.astro';
 
 const locale = 'es';
 const t = getTranslations(locale);
+
+const canonicalUrl = 'https://codigosroblox.org/es/guias/';
+const pageSchema = {
+  '@graph': buildGuidesIndexSchema(guidesData, locale, canonicalUrl)
+};
 ---
 
 <Layout
   title="Guías y Tier Lists de Roblox (2026) | CódigosRoblox"
   description="Aprende a dominar Roblox: Tier Lists de Blox Fruits, guías de Blade Ball, cómo conseguir Robux gratis y trucos para Dress to Impress actualizados."
   locale={locale}
+  schema={pageSchema}
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
     

@@ -41,12 +41,19 @@ const generalRedeemSteps = [
   'Busca el botón con icono de pájaro de Twitter, rueda de ajustes o caja de regalo.',
   'Copia el código de nuestra web con 1 clic, pégalo en la casilla y pulsa Canjear.'
 ];
+
+import { buildHomePageSchema } from '../../utils/structuredData';
+const canonicalUrl = 'https://codigosroblox.org/es/';
+const pageSchema = {
+  '@graph': buildHomePageSchema(gamesData, locale, canonicalUrl)
+};
 ---
 
 <Layout
   title={t.siteTitle}
   description={t.siteDescription}
   locale={locale}
+  schema={pageSchema}
 >
   <!-- Top Header Leaderboard Ad Slot -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">

@@ -4,6 +4,8 @@ import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import SideRails from '../components/SideRails.astro';
 import type { SupportedLocale } from '../i18n/translations';
+import { getSeoUrls } from '../utils/seo';
+import { buildUnifiedGraph } from '../utils/structuredData';
 import '../styles/global.css';
 
 interface Props {
@@ -13,6 +15,7 @@ interface Props {
   currentSlug?: string;
   ogType?: 'website' | 'article';
   schema?: Record<string, any>;
+  pageType?: string;
 }
 
 const {
@@ -22,32 +25,21 @@ const {
   currentSlug,
   ogType = 'website',
   schema,
+  pageType,
 } = Astro.props;
 
-const siteUrl = 'https://codigosroblox.org';
-const currentPath = currentSlug ? `/${locale}/juego/${currentSlug}` : `/${locale}/`;
-const canonicalUrl = `${siteUrl}${currentPath}`;
+// Compute accurate canonical and hreflang URLs across all 81 routes
+const { canonicalUrl, esUrl, enUrl } = getSeoUrls(Astro.url.pathname, locale, currentSlug);
 
-// Alternates for hreflang
-const esUrl = currentSlug ? `${siteUrl}/es/juego/${currentSlug}` : `${siteUrl}/es/`;
-const enUrl = currentSlug ? `${siteUrl}/en/juego/${currentSlug}` : `${siteUrl}/en/`;
-
-// Base Schema.org
-const baseWebsiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: locale === 'es' ? 'Códigos Roblox' : 'Roblox Codes',
-  url: canonicalUrl,
-  inLanguage: locale,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/${locale}/?q={search_term_string}`
-    },
-    'query-input': 'required name=search_term_string'
-  }
-};
+// Generate unified Schema.org JSON-LD Knowledge Graph
+const unifiedSchema = buildUnifiedGraph({
+  canonicalUrl,
+  title,
+  description,
+  locale,
+  pageType,
+  customSchema: schema,
+});
 ---
 
 <!doctype html>
@@ -93,8 +85,8 @@ const baseWebsiteSchema = {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
 
-    <!-- Structured Data JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify(schema || baseWebsiteSchema)} />
+    <!-- Structured Data JSON-LD (Schema.org Knowledge Graph) -->
+    <script type="application/ld+json" set:html={JSON.stringify(unifiedSchema)} />
 
     <!-- Google Consent Mode v2 Default (TCF & ePrivacy Compliant) -->
     <script is:inline>

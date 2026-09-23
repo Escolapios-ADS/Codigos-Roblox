@@ -23,51 +23,12 @@ const t = getTranslations(locale);
 const pageTitle = guide.metaTitle?.[locale] || `${guide.title[locale]} | CódigosRoblox`;
 const pageDescription = guide.excerpt[locale];
 
+import { buildGuideSchema } from '../../../utils/structuredData';
+
 // Schema JSON-LD for Article & BreadcrumbList
+const canonicalGuideUrl = `https://codigosroblox.org/${locale}/guias/${guide.slug}/`;
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Article',
-      headline: guide.title[locale],
-      description: guide.excerpt[locale],
-      datePublished: guide.publishedDate,
-      dateModified: guide.updatedDate,
-      author: {
-        '@type': 'Person',
-        name: guide.author.name,
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'CódigosRoblox.org',
-        url: 'https://codigosroblox.org'
-      },
-      mainEntityOfPage: `https://codigosroblox.org/es/guias/${guide.slug}`
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: t.gameDetail.breadcrumbsHome,
-          item: 'https://codigosroblox.org/es/'
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Guías',
-          item: 'https://codigosroblox.org/es/guias/'
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: guide.title[locale],
-          item: `https://codigosroblox.org/es/guias/${guide.slug}`
-        }
-      ]
-    }
-  ]
+  '@graph': buildGuideSchema(guide, locale, canonicalGuideUrl)
 };
 ---
 
