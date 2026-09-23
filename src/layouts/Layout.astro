@@ -87,6 +87,42 @@ const baseWebsiteSchema = {
 
     <!-- Structured Data JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schema || baseWebsiteSchema)} />
+
+    <!-- Google Consent Mode v2 Default (TCF & ePrivacy Compliant) -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      try {
+        const storedConsent = localStorage.getItem('roblox_cookie_consent');
+        let adsAllowed = false;
+        let analyticsAllowed = false;
+
+        if (storedConsent) {
+          try {
+            const parsed = JSON.parse(storedConsent);
+            adsAllowed = parsed.advertising === true;
+            analyticsAllowed = parsed.analytics === true;
+          } catch (err) {
+            adsAllowed = storedConsent === 'accepted';
+            analyticsAllowed = storedConsent === 'accepted';
+          }
+        }
+
+        gtag('consent', 'default', {
+          'ad_storage': adsAllowed ? 'granted' : 'denied',
+          'ad_user_data': adsAllowed ? 'granted' : 'denied',
+          'ad_personalization': adsAllowed ? 'granted' : 'denied',
+          'analytics_storage': analyticsAllowed ? 'granted' : 'denied'
+        });
+      } catch (e) {
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied'
+        });
+      }
+    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-[#080c14] text-slate-100 antialiased selection:bg-indigo-600 selection:text-white">
     <div id="top"></div>

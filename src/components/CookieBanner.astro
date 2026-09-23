@@ -8,48 +8,168 @@ interface Props {
 const { locale } = Astro.props;
 ---
 
-<div
+<!-- Floating Cookie Banner -->
+<aside
   id="cookie-consent-banner"
   class="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6 bg-[#0b101d]/95 backdrop-blur-md border-t border-white/10 shadow-2xl transition-all duration-300 transform translate-y-full"
-  aria-live="polite"
+  aria-label={locale === 'es' ? 'Aviso de consentimiento de cookies' : 'Cookie consent notice'}
 >
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
     
     <div class="flex items-start gap-3">
-      <span class="text-2xl shrink-0">🍪</span>
+      <span class="text-2xl shrink-0 select-none" aria-hidden="true">🍪</span>
       <div class="text-xs sm:text-sm text-slate-300 space-y-1">
-        <p class="font-semibold text-white">
-          {locale === 'es' ? 'Valoramos tu privacidad y experiencia' : 'We value your privacy and experience'}
+        <p class="font-bold text-white">
+          {locale === 'es' ? 'Aviso de Cookies y Privacidad' : 'Cookie & Privacy Consent'}
         </p>
         <p class="text-slate-400 text-xs leading-relaxed max-w-3xl">
           {locale === 'es' 
-            ? 'Utilizamos cookies propias y de terceros (incluyendo Google AdSense) para analizar el tráfico, personalizar anuncios y garantizar el correcto funcionamiento del portal. Cumplimos con la normativa RGPD y las políticas de consentimiento de Google.'
-            : 'We use our own and third-party cookies (including Google AdSense) to analyze traffic, personalize advertisements, and ensure optimal portal performance in compliance with GDPR and Google User Consent policies.'}
-          <a 
-            href={locale === 'es' ? '/es/privacidad' : '/en/privacy'}
-            class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 ml-1"
-          >
-            {locale === 'es' ? 'Leer Política de Privacidad' : 'Read Privacy Policy'}
-          </a>.
+            ? 'Utilizamos cookies propias y de terceros (incluyendo Google AdSense) para garantizar el funcionamiento técnico, medir estadísticas anónimas y personalizar anuncios según tus hábitos de navegación.'
+            : 'We use our own and third-party cookies (including Google AdSense) to deliver technical features, measure anonymous traffic, and serve tailored advertisements.'}
+          <span class="inline-block mt-0.5">
+            <a 
+              href={locale === 'es' ? '/es/politica-de-cookies' : '/en/cookie-policy'}
+              class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium mr-2"
+            >
+              {locale === 'es' ? 'Política de Cookies' : 'Cookie Policy'}
+            </a>
+            <a 
+              href={locale === 'es' ? '/es/privacidad' : '/en/privacy'}
+              class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium"
+            >
+              {locale === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}
+            </a>
+          </span>
         </p>
       </div>
     </div>
 
-    <!-- Buttons -->
-    <div class="flex items-center gap-2 self-end md:self-center shrink-0">
+    <!-- Actions (Equal prominence according to AEPD & GDPR guidelines) -->
+    <div class="flex flex-wrap items-center gap-2 self-stretch md:self-center shrink-0 justify-end">
+      <button
+        type="button"
+        id="cookie-settings-btn"
+        class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-semibold text-slate-300 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      >
+        {locale === 'es' ? '⚙️ Configurar' : '⚙️ Preferences'}
+      </button>
+
       <button
         type="button"
         id="reject-cookies-btn"
-        class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white transition-colors"
+        class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-xs font-bold text-white transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500"
       >
         {locale === 'es' ? 'Solo necesarias' : 'Essential only'}
       </button>
+
       <button
         type="button"
         id="accept-cookies-btn"
-        class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-xs font-bold text-white shadow-lg shadow-indigo-600/25 border border-indigo-400/30 transition-all"
+        class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-xs font-bold text-white shadow-lg shadow-indigo-600/25 border border-indigo-400/30 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
       >
         {locale === 'es' ? 'Aceptar todas' : 'Accept all'}
+      </button>
+    </div>
+
+  </div>
+</aside>
+
+<!-- Granular Preferences Modal -->
+<div 
+  id="cookie-modal"
+  class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <div class="bg-[#0e1424] border border-white/15 rounded-2xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in duration-200">
+    
+    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">⚙️</span>
+        <h3 id="modal-title" class="text-base font-bold text-white">
+          {locale === 'es' ? 'Configuración de Cookies' : 'Cookie Preferences'}
+        </h3>
+      </div>
+      <button 
+        type="button" 
+        id="close-cookie-modal" 
+        class="text-slate-400 hover:text-white text-lg p-1"
+        aria-label={locale === 'es' ? 'Cerrar' : 'Close'}
+      >
+        ✕
+      </button>
+    </div>
+
+    <div class="space-y-4 text-xs text-slate-300">
+      
+      <!-- Category 1: Technical (Always active) -->
+      <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-white text-sm">
+            {locale === 'es' ? '1. Técnicas y Necesarias' : '1. Strictly Necessary'}
+          </span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            {locale === 'es' ? 'Siempre activas' : 'Always Active'}
+          </span>
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          {locale === 'es' 
+            ? 'Imprescindibles para recordar tu idioma, navegación segura y registro de tu consentimiento.' 
+            : 'Essential for site navigation, security firewalls, and storing your consent choices.'}
+        </p>
+      </div>
+
+      <!-- Category 2: Analytics -->
+      <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 space-y-1.5">
+        <div class="flex items-center justify-between">
+          <label for="cookie-opt-analytics" class="font-bold text-white text-sm cursor-pointer">
+            {locale === 'es' ? '2. Analítica y Rendimiento' : '2. Analytics & Performance'}
+          </label>
+          <input 
+            type="checkbox" 
+            id="cookie-opt-analytics" 
+            checked
+            class="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 bg-black/40 border-white/20 cursor-pointer"
+          />
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          {locale === 'es'
+            ? 'Nos permiten evaluar métricas anónimas de visitas para mantener los servidores rápidos y detectar códigos rotos.'
+            : 'Allows us to gather aggregate traffic statistics to optimize server latency and detect broken codes.'}
+        </p>
+      </div>
+
+      <!-- Category 3: Advertising -->
+      <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 space-y-1.5">
+        <div class="flex items-center justify-between">
+          <label for="cookie-opt-ads" class="font-bold text-white text-sm cursor-pointer">
+            {locale === 'es' ? '3. Publicidad y Personalización (AdSense)' : '3. Advertising & Personalization (AdSense)'}
+          </label>
+          <input 
+            type="checkbox" 
+            id="cookie-opt-ads" 
+            checked
+            class="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 bg-black/40 border-white/20 cursor-pointer"
+          />
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          {locale === 'es'
+            ? 'Gestionadas por Google AdSense para financiar el portal gratuito mostrando anuncios relevantes según tus intereses.'
+            : 'Managed by Google AdSense to fund our free platform by serving interest-based ads.'}
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Modal Actions -->
+    <div class="flex items-center justify-end gap-2 border-t border-white/10 pt-4">
+      <button
+        type="button"
+        id="save-cookie-prefs-btn"
+        class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-lg shadow-indigo-600/25"
+      >
+        {locale === 'es' ? 'Guardar Preferencias' : 'Save Preferences'}
       </button>
     </div>
 
@@ -61,24 +181,91 @@ const { locale } = Astro.props;
     const banner = document.getElementById('cookie-consent-banner');
     const acceptBtn = document.getElementById('accept-cookies-btn');
     const rejectBtn = document.getElementById('reject-cookies-btn');
+    const settingsBtn = document.getElementById('cookie-settings-btn');
+    const modal = document.getElementById('cookie-modal');
+    const closeModalBtn = document.getElementById('close-cookie-modal');
+    const savePrefsBtn = document.getElementById('save-cookie-prefs-btn');
+    const optAnalytics = document.getElementById('cookie-opt-analytics');
+    const optAds = document.getElementById('cookie-opt-ads');
 
-    if (!banner || !acceptBtn || !rejectBtn) return;
+    function updateGoogleConsent(analytics, ads) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'ad_storage': ads ? 'granted' : 'denied',
+          'ad_user_data': ads ? 'granted' : 'denied',
+          'ad_personalization': ads ? 'granted' : 'denied',
+          'analytics_storage': analytics ? 'granted' : 'denied'
+        });
+      }
+    }
+
+    if (!banner) return;
 
     const consent = localStorage.getItem('roblox_cookie_consent');
     if (!consent) {
       setTimeout(() => {
         banner.classList.remove('translate-y-full');
-      }, 800);
+      }, 700);
+    } else {
+      try {
+        const parsed = JSON.parse(consent);
+        updateGoogleConsent(parsed.analytics !== false, parsed.advertising !== false);
+      } catch (e) {
+        updateGoogleConsent(consent === 'accepted', consent === 'accepted');
+      }
     }
 
-    acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('roblox_cookie_consent', 'accepted');
-      banner.classList.add('translate-y-full');
-    });
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('roblox_cookie_consent', JSON.stringify({
+          technical: true,
+          analytics: true,
+          advertising: true
+        }));
+        updateGoogleConsent(true, true);
+        banner.classList.add('translate-y-full');
+      });
+    }
 
-    rejectBtn.addEventListener('click', () => {
-      localStorage.setItem('roblox_cookie_consent', 'essential_only');
-      banner.classList.add('translate-y-full');
-    });
+    if (rejectBtn) {
+      rejectBtn.addEventListener('click', () => {
+        localStorage.setItem('roblox_cookie_consent', JSON.stringify({
+          technical: true,
+          analytics: false,
+          advertising: false
+        }));
+        updateGoogleConsent(false, false);
+        banner.classList.add('translate-y-full');
+      });
+    }
+
+    if (settingsBtn && modal) {
+      settingsBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+      });
+    }
+
+    if (closeModalBtn && modal) {
+      closeModalBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+    }
+
+    if (savePrefsBtn && modal) {
+      savePrefsBtn.addEventListener('click', () => {
+        const analyticsAllowed = optAnalytics ? optAnalytics.checked : false;
+        const adsAllowed = optAds ? optAds.checked : false;
+
+        localStorage.setItem('roblox_cookie_consent', JSON.stringify({
+          technical: true,
+          analytics: analyticsAllowed,
+          advertising: adsAllowed
+        }));
+
+        updateGoogleConsent(analyticsAllowed, adsAllowed);
+        modal.classList.add('hidden');
+        banner.classList.add('translate-y-full');
+      });
+    }
   });
 </script>

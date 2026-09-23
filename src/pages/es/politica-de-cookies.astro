@@ -1,0 +1,267 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+const lastUpdated = '23 de septiembre de 2026';
+
+const pageTitle = 'Política de Cookies y Guía de Consentimiento | CódigosRoblox.org';
+const pageDescription = 'Información detallada sobre las cookies utilizadas en CódigosRoblox.org, finalidades, cookies de Google AdSense, duración y cómo gestionarlas o revocarlas.';
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: 'es',
+  publisher: {
+    '@type': 'Organization',
+    name: 'CódigosRoblox.org',
+    url: 'https://codigosroblox.org'
+  }
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/10 pb-8 text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+        <span>🍪</span>
+        <span>Guía Informativa de Cookies (Art. 22.2 LSSI-CE)</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Política de Cookies
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-400">
+        Última actualización: {lastUpdated} • Cumplimiento de la Guía sobre el uso de cookies de la AEPD y Directiva ePrivacy.
+      </p>
+    </div>
+
+    <!-- Interactive Manager Callout -->
+    <div class="bg-indigo-950/30 border border-indigo-500/20 rounded-2xl p-5 sm:p-6 space-y-3">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="space-y-1">
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <span>⚙️</span>
+            <span>Centro de Preferencias de Cookies</span>
+          </h2>
+          <p class="text-xs text-slate-300">
+            Puedes cambiar de opinión y ajustar tus preferencias de cookies en cualquier momento con un solo clic.
+          </p>
+        </div>
+        <button 
+          type="button" 
+          id="cookie-policy-reset-btn"
+          class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/20 transition-all shrink-0"
+        >
+          Reabrir Panel de Consentimiento
+        </button>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="space-y-8 text-sm text-slate-300 leading-relaxed">
+      
+      <!-- Section 1 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">1.</span>
+          <span>¿Qué son las Cookies?</span>
+        </h2>
+        <p>
+          Una <strong>cookie</strong> es un pequeño fichero de texto que un sitio web almacena en el navegador del usuario al acceder a determinadas páginas. Las cookies permiten a una web, entre otras cosas, recordar tus preferencias de idioma, reconocer tu dispositivo en visitas posteriores y ofrecer anuncios contextuales o personalizados a través de redes publicitarias como <strong>Google AdSense</strong>.
+        </p>
+        <p class="text-xs text-slate-400">
+          Las cookies utilizadas en CódigosRoblox.org <strong>no dañan tu equipo ni contienen virus</strong>. En ningún caso almacenan contraseñas de cuentas de Roblox ni datos bancarios.
+        </p>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">2.</span>
+          <span>Tipos de Cookies según su Finalidad</span>
+        </h2>
+        <div class="space-y-4">
+          <div class="border-l-2 border-emerald-500 pl-4 space-y-1">
+            <h3 class="text-white font-bold text-sm">A. Cookies Técnicas y Estrictamente Necesarias (Exentas de consentimiento)</h3>
+            <p class="text-xs text-slate-400">
+              Son indispensables para que la web funcione correctamente. Permiten la navegación por las secciones, la activación del modo oscuro, la memoria del idioma seleccionado (español o inglés) y el registro de si has aceptado o rechazado las cookies. No pueden desactivarse en nuestros sistemas.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-indigo-500 pl-4 space-y-1">
+            <h3 class="text-white font-bold text-sm">B. Cookies Analíticas y de Rendimiento (Requieren consentimiento)</h3>
+            <p class="text-xs text-slate-400">
+              Permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización que hacen de los códigos y guías. Los datos se procesan de forma agregada y anónima para optimizar la velocidad y servidores.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-purple-500 pl-4 space-y-1">
+            <h3 class="text-white font-bold text-sm">C. Cookies de Publicidad Comportamental y Personalización (Requieren consentimiento)</h3>
+            <p class="text-xs text-slate-400">
+              Son gestionadas por terceros, principalmente <strong>Google AdSense</strong>. Almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad relevante.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Cookie Inventory Table -->
+      <section class="space-y-4 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">3.</span>
+          <span>Inventario Detallado de Cookies Utilizadas</span>
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border border-white/10 rounded-xl overflow-hidden">
+            <thead class="bg-white/5 text-slate-200 uppercase font-mono tracking-wider">
+              <tr>
+                <th class="p-3">Cookie</th>
+                <th class="p-3">Proveedor</th>
+                <th class="p-3">Finalidad</th>
+                <th class="p-3">Tipo</th>
+                <th class="p-3">Duración</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5 text-slate-300 font-mono">
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-3 font-bold text-emerald-400">roblox_cookie_consent</td>
+                <td class="p-3">CódigosRoblox.org (Propia)</td>
+                <td class="p-3 font-sans">Guarda tu elección de consentimiento (aceptar / solo necesarias).</td>
+                <td class="p-3 font-sans text-emerald-400">Técnica</td>
+                <td class="p-3 font-sans">12 meses</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-3 font-bold text-purple-400">__gads / __gpi</td>
+                <td class="p-3">Google LLC (AdSense)</td>
+                <td class="p-3 font-sans">Permite a Google AdSense servir anuncios y medir frecuencia de impactos.</td>
+                <td class="p-3 font-sans text-purple-400">Publicitaria</td>
+                <td class="p-3 font-sans">13 meses</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-3 font-bold text-purple-400">IDE / DSID</td>
+                <td class="p-3">DoubleClick (Google)</td>
+                <td class="p-3 font-sans">Mide la eficacia de los anuncios y evita mostrar anuncios repetidos.</td>
+                <td class="p-3 font-sans text-purple-400">Publicitaria</td>
+                <td class="p-3 font-sans">12 meses</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-3 font-bold text-indigo-400">_ga / _ga_*</td>
+                <td class="p-3">Google LLC (Analytics)</td>
+                <td class="p-3 font-sans">Mide visitas, tráfico de juegos populares y tasa de rebote anónima.</td>
+                <td class="p-3 font-sans text-indigo-400">Analítica</td>
+                <td class="p-3 font-sans">24 meses</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4: Browser Management Guide -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">4.</span>
+          <span>Cómo Deshabilitar o Eliminar Cookies en tu Navegador</span>
+        </h2>
+        <p>
+          Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador que utilices:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400">
+          <li><strong>Google Chrome:</strong> Configuración > Privacidad y seguridad > Cookies y otros datos de sitios.</li>
+          <li><strong>Mozilla Firefox:</strong> Ajustes > Privacidad y seguridad > Cookies y datos del sitio.</li>
+          <li><strong>Apple Safari (Mac / iPhone):</strong> Preferencias / Ajustes > Safari > Privacidad > Bloquear todas las cookies.</li>
+          <li><strong>Microsoft Edge:</strong> Configuración > Cookies y permisos del sitio > Administrar y eliminar cookies.</li>
+          <li><strong>Opera:</strong> Configuración > Privacidad y seguridad > Cookies.</li>
+        </ul>
+      </section>
+
+      <!-- Section 5: Opt-Out Links -->
+      <section class="space-y-3 bg-[#0d1322] border border-white/5 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <span class="text-indigo-400 font-mono">5.</span>
+          <span>Portales Oficiales de Exclusión Publicitaria (Opt-Out)</span>
+        </h2>
+        <p>
+          Si deseas evitar la publicidad personalizada de redes publicitarias en general, puedes utilizar estas plataformas gratuitas de la industria:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
+          <a 
+            href="https://myadcenter.google.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/50 hover:bg-white/10 transition-colors block"
+          >
+            <strong class="text-white block mb-0.5">Mi Centro de Anuncios de Google</strong>
+            <span class="text-slate-400">Configura tus preferencias en servicios de Google.</span>
+          </a>
+          <a 
+            href="https://www.youronlinechoices.com/es/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/50 hover:bg-white/10 transition-colors block"
+          >
+            <strong class="text-white block mb-0.5">Your Online Choices (EDAA)</strong>
+            <span class="text-slate-400">Gestor de preferencias publicitarias de la Unión Europea.</span>
+          </a>
+          <a 
+            href="https://optout.networkadvertising.org/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/50 hover:bg-white/10 transition-colors block"
+          >
+            <strong class="text-white block mb-0.5">Network Advertising Initiative (NAI)</strong>
+            <span class="text-slate-400">Herramienta de exclusión voluntaria de anunciantes asociados.</span>
+          </a>
+          <a 
+            href="https://www.aboutads.info/choices/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/50 hover:bg-white/10 transition-colors block"
+          >
+            <strong class="text-white block mb-0.5">Digital Advertising Alliance (DAA)</strong>
+            <span class="text-slate-400">Portal internacional de autorregulación publicitaria.</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Bottom cross-link -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <p>Para más información legal y de protección de datos personales:</p>
+      <div class="flex items-center gap-3">
+        <a href="/es/privacidad" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Política de Privacidad</a>
+        <span>•</span>
+        <a href="/es/aviso-legal" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Aviso Legal</a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const resetBtn = document.getElementById('cookie-policy-reset-btn');
+    const banner = document.getElementById('cookie-consent-banner');
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        localStorage.removeItem('roblox_cookie_consent');
+        if (banner) {
+          banner.classList.remove('translate-y-full');
+          banner.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.reload();
+        }
+      });
+    }
+  });
+</script>
