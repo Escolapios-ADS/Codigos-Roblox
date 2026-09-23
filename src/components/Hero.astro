@@ -115,6 +115,30 @@ const t = getTranslations(locale);
       </button>
     </div>
 
+    <!-- Single Primary Call-to-Action (CRO Optimized) -->
+    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <!-- Dominant Primary CTA -->
+      <a 
+        href="#juegos" 
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-sm sm:text-base shadow-xl shadow-indigo-600/30 border border-indigo-400/40 transition-all hover:scale-[1.02] active:scale-[0.98] group"
+      >
+        <span class="text-base group-hover:rotate-12 transition-transform">⚡</span>
+        <span>{locale === 'es' ? `Explorar Códigos Activos (${totalCodes})` : `Explore Active Codes (${totalCodes})`}</span>
+        <svg class="w-4 h-4 text-cyan-200 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
+
+      <!-- Subdued Secondary Action (Ghost / De-emphasized) -->
+      <a 
+        href={`/${locale}/${locale === 'es' ? 'alertas-codigos-roblox/' : 'roblox-code-alerts/'}`}
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-medium text-xs sm:text-sm border border-white/10 hover:border-white/20 transition-all"
+      >
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span>{locale === 'es' ? 'Activar Alertas VIP' : 'Get VIP Drop Alerts'}</span>
+      </a>
+    </div>
+
     <!-- Live Performance Metric Cards -->
     <div class="grid grid-cols-3 gap-2 sm:gap-3 max-w-xl mx-auto pt-6 text-center">
       <div class="bg-white/[0.03] border border-white/10 rounded-xl p-2.5 sm:p-3.5 backdrop-blur-sm">

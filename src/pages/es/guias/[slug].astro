@@ -24,6 +24,19 @@ const pageTitle = guide.metaTitle?.[locale] || `${guide.title[locale]} | Código
 const pageDescription = guide.excerpt[locale];
 
 import { buildGuideSchema } from '../../../utils/structuredData';
+import CtaBanner from '../../../components/CtaBanner.astro';
+
+// Associated game mapping for ultra-targeted Single Primary CTA
+const guideGameMap: Record<string, { slug: string; name: string }> = {
+  'blox-fruits-tier-list-frutas': { slug: 'blox-fruits', name: 'Blox Fruits' },
+  'guia-blade-ball-habilidades-espadas': { slug: 'blade-ball', name: 'Blade Ball' },
+  'dress-to-impress-trucos-temas': { slug: 'dress-to-impress', name: 'Dress to Impress' },
+};
+const relatedGame = guideGameMap[guide.slug];
+const targetUrl = relatedGame ? `/${locale}/juego/${relatedGame.slug}/` : `/${locale}/#juegos`;
+const ctaText = relatedGame 
+  ? `Ver Códigos Activos de ${relatedGame.name} →`
+  : 'Explorar Todos los Códigos →';
 
 // Schema JSON-LD for Article & BreadcrumbList
 const canonicalGuideUrl = `https://codigosroblox.org/${locale}/guias/${guide.slug}/`;
@@ -161,21 +174,34 @@ const pageSchema = {
     <!-- In-article AdBanner -->
     <AdBanner slotType="horizontal" locale={locale} />
 
-    <!-- Related Actions CTA -->
-    <div class="bg-[#0d1322] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div>
-        <h3 class="text-lg font-bold text-white">¿Buscas códigos para este juego?</h3>
-        <p class="text-xs text-slate-400 mt-1">
-          Consulta nuestra lista de códigos activos actualizados hoy con botón de 1 clic.
+    <!-- Related Actions CTA (Single Primary CTA CRO Principle) -->
+    <div class="relative overflow-hidden bg-gradient-to-r from-indigo-950/60 via-[#0d1322] to-cyan-950/40 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+      <div class="space-y-1 text-center sm:text-left">
+        <div class="inline-flex items-center gap-1.5 text-[11px] font-bold text-indigo-400 uppercase tracking-wider font-mono">
+          <span>🎁</span>
+          <span>Recompensas y Códigos</span>
+        </div>
+        <h3 class="text-xl font-bold text-white">
+          {relatedGame 
+            ? `¿Quieres canjear códigos en ${relatedGame.name}?`
+            : '¿Buscas códigos activos para tus juegos favoritos?'}
+        </h3>
+        <p class="text-xs text-slate-300 max-w-xl">
+          Consulta nuestra lista verificada hoy por nuestro equipo editorial con botón de copia en 1 clic.
         </p>
       </div>
       <a
-        href={`/${locale}/#juegos`}
-        class="shrink-0 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-xs font-bold text-white transition-all shadow-lg shadow-indigo-600/25 border border-indigo-400/30"
+        href={targetUrl}
+        class="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-xs sm:text-sm font-bold text-white transition-all shadow-lg shadow-indigo-600/30 border border-indigo-400/40 hover:scale-[1.02] active:scale-[0.98]"
       >
-        Ir a la lista de códigos →
+        <span>⚡</span>
+        <span>{ctaText}</span>
       </a>
     </div>
 
+    <!-- Pre-Footer Single Primary CTA Section -->
+    <div class="pt-6">
+      <CtaBanner locale={locale} />
+    </div>
   </div>
 </Layout>

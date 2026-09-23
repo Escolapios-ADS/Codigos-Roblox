@@ -4,6 +4,7 @@ import CodeCard from '../../../components/CodeCard.astro';
 import RedeemGuide from '../../../components/RedeemGuide.astro';
 import FaqSection from '../../../components/FaqSection.astro';
 import AdBanner from '../../../components/AdBanner.astro';
+import CtaBanner from '../../../components/CtaBanner.astro';
 import { gamesData } from '../../../data/games';
 import { getTranslations } from '../../../i18n/translations';
 import type { GameItem } from '../../../types/game';
@@ -86,20 +87,34 @@ const pageSchema = {
           </div>
         </div>
 
-        <!-- Official Roblox link CTA -->
-        <a 
-          href={game.robloxUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto justify-center shrink-0 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-xs font-bold text-white transition-all flex items-center gap-2"
-        >
-          <span>{t.gameDetail.playOnRoblox}</span>
-          <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-        </a>
+        <!-- Action Buttons: Single Dominant Primary CTA + Secondary Roblox Link -->
+        <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full sm:w-auto shrink-0">
+          <button
+            type="button"
+            onclick={`window.copyAllCodes(${JSON.stringify(game.activeCodes.map(c => c.code))}, this)`}
+            class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 border border-indigo-400/40 transition-all flex items-center gap-2 min-h-[40px] active:scale-95 cursor-pointer"
+            title="Copy all working codes for consecutive redemption"
+          >
+            <span>📋</span>
+            <span>Copy All ({game.activeCodes.length})</span>
+          </button>
+          
+          <a 
+            href={game.robloxUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex-1 sm:flex-none justify-center px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-xs font-semibold text-slate-300 hover:text-white transition-all flex items-center gap-1.5 min-h-[40px]"
+            title={t.gameDetail.playOnRoblox}
+          >
+            <span>🎮</span>
+            <span>{t.gameDetail.playOnRoblox}</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
       </div>
 
       <!-- Live verified bar -->
@@ -310,5 +325,31 @@ const pageSchema = {
       </a>
     </div>
 
+    <!-- Pre-Footer Single Primary CTA Section -->
+    <div class="pt-6">
+      <CtaBanner locale={locale} />
+    </div>
+
+  </div>
+
+  <!-- Sticky Mobile Bottom Floating Action Bar (Single Primary CTA on Mobile) -->
+  <div class="sm:hidden fixed bottom-4 inset-x-4 z-40">
+    <div class="bg-[#080c14]/95 backdrop-blur-xl border border-white/15 rounded-2xl p-2.5 shadow-2xl shadow-black/80 flex items-center justify-between gap-3">
+      <div class="pl-2">
+        <span class="text-[11px] font-bold text-white block leading-tight truncate max-w-[130px]">{game.title}</span>
+        <span class="text-[10px] text-emerald-400 font-mono font-semibold flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>{game.activeCodes.length} active</span>
+        </span>
+      </div>
+      <button
+        type="button"
+        onclick={`window.copyAllCodes(${JSON.stringify(game.activeCodes.map(c => c.code))}, this)`}
+        class="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-bold text-xs shadow-md shadow-indigo-500/30 border border-indigo-400/40 flex items-center gap-1.5 shrink-0 active:scale-95 transition-transform cursor-pointer"
+      >
+        <span>📋</span>
+        <span>Copy All</span>
+      </button>
+    </div>
   </div>
 </Layout>

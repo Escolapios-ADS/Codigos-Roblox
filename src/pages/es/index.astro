@@ -5,6 +5,7 @@ import GameCard from '../../components/GameCard.astro';
 import RedeemGuide from '../../components/RedeemGuide.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import AdBanner from '../../components/AdBanner.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
 import { gamesData } from '../../data/games';
 import { guidesData } from '../../data/guides';
 import { getTranslations } from '../../i18n/translations';
@@ -167,4 +168,9 @@ const pageSchema = {
       locale={locale}
     />
   </section>
+
+  <!-- Pre-Footer Single Primary CTA Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <CtaBanner locale={locale} />
+  </div>
 </Layout>

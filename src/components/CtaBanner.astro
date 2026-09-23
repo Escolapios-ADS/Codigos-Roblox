@@ -1,0 +1,71 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isSpanish = locale === 'es';
+const targetUrl = isSpanish ? '/es/alertas-codigos-roblox/' : '/en/roblox-code-alerts/';
+---
+
+<section class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-[#0d1322] via-[#090d17] to-[#080c14] border border-white/10 p-8 sm:p-12 text-center shadow-2xl">
+  <!-- Subtle ambient glow -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[220px] bg-gradient-to-b from-indigo-500/20 via-cyan-500/10 to-transparent blur-[80px] pointer-events-none -z-10"></div>
+  <div class="absolute -bottom-10 right-10 w-72 h-72 bg-amber-500/5 blur-[90px] pointer-events-none -z-10"></div>
+
+  <div class="max-w-3xl mx-auto space-y-6">
+    
+    <!-- Status badge -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold font-mono">
+      <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+      <span>{isSpanish ? 'SISTEMA DE ALERTAS VIP 2026' : 'VIP DROP ALERT SYSTEM 2026'}</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight leading-snug">
+      {isSpanish 
+        ? '¿Quieres códigos de Roblox antes de que caduquen?' 
+        : 'Never miss a limited-time Roblox promo code again'}
+    </h2>
+
+    <!-- Subtitle -->
+    <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+      {isSpanish
+        ? 'Más de 50.000 jugadores reciben avisos instantáneos con sonido y notificaciones push en su navegador cada vez que se publica un nuevo código verificado.'
+        : 'Join 50,000+ gamers getting instant audio chimes and browser push notifications whenever brand new working codes drop.'}
+    </p>
+
+    <!-- Single Dominant Call to Action (CRO Principle: Una Sola Llamada a la Acción) -->
+    <div class="pt-2">
+      <a
+        href={targetUrl}
+        class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-sm sm:text-base shadow-xl shadow-indigo-600/30 border border-indigo-400/40 transition-all hover:scale-[1.02] active:scale-[0.98] group"
+      >
+        <span class="text-lg group-hover:rotate-12 transition-transform">🔔</span>
+        <span>{isSpanish ? 'Activar Alertas de Códigos VIP' : 'Enable VIP Code Alerts Now'}</span>
+        <svg class="w-4 h-4 text-cyan-200 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Trust signals and reassurance -->
+    <div class="pt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-400">
+      <div class="flex items-center gap-1.5">
+        <span class="text-emerald-400 font-bold">✓</span>
+        <span>{isSpanish ? '100% Gratis' : '100% Free'}</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-emerald-400 font-bold">✓</span>
+        <span>{isSpanish ? 'Sin registro ni contraseñas' : 'No account or password needed'}</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-emerald-400 font-bold">✓</span>
+        <span>{isSpanish ? 'Verificado en servidores hoy' : 'Live server tested today'}</span>
+      </div>
+    </div>
+
+  </div>
+</section>
