@@ -1,4 +1,59 @@
+# ==============================================================================
+# robots.txt for https://codigosroblox.org
+# Configured for optimal Googlebot crawl budget, rich indexation & AI visibility
+# ==============================================================================
+
+# Global Crawler Rules
 User-agent: *
 Allow: /
+Allow: /_astro/
+Allow: /favicon.svg
+Allow: /icons/
+Allow: /images/
 
+# Prevent crawl budget waste on internal search query strings and filters
+Disallow: /*?*q=
+Disallow: /*?*filter=
+Disallow: /api/
+
+# Explicit Rules for Googlebot (Web & Mobile Rendering)
+User-agent: Googlebot
+Allow: /
+Allow: /_astro/
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bingbot & Major Search Engines
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# AI Assistants & Search Bots (Permit citation in AI Answer Engines: Perplexity, ChatGPT, Claude)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Block Aggressive Scrapers without search attribution
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Host specification (supported by Yandex & search crawlers)
+Host: https://codigosroblox.org
+
+# XML Sitemaps
 Sitemap: https://codigosroblox.org/sitemap-index.xml
+Sitemap: https://codigosroblox.org/sitemap-0.xml
