@@ -1,0 +1,25 @@
+{
+  "name": "Códigos Roblox 2026",
+  "short_name": "CódigosRoblox",
+  "description": "Base de datos oficial de códigos activos, recompensas gratis y guías para Roblox en 2026.",
+  "start_url": "/es/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080C14",
+  "theme_color": "#080C14",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
