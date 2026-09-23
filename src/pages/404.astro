@@ -228,7 +228,7 @@ const topGames = gamesData.slice(0, 6);
       homeBtn: 'Volver al Catálogo Principal',
       contactBtn: 'Reportar Enlace Roto',
       homeUrl: '/es/',
-      contactUrl: '/es/contacto',
+      contactUrl: '/es/contacto/',
       verifiedText: 'códigos verificados'
     },
     en: {
@@ -243,7 +243,7 @@ const topGames = gamesData.slice(0, 6);
       homeBtn: 'Back to Home Catalog',
       contactBtn: 'Report Broken Link',
       homeUrl: '/en/',
-      contactUrl: '/en/contact',
+      contactUrl: '/en/contact/',
       verifiedText: 'verified codes'
     }
   };
@@ -349,8 +349,12 @@ const topGames = gamesData.slice(0, 6);
         }
 
         const localePrefix = isEnglish ? 'en' : 'es';
-        searchResults.innerHTML = matches.map(g => `
-          <a href="/${localePrefix}/juego/${g.slug}" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 transition-colors">
+        searchResults.innerHTML = '';
+        matches.forEach(g => {
+          const a = document.createElement('a');
+          a.href = '/' + localePrefix + '/juego/' + g.slug + '/';
+          a.className = 'flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 transition-colors';
+          a.innerHTML = `
             <div class="flex items-center gap-2.5">
               <span class="text-xl">${g.emoji}</span>
               <div>
@@ -361,8 +365,9 @@ const topGames = gamesData.slice(0, 6);
             <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono font-bold">
               ${g.activeCodes.length} ${isEnglish ? 'codes' : 'códigos'}
             </span>
-          </a>
-        `).join('');
+          `;
+          searchResults.appendChild(a);
+        });
 
         searchResults.classList.remove('hidden');
       });

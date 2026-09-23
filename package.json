@@ -12,7 +12,8 @@
     "astro": "astro",
     "sync-codes": "node --experimental-strip-types scripts/sync-codes.ts",
     "sync-and-push": "bash scripts/auto-sync.sh",
-    "sync-daemon": "node --experimental-strip-types scripts/daemon-sync.ts"
+    "sync-daemon": "node --experimental-strip-types scripts/daemon-sync.ts",
+    "verify:links": "node scripts/verify-links.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

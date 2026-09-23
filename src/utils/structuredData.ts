@@ -197,7 +197,7 @@ export function buildGuideSchema(guide: GuideItem, locale: 'es' | 'en', canonica
         '@type': 'Person',
         name: guide.author.name,
         jobTitle: guide.author.role[locale],
-        url: `${SITE_URL}/${locale}/sobre-nosotros/`
+        url: `${SITE_URL}/${locale === 'es' ? 'es/sobre-nosotros' : 'en/about'}/`
       },
       publisher: {
         '@id': `${SITE_URL}/#organization`

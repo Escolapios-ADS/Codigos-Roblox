@@ -117,14 +117,14 @@ const { locale } = Astro.props;
     <!-- Action Buttons & Cross Links -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-white/5">
       <a 
-        href={`/${locale}/calculadora-tradeos-blox-fruits/`}
+        href={locale === 'es' ? '/es/calculadora-tradeos-blox-fruits/' : '/en/blox-fruits-trade-calculator/'}
         class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 text-center transition-all cursor-pointer"
       >
         <span>⚖️</span> {locale === 'es' ? 'Calcular Tradeos con esta Fruta' : 'Calculate Trades with this Fruit'}
       </a>
 
       <a 
-        href={`/${locale}/juego/blox-fruits`}
+        href={`/${locale}/juego/blox-fruits/`}
         class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-bold text-xs border border-white/10 text-center transition-all cursor-pointer"
       >
         <span>🎁</span> {locale === 'es' ? 'Ver Códigos Activos de Blox Fruits' : 'View Working Blox Fruits Codes'}

@@ -87,12 +87,16 @@ const unifiedSchema = buildUnifiedGraph({
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="robots" content={noIndex ? "noindex, follow" : "index, follow"} />
-    <link rel="canonical" href={canonicalUrl} />
+    {!noIndex && <link rel="canonical" href={canonicalUrl} />}
 
     <!-- Multilingual Hreflang SEO Tags -->
-    <link rel="alternate" hreflang="es" href={esUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={esUrl} />
+    {!noIndex && (
+      <>
+        <link rel="alternate" hreflang="es" href={esUrl} />
+        <link rel="alternate" hreflang="en" href={enUrl} />
+        <link rel="alternate" hreflang="x-default" href={esUrl} />
+      </>
+    )}
 
     <!-- Web Syndication Feeds (Google Publisher Center, Google Discover & Feed Readers) -->
     <link rel="alternate" type="application/rss+xml" title={locale === 'es' ? 'Códigos Roblox (Feed Global)' : 'Roblox Codes (Global Feed)'} href="https://codigosroblox.org/rss.xml" />
@@ -104,7 +108,7 @@ const unifiedSchema = buildUnifiedGraph({
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={canonicalUrl} />
+    {!noIndex && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
@@ -119,14 +123,14 @@ const unifiedSchema = buildUnifiedGraph({
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalUrl} />
+    {!noIndex && <meta property="twitter:url" content={canonicalUrl} />}
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://codigosroblox.org/og-image.png" />
     <meta property="twitter:image:alt" content={title} />
 
     <!-- Structured Data JSON-LD (Schema.org Knowledge Graph) -->
-    <script type="application/ld+json" set:html={JSON.stringify(unifiedSchema)} />
+    {!noIndex && <script type="application/ld+json" set:html={JSON.stringify(unifiedSchema)} />}
 
     <!-- Google Consent Mode v2 Default (TCF & ePrivacy Compliant) -->
     <script is:inline>
