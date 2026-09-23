@@ -21,6 +21,8 @@ if (currentSlug) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/musica/' : '/en/music/';
 } else if (pathname.includes('/calculadora-tradeos-blox-fruits') || pathname.includes('/blox-fruits-trade-calculator')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/calculadora-tradeos-blox-fruits/' : '/en/blox-fruits-trade-calculator/';
+} else if (pathname.includes('/calculadora-robux-dinero-real') || pathname.includes('/robux-to-money-calculator')) {
+  targetAlternateUrl = otherLocale === 'es' ? '/es/calculadora-robux-dinero-real/' : '/en/robux-to-money-calculator/';
 } else if (pathname.includes('/objetos-gratis') || pathname.includes('/free-items')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/objetos-gratis/' : '/en/free-items/';
 } else if (pathname.includes('/generador-nombres-roblox') || pathname.includes('/roblox-username-generator')) {
@@ -157,20 +159,33 @@ if (currentSlug) {
           >
             <span>🛠️</span>
             <span class="font-bold">{t.nav.toolsMenu}</span>
-            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 uppercase font-mono font-bold">7</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 uppercase font-mono font-bold">8</span>
             <span class="text-[10px] text-indigo-400 group-hover/megamenu:rotate-180 transition-transform duration-200">▼</span>
           </button>
 
           <!-- Luxurious Mega Menu Panel -->
-          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover/megamenu:block z-50 w-[680px] animate-fade-in">
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover/megamenu:block z-50 w-[720px] animate-fade-in">
             <div class="bg-[#0b0f19]/95 border border-white/10 rounded-3xl p-5 shadow-2xl shadow-black/90 backdrop-blur-2xl grid grid-cols-3 gap-4">
               
               <!-- Column 1: Blox Fruits & Economy -->
               <div class="space-y-2">
                 <div class="px-2 pb-1 border-b border-white/5 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400">
                   <span>⚔️</span>
-                  <span>{locale === 'es' ? 'Blox Fruits & Tradeos' : 'Blox Fruits & Trade'}</span>
+                  <span>{locale === 'es' ? 'Economía & Tradeos' : 'Economy & Trading'}</span>
                 </div>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'calculadora-robux-dinero-real/' : 'robux-to-money-calculator/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-emerald-500/10 border border-transparent hover:border-emerald-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">💰</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-emerald-300 text-xs block">
+                      {locale === 'es' ? 'Robux a Dinero Real' : 'Robux to Cash & DevEx'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'DevEx, EUR, USD e impuesto 30%' : 'DevEx, USD, EUR & 30% tax'}</span>
+                  </div>
+                </a>
 
                 <a 
                   href={`/${locale}/${locale === 'es' ? 'calculadora-tradeos-blox-fruits/' : 'blox-fruits-trade-calculator/'}`}
@@ -378,10 +393,21 @@ if (currentSlug) {
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
           {locale === 'es' ? '🛠️ Herramientas & Calculadoras VIP' : '🛠️ VIP Tools & Calculators'}
         </span>
-        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">7</span>
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">8</span>
       </div>
 
       <div class="grid grid-cols-2 gap-2.5">
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'calculadora-robux-dinero-real/' : 'robux-to-money-calculator/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-emerald-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">💰</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.robuxCalc}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'DevEx & Impuesto 30%' : 'DevEx & 30% Tax'}</span>
+          </div>
+        </a>
+
         <a 
           href={`/${locale}/${locale === 'es' ? 'calculadora-tradeos-blox-fruits/' : 'blox-fruits-trade-calculator/'}`}
           class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-amber-500/30 flex items-center gap-2.5 transition-colors"

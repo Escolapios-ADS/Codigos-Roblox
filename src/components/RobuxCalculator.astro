@@ -1,0 +1,726 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+import {
+  CURRENCY_RATES,
+  OFFICIAL_ROBUX_PACKS,
+  DEVEX_RATE_PER_ROBUX_USD,
+  DEVEX_MINIMUM_ROBUX,
+  ROBLOX_MARKETPLACE_TAX_PERCENT,
+} from '../data/robux-rates';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isEs = locale === 'es';
+---
+
+<div class="w-full bg-[#0b0f19]/90 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-2xl shadow-2xl shadow-black/80 space-y-8">
+  
+  <!-- Interactive Navigation Tabs -->
+  <div class="flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl bg-black/40 border border-white/5" role="tablist">
+    <button
+      type="button"
+      id="tab-btn-buy"
+      class="calc-tab-btn active px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-600/30"
+      data-target="tab-buy"
+    >
+      <span>💵</span>
+      <span>{isEs ? 'Comprar Robux' : 'Buy Robux'}</span>
+    </button>
+
+    <button
+      type="button"
+      id="tab-btn-tax"
+      class="calc-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5"
+      data-target="tab-tax"
+    >
+      <span>🏷️</span>
+      <span>{isEs ? 'Impuesto 30% (Marketplace)' : '30% Marketplace Tax'}</span>
+    </button>
+
+    <button
+      type="button"
+      id="tab-btn-devex"
+      class="calc-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5"
+      data-target="tab-devex"
+    >
+      <span>💼</span>
+      <span>{isEs ? 'DevEx (Cobro Creadores)' : 'DevEx (Cashout)'}</span>
+    </button>
+
+    <button
+      type="button"
+      id="tab-btn-packs"
+      class="calc-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5"
+      data-target="tab-packs"
+    >
+      <span>📊</span>
+      <span>{isEs ? 'Tabla de Paquetes' : 'Official Packs'}</span>
+    </button>
+  </div>
+
+  <!-- Global Currency Selector -->
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/5">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl p-2 rounded-xl bg-indigo-500/10 text-indigo-400">🌐</span>
+      <div>
+        <span class="text-xs font-bold text-slate-200 uppercase tracking-wider block">
+          {isEs ? 'Tu Moneda Local' : 'Select Your Currency'}
+        </span>
+        <span class="text-[11px] text-slate-400">
+          {isEs ? 'Los cálculos se actualizarán en tiempo real a tu divisa' : 'All results update automatically in real-time'}
+        </span>
+      </div>
+    </div>
+
+    <div class="w-full sm:w-auto">
+      <select
+        id="global-currency-select"
+        class="w-full sm:w-64 bg-[#080c14] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-indigo-500 cursor-pointer transition-colors"
+      >
+        {CURRENCY_RATES.map((curr) => (
+          <option value={curr.code} selected={curr.code === (isEs ? 'EUR' : 'USD')}>
+            {curr.name[locale]} ({curr.symbol})
+          </option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 1: BUY ROBUX CONVERTER -->
+  <!-- ========================================== -->
+  <div id="tab-buy" class="calc-panel space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Left: Inputs -->
+      <div class="lg:col-span-6 space-y-5">
+        <div>
+          <label for="buy-robux-input" class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-2">
+            {isEs ? 'Cantidad de Robux a consultar:' : 'Amount of Robux:'}
+          </label>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-emerald-400 font-bold">R$</span>
+            <input
+              type="number"
+              id="buy-robux-input"
+              value="800"
+              min="1"
+              max="10000000"
+              class="w-full bg-[#080c14] border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-lg font-black text-white focus:outline-none focus:border-emerald-500 transition-colors"
+            />
+          </div>
+        </div>
+
+        <!-- Quick Pill Buttons -->
+        <div>
+          <span class="text-[11px] font-mono text-slate-400 block mb-2">
+            {isEs ? 'Paquetes oficiales rápidos:' : 'Quick Official Tiers:'}
+          </span>
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            {[400, 800, 1700, 4500, 10000, 22500].map((amount) => (
+              <button
+                type="button"
+                class="quick-robux-pill py-2 px-1 rounded-xl bg-white/5 hover:bg-emerald-500/20 hover:border-emerald-500/30 border border-white/5 text-xs font-mono font-bold text-slate-200 hover:text-emerald-300 transition-all cursor-pointer text-center"
+                data-amount={amount}
+              >
+                {amount.toLocaleString()}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Premium Discount Toggle -->
+        <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-indigo-500/30 transition-colors cursor-pointer group">
+          <input
+            type="checkbox"
+            id="buy-premium-toggle"
+            class="w-5 h-5 rounded-lg border-white/20 text-indigo-600 focus:ring-indigo-500 bg-black/40 cursor-pointer"
+          />
+          <div class="text-xs">
+            <span class="font-bold text-white group-hover:text-indigo-300 transition-colors block">
+              {isEs ? 'Tengo suscripción Roblox Premium' : 'I have active Roblox Premium'}
+            </span>
+            <span class="text-[11px] text-slate-400 block">
+              {isEs ? 'Recibes un 10% más de Robux por el mismo precio oficial' : 'Get +10% bonus Robux for the exact same official price'}
+            </span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Right: Live Result Card -->
+      <div class="lg:col-span-6 flex flex-col justify-center">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-emerald-950/40 via-[#0d1424] to-[#080c14] border border-emerald-500/20 shadow-xl space-y-5">
+          <div class="flex items-center justify-between border-b border-white/5 pb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400">
+              {isEs ? 'Precio Oficial Estimado' : 'Estimated Official Cost'}
+            </span>
+            <span id="buy-premium-badge" class="hidden text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              +10% Premium Bonus
+            </span>
+          </div>
+
+          <div class="flex items-baseline gap-2">
+            <span id="buy-result-price" class="text-4xl sm:text-5xl font-black text-emerald-400 tracking-tight">
+              11,99 €
+            </span>
+            <span id="buy-result-currency-code" class="text-sm font-mono text-slate-400 uppercase">
+              EUR
+            </span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="p-3 rounded-xl bg-black/30 border border-white/5">
+              <span class="text-[10px] font-mono text-slate-400 uppercase block">
+                {isEs ? 'Coste por Robux' : 'Cost per Robux'}
+              </span>
+              <span id="buy-unit-cost" class="text-sm font-bold text-white block">
+                ~0,0150 € / R$
+              </span>
+            </div>
+
+            <div class="p-3 rounded-xl bg-black/30 border border-white/5">
+              <span class="text-[10px] font-mono text-slate-400 uppercase block">
+                {isEs ? 'Pack Recomendado' : 'Closest Pack'}
+              </span>
+              <span id="buy-closest-pack" class="text-sm font-bold text-emerald-300 block">
+                800 Robux ($9.99)
+              </span>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 italic">
+            {isEs
+              ? '💡 Consejo de compra: Los paquetes mayores a 4.500 Robux tienen hasta un 25% de ahorro en precio por unidad.'
+              : '💡 Pro Tip: Purchasing packs of 4,500+ Robux gives up to 25% better value per coin compared to standard tiers.'}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 2: 30% MARKETPLACE TAX CALCULATOR -->
+  <!-- ========================================== -->
+  <div id="tab-tax" class="calc-panel hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Left: Mode Selection & Input -->
+      <div class="lg:col-span-6 space-y-5">
+        <div class="space-y-2">
+          <span class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
+            {isEs ? 'Selecciona tu tipo de cálculo:' : 'Calculation Mode:'}
+          </span>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <label class="tax-mode-card active p-3 rounded-xl bg-white/5 border border-amber-500/40 cursor-pointer flex items-center gap-2.5 transition-colors">
+              <input type="radio" name="tax-mode" value="gross" checked class="w-4 h-4 text-amber-500 bg-black/40" />
+              <span class="text-xs font-bold text-white">
+                {isEs ? 'Precio de venta ➔ Ganancia' : 'Sale price ➔ Net profit'}
+              </span>
+            </label>
+
+            <label class="tax-mode-card p-3 rounded-xl bg-white/[0.02] border border-white/5 cursor-pointer flex items-center gap-2.5 transition-colors">
+              <input type="radio" name="tax-mode" value="net" class="w-4 h-4 text-amber-500 bg-black/40" />
+              <span class="text-xs font-bold text-slate-300">
+                {isEs ? 'Quiero X limpios ➔ Precio' : 'Target net ➔ Shop price'}
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="tax-robux-input" id="tax-input-label" class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-2">
+            {isEs ? 'Precio de venta de tu Gamepass / Ropa UGC:' : 'Listing Price for Gamepass / UGC:'}
+          </label>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-amber-400 font-bold">R$</span>
+            <input
+              type="number"
+              id="tax-robux-input"
+              value="1000"
+              min="1"
+              max="10000000"
+              class="w-full bg-[#080c14] border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-lg font-black text-white focus:outline-none focus:border-amber-500 transition-colors"
+            />
+          </div>
+        </div>
+
+        <!-- Quick Tax Pills -->
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+          {[50, 100, 250, 500, 1000, 5000].map((amount) => (
+            <button
+              type="button"
+              class="quick-tax-pill py-2 px-1 rounded-xl bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/30 border border-white/5 text-xs font-mono font-bold text-slate-200 hover:text-amber-300 transition-all cursor-pointer text-center"
+              data-amount={amount}
+            >
+              {amount.toLocaleString()}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Split Breakdown Card -->
+      <div class="lg:col-span-6 flex flex-col justify-center">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-amber-950/30 via-[#0d1424] to-[#080c14] border border-amber-500/20 shadow-xl space-y-5">
+          <span class="text-xs font-mono uppercase tracking-wider text-slate-400 block border-b border-white/5 pb-2">
+            {isEs ? 'Desglose del 70% / 30% de Roblox Marketplace' : '70% / 30% Roblox Marketplace Cut'}
+          </span>
+
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Creator Net (70%) -->
+            <div class="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-1">
+              <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block">
+                {isEs ? 'Tú Recibes (70%)' : 'You Keep (70%)'}
+              </span>
+              <span id="tax-creator-robux" class="text-3xl font-black text-white block">
+                700 R$
+              </span>
+              <span id="tax-creator-fiat" class="text-xs font-mono text-emerald-300 block">
+                ~10.49 € valor aprox.
+              </span>
+            </div>
+
+            <!-- Roblox Tax Cut (30%) -->
+            <div class="p-4 rounded-2xl bg-rose-950/30 border border-rose-500/30 space-y-1">
+              <span class="text-[11px] font-bold text-rose-400 uppercase tracking-wider block">
+                {isEs ? 'Roblox se queda (30%)' : 'Roblox Fee (30%)'}
+              </span>
+              <span id="tax-roblox-cut" class="text-3xl font-black text-white block">
+                300 R$
+              </span>
+              <span id="tax-roblox-fiat" class="text-xs font-mono text-rose-300 block">
+                ~4.50 € comisión
+              </span>
+            </div>
+          </div>
+
+          <!-- Formula Info Pill -->
+          <div class="p-3.5 rounded-xl bg-black/40 border border-white/5 text-xs text-slate-300">
+            <span id="tax-formula-text" class="block font-medium">
+              {isEs
+                ? 'Fórmula: Si listas tu item a 1.000 R$, Roblox retiene 300 R$ y añade 700 R$ en fondos pendientes a tu cuenta en 3 a 7 días.'
+                : 'Formula: Pricing your item at 1,000 R$ means Roblox keeps 300 R$, and 700 R$ are credited to your pending balance in 3-7 days.'}
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 3: DEVEX CASHOUT CONVERTER -->
+  <!-- ========================================== -->
+  <div id="tab-devex" class="calc-panel hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Left: Inputs -->
+      <div class="lg:col-span-6 space-y-5">
+        <div>
+          <label for="devex-robux-input" class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-2">
+            {isEs ? 'Robux Ganados Legítimamente (Earned Robux):' : 'Earned Robux from Creations:'}
+          </label>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-cyan-400 font-bold">R$</span>
+            <input
+              type="number"
+              id="devex-robux-input"
+              value="50000"
+              min="0"
+              max="500000000"
+              class="w-full bg-[#080c14] border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-lg font-black text-white focus:outline-none focus:border-cyan-500 transition-colors"
+            />
+          </div>
+        </div>
+
+        <!-- Quick DevEx Pills -->
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+          {[30000, 50000, 100000, 250000, 500000, 1000000].map((amount) => (
+            <button
+              type="button"
+              class="quick-devex-pill py-2 px-1 rounded-xl bg-white/5 hover:bg-cyan-500/20 hover:border-cyan-500/30 border border-white/5 text-xs font-mono font-bold text-slate-200 hover:text-cyan-300 transition-all cursor-pointer text-center"
+              data-amount={amount}
+            >
+              {(amount / 1000).toFixed(0)}k R$
+            </button>
+          ))}
+        </div>
+
+        <!-- Official DevEx Rules Checklist -->
+        <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2 text-xs text-slate-300">
+          <span class="font-bold text-white block uppercase font-mono text-[10px] text-cyan-400">
+            {isEs ? 'Requisitos Oficiales DevEx 2026:' : 'Official 2026 DevEx Eligibility:'}
+          </span>
+          <ul class="space-y-1.5 list-disc list-inside text-slate-400">
+            <li>{isEs ? 'Mínimo de 30.000 Robux ganados legítimamente (no comprados)' : 'Minimum 30,000 Robux earned legitimately from games/UGC'}</li>
+            <li>{isEs ? 'Mínimo 13 años y dirección de correo electrónico verificada' : 'At least 13 years old with verified email on Roblox'}</li>
+            <li>{isEs ? 'Cuenta de Tipalti aprobada con formulario de impuestos (W-8BEN / W-9)' : 'Approved Tipalti portal account with tax form (W-8BEN / W-9)'}</li>
+            <li>{isEs ? 'Tasa oficial Roblox: $0.0035 USD netos por cada Robux' : 'Official cashout exchange rate: $0.0035 USD per Robux'}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: Cashout Status & Payout Card -->
+      <div class="lg:col-span-6 flex flex-col justify-center">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-cyan-950/30 via-[#0d1424] to-[#080c14] border border-cyan-500/20 shadow-xl space-y-5">
+          
+          <div class="flex items-center justify-between border-b border-white/5 pb-2">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400">
+              {isEs ? 'Pago DevEx en Cuenta Bancaria / PayPal' : 'DevEx Bank / PayPal Payout'}
+            </span>
+            <span id="devex-status-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              {isEs ? '✓ Mínimo Alcanzado' : '✓ Minimum Reached'}
+            </span>
+          </div>
+
+          <!-- Total Money -->
+          <div class="space-y-1">
+            <span id="devex-fiat-total" class="text-4xl sm:text-5xl font-black text-cyan-400 tracking-tight block">
+              161,00 €
+            </span>
+            <span id="devex-usd-total" class="text-sm font-mono text-slate-400 block">
+              = $175.00 USD (Tipalti Official Rate)
+            </span>
+          </div>
+
+          <!-- Progress Bar to 30,000 Threshold -->
+          <div class="space-y-1.5 pt-2">
+            <div class="flex justify-between text-xs font-mono text-slate-400">
+              <span id="devex-progress-label">{isEs ? 'Progreso hacia el mínimo (30.000 R$):' : 'Progress to threshold (30k R$):'}</span>
+              <span id="devex-progress-percent" class="font-bold text-white">100%</span>
+            </div>
+            <div class="w-full h-3 rounded-full bg-black/60 border border-white/5 overflow-hidden">
+              <div id="devex-progress-bar" class="h-full bg-gradient-to-r from-cyan-500 to-emerald-400 transition-all duration-300" style="width: 100%"></div>
+            </div>
+            <span id="devex-progress-hint" class="text-[11px] text-emerald-400 block font-medium">
+              {isEs ? '¡Tienes saldo suficiente para solicitar el cobro este mes!' : 'You have reached the cashout threshold this month!'}
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 4: OFFICIAL PACKS TABLE -->
+  <!-- ========================================== -->
+  <div id="tab-packs" class="calc-panel hidden space-y-4">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm border-collapse">
+        <thead>
+          <tr class="border-b border-white/10 text-xs font-mono text-slate-400 uppercase">
+            <th class="py-3 px-4">{isEs ? 'Pack Oficial' : 'Official Tier'}</th>
+            <th class="py-3 px-4">{isEs ? 'Robux Estándar' : 'Standard Robux'}</th>
+            <th class="py-3 px-4">{isEs ? 'Con Roblox Premium' : 'With Premium'}</th>
+            <th class="py-3 px-4">{isEs ? 'Precio Oficial USD' : 'Official USD'}</th>
+            <th class="py-3 px-4">{isEs ? 'Precio en tu Divisa' : 'Your Currency'}</th>
+            <th class="py-3 px-4">{isEs ? 'Coste por 100 R$' : 'Cost / 100 R$'}</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/5 font-medium text-slate-200">
+          {OFFICIAL_ROBUX_PACKS.map((pack) => (
+            <tr class="hover:bg-white/[0.02] transition-colors">
+              <td class="py-3.5 px-4 font-bold text-white flex items-center gap-2">
+                <span>{pack.robux.toLocaleString()} R$</span>
+                {pack.badge && (
+                  <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    {pack.badge[locale]}
+                  </span>
+                )}
+              </td>
+              <td class="py-3.5 px-4 font-mono text-emerald-400">{pack.robux.toLocaleString()}</td>
+              <td class="py-3.5 px-4 font-mono text-indigo-300 font-bold">{pack.robuxPremium.toLocaleString()} (+10%)</td>
+              <td class="py-3.5 px-4 font-mono">${pack.priceUSD.toFixed(2)}</td>
+              <td class="py-3.5 px-4 font-mono font-bold text-white pack-fiat-cell" data-price-usd={pack.priceUSD}>
+                {pack.priceUSD.toFixed(2)} USD
+              </td>
+              <td class="py-3.5 px-4 font-mono text-xs text-slate-400 pack-unit-cell" data-price-usd={pack.priceUSD} data-robux={pack.robux}>
+                ~${((pack.priceUSD / pack.robux) * 100).toFixed(2)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- Client-side reactive interactive script -->
+<script is:inline define:vars={{ currencyRates: CURRENCY_RATES, officialPacks: OFFICIAL_ROBUX_PACKS, devexRate: DEVEX_RATE_PER_ROBUX_USD, devexMin: DEVEX_MINIMUM_ROBUX, locale }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Elements
+    const tabButtons = document.querySelectorAll('.calc-tab-btn');
+    const tabPanels = document.querySelectorAll('.calc-panel');
+    const currencySelect = document.getElementById('global-currency-select');
+
+    // Tab 1: Buy
+    const buyRobuxInput = document.getElementById('buy-robux-input');
+    const buyPremiumToggle = document.getElementById('buy-premium-toggle');
+    const buyPriceResult = document.getElementById('buy-result-price');
+    const buyCurrencyCode = document.getElementById('buy-result-currency-code');
+    const buyUnitCost = document.getElementById('buy-unit-cost');
+    const buyClosestPack = document.getElementById('buy-closest-pack');
+    const buyPremiumBadge = document.getElementById('buy-premium-badge');
+
+    // Tab 2: Tax
+    const taxRobuxInput = document.getElementById('tax-robux-input');
+    const taxInputLabel = document.getElementById('tax-input-label');
+    const taxCreatorRobux = document.getElementById('tax-creator-robux');
+    const taxCreatorFiat = document.getElementById('tax-creator-fiat');
+    const taxRobloxCut = document.getElementById('tax-roblox-cut');
+    const taxRobloxFiat = document.getElementById('tax-roblox-fiat');
+    const taxFormulaText = document.getElementById('tax-formula-text');
+
+    // Tab 3: DevEx
+    const devexRobuxInput = document.getElementById('devex-robux-input');
+    const devexFiatTotal = document.getElementById('devex-fiat-total');
+    const devexUsdTotal = document.getElementById('devex-usd-total');
+    const devexStatusBadge = document.getElementById('devex-status-badge');
+    const devexProgressBar = document.getElementById('devex-progress-bar');
+    const devexProgressPercent = document.getElementById('devex-progress-percent');
+    const devexProgressHint = document.getElementById('devex-progress-hint');
+
+    // Current State
+    let currentCurrencyCode = currencySelect ? currencySelect.value : (locale === 'es' ? 'EUR' : 'USD');
+    let taxMode = 'gross'; // 'gross' or 'net'
+
+    function getCurrency() {
+      return currencyRates.find((c) => c.code === currentCurrencyCode) || currencyRates[0];
+    }
+
+    function formatFiat(usdAmount) {
+      const curr = getCurrency();
+      const localAmount = usdAmount * curr.rateToUSD;
+      let formatted;
+      if (curr.code === 'ARS' || curr.code === 'COP') {
+        formatted = Math.round(localAmount).toLocaleString('es-ES');
+      } else {
+        formatted = localAmount.toLocaleString(locale === 'es' ? 'es-ES' : 'en-US', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+      }
+
+      if (curr.symbolPosition === 'before') {
+        return `${curr.symbol}${formatted}`;
+      }
+      return `${formatted} ${curr.symbol}`;
+    }
+
+    // 1. Tab Navigation logic
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+
+        tabButtons.forEach((b) => {
+          b.classList.remove('active', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'text-white', 'shadow-lg', 'shadow-emerald-600/30');
+          b.classList.add('text-slate-300');
+        });
+
+        btn.classList.add('active', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'text-white', 'shadow-lg', 'shadow-emerald-600/30');
+        btn.classList.remove('text-slate-300');
+
+        tabPanels.forEach((p) => p.classList.add('hidden'));
+        const activePanel = document.getElementById(targetId);
+        if (activePanel) activePanel.classList.remove('hidden');
+      });
+    });
+
+    // 2. Buy Calculation
+    function updateBuyCalc() {
+      const robux = Math.max(1, parseInt(buyRobuxInput.value, 10) || 0);
+      const isPremium = buyPremiumToggle.checked;
+      const curr = getCurrency();
+
+      // Effective multiplier
+      const effectiveRobux = isPremium ? robux * 1.1 : robux;
+      if (isPremium) {
+        buyPremiumBadge.classList.remove('hidden');
+      } else {
+        buyPremiumBadge.classList.add('hidden');
+      }
+
+      // Base estimation: official 800 Robux tier = $9.99 ($0.0124875 per Robux)
+      // Large tiers: 10,000 Robux = $99.99 ($0.009999 per Robux)
+      let rateUSD = 0.0124875;
+      if (robux >= 10000) rateUSD = 0.009999;
+      else if (robux >= 4500) rateUSD = 0.01111;
+
+      const totalUSD = (robux * rateUSD) / (isPremium ? 1.1 : 1.0);
+      buyPriceResult.textContent = formatFiat(totalUSD);
+      buyCurrencyCode.textContent = curr.code;
+
+      const unitCostLocal = (totalUSD * curr.rateToUSD) / robux;
+      buyUnitCost.textContent = `~${unitCostLocal.toFixed(4)} ${curr.symbol} / R$`;
+
+      // Find closest official pack
+      let closest = officialPacks[0];
+      for (const pack of officialPacks) {
+        if (Math.abs(pack.robux - robux) < Math.abs(closest.robux - robux)) {
+          closest = pack;
+        }
+      }
+      buyClosestPack.textContent = `${closest.robux.toLocaleString()} Robux ($${closest.priceUSD})`;
+    }
+
+    // 3. Tax Calculation
+    function updateTaxCalc() {
+      const inputVal = Math.max(1, parseInt(taxRobuxInput.value, 10) || 0);
+      let creatorRobux = 0;
+      let robloxCut = 0;
+
+      if (taxMode === 'gross') {
+        // Selling for inputVal
+        robloxCut = Math.round(inputVal * 0.3);
+        creatorRobux = inputVal - robloxCut;
+        if (taxFormulaText) {
+          taxFormulaText.textContent = locale === 'es'
+            ? `Si pones a la venta tu artículo a ${inputVal.toLocaleString()} R$, Roblox descuenta ${robloxCut.toLocaleString()} R$ (30%) y te pagará ${creatorRobux.toLocaleString()} R$ limpios (70%).`
+            : `If listed for ${inputVal.toLocaleString()} R$, Roblox cuts ${robloxCut.toLocaleString()} R$ (30%), leaving you ${creatorRobux.toLocaleString()} R$ net (70%).`;
+        }
+      } else {
+        // Wants inputVal net
+        const listingPrice = Math.ceil(inputVal / 0.7);
+        robloxCut = listingPrice - inputVal;
+        creatorRobux = inputVal;
+        if (taxFormulaText) {
+          taxFormulaText.textContent = locale === 'es'
+            ? `Para recibir exactamente ${inputVal.toLocaleString()} R$ limpios, debes fijar el precio en tu tienda en ${listingPrice.toLocaleString()} R$.`
+            : `To take home exactly ${inputVal.toLocaleString()} R$ net, you must price your listing at ${listingPrice.toLocaleString()} R$.`;
+        }
+      }
+
+      taxCreatorRobux.textContent = `${creatorRobux.toLocaleString()} R$`;
+      taxRobloxCut.textContent = `${robloxCut.toLocaleString()} R$`;
+
+      // Approximate fiat valuation (~$0.0125 per R$)
+      const creatorUSD = creatorRobux * 0.0125;
+      const robloxUSD = robloxCut * 0.0125;
+      taxCreatorFiat.textContent = `~${formatFiat(creatorUSD)} valor aprox.`;
+      taxRobloxFiat.textContent = `~${formatFiat(robloxUSD)} comisión`;
+    }
+
+    // 4. DevEx Calculation
+    function updateDevExCalc() {
+      const earnedRobux = Math.max(0, parseInt(devexRobuxInput.value, 10) || 0);
+      const usdTotal = earnedRobux * devexRate;
+
+      devexUsdTotal.textContent = `= $${usdTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD (Tipalti Official Rate)`;
+      devexFiatTotal.textContent = formatFiat(usdTotal);
+
+      const percent = Math.min(100, Math.round((earnedRobux / devexMin) * 100));
+      devexProgressBar.style.width = `${percent}%`;
+      devexProgressPercent.textContent = `${percent}%`;
+
+      if (earnedRobux >= devexMin) {
+        devexStatusBadge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+        devexStatusBadge.textContent = locale === 'es' ? '✓ Mínimo Alcanzado' : '✓ Minimum Reached';
+        devexProgressHint.textContent = locale === 'es'
+          ? '¡Tienes saldo suficiente para solicitar el cobro este mes!'
+          : 'You have reached the cashout threshold this month!';
+        devexProgressHint.className = 'text-[11px] text-emerald-400 block font-medium';
+      } else {
+        const missing = devexMin - earnedRobux;
+        devexStatusBadge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30';
+        devexStatusBadge.textContent = locale === 'es' ? '⏳ Falta saldo' : '⏳ Below Threshold';
+        devexProgressHint.textContent = locale === 'es'
+          ? `Te faltan ${missing.toLocaleString()} R$ ganados para poder solicitar el pago de $105 USD.`
+          : `You need ${missing.toLocaleString()} more earned Robux to request the $105 USD minimum cashout.`;
+        devexProgressHint.className = 'text-[11px] text-amber-400 block font-medium';
+      }
+    }
+
+    // 5. Update Official Packs Table
+    function updatePacksTable() {
+      document.querySelectorAll('.pack-fiat-cell').forEach((cell) => {
+        const usd = parseFloat(cell.getAttribute('data-price-usd') || '0');
+        cell.textContent = formatFiat(usd);
+      });
+
+      document.querySelectorAll('.pack-unit-cell').forEach((cell) => {
+        const usd = parseFloat(cell.getAttribute('data-price-usd') || '0');
+        const robux = parseFloat(cell.getAttribute('data-robux') || '1');
+        const per100USD = (usd / robux) * 100;
+        cell.textContent = `~${formatFiat(per100USD)} / 100 R$`;
+      });
+    }
+
+    function updateAll() {
+      updateBuyCalc();
+      updateTaxCalc();
+      updateDevExCalc();
+      updatePacksTable();
+    }
+
+    // Currency Switcher Listener
+    if (currencySelect) {
+      currencySelect.addEventListener('change', (e) => {
+        currentCurrencyCode = e.target.value;
+        updateAll();
+      });
+    }
+
+    // Quick pills: Buy
+    document.querySelectorAll('.quick-robux-pill').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buyRobuxInput.value = btn.getAttribute('data-amount');
+        updateBuyCalc();
+      });
+    });
+
+    // Quick pills: Tax
+    document.querySelectorAll('.quick-tax-pill').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        taxRobuxInput.value = btn.getAttribute('data-amount');
+        updateTaxCalc();
+      });
+    });
+
+    // Quick pills: DevEx
+    document.querySelectorAll('.quick-devex-pill').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        devexRobuxInput.value = btn.getAttribute('data-amount');
+        updateDevExCalc();
+      });
+    });
+
+    // Tax Mode Radio toggles
+    document.querySelectorAll('input[name="tax-mode"]').forEach((radio) => {
+      radio.addEventListener('change', (e) => {
+        taxMode = e.target.value;
+        document.querySelectorAll('.tax-mode-card').forEach((c) => {
+          c.classList.remove('active', 'border-amber-500/40', 'bg-white/5');
+          c.classList.add('bg-white/[0.02]', 'border-white/5');
+        });
+        e.target.closest('.tax-mode-card').classList.add('active', 'border-amber-500/40', 'bg-white/5');
+
+        if (taxMode === 'gross') {
+          taxInputLabel.textContent = locale === 'es'
+            ? 'Precio de venta de tu Gamepass / Ropa UGC:'
+            : 'Listing Price for Gamepass / UGC:';
+        } else {
+          taxInputLabel.textContent = locale === 'es'
+            ? 'Robux limpios que deseas recibir en tu cuenta:'
+            : 'Net Robux you want to receive:';
+        }
+        updateTaxCalc();
+      });
+    });
+
+    // Input event listeners
+    buyRobuxInput.addEventListener('input', updateBuyCalc);
+    buyPremiumToggle.addEventListener('change', updateBuyCalc);
+    taxRobuxInput.addEventListener('input', updateTaxCalc);
+    devexRobuxInput.addEventListener('input', updateDevExCalc);
+
+    // Initial calculation on page load
+    updateAll();
+  });
+</script>

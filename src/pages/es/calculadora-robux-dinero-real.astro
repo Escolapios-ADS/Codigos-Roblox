@@ -1,0 +1,303 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import RobuxCalculator from '../../components/RobuxCalculator.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Calculadora de Robux a Dinero Real 2026 | Conversor DevEx, Euros, Dólares y Comisión 30%';
+const pageDescription = 'Calcula cuánto valen tus Robux en Euros (€), Dólares ($), Pesos y moneda local. Conversor oficial de Roblox DevEx 2026 y calculadora de comisión del 30% del Marketplace.';
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Calculadora de Robux a Dinero Real y Conversor DevEx 2026',
+      operatingSystem: 'All',
+      applicationCategory: 'FinanceApplication',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+      },
+      description: 'Herramienta interactiva para calcular el valor de Robux en dinero real (EUR, USD, MXN, ARS), comisión del 30% de Roblox y cobros de creadores con DevEx.',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Cuánto valen 1.000 Robux en euros y dólares?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'En la tienda oficial de Roblox, el paquete estándar más cercano es de 800 Robux por 9,99 USD (unos 11,99 €) o 1.700 Robux por 19,99 USD (23,99 €). En valor promedio unitario, 1.000 Robux equivalen a aproximadamente 12,50 USD o 14,99 EUR.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cómo funciona la comisión del 30% en Roblox Marketplace?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Cada vez que vendes un Gamepass, ropa para avatar UGC o acceso a servidor privado, Roblox retiene automáticamente el 30% de la transacción para mantener los servidores. El creador recibe el 70% restante en saldo de Robux pendientes durante un periodo de 3 a 7 días hábiles.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: '¿Cuál es el mínimo para cobrar dinero real con DevEx en 2026?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'El umbral mínimo oficial para solicitar un retiro mediante Developer Exchange (DevEx) en 2026 es de 30.000 Robux ganados legítimamente, lo que equivale exactamente a 105,00 USD abonados a través del portal de pagos Tipalti.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: '¿Existen los generadores de Robux gratis?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'NO. Los generadores de Robux son estafas ilegales que intentan robar cuentas de Roblox o infectar dispositivos con malware. Los únicos métodos legales para conseguir Robux son comprarlos en la web oficial, canjear códigos promocionales legítimos, o ganar Robux vendiendo creaciones en Roblox Studio.',
+          },
+        },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Calculadora Robux a Dinero Real',
+          item: 'https://codigosroblox.org/es/calculadora-robux-dinero-real/',
+        },
+      ],
+    },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <main class="min-h-screen pb-20 pt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <a href="/es/" class="hover:text-emerald-400 transition-colors">Inicio</a>
+        <span>/</span>
+        <span class="text-slate-200">Herramientas VIP</span>
+        <span>/</span>
+        <span class="text-emerald-400">Calculadora Robux a Dinero Real</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="relative text-center max-w-4xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Tasas Oficiales Actualizadas 2026
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
+          Calculadora de <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Robux a Dinero Real</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          Convierte Robux a Euros (€), Dólares ($) y monedas de Latinoamérica. Calcula la comisión del 30% del Marketplace y simula cobros bancarios reales con el programa oficial <strong>Roblox DevEx</strong>.
+        </p>
+
+        <!-- Feature Badges Row -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            💶 EUR / USD / MXN / ARS / COP / BRL
+          </span>
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            🏷️ Impuesto 30% Marketplace
+          </span>
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            💼 DevEx 2026: $0.0035 / R$
+          </span>
+        </div>
+      </div>
+
+      <!-- High-RPM Ad Placement -->
+      <div class="my-6">
+        <AdBanner slot="top-banner" format="horizontal" />
+      </div>
+
+      <!-- Main Interactive Tool Component -->
+      <RobuxCalculator locale={locale} />
+
+      <!-- Mid-page Ad Placement -->
+      <div class="my-10">
+        <AdBanner slot="middle-banner" format="horizontal" />
+      </div>
+
+      <!-- Comprehensive Editorial Guides (E-E-A-T AdSense Authority) -->
+      <section class="max-w-4xl mx-auto space-y-12 text-slate-300 leading-relaxed">
+        
+        <!-- Guide 1: How much are Robux worth? -->
+        <div class="p-8 rounded-3xl bg-[#0b0f19]/80 border border-white/10 backdrop-blur-xl space-y-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <span class="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 text-xl">💰</span>
+            ¿Cuánto valen realmente los Robux en 2026? Guía de Precios
+          </h2>
+          <p>
+            El precio de los Robux depende principalmente del volumen de compra y de si dispones de una suscripción activa a <strong>Roblox Premium</strong>. A diferencia de las tiendas físicas donde las tarjetas de regalo tienen valores fijos, comprar en la plataforma web oficial de Roblox ofrece ventajas por escala:
+          </p>
+          <ul class="list-disc list-inside space-y-2 text-slate-300">
+            <li><strong>Tier Básico (400 - 800 R$):</strong> El precio unitario ronda los <strong>0,0125 $ / 0,0150 € por Robux</strong>. Es la opción más cara por unidad de moneda virtual.</li>
+            <li><strong>Tier Intermedio (1.700 - 4.500 R$):</strong> El precio se reduce hasta aproximadamente <strong>0,0111 $ por Robux</strong>, ofreciendo un ahorro directo del 15%.</li>
+            <li><strong>Tier Mayorista (10.000 - 22.500 R$):</strong> Pensado para coleccionistas y creadores de avatares, alcanza el coste más bajo: <strong>menos de 0,0099 $ por Robux</strong>.</li>
+            <li><strong>Ventaja Premium (+10% Robux):</strong> Por la misma cuota mensual (4,99 $, 9,99 $ o 19,99 $), recibes un 10% adicional de Robux en todas las compras directas.</li>
+          </ul>
+        </div>
+
+        <!-- Guide 2: 30% Marketplace Tax -->
+        <div class="p-8 rounded-3xl bg-[#0b0f19]/80 border border-white/10 backdrop-blur-xl space-y-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <span class="p-2 rounded-xl bg-amber-500/10 text-amber-400 text-xl">🏷️</span>
+            La Regla del 30% en Roblox: ¿Cuánto se queda la plataforma?
+          </h2>
+          <p>
+            En el ecosistema económico de Roblox, cualquier transacción realizada entre usuarios mediante pases de juego (*Gamepasses*), ropa para avatar (*UGC Clothes*), modelos de desarrollo o acceso a servidores privados está sujeta a la <strong>tasa de mercado del 30% (*Marketplace Fee*)</strong>.
+          </p>
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/5 font-mono text-sm space-y-1">
+            <p class="text-emerald-400"><strong>Tu ganancia neta:</strong> Precio de venta × 0,70 (Recibes el 70%)</p>
+            <p class="text-rose-400"><strong>Comisión de Roblox:</strong> Precio de venta × 0,30 (Roblox retiene el 30%)</p>
+            <p class="text-amber-300"><strong>Precio necesario para ganar X limpios:</strong> Math.ceil(Ganancia Deseada / 0,70)</p>
+          </div>
+          <p class="text-sm text-slate-400">
+            <em>Nota sobre fondos pendientes:</em> Cuando vendes un objeto, los Robux ganados no están disponibles al segundo; pasan por un periodo de custodia (*Pending Sales*) de entre <strong>3 y 7 días</strong> para prevenir fraudes con tarjetas de crédito y garantizar la seguridad de la economía.
+          </p>
+        </div>
+
+        <!-- Guide 3: DevEx 2026 Cashout Guide -->
+        <div class="p-8 rounded-3xl bg-[#0b0f19]/80 border border-white/10 backdrop-blur-xl space-y-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <span class="p-2 rounded-xl bg-cyan-500/10 text-cyan-400 text-xl">💼</span>
+            ¿Qué es Roblox DevEx y cómo cobrar dinero real en 2026?
+          </h2>
+          <p>
+            <strong>Developer Exchange (DevEx)</strong> es el programa oficial de Roblox Corporation que permite a los creadores de experiencias, animadores, desarrolladores de scripts y diseñadores UGC canjear los Robux ganados legítimamente por <strong>dinero real en su cuenta bancaria o PayPal</strong>.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
+              <span class="text-xs font-mono text-cyan-400 font-bold uppercase block">Tasa de Conversión Oficial</span>
+              <span class="text-xl font-black text-white block">0,0035 $ USD / Robux</span>
+              <span class="text-xs text-slate-400 block">30.000 R$ = 105,00 USD brutos</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
+              <span class="text-xs font-mono text-cyan-400 font-bold uppercase block">Umbral Mínimo de Retiro</span>
+              <span class="text-xl font-black text-white block">30.000 Robux</span>
+              <span class="text-xs text-slate-400 block">Rebajado desde los antiguos 100.000 R$</span>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400">
+            <strong>Requisitos indispensables:</strong> Tener al menos 13 años cumplidos, una dirección de correo verificada, no tener sanciones graves de moderación en la cuenta, y completar el registro fiscal en la pasarela de pagos oficial de Roblox (Tipalti) rellenando el formulario W-8BEN (para residentes fuera de EE.UU.) o W-9 (para residentes en EE.UU.).
+          </p>
+        </div>
+
+        <!-- Security & Anti-Scam Notice -->
+        <div class="p-6 rounded-3xl bg-rose-950/20 border border-rose-500/30 space-y-3">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm">
+            <span>🛡️</span>
+            <span>Aviso de Seguridad Oficial: Cuidado con las Estafas de Robux Gratis</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300">
+            <strong>NO existen los "Generadores de Robux" ni páginas que regalen Robux a cambio de tu contraseña o encuestas.</strong> Cualquier sitio web o vídeo que te pida descargar aplicaciones externas o introducir tu cookie de sesión (.ROBLOSECURITY) es un intento de robo de cuenta. Los únicos métodos 100% seguros y legales para obtener recompensas gratuitas son los códigos de promoción oficiales de eventos que verificamos a diario en nuestra web.
+          </p>
+        </div>
+
+        <!-- Editorial Review Card (E-E-A-T) -->
+        <div class="p-6 rounded-3xl bg-black/40 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-cyan-500 p-0.5">
+              <div class="w-full h-full bg-[#0b0f19] rounded-[14px] flex items-center justify-center text-2xl font-black text-emerald-400">
+                GB
+              </div>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider block">Autor & Especialista de Economía</span>
+              <span class="text-base font-bold text-white block">Guillermo Beltrán</span>
+              <span class="text-xs text-slate-400 block">Revisión técnica por Jorge Villapún y Héctor Moreno</span>
+            </div>
+          </div>
+
+          <div class="text-right text-xs font-mono text-slate-400">
+            <span class="block">Última auditoría de tasas:</span>
+            <span class="text-white font-bold">Septiembre 2026 (Oficial Roblox API)</span>
+          </div>
+        </div>
+
+        <!-- FAQs Section -->
+        <div class="space-y-6 pt-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <span>❓</span>
+            <span>Preguntas Frecuentes sobre Robux y Dinero Real</span>
+          </h2>
+
+          <div class="space-y-3">
+            <details class="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+              <summary class="font-bold text-white text-sm sm:text-base cursor-pointer flex justify-between items-center">
+                <span>¿Cuánto valen 10.000 Robux en dinero real?</span>
+                <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-3 text-sm text-slate-400 leading-relaxed">
+                En la tienda oficial de Roblox, el paquete de 10.000 Robux cuesta 99,99 USD (unos 119,99 EUR en Europa con impuestos incluidos). Si tienes Roblox Premium, recibes 11.000 Robux por el mismo precio exacto.
+              </p>
+            </details>
+
+            <details class="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+              <summary class="font-bold text-white text-sm sm:text-base cursor-pointer flex justify-between items-center">
+                <span>¿Cuánto gano con DevEx si tengo 100.000 Robux?</span>
+                <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-3 text-sm text-slate-400 leading-relaxed">
+                Con la tasa oficial de 2026 ($0.0035 USD por Robux), 100.000 Robux ganados legítimamente equivalen a <strong>350,00 USD brutos</strong> (aproximadamente 322,00 EUR según el tipo de cambio bancario del día).
+              </p>
+            </details>
+
+            <details class="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+              <summary class="font-bold text-white text-sm sm:text-base cursor-pointer flex justify-between items-center">
+                <span>¿Los Robux comprados con tarjeta se pueden canjear en DevEx?</span>
+                <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-3 text-sm text-slate-400 leading-relaxed">
+                NO. Roblox solo permite canjear en DevEx los denominados "Earned Robux" (Robux ganados mediante la creación de juegos, pases o venta de ropa UGC). Si compraste Robux con dinero real o los conseguiste mediante tarjetas de regalo, no son elegibles para retiro bancario.
+              </p>
+            </details>
+
+            <details class="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+              <summary class="font-bold text-white text-sm sm:text-base cursor-pointer flex justify-between items-center">
+                <span>¿Cuánto tarda Tipalti en transferir el dinero de DevEx?</span>
+                <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-3 text-sm text-slate-400 leading-relaxed">
+                El equipo de moderación de Roblox tarda habitualmente entre 3 y 5 días laborables en revisar la solicitud de DevEx. Una vez aprobada, Tipalti procesa la transferencia a tu cuenta bancaria o PayPal en un plazo adicional de 2 a 3 días hábiles.
+              </p>
+            </details>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bottom Ad Placement -->
+      <div class="my-10">
+        <AdBanner slot="bottom-banner" format="horizontal" />
+      </div>
+
+    </div>
+  </main>
+</Layout>
