@@ -26,6 +26,10 @@ export interface GuideItem {
     es: string;
     en: string;
   };
+  metaTitle?: {
+    es: string;
+    en: string;
+  };
   excerpt: {
     es: string;
     en: string;

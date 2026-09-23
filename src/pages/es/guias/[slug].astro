@@ -20,7 +20,7 @@ const { guide } = Astro.props;
 const locale = 'es';
 const t = getTranslations(locale);
 
-const pageTitle = `${guide.title[locale]} | CódigosRoblox.org`;
+const pageTitle = guide.metaTitle?.[locale] || `${guide.title[locale]} | CódigosRoblox`;
 const pageDescription = guide.excerpt[locale];
 
 // Schema JSON-LD for Article & BreadcrumbList

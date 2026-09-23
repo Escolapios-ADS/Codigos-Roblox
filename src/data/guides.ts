@@ -8,6 +8,10 @@ export const guidesData: GuideItem[] = [
       es: 'Tier List Definitiva de Frutas en Blox Fruits (2026): Mejores Frutas para PvP y Grinding',
       en: 'Ultimate Blox Fruits Tier List (2026): Best Fruits for PvP, Grinding & Raids',
     },
+    metaTitle: {
+      es: 'Tier List Frutas Blox Fruits 2026 | CódigosRoblox',
+      en: 'Blox Fruits Fruit Tier List 2026 | RobloxCodes',
+    },
     excerpt: {
       es: 'Análisis detallado de las mejores frutas de Blox Fruits clasificadas desde Tier S+ hasta Tier D. Descubre cuáles maximizan tu farmeo y cuáles dominan el combate.',
       en: 'Detailed ranking of all Blox Fruits from Tier S+ down to Tier D. Find out which fruits maximize your grinding speed and rule PvP battles.',
@@ -124,6 +128,10 @@ export const guidesData: GuideItem[] = [
       es: 'Cómo Conseguir Robux Gratis en Roblox de Forma 100% Legal y Segura (Evita Estafas)',
       en: 'How to Get Free Robux Safely & Legally in Roblox (Scam Prevention Guide)',
     },
+    metaTitle: {
+      es: 'Cómo Conseguir Robux Gratis en 2026 | CódigosRoblox',
+      en: 'How to Get Free Robux in 2026 (Safely) | RobloxCodes',
+    },
     excerpt: {
       es: 'Guía oficial para ganar Robux legítimos mediante Microsoft Rewards, creación de ropa, Roblox Studio y donaciones en PLS DONATE, sin poner en riesgo tu cuenta.',
       en: 'Official methods to earn legitimate Robux through Microsoft Rewards, clothing creation, Roblox Studio games, and PLS DONATE without risking account bans.',
@@ -232,6 +240,10 @@ export const guidesData: GuideItem[] = [
       es: 'Guía Completa de Blade Ball: Mejores Habilidades, Clases y Estrategias para Ganar',
       en: 'Complete Blade Ball Guide: Best Abilities, Classes & Winning Strategies',
     },
+    metaTitle: {
+      es: 'Guía Blade Ball 2026: Habilidades & PvP | CódigosRoblox',
+      en: 'Blade Ball Guide 2026: Best Abilities | RobloxCodes',
+    },
     excerpt: {
       es: 'Aprende a dominar el timing de bloqueo, las habilidades meta como Raging Deflect y Rapture, y cómo ganar todas las partidas de dodgeball con espada.',
       en: 'Master block timing, curve deflects, top-tier abilities like Raging Deflect and Rapture, and dominate the fast-paced dodgeball arena.',
@@ -314,6 +326,10 @@ export const guidesData: GuideItem[] = [
     title: {
       es: 'Dress to Impress (DTI): Guía de Temas de Pasarela, Estilos y Ropa Secreta VIP Gratis',
       en: 'Dress to Impress (DTI): Runway Themes, VIP Styling & Secret Free Outfits Guide',
+    },
+    metaTitle: {
+      es: 'Guía Dress to Impress (DTI) 2026: Temas | CódigosRoblox',
+      en: 'Dress to Impress Guide 2026: VIP Themes | RobloxCodes',
     },
     excerpt: {
       es: 'Cómo clavar cada tema de pasarela, combinar colores y texturas de manera profesional y conseguir 5 estrellas en cada votación de Dress to Impress.',

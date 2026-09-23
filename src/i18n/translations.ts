@@ -2,8 +2,8 @@ export type SupportedLocale = 'es' | 'en';
 
 export const translations = {
   es: {
-    siteTitle: 'Códigos Roblox 2026 | Códigos Activos y Gratis Actualizados Hoy',
-    siteDescription: 'Todos los códigos de Roblox activos y verificados para Blox Fruits, Blade Ball, Dress to Impress, King Legacy y más. Copia con 1 clic recompensas gratis, tiradas y 2x EXP.',
+    siteTitle: 'Códigos Roblox 2026 | Códigos Activos y Gratis Actualizados',
+    siteDescription: 'Todos los códigos de Roblox activos y verificados para Blox Fruits, Blade Ball y DTI. Copia con 1 clic recompensas gratis, tiradas y 2x de experiencia.',
     nav: {
       brand: 'CódigosRoblox',
       brandSubtitle: 'Hub Oficial de Códigos',
