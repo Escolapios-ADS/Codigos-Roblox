@@ -17,7 +17,7 @@ export const ORGANIZATION_SCHEMA = {
     inLanguage: 'es'
   },
   image: `${SITE_URL}/favicon.svg`,
-  email: 'contacto@codigosroblox.org',
+  email: 'clickerhunters@gmail.com',
   sameAs: [
     'https://github.com/Escolapios-ADS/Codigos-Roblox',
     'https://twitter.com/codigosroblox'
@@ -25,7 +25,7 @@ export const ORGANIZATION_SCHEMA = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'contacto@codigosroblox.org',
+    email: 'clickerhunters@gmail.com',
     availableLanguage: ['es', 'en']
   }
 };
