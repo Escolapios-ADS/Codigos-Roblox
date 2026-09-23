@@ -70,6 +70,15 @@ const unifiedSchema = buildUnifiedGraph({
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="x-default" href={esUrl} />
 
+    <!-- Web Syndication Feeds (Google Publisher Center, Google Discover & Feed Readers) -->
+    <link rel="alternate" type="application/rss+xml" title={locale === 'es' ? 'Códigos Roblox (Feed Global)' : 'Roblox Codes (Global Feed)'} href="https://codigosroblox.org/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={locale === 'es' ? 'Códigos Roblox en Español' : 'Roblox Codes in Spanish'} href="https://codigosroblox.org/es/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={locale === 'es' ? 'Roblox Codes en Inglés' : 'Roblox Codes in English'} href="https://codigosroblox.org/en/rss.xml" />
+
+    <!-- Google Search Console & Webmaster Verification Hook -->
+    <meta name="google-site-verification" content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || "google-site-verification-token"} />
+
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
