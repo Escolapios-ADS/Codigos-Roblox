@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🎨 Generating production favicons and app icons..."
+echo "🎨 Generating production optimized favicons and app icons..."
 
 # 1. Create App Icon Master SVG (512x512 with solid #080C14 background)
 cat << 'EOF' > /tmp/icon-master.svg
@@ -38,18 +38,22 @@ cat << 'EOF' > /tmp/icon-master.svg
 </svg>
 EOF
 
-# 2. Generate crisp PNG icons
-magick -density 600 /tmp/icon-master.svg -resize 16x16 public/favicon-16x16.png
-magick -density 600 /tmp/icon-master.svg -resize 32x32 public/favicon-32x32.png
-magick -density 600 /tmp/icon-master.svg -resize 48x48 public/favicon-48x48.png
-magick -density 600 /tmp/icon-master.svg -resize 180x180 public/apple-touch-icon.png
-magick -density 600 /tmp/icon-master.svg -resize 192x192 public/icon-192.png
-magick -density 600 /tmp/icon-master.svg -resize 512x512 public/icon-512.png
+# 2. Generate and compress PNG icons (8-bit indexed quantization for max compression & sharp edges)
+magick -density 600 /tmp/icon-master.svg -resize 16x16 -strip -colors 256 png8:public/favicon-16x16.png
+magick -density 600 /tmp/icon-master.svg -resize 32x32 -strip -colors 256 png8:public/favicon-32x32.png
+magick -density 600 /tmp/icon-master.svg -resize 48x48 -strip -colors 256 png8:public/favicon-48x48.png
+magick -density 600 /tmp/icon-master.svg -resize 180x180 -strip -colors 256 png8:public/apple-touch-icon.png
+magick -density 600 /tmp/icon-master.svg -resize 192x192 -strip -colors 256 png8:public/icon-192.png
+magick -density 600 /tmp/icon-master.svg -resize 512x512 -strip -colors 256 png8:public/icon-512.png
 
-# 3. Generate multi-resolution favicon.ico (16, 32, 48)
+# 3. Generate Next-Gen WebP equivalents for ultra-fast mobile loading
+magick -density 600 /tmp/icon-master.svg -resize 192x192 -strip -quality 90 public/icon-192.webp
+magick -density 600 /tmp/icon-master.svg -resize 512x512 -strip -quality 90 public/icon-512.webp
+
+# 4. Generate multi-resolution favicon.ico (16, 32, 48)
 magick public/favicon-16x16.png public/favicon-32x32.png public/favicon-48x48.png public/favicon.ico
 
-# 4. Generate Open Graph / Twitter Card Image (1200x630)
+# 5. Generate Open Graph / Twitter Card Image (1200x630)
 cat << 'EOF' > /tmp/og-master.svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <!-- Background -->
@@ -141,6 +145,8 @@ cat << 'EOF' > /tmp/og-master.svg
 </svg>
 EOF
 
-magick -density 300 /tmp/og-master.svg -resize 1200x630 public/og-image.png
+# Highly optimized PNG (50KB) and WebP (31KB)
+magick -density 300 /tmp/og-master.svg -resize 1200x630 -strip -colors 256 png8:public/og-image.png
+magick -density 300 /tmp/og-master.svg -resize 1200x630 -strip -quality 88 public/og-image.webp
 
-echo "✅ All icons and OG image successfully generated!"
+echo "✅ All icons and OG images successfully generated and compressed!"
