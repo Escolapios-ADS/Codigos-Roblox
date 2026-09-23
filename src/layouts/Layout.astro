@@ -42,6 +42,9 @@ const unifiedSchema = buildUnifiedGraph({
   pageType,
   customSchema: schema,
 });
+
+// Google Analytics 4 Measurement ID
+const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_ID || 'G-XXXXXXXXXX';
 ---
 
 <!doctype html>
@@ -167,6 +170,27 @@ const unifiedSchema = buildUnifiedGraph({
         });
       }
     </script>
+
+    <!-- Google Analytics 4 (GA4) with Google Consent Mode v2 -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID, {
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure'
+      });
+
+      // Global Safe Analytics Event Dispatcher
+      window.trackAnalyticsEvent = function(eventName, params) {
+        try {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params || {});
+          }
+        } catch (err) {
+          console.warn('Analytics event dispatch warning:', err);
+        }
+      };
+    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-[#080c14] text-slate-100 antialiased selection:bg-indigo-600 selection:text-white">
     <div id="top"></div>
@@ -234,8 +258,18 @@ const unifiedSchema = buildUnifiedGraph({
 
       window.copyCodeToClipboard = async function(code, buttonElement) {
         try {
+          const isSpanish = document.documentElement.lang === 'es';
           await navigator.clipboard.writeText(code);
           playChirpSound();
+
+          // Google Analytics 4 Custom Event: Copy Code
+          if (typeof window.trackAnalyticsEvent === 'function') {
+            window.trackAnalyticsEvent('copy_code', {
+              code_text: code,
+              page_location: window.location.pathname,
+              locale: isSpanish ? 'es' : 'en'
+            });
+          }
           
           // Toast trigger
           const toast = document.getElementById('copy-toast');
@@ -257,7 +291,6 @@ const unifiedSchema = buildUnifiedGraph({
             const originalContent = buttonElement.innerHTML;
             buttonElement.classList.add('bg-emerald-600', 'text-white', 'border-emerald-400');
             buttonElement.classList.remove('bg-indigo-600', 'bg-white/10');
-            const isSpanish = document.documentElement.lang === 'es';
             buttonElement.innerHTML = `
               <svg class="w-4 h-4 text-white inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -276,14 +309,23 @@ const unifiedSchema = buildUnifiedGraph({
 
       window.copyAllCodes = async function(codesList, buttonElement) {
         try {
+          const isSpanish = document.documentElement.lang === 'es';
           const text = codesList.join('\n');
           await navigator.clipboard.writeText(text);
           playChirpSound();
 
+          // Google Analytics 4 Custom Event: Copy All Codes
+          if (typeof window.trackAnalyticsEvent === 'function') {
+            window.trackAnalyticsEvent('copy_all_codes', {
+              codes_count: codesList.length,
+              page_location: window.location.pathname,
+              locale: isSpanish ? 'es' : 'en'
+            });
+          }
+
           const toast = document.getElementById('copy-toast');
           const toastTitle = document.getElementById('toast-title');
           const toastBody = document.getElementById('toast-body');
-          const isSpanish = document.documentElement.lang === 'es';
           
           if (toast && toastTitle && toastBody) {
             toastTitle.textContent = isSpanish ? '¡Todos los códigos copiados!' : 'All codes copied!';
@@ -314,6 +356,16 @@ const unifiedSchema = buildUnifiedGraph({
 
       window.sharePage = async function(title, url, buttonElement) {
         const isSpanish = document.documentElement.lang === 'es';
+
+        // Google Analytics 4 Custom Event: Share Page
+        if (typeof window.trackAnalyticsEvent === 'function') {
+          window.trackAnalyticsEvent('share', {
+            method: navigator.share ? 'native_share' : 'clipboard',
+            content_type: 'page',
+            item_id: url
+          });
+        }
+
         if (navigator.share) {
           try {
             await navigator.share({ title, url });
@@ -390,6 +442,16 @@ const unifiedSchema = buildUnifiedGraph({
 
         playChirpSound();
         localStorage.setItem(storageKey, type);
+
+        // Google Analytics 4 Custom Event: Vote Code
+        if (typeof window.trackAnalyticsEvent === 'function') {
+          window.trackAnalyticsEvent('vote_code', {
+            code_text: code,
+            vote_type: type,
+            page_location: window.location.pathname,
+            locale: isSpanish ? 'es' : 'en'
+          });
+        }
 
         if (type === 'up') {
           up += 1;

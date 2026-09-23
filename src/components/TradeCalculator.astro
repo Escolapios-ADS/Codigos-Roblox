@@ -283,6 +283,7 @@ const { fruits, locale } = Astro.props;
     const verdictExplanation = document.getElementById('verdict-explanation');
     const beliRuleBadge = document.getElementById('beli-rule-badge');
     const beliRuleText = document.getElementById('beli-rule-text');
+    let tradeTrackTimeout = null;
 
     function openModal(side, slot) {
       state.activeSide = side;
@@ -455,6 +456,20 @@ const { fruits, locale } = Astro.props;
       } else {
         setVerdict('BIG LOSE', '❌', 'bg-rose-500/30 border-rose-500 text-rose-300 shadow-rose-500/20 shadow-lg', diffText,
           currentLocale === 'es' ? '¡Pérdida Enorme (Big Lose)! No aceptes este tradeo, estás perdiendo mucho valor.' : 'Big Loss! Do not accept this trade, you are overpaying by a huge margin.');
+      }
+
+      // Debounced analytics tracking for tool engagement
+      if (leftVal > 0 || rightVal > 0) {
+        if (tradeTrackTimeout) clearTimeout(tradeTrackTimeout);
+        tradeTrackTimeout = setTimeout(() => {
+          if (typeof window.trackAnalyticsEvent === 'function') {
+            window.trackAnalyticsEvent('tool_usage', {
+              tool_name: 'blox_fruits_trade_calc',
+              locale: currentLocale,
+              trade_verdict: (verdictTitle && verdictTitle.textContent) || 'unknown'
+            });
+          }
+        }, 1500);
       }
     }
 

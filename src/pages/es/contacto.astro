@@ -455,6 +455,15 @@ const pageSchema = {
           const randomRef = 'CR-2026-' + Math.random().toString(36).substring(2, 8).toUpperCase();
           if (ticketIdEl) ticketIdEl.textContent = randomRef;
 
+          // Google Analytics 4 Custom Event: Contact Form Submission
+          if (typeof window.trackAnalyticsEvent === 'function') {
+            window.trackAnalyticsEvent('contact_form_submit', {
+              reason: document.getElementById('reason')?.value || 'general',
+              ticket_id: randomRef,
+              locale: 'es'
+            });
+          }
+
           contactForm.classList.add('hidden');
           formSuccess.classList.remove('hidden');
           formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });

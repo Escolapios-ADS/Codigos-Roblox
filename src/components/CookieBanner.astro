@@ -223,6 +223,13 @@ const { locale } = Astro.props;
           advertising: true
         }));
         updateGoogleConsent(true, true);
+        if (typeof window.trackAnalyticsEvent === 'function') {
+          window.trackAnalyticsEvent('cookie_consent', {
+            choice: 'accept_all',
+            analytics_storage: 'granted',
+            ad_storage: 'granted'
+          });
+        }
         banner.classList.add('translate-y-full');
       });
     }
@@ -235,6 +242,13 @@ const { locale } = Astro.props;
           advertising: false
         }));
         updateGoogleConsent(false, false);
+        if (typeof window.trackAnalyticsEvent === 'function') {
+          window.trackAnalyticsEvent('cookie_consent', {
+            choice: 'reject_all',
+            analytics_storage: 'denied',
+            ad_storage: 'denied'
+          });
+        }
         banner.classList.add('translate-y-full');
       });
     }
@@ -263,6 +277,13 @@ const { locale } = Astro.props;
         }));
 
         updateGoogleConsent(analyticsAllowed, adsAllowed);
+        if (typeof window.trackAnalyticsEvent === 'function') {
+          window.trackAnalyticsEvent('cookie_consent', {
+            choice: 'custom',
+            analytics_storage: analyticsAllowed ? 'granted' : 'denied',
+            ad_storage: adsAllowed ? 'granted' : 'denied'
+          });
+        }
         modal.classList.add('hidden');
         banner.classList.add('translate-y-full');
       });

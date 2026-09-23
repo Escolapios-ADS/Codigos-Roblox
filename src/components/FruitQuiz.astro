@@ -278,6 +278,14 @@ const { locale } = Astro.props;
       }
 
       if (window.playRewardSound) window.playRewardSound();
+
+      if (typeof window.trackAnalyticsEvent === 'function') {
+        window.trackAnalyticsEvent('tool_usage', {
+          tool_name: 'blox_fruits_quiz',
+          result_fruit: res.name,
+          locale: currentLocale
+        });
+      }
     }
 
     if (restartBtn) {
