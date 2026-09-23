@@ -339,11 +339,11 @@ const topGames = gamesData.slice(0, 6);
         ).slice(0, 5);
 
         if (matches.length === 0) {
-          searchResults.innerHTML = `
-            <div class="p-3 text-xs text-slate-400 text-center font-mono">
-              ${isEnglish ? 'No games found for "' + query + '"' : 'No se encontraron juegos para "' + query + '"'}
-            </div>
-          `;
+          const emptyDiv = document.createElement('div');
+          emptyDiv.className = 'p-3 text-xs text-slate-400 text-center font-mono';
+          emptyDiv.textContent = isEnglish ? `No games found for "${query}"` : `No se encontraron juegos para "${query}"`;
+          searchResults.innerHTML = '';
+          searchResults.appendChild(emptyDiv);
           searchResults.classList.remove('hidden');
           return;
         }

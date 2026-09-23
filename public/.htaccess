@@ -1,4 +1,17 @@
-# Force HTTPS and Canonical Domain
+# ==============================================================================
+# CodigosRoblox.org - Apache / LiteSpeed Security Configuration
+# ==============================================================================
+
+# 1. Disable Directory Browsing / File Listing
+Options -Indexes
+
+# 2. Block access to hidden files, environment variables, git and sensitive files
+<FilesMatch "^\.|\.(env|git|bak|config|sql|log|sh|ts|md|jsonl|yaml|yml)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# 3. Force HTTPS and Canonical Domain
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTPS} off [OR]
@@ -6,11 +19,14 @@
   RewriteRule ^(.*)$ https://codigosroblox.org/$1 [L,R=301]
 </IfModule>
 
-# HSTS and Security Headers
+# 4. HSTS and Advanced Security Headers
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
   Header always set Content-Security-Policy "upgrade-insecure-requests"
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
 </IfModule>
