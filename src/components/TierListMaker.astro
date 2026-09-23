@@ -1,0 +1,519 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+import { fruitsData } from '../data/fruits';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isEs = locale === 'es';
+
+// Tier definitions with modern saturated gaming colors
+const DEFAULT_TIERS = [
+  { id: 'tier-s-plus', label: 'S+', color: '#ef4444', bg: 'bg-red-500/20', border: 'border-red-500/40', text: 'text-red-400' },
+  { id: 'tier-s', label: 'S', color: '#f97316', bg: 'bg-orange-500/20', border: 'border-orange-500/40', text: 'text-orange-400' },
+  { id: 'tier-a', label: 'A', color: '#eab308', bg: 'bg-amber-500/20', border: 'border-amber-500/40', text: 'text-amber-400' },
+  { id: 'tier-b', label: 'B', color: '#10b981', bg: 'bg-emerald-500/20', border: 'border-emerald-500/40', text: 'text-emerald-400' },
+  { id: 'tier-c', label: 'C', color: '#06b6d4', bg: 'bg-cyan-500/20', border: 'border-cyan-500/40', text: 'text-cyan-400' },
+  { id: 'tier-d', label: 'D', color: '#64748b', bg: 'bg-slate-500/20', border: 'border-slate-500/40', text: 'text-slate-400' },
+];
+---
+
+<div class="w-full bg-[#0b0f19]/90 border border-white/10 rounded-3xl p-5 sm:p-8 backdrop-blur-2xl shadow-2xl shadow-black/80 space-y-8">
+  
+  <!-- Controls Toolbar -->
+  <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 p-4 rounded-2xl bg-black/40 border border-white/5">
+    
+    <!-- Presets Dropdown / Buttons -->
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mr-1">
+        {isEs ? 'Plantilla:' : 'Template:'}
+      </span>
+      <button
+        type="button"
+        class="preset-btn active px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer bg-amber-500 text-black shadow-md shadow-amber-500/20"
+        data-preset="pvp"
+      >
+        ⚔️ {isEs ? 'Meta PvP 2026' : 'PvP Meta 2026'}
+      </button>
+      <button
+        type="button"
+        class="preset-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300"
+        data-preset="grind"
+      >
+        🌊 {isEs ? 'Farmeo & Sea Events' : 'Grinding & Sea'}
+      </button>
+      <button
+        type="button"
+        class="preset-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300"
+        data-preset="trading"
+      >
+        ⚖️ {isEs ? 'Valor Tradeo' : 'Trading Value'}
+      </button>
+      <button
+        type="button"
+        class="preset-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300"
+        data-preset="empty"
+      >
+        ✨ {isEs ? 'En Blanco' : 'Empty Board'}
+      </button>
+    </div>
+
+    <!-- Action Buttons: Download & Reset -->
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        id="btn-download-image"
+        class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
+        <span>{isEs ? 'Descargar Imagen (PNG)' : 'Download PNG'}</span>
+      </button>
+
+      <button
+        type="button"
+        id="btn-reset-board"
+        class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer"
+        title={isEs ? 'Reiniciar todo el tablero' : 'Reset board'}
+        aria-label="Reset board"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Main Tier Board Area -->
+  <div id="tier-board" class="space-y-2.5 bg-black/30 p-2 sm:p-3 rounded-3xl border border-white/5">
+    {DEFAULT_TIERS.map((tier) => (
+      <div 
+        class="tier-row flex flex-row items-stretch rounded-2xl bg-[#080c14]/90 border border-white/5 overflow-hidden transition-all duration-200 min-h-[82px]"
+        data-tier-id={tier.id}
+      >
+        <!-- Tier Header Badge -->
+        <div 
+          class="w-20 sm:w-28 flex items-center justify-center font-black text-xl sm:text-2xl select-none shrink-0 shadow-lg"
+          style={`background-color: ${tier.color}; color: #000;`}
+        >
+          <span class="tracking-wider">{tier.label}</span>
+        </div>
+
+        <!-- Tier Dropzone -->
+        <div 
+          class="tier-dropzone flex-1 p-2 sm:p-2.5 flex flex-wrap items-center content-center gap-2 min-h-[82px] transition-colors"
+          data-tier-id={tier.id}
+        >
+          <!-- Fruit chips dropped here dynamically -->
+        </div>
+
+        <!-- Tier Row Controls (Clear row) -->
+        <div class="w-10 flex items-center justify-center shrink-0 border-l border-white/5 bg-black/20">
+          <button
+            type="button"
+            class="tier-clear-btn p-1.5 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition-colors cursor-pointer"
+            data-tier-id={tier.id}
+            title={isEs ? 'Vaciar fila' : 'Clear tier'}
+            aria-label="Clear tier row"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Fruit Bank Section (Bottom Pool) -->
+  <div class="space-y-4 pt-2">
+    
+    <!-- Bank Header & Search -->
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
+          <span>🍎</span>
+          <span>{isEs ? 'Banco de Frutas' : 'Fruits Pool'}</span>
+        </span>
+        <span id="bank-counter" class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">
+          0 / {fruitsData.length}
+        </span>
+      </div>
+
+      <!-- Quick Search input -->
+      <div class="relative w-full sm:w-64">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs">🔍</span>
+        <input
+          type="text"
+          id="fruit-search-input"
+          placeholder={isEs ? 'Filtrar fruta (ej. Dragon, Buddha)...' : 'Search fruit...'}
+          class="w-full bg-[#080c14] border border-white/10 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500 transition-colors"
+        />
+      </div>
+    </div>
+
+    <!-- Bank Container for available unplaced fruits -->
+    <div 
+      id="fruit-bank" 
+      class="tier-dropzone flex flex-wrap items-center gap-2 p-4 rounded-3xl bg-black/40 border border-white/5 min-h-[110px] transition-colors"
+      data-tier-id="bank"
+    >
+      {fruitsData.map((fruit) => (
+        <div
+          class="fruit-card group relative p-2 sm:p-2.5 rounded-2xl bg-[#080c14] border border-white/10 hover:border-indigo-500/40 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-200 cursor-grab active:cursor-grabbing select-none flex items-center gap-2 shrink-0"
+          draggable="true"
+          data-fruit-id={fruit.id}
+          data-fruit-name={fruit.name.toLowerCase()}
+          data-fruit-rarity={fruit.rarity}
+          tabindex="0"
+          role="button"
+          aria-label={fruit.name}
+        >
+          <span class="text-xl sm:text-2xl p-1 rounded-xl bg-white/5 group-hover:scale-110 transition-transform">
+            {fruit.emoji}
+          </span>
+          <div class="flex flex-col pr-1">
+            <span class="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-1">
+              {fruit.name.split(' (')[0]}
+            </span>
+            <span class="text-[9px] font-mono text-slate-400 capitalize">
+              {fruit.rarity}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-[11px] text-slate-400 text-center italic">
+      {isEs
+        ? '💡 En móvil o PC: Puedes arrastrar las frutas directamente o hacer clic/toque en una fruta y luego en el nivel deseado.'
+        : '💡 Mobile & PC: Drag and drop fruits directly, or tap a fruit first and then tap any tier to place it.'}
+    </p>
+
+  </div>
+
+  <!-- Hidden Canvas for PNG Generation -->
+  <canvas id="export-canvas" class="hidden"></canvas>
+
+</div>
+
+<script is:inline define:vars={{ fruitsData, isEs, defaultTiers: DEFAULT_TIERS }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Presets definitions
+    const PRESETS = {
+      pvp: {
+        'tier-s-plus': ['kitsune', 'dragon', 'portal', 'dough'],
+        'tier-s': ['leopard', 'venom', 'spirit', 't-rex', 'rumble'],
+        'tier-a': ['buddha', 'blizzard', 'shadow', 'sound', 'magma', 'mammoth'],
+        'tier-b': ['light', 'ice', 'quake', 'dark', 'spider', 'love', 'pain'],
+        'tier-c': ['ghost', 'sand', 'flame', 'rubber', 'diamond', 'falcon'],
+        'tier-d': ['spike', 'smoke', 'bomb', 'spring', 'blade', 'spin', 'rocket'],
+      },
+      grind: {
+        'tier-s-plus': ['buddha', 'magma', 'blizzard'],
+        'tier-s': ['kitsune', 'mammoth', 't-rex', 'dragon'],
+        'tier-a': ['light', 'venom', 'dough', 'ice', 'sound'],
+        'tier-b': ['portal', 'spirit', 'shadow', 'rumble', 'quake'],
+        'tier-c': ['sand', 'dark', 'flame', 'ghost', 'spider', 'love'],
+        'tier-d': ['falcon', 'diamond', 'rubber', 'spike', 'smoke', 'bomb', 'spring', 'blade', 'spin', 'rocket'],
+      },
+      trading: {
+        'tier-s-plus': ['dragon', 'kitsune', 'leopard'],
+        'tier-s': ['dough', 't-rex', 'mammoth', 'portal', 'buddha'],
+        'tier-a': ['spirit', 'venom', 'shadow', 'blizzard', 'rumble', 'sound'],
+        'tier-b': ['magma', 'pain', 'quake', 'love', 'spider', 'phoenix'],
+        'tier-c': ['light', 'ice', 'dark', 'sand', 'ghost', 'rubber'],
+        'tier-d': ['falcon', 'diamond', 'flame', 'spike', 'smoke', 'bomb', 'spring', 'blade', 'spin', 'rocket'],
+      },
+      empty: {
+        'tier-s-plus': [],
+        'tier-s': [],
+        'tier-a': [],
+        'tier-b': [],
+        'tier-c': [],
+        'tier-d': [],
+      },
+    };
+
+    const fruitBank = document.getElementById('fruit-bank');
+    const allDropzones = document.querySelectorAll('.tier-dropzone');
+    const fruitCards = document.querySelectorAll('.fruit-card');
+    const searchInput = document.getElementById('fruit-search-input');
+    const bankCounter = document.getElementById('bank-counter');
+    const downloadBtn = document.getElementById('btn-download-image');
+    const resetBtn = document.getElementById('btn-reset-board');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+    const clearBtns = document.querySelectorAll('.tier-clear-btn');
+
+    let draggedElement = null;
+    let selectedFruitForTap = null;
+
+    // 1. Drag and Drop handlers
+    fruitCards.forEach((card) => {
+      card.addEventListener('dragstart', (e) => {
+        draggedElement = card;
+        card.classList.add('opacity-40');
+        e.dataTransfer.setData('text/plain', card.getAttribute('data-fruit-id') || '');
+        e.dataTransfer.effectAllowed = 'move';
+      });
+
+      card.addEventListener('dragend', () => {
+        card.classList.remove('opacity-40');
+        draggedElement = null;
+        updateCounter();
+      });
+
+      // Tap-to-move for touch devices / click
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (selectedFruitForTap === card) {
+          // Deselect
+          card.classList.remove('ring-2', 'ring-amber-400');
+          selectedFruitForTap = null;
+        } else {
+          if (selectedFruitForTap) {
+            selectedFruitForTap.classList.remove('ring-2', 'ring-amber-400');
+          }
+          selectedFruitForTap = card;
+          card.classList.add('ring-2', 'ring-amber-400');
+        }
+      });
+    });
+
+    allDropzones.forEach((zone) => {
+      zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        zone.classList.add('bg-white/5');
+      });
+
+      zone.addEventListener('dragleave', () => {
+        zone.classList.remove('bg-white/5');
+      });
+
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        zone.classList.remove('bg-white/5');
+        if (draggedElement) {
+          zone.appendChild(draggedElement);
+          updateCounter();
+        }
+      });
+
+      // Tap target to receive selected fruit
+      zone.addEventListener('click', () => {
+        if (selectedFruitForTap) {
+          zone.appendChild(selectedFruitForTap);
+          selectedFruitForTap.classList.remove('ring-2', 'ring-amber-400');
+          selectedFruitForTap = null;
+          updateCounter();
+        }
+      });
+    });
+
+    // 2. Clear individual tier row
+    clearBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tierId = btn.getAttribute('data-tier-id');
+        const zone = document.querySelector(`.tier-dropzone[data-tier-id="${tierId}"]`);
+        if (zone) {
+          const cards = zone.querySelectorAll('.fruit-card');
+          cards.forEach((c) => fruitBank.appendChild(c));
+          updateCounter();
+        }
+      });
+    });
+
+    // 3. Counter updater
+    function updateCounter() {
+      const inTiers = document.querySelectorAll('#tier-board .fruit-card').length;
+      if (bankCounter) {
+        bankCounter.textContent = `${inTiers} / ${fruitCards.length}`;
+      }
+    }
+
+    // 4. Presets Loader
+    function loadPreset(presetKey) {
+      const config = PRESETS[presetKey] || PRESETS.pvp;
+
+      // 1. Move everything back to bank
+      fruitCards.forEach((c) => fruitBank.appendChild(c));
+
+      // 2. Distribute based on preset config
+      for (const [tierId, fruitIds] of Object.entries(config)) {
+        const targetZone = document.querySelector(`.tier-dropzone[data-tier-id="${tierId}"]`);
+        if (targetZone) {
+          for (const fid of fruitIds) {
+            const card = document.querySelector(`.fruit-card[data-fruit-id="${fid}"]`);
+            if (card) {
+              targetZone.appendChild(card);
+            }
+          }
+        }
+      }
+
+      updateCounter();
+    }
+
+    presetBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        presetBtns.forEach((b) => {
+          b.classList.remove('active', 'bg-amber-500', 'text-black', 'shadow-md', 'shadow-amber-500/20');
+          b.classList.add('bg-white/5', 'text-slate-300');
+        });
+
+        btn.classList.add('active', 'bg-amber-500', 'text-black', 'shadow-md', 'shadow-amber-500/20');
+        btn.classList.remove('bg-white/5', 'text-slate-300');
+
+        const presetKey = btn.getAttribute('data-preset');
+        loadPreset(presetKey);
+      });
+    });
+
+    // Reset button
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        fruitCards.forEach((c) => fruitBank.appendChild(c));
+        updateCounter();
+      });
+    }
+
+    // Search filter in fruit bank
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const val = e.target.value.toLowerCase().trim();
+        fruitCards.forEach((card) => {
+          // Only filter cards currently inside the bank
+          if (card.parentElement === fruitBank) {
+            const name = card.getAttribute('data-fruit-name') || '';
+            if (name.includes(val)) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        });
+      });
+    }
+
+    // 5. High-Resolution Canvas PNG Export (1080p width)
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', () => {
+        const canvas = document.getElementById('export-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        const width = 1200;
+        const rowHeight = 90;
+        const headerHeight = 110;
+        const footerHeight = 50;
+        const rows = document.querySelectorAll('.tier-row');
+        const height = headerHeight + rows.length * (rowHeight + 10) + footerHeight;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        // Background
+        ctx.fillStyle = '#080c14';
+        ctx.fillRect(0, 0, width, height);
+
+        // Gradient header banner
+        const grad = ctx.createLinearGradient(0, 0, width, 0);
+        grad.addColorStop(0, '#4f46e5');
+        grad.addColorStop(0.5, '#7c3aed');
+        grad.addColorStop(1, '#06b6d4');
+
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(20, 20, width - 40, headerHeight - 30);
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(20, 20, width - 40, headerHeight - 30);
+
+        // Header Title
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 32px sans-serif';
+        ctx.fillText('🏆 Blox Fruits Tier List 2026', 40, 65);
+
+        // Watermark URL
+        ctx.fillStyle = '#a5b4fc';
+        ctx.font = 'bold 16px monospace';
+        ctx.fillText('CodigosRoblox.org • Verified Meta', 40, 90);
+
+        // Draw Tier Rows
+        let currentY = headerHeight + 10;
+
+        rows.forEach((row) => {
+          const tierId = row.getAttribute('data-tier-id');
+          const tierDef = defaultTiers.find((t) => t.id === tierId) || { label: '?', color: '#64748b' };
+          const dropzone = row.querySelector('.tier-dropzone');
+          const cards = dropzone ? dropzone.querySelectorAll('.fruit-card') : [];
+
+          // Row background
+          ctx.fillStyle = '#0d1322';
+          ctx.fillRect(20, currentY, width - 40, rowHeight);
+          ctx.strokeStyle = '#1e293b';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(20, currentY, width - 40, rowHeight);
+
+          // Tier badge block
+          ctx.fillStyle = tierDef.color;
+          ctx.fillRect(20, currentY, 110, rowHeight);
+          ctx.fillStyle = '#000000';
+          ctx.font = '900 36px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(tierDef.label, 75, currentY + 58);
+          ctx.textAlign = 'left';
+
+          // Fruit chips inside tier
+          let chipX = 145;
+          const chipY = currentY + 12;
+
+          cards.forEach((card) => {
+            if (chipX + 110 > width - 40) return; // Prevent horizontal overflow
+            const fid = card.getAttribute('data-fruit-id');
+            const fruit = fruitsData.find((f) => f.id === fid);
+            if (!fruit) return;
+
+            // Chip box
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(chipX, chipY, 110, 66);
+            ctx.strokeStyle = '#334155';
+            ctx.strokeRect(chipX, chipY, 110, 66);
+
+            // Emoji
+            ctx.font = '26px sans-serif';
+            ctx.fillText(fruit.emoji, chipX + 8, chipY + 42);
+
+            // Name
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 12px sans-serif';
+            const shortName = fruit.name.split(' (')[0];
+            ctx.fillText(shortName.substring(0, 10), chipX + 44, chipY + 38);
+
+            chipX += 118;
+          });
+
+          currentY += rowHeight + 10;
+        });
+
+        // Footer text
+        ctx.fillStyle = '#64748b';
+        ctx.font = '12px sans-serif';
+        ctx.fillText('Generated with CodigosRoblox.org/tier-list-blox-fruits • Free Community Tool', 40, height - 20);
+
+        // Download PNG
+        const link = document.createElement('a');
+        link.download = 'Blox-Fruits-Tier-List-2026.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+
+    // Load initial PvP meta preset
+    loadPreset('pvp');
+  });
+</script>

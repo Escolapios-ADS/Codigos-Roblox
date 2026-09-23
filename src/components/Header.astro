@@ -33,6 +33,8 @@ if (currentSlug) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/codigos-ropa-brookhaven/' : '/en/brookhaven-outfit-codes/';
 } else if (pathname.includes('/quiz-frutas-blox-fruits') || pathname.includes('/blox-fruits-quiz')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/quiz-frutas-blox-fruits/' : '/en/blox-fruits-quiz/';
+} else if (pathname.includes('/tier-list-blox-fruits') || pathname.includes('/blox-fruits-tier-list')) {
+  targetAlternateUrl = otherLocale === 'es' ? '/es/tier-list-blox-fruits/' : '/en/blox-fruits-tier-list/';
 } else if (pathname.includes('/optimizar-roblox-fps-lag') || pathname.includes('/roblox-fps-unlocker-lag-fix')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/optimizar-roblox-fps-lag/' : '/en/roblox-fps-unlocker-lag-fix/';
 } else if (pathname.includes('/alertas-codigos-roblox') || pathname.includes('/roblox-code-alerts')) {
@@ -159,20 +161,33 @@ if (currentSlug) {
           >
             <span>🛠️</span>
             <span class="font-bold">{t.nav.toolsMenu}</span>
-            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 uppercase font-mono font-bold">8</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 uppercase font-mono font-bold">9</span>
             <span class="text-[10px] text-indigo-400 group-hover/megamenu:rotate-180 transition-transform duration-200">▼</span>
           </button>
 
           <!-- Luxurious Mega Menu Panel -->
-          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover/megamenu:block z-50 w-[720px] animate-fade-in">
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover/megamenu:block z-50 w-[740px] animate-fade-in">
             <div class="bg-[#0b0f19]/95 border border-white/10 rounded-3xl p-5 shadow-2xl shadow-black/90 backdrop-blur-2xl grid grid-cols-3 gap-4">
               
               <!-- Column 1: Blox Fruits & Economy -->
               <div class="space-y-2">
                 <div class="px-2 pb-1 border-b border-white/5 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400">
                   <span>⚔️</span>
-                  <span>{locale === 'es' ? 'Economía & Tradeos' : 'Economy & Trading'}</span>
+                  <span>{locale === 'es' ? 'Economía & Blox Fruits' : 'Economy & Blox Fruits'}</span>
                 </div>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'tier-list-blox-fruits/' : 'blox-fruits-tier-list/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-orange-500/10 border border-transparent hover:border-orange-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-orange-500/10 text-orange-400 shrink-0">🏆</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-orange-300 text-xs block">
+                      {locale === 'es' ? 'Tier List Maker' : 'Tier List Maker'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Crea y exporta en PNG' : 'Build & export PNG'}</span>
+                  </div>
+                </a>
 
                 <a 
                   href={`/${locale}/${locale === 'es' ? 'calculadora-robux-dinero-real/' : 'robux-to-money-calculator/'}`}
@@ -393,10 +408,21 @@ if (currentSlug) {
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
           {locale === 'es' ? '🛠️ Herramientas & Calculadoras VIP' : '🛠️ VIP Tools & Calculators'}
         </span>
-        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">8</span>
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">9</span>
       </div>
 
       <div class="grid grid-cols-2 gap-2.5">
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'tier-list-blox-fruits/' : 'blox-fruits-tier-list/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-orange-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">🏆</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.tierListMaker}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Crea y exporta en PNG' : 'Build & export PNG'}</span>
+          </div>
+        </a>
+
         <a 
           href={`/${locale}/${locale === 'es' ? 'calculadora-robux-dinero-real/' : 'robux-to-money-calculator/'}`}
           class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-emerald-500/30 flex items-center gap-2.5 transition-colors"

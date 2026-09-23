@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import TierListMaker from '../../components/TierListMaker.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageTitle = 'Blox Fruits Tier List Maker 2026 | Create & Download Fruit Rankings';
+const pageDescription = 'Interactive 2026 Blox Fruits Tier List Maker. Drag and rank all fruits for PvP, Grinding, and Trading. Download free high-res PNG image for Discord and TikTok.';
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Blox Fruits Tier List Maker 2026',
+      operatingSystem: 'All',
+      applicationCategory: 'GameApplication',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description: 'Interactive tool to build, customize and download high-resolution PNG images of Blox Fruits Devil Fruit Tier Lists.',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Which is the best Blox Fruits fruit for PvP in 2026?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'In the current 2026 competitive meta, Kitsune and Portal hold the top S+ rank. Kitsune provides unparalleled dash speed and raw combo-less damage, while Portal offers ultimate spatial teleportation and one-shot sword combos in the Third Sea.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Which fruit is best for fast level grinding and Raids?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Buddha remains the undisputed king of grinding, Sea Events, and Raids. Its colossal sword hitboxes combined with 50% passive damage reduction allow players to clear NPC waves effortlessly.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I download my Blox Fruits Tier List to share on Discord?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes! Our tool includes a built-in 1080p canvas export engine. Click "Download PNG" to instantly save your customized ranking image and share it with friends or community servers.',
+          },
+        },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://codigosroblox.org/en/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blox Fruits Tier List Maker',
+          item: 'https://codigosroblox.org/en/blox-fruits-tier-list/',
+        },
+      ],
+    },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <main class="min-h-screen pb-20 pt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <a href="/en/" class="hover:text-amber-400 transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-slate-200">VIP Tools</span>
+        <span>/</span>
+        <span class="text-amber-400">Blox Fruits Tier List Maker</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="relative text-center max-w-4xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          Update 24 & Dragon Rework Meta 2026
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
+          Tier List Maker <span class="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 bg-clip-text text-transparent">Blox Fruits 2026</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          Create your personalized Devil Fruit ranking with our responsive Drag & Drop builder. Load <strong>PvP</strong>, <strong>Grinding</strong>, or <strong>Trading</strong> presets and export high-res PNG images for Discord and TikTok.
+        </p>
+
+        <!-- Feature Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            📥 Instant 1080p PNG Export
+          </span>
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            ⚡ Touch & Mouse Drag and Drop
+          </span>
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            🏆 All 37 Official Fruits
+          </span>
+        </div>
+      </div>
+
+      <!-- Top Ad Placement -->
+      <div class="my-6">
+        <AdBanner slot="top-banner" format="horizontal" />
+      </div>
+
+      <!-- Main Interactive Tier List Maker Component -->
+      <TierListMaker locale={locale} />
+
+      <!-- Mid-page Ad Placement -->
+      <div class="my-10">
+        <AdBanner slot="middle-banner" format="horizontal" />
+      </div>
+
+      <!-- Comprehensive Editorial Breakdown (E-E-A-T AdSense Authority) -->
+      <section class="max-w-4xl mx-auto space-y-12 text-slate-300 leading-relaxed">
+        
+        <!-- Section 1: Tier S+ Analysis -->
+        <div class="p-8 rounded-3xl bg-[#0b0f19]/80 border border-white/10 backdrop-blur-xl space-y-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <span class="p-2 rounded-xl bg-red-500/10 text-red-400 text-xl">🔥</span>
+            Tier S+ Fruit Breakdown: Meta Gods of 2026
+          </h2>
+          <p>
+            Blox Fruits competitive balance has reached unprecedented heights. Three fruits currently dominate the highest tier due to overwhelming battle efficiency:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+              <span class="text-2xl">🦊</span>
+              <h3 class="font-bold text-white text-base">Kitsune (Mythical)</h3>
+              <p class="text-xs text-slate-400">
+                Top-tier sprint velocity, mystical tail flames, and an agile beast transformation capable of escaping or hunting any opponent across oceans.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+              <span class="text-2xl">🌀</span>
+              <h3 class="font-bold text-white text-base">Portal (Legendary)</h3>
+              <p class="text-xs text-slate-400">
+                The pinnacle of high-skill mobility. Dimensional rifts, instant Third Sea cross-map teleportation, and inescapable sword stuns.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+              <span class="text-2xl">✨</span>
+              <h3 class="font-bold text-white text-base">Buddha (Legendary)</h3>
+              <p class="text-xs text-slate-400">
+                The undisputed master of Raids, Bosses, and Sea Events. Boasts a 50% passive damage absorption shield and screen-wide melee reach.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Internal Linking with other tools -->
+        <div class="p-8 rounded-3xl bg-gradient-to-r from-indigo-950/40 via-purple-950/20 to-black/40 border border-indigo-500/20 space-y-4">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span>🔗</span>
+            <span>More VIP Blox Fruits Utilities</span>
+          </h2>
+          <p class="text-sm text-slate-300">
+            Supercharge your inventory and trade safely with our companion utilities:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <a 
+              href="/en/blox-fruits-trade-calculator/" 
+              class="p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center gap-3 transition-colors group"
+            >
+              <span class="text-2xl">⚖️</span>
+              <div>
+                <span class="font-bold text-white group-hover:text-amber-300 text-sm block">Trade Calculator W/F/L</span>
+                <span class="text-xs text-slate-400 block">Live Beli trade values & 40% rule</span>
+              </div>
+            </a>
+
+            <a 
+              href="/en/blox-fruits-quiz/" 
+              class="p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center gap-3 transition-colors group"
+            >
+              <span class="text-2xl">🧠</span>
+              <div>
+                <span class="font-bold text-white group-hover:text-purple-300 text-sm block">Fruit Personality Quiz</span>
+                <span class="text-xs text-slate-400 block">Match your playstyle to your ideal fruit</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Editorial Review Card (E-E-A-T) -->
+        <div class="p-6 rounded-3xl bg-black/40 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-rose-500 p-0.5">
+              <div class="w-full h-full bg-[#0b0f19] rounded-[14px] flex items-center justify-center text-2xl font-black text-amber-400">
+                GB
+              </div>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-amber-400 uppercase tracking-wider block">Lead Competitive Analyst</span>
+              <span class="text-base font-bold text-white block">Guillermo Beltrán</span>
+              <span class="text-xs text-slate-400 block">Reviewed by Jorge Villapún & Héctor Moreno</span>
+            </div>
+          </div>
+
+          <div class="text-right text-xs font-mono text-slate-400">
+            <span class="block">Meta Verified:</span>
+            <span class="text-white font-bold">Blox Fruits Update 24 (2026)</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bottom Ad Placement -->
+      <div class="my-10">
+        <AdBanner slot="bottom-banner" format="horizontal" />
+      </div>
+
+    </div>
+  </main>
+</Layout>
