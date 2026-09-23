@@ -9,7 +9,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync-codes": "node --experimental-strip-types scripts/sync-codes.ts",
+    "sync-and-push": "bash scripts/auto-sync.sh",
+    "sync-daemon": "node --experimental-strip-types scripts/daemon-sync.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
