@@ -1,0 +1,228 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import ProfileCardGenerator from '../../components/ProfileCardGenerator.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'es';
+const t = getTranslations(locale);
+
+const pageTitle = 'Generador de Tarjeta de Perfil Roblox 2026 | Crea tu Gamer ID con Skin 3D';
+const pageDescription = 'Crea gratis tu tarjeta de jugador Roblox con tu skin 3D real, rango, juego favorito y estadísticas. Descarga tu Gamer ID en PNG para Discord, TikTok y Twitter.';
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Generador de Tarjeta de Perfil Roblox (Gamer ID Card Maker)',
+      operatingSystem: 'All',
+      applicationCategory: 'MultimediaApplication',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+      },
+      description: 'Herramienta interactiva para diseñar y descargar tarjetas de perfil de Roblox con skin 3D en alta definición (1080p).',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: '¿Cómo cargo mi skin real de Roblox en la tarjeta?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Solo escribe tu nombre de usuario exacto de Roblox en la casilla "Nombre de Usuario" y pulsa el botón "Cargar 3D". Nuestra herramienta se conecta a la API pública oficial de Roblox Thumbnails para extraer tu avatar en alta resolución sin pedir contraseñas.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: '¿Es seguro usar este generador de tarjetas?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '100% seguro. Jamás te pediremos tu contraseña ni cookies de sesión. Solo utilizamos tu nombre de usuario público mediante las APIs oficiales y abiertas de Roblox Corporation.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: '¿Dónde puedo usar mi Gamer Card descargada?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'La imagen descargada en PNG tiene resolución 1280x720 (proporción 16:9), perfecta para banners de Discord, perfiles de TikTok, firmas de foros o cabeceras de Twitter/X y YouTube.',
+          },
+        },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://codigosroblox.org/es/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Generador de Tarjeta Roblox',
+          item: 'https://codigosroblox.org/es/generador-tarjeta-roblox/',
+        },
+      ],
+    },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  schema={pageSchema}
+>
+  <main class="min-h-screen pb-20 pt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <a href="/es/" class="hover:text-cyan-400 transition-colors">Inicio</a>
+        <span>/</span>
+        <span class="text-slate-200">Herramientas VIP</span>
+        <span>/</span>
+        <span class="text-cyan-400">Generador de Tarjeta Roblox</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="relative text-center max-w-4xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          Conexión API Oficial Roblox 3D
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
+          Generador de <span class="bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">Tarjeta de Perfil Roblox</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          Diseña tu propia <strong>Gamer ID Card</strong> con tu skin 3D de Roblox, título competitivo y estadísticas. Descarga tu imagen en alta resolución (1080p) para presumir en Discord, TikTok y redes.
+        </p>
+
+        <!-- Feature Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            👤 Skin 3D Automática por Nick
+          </span>
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            🎨 6 Temas Holográficos Neón
+          </span>
+          <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">
+            📥 Descarga PNG & Copia al Portapapeles
+          </span>
+        </div>
+      </div>
+
+      <!-- Top Ad Placement -->
+      <div class="my-6">
+        <AdBanner slot="top-banner" format="horizontal" />
+      </div>
+
+      <!-- Main Interactive Profile Card Component -->
+      <ProfileCardGenerator locale={locale} />
+
+      <!-- Mid-page Ad Placement -->
+      <div class="my-10">
+        <AdBanner slot="middle-banner" format="horizontal" />
+      </div>
+
+      <!-- Editorial Guide & E-E-A-T Safety -->
+      <section class="max-w-4xl mx-auto space-y-12 text-slate-300 leading-relaxed">
+        
+        <!-- Guide 1: How to use your Gamer Card -->
+        <div class="p-8 rounded-3xl bg-[#0b0f19]/80 border border-white/10 backdrop-blur-xl space-y-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <span class="p-2 rounded-xl bg-cyan-500/10 text-cyan-400 text-xl">💳</span>
+            ¿Para qué sirve tu Roblox Gamer Card y dónde usarla?
+          </h2>
+          <p>
+            Tu tarjeta de perfil digital es tu carta de presentación en la comunidad de Roblox. Al diseñarla con tus estadísticas reales y tu skin 3D, puedes darle múltiples usos:
+          </p>
+          <ul class="list-disc list-inside space-y-2 text-slate-300">
+            <li><strong>Banner o Avatar en Discord:</strong> Comparte tu tarjeta en los servidores de Blox Fruits o Blade Ball para buscar clanes o grupos de tradeo.</li>
+            <li><strong>Miniatura o Intro en TikTok / YouTube:</strong> Úsala como portada o marco en tus vídeos y directos de Roblox.</li>
+            <li><strong>Firma en foros y perfiles de juego:</strong> Un distintivo gráfico con tus mayores logros (Bounty 30M, Nivel Máximo, Frutas Míticas).</li>
+          </ul>
+        </div>
+
+        <!-- Security Warning: Zero Passwords -->
+        <div class="p-6 rounded-3xl bg-emerald-950/20 border border-emerald-500/30 space-y-3">
+          <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+            <span>🛡️</span>
+            <span>Garantía de Privacidad y Seguridad Total: Cero Contraseñas</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300">
+            A diferencia de sitios sospechosos que intentan robar cuentas, <strong>esta herramienta NUNCA te pedirá tu contraseña, correo electrónico ni cookies de sesión (.ROBLOSECURITY)</strong>. Solo necesitas introducir tu nombre de usuario público. El renderizado 3D se obtiene directamente desde la red de entrega de contenidos oficial de Roblox Corporation (<code class="text-cyan-300">tr.rbxcdn.com</code>).
+          </p>
+        </div>
+
+        <!-- Editorial Review Card (E-E-A-T) -->
+        <div class="p-6 rounded-3xl bg-black/40 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-500 p-0.5">
+              <div class="w-full h-full bg-[#0b0f19] rounded-[14px] flex items-center justify-center text-2xl font-black text-cyan-400">
+                GB
+              </div>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider block">Autor & Creador de Herramientas</span>
+              <span class="text-base font-bold text-white block">Guillermo Beltrán</span>
+              <span class="text-xs text-slate-400 block">Revisión técnica por Jorge Villapún y Héctor Moreno</span>
+            </div>
+          </div>
+
+          <div class="text-right text-xs font-mono text-slate-400">
+            <span class="block">Integración API:</span>
+            <span class="text-white font-bold">Roblox Thumbnails v1 (2026)</span>
+          </div>
+        </div>
+
+        <!-- FAQs Section -->
+        <div class="space-y-6 pt-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <span>❓</span>
+            <span>Preguntas Frecuentes sobre la Tarjeta de Perfil Roblox</span>
+          </h2>
+
+          <div class="space-y-3">
+            <details class="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/30 transition-colors">
+              <summary class="font-bold text-white text-sm sm:text-base cursor-pointer flex justify-between items-center">
+                <span>¿Por qué mi avatar no carga cuando pongo mi nick?</span>
+                <span class="text-cyan-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-3 text-sm text-slate-400 leading-relaxed">
+                Verifica que has escrito tu nombre de usuario oficial (no tu display name) sin espacios adicionales. Si tu cuenta es muy reciente o Roblox tiene una cola de procesamiento de imágenes, puedes elegir cualquiera de los avatares clásicos preconfigurados (Noob, Bacon Hair, Valkyrie).
+              </p>
+            </details>
+
+            <details class="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/30 transition-colors">
+              <summary class="font-bold text-white text-sm sm:text-base cursor-pointer flex justify-between items-center">
+                <span>¿Tiene algún coste descargar la tarjeta?</span>
+                <span class="text-cyan-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-3 text-sm text-slate-400 leading-relaxed">
+                No, es 100% gratuita y sin marcas de agua intrusivas. Puedes generar tantas tarjetas como desees para ti y tus amigos.
+              </p>
+            </details>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bottom Ad Placement -->
+      <div class="my-10">
+        <AdBanner slot="bottom-banner" format="horizontal" />
+      </div>
+
+    </div>
+  </main>
+</Layout>

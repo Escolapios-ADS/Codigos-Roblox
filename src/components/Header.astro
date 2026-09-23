@@ -27,6 +27,8 @@ if (currentSlug) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/objetos-gratis/' : '/en/free-items/';
 } else if (pathname.includes('/generador-nombres-roblox') || pathname.includes('/roblox-username-generator')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/generador-nombres-roblox/' : '/en/roblox-username-generator/';
+} else if (pathname.includes('/generador-tarjeta-roblox') || pathname.includes('/roblox-profile-card')) {
+  targetAlternateUrl = otherLocale === 'es' ? '/es/generador-tarjeta-roblox/' : '/en/roblox-profile-card/';
 } else if (pathname.includes('/errores-roblox') || pathname.includes('/roblox-error-codes')) {
   targetAlternateUrl = otherLocale === 'es' ? '/es/errores-roblox/' : '/en/roblox-error-codes/';
 } else if (pathname.includes('/codigos-ropa-brookhaven') || pathname.includes('/brookhaven-outfit-codes')) {
@@ -161,7 +163,7 @@ if (currentSlug) {
           >
             <span>🛠️</span>
             <span class="font-bold">{t.nav.toolsMenu}</span>
-            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 uppercase font-mono font-bold">9</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 uppercase font-mono font-bold">10</span>
             <span class="text-[10px] text-indigo-400 group-hover/megamenu:rotate-180 transition-transform duration-200">▼</span>
           </button>
 
@@ -235,6 +237,19 @@ if (currentSlug) {
                   <span>👗</span>
                   <span>{locale === 'es' ? 'Avatar & Estilo' : 'Avatar & Style'}</span>
                 </div>
+
+                <a 
+                  href={`/${locale}/${locale === 'es' ? 'generador-tarjeta-roblox/' : 'roblox-profile-card/'}`}
+                  class="flex items-start gap-2.5 p-2 rounded-2xl hover:bg-cyan-500/10 border border-transparent hover:border-cyan-500/20 transition-all group/item"
+                >
+                  <span class="text-xl p-1.5 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">💳</span>
+                  <div>
+                    <span class="font-bold text-white group-hover/item:text-cyan-300 text-xs block">
+                      {locale === 'es' ? 'Tarjeta Gamer ID' : 'Gamer ID Card'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 line-clamp-1">{locale === 'es' ? 'Avatar 3D y badge Discord' : '3D avatar & Discord badge'}</span>
+                  </div>
+                </a>
 
                 <a 
                   href={`/${locale}/${locale === 'es' ? 'codigos-ropa-brookhaven/' : 'brookhaven-outfit-codes/'}`}
@@ -408,10 +423,21 @@ if (currentSlug) {
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
           {locale === 'es' ? '🛠️ Herramientas & Calculadoras VIP' : '🛠️ VIP Tools & Calculators'}
         </span>
-        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">9</span>
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold">10</span>
       </div>
 
       <div class="grid grid-cols-2 gap-2.5">
+        <a 
+          href={`/${locale}/${locale === 'es' ? 'generador-tarjeta-roblox/' : 'roblox-profile-card/'}`}
+          class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-cyan-500/30 flex items-center gap-2.5 transition-colors"
+        >
+          <span class="text-xl">💳</span>
+          <div class="overflow-hidden">
+            <span class="text-xs font-bold text-white block truncate">{t.nav.profileCard}</span>
+            <span class="text-[10px] text-slate-400 block truncate">{locale === 'es' ? 'Skin 3D & Gamer ID' : '3D Skin & Gamer ID'}</span>
+          </div>
+        </a>
+
         <a 
           href={`/${locale}/${locale === 'es' ? 'tier-list-blox-fruits/' : 'blox-fruits-tier-list/'}`}
           class="p-3 rounded-2xl bg-black/40 border border-white/5 hover:border-orange-500/30 flex items-center gap-2.5 transition-colors"

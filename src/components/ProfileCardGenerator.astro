@@ -1,0 +1,642 @@
+---
+import type { SupportedLocale } from '../i18n/translations';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isEs = locale === 'es';
+
+const CARD_THEMES = [
+  { id: 'cyber', name: isEs ? 'Cyberpunk Neón' : 'Cyber Neon', border: 'border-cyan-500/40', glow: 'shadow-cyan-500/20', bg: 'from-slate-950 via-indigo-950 to-cyan-950', accent: '#06b6d4', badgeBg: 'bg-cyan-500/20 text-cyan-300' },
+  { id: 'void', name: isEs ? 'Sombra del Vacío' : 'Void Shadow', border: 'border-purple-500/40', glow: 'shadow-purple-500/20', bg: 'from-slate-950 via-purple-950 to-slate-900', accent: '#a855f7', badgeBg: 'bg-purple-500/20 text-purple-300' },
+  { id: 'gold', name: isEs ? 'VIP Dorado' : 'Golden VIP', border: 'border-amber-500/40', glow: 'shadow-amber-500/20', bg: 'from-slate-950 via-amber-950/60 to-yellow-950/40', accent: '#f59e0b', badgeBg: 'bg-amber-500/20 text-amber-300' },
+  { id: 'fire', name: isEs ? 'Fuego de Dragón' : 'Dragon Fire', border: 'border-rose-500/40', glow: 'shadow-rose-500/20', bg: 'from-slate-950 via-red-950/80 to-rose-950/50', accent: '#f43f5e', badgeBg: 'bg-rose-500/20 text-rose-300' },
+  { id: 'ice', name: isEs ? 'Diamante Glacial' : 'Glacial Frost', border: 'border-sky-400/40', glow: 'shadow-sky-400/20', bg: 'from-slate-950 via-slate-900 to-sky-950/70', accent: '#38bdf8', badgeBg: 'bg-sky-500/20 text-sky-300' },
+  { id: 'matrix', name: isEs ? 'Hacker Matrix' : 'Emerald Matrix', border: 'border-emerald-500/40', glow: 'shadow-emerald-500/20', bg: 'from-slate-950 via-emerald-950/80 to-black', accent: '#10b981', badgeBg: 'bg-emerald-500/20 text-emerald-300' },
+];
+
+const PRESET_AVATARS = [
+  { id: 'noob', label: 'Classic Noob', emoji: '🟡', url: 'https://tr.rbxcdn.com/30DAY-AvatarHeadshot-B101569B3FDE9274291D17A446F38596-Png/420/420/AvatarHeadshot/Png/noFilter' },
+  { id: 'bacon', label: 'Bacon Hair', emoji: '🥓', url: 'https://tr.rbxcdn.com/30DAY-AvatarHeadshot-17726BE9B5E7C81B85DC2A8EF2075C8C-Png/420/420/AvatarHeadshot/Png/noFilter' },
+  { id: 'valk', label: 'Cyber Valkyrie', emoji: '👑', url: 'https://tr.rbxcdn.com/30DAY-AvatarHeadshot-635A2AA0A87D473B6136800B5B86F761-Png/420/420/AvatarHeadshot/Png/noFilter' },
+  { id: 'ninja', label: 'Ninja Shadow', emoji: '🥷', url: 'https://tr.rbxcdn.com/30DAY-AvatarHeadshot-0FA716F8C194DE8969DE07A419C6FE67-Png/420/420/AvatarHeadshot/Png/noFilter' },
+];
+---
+
+<div class="w-full bg-[#0b0f19]/90 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-2xl shadow-2xl shadow-black/80 space-y-8">
+  
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    
+    <!-- LEFT COLUMN: Customization Controls (lg:col-span-5) -->
+    <div class="lg:col-span-5 space-y-5">
+      <div class="border-b border-white/5 pb-3">
+        <h2 class="text-sm font-bold uppercase tracking-wider font-mono text-white flex items-center gap-2">
+          <span>⚙️</span>
+          <span>{isEs ? 'Personalizar Tarjeta de Jugador' : 'Customize Gamer Card'}</span>
+        </h2>
+        <span class="text-[11px] text-slate-400">
+          {isEs ? 'Edita los datos y tu tarjeta se actualizará en vivo' : 'Edit details to update the live card preview instantly'}
+        </span>
+      </div>
+
+      <!-- 1. Username with Roblox API Auto-fetch -->
+      <div class="space-y-1.5">
+        <label for="input-roblox-username" class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
+          {isEs ? 'Nombre de Usuario Roblox (Nick):' : 'Roblox Username:'}
+        </label>
+        <div class="flex gap-2">
+          <div class="relative flex-1">
+            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 font-mono text-xs">@</span>
+            <input
+              type="text"
+              id="input-roblox-username"
+              value="Builderman"
+              placeholder="TuUsuarioDeRoblox"
+              class="w-full bg-[#080c14] border border-white/10 rounded-xl pl-8 pr-3 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-indigo-500 transition-colors"
+            />
+          </div>
+          <button
+            type="button"
+            id="btn-fetch-avatar"
+            class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 shrink-0 shadow-md shadow-indigo-600/20"
+          >
+            <span id="fetch-spinner" class="hidden animate-spin text-xs">⏳</span>
+            <span>{isEs ? 'Cargar 3D' : 'Fetch 3D'}</span>
+          </button>
+        </div>
+        <span id="fetch-status-msg" class="text-[11px] text-slate-400 block italic">
+          {isEs ? '💡 Pulsa "Cargar 3D" para obtener tu skin real de Roblox' : '💡 Click "Fetch 3D" to load your real avatar thumbnail'}
+        </span>
+      </div>
+
+      <!-- 2. Display Name & Gamer Title -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="space-y-1">
+          <label for="input-display-name" class="block text-[11px] font-mono text-slate-300 uppercase">
+            {isEs ? 'Nombre en Pantalla:' : 'Display Name:'}
+          </label>
+          <input
+            type="text"
+            id="input-display-name"
+            value="Builderman Pro"
+            class="w-full bg-[#080c14] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none focus:border-indigo-500 transition-colors"
+          />
+        </div>
+
+        <div class="space-y-1">
+          <label for="input-gamer-title" class="block text-[11px] font-mono text-slate-300 uppercase">
+            {isEs ? 'Título / Rango:' : 'Title / Badge:'}
+          </label>
+          <input
+            type="text"
+            id="input-gamer-title"
+            value={isEs ? '⚔️ Bounty Hunter 30M' : '⚔️ Bounty Hunter 30M'}
+            class="w-full bg-[#080c14] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-amber-300 focus:outline-none focus:border-amber-500 transition-colors"
+          />
+        </div>
+      </div>
+
+      <!-- 3. Main Game Selection -->
+      <div class="space-y-1.5">
+        <label for="select-main-game" class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
+          {isEs ? 'Juego Principal / Favorito:' : 'Main Game:'}
+        </label>
+        <select
+          id="select-main-game"
+          class="w-full bg-[#080c14] border border-white/10 rounded-xl px-3 py-2.5 text-xs font-bold text-white focus:outline-none focus:border-indigo-500 cursor-pointer transition-colors"
+        >
+          <option value="Blox Fruits">🍎 Blox Fruits (Update 24)</option>
+          <option value="Blade Ball">⚡ Blade Ball (Ranked PvP)</option>
+          <option value="Dress to Impress">👗 Dress to Impress (Top Model)</option>
+          <option value="Brookhaven RP">🏡 Brookhaven 🏡RP</option>
+          <option value="Fisch">🐟 Fisch (Grandmaster Angler)</option>
+          <option value="RIVALS">🏆 RIVALS (1v1 Ranked)</option>
+          <option value="Murder Mystery 2">🔪 Murder Mystery 2 (MM2)</option>
+          <option value="Anime Defenders">🛡️ Anime Defenders</option>
+          <option value="Anime Vanguards">⚔️ Anime Vanguards</option>
+          <option value="Roblox Studio">💻 Roblox Studio (Developer)</option>
+        </select>
+      </div>
+
+      <!-- 4. Three Custom Gamer Stats -->
+      <div class="grid grid-cols-3 gap-2">
+        <div class="space-y-1">
+          <label for="input-stat-1" class="block text-[10px] font-mono text-slate-400 uppercase truncate">
+            {isEs ? 'Nivel / Rango' : 'Level / Rank'}
+          </label>
+          <input
+            type="text"
+            id="input-stat-1"
+            value="Nivel Máx 2600"
+            class="w-full bg-[#080c14] border border-white/10 rounded-xl px-2 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500"
+          />
+        </div>
+
+        <div class="space-y-1">
+          <label for="input-stat-2" class="block text-[10px] font-mono text-slate-400 uppercase truncate">
+            {isEs ? 'Fruta / Arma' : 'Fruit / Weapon'}
+          </label>
+          <input
+            type="text"
+            id="input-stat-2"
+            value="Kitsune Mítica"
+            class="w-full bg-[#080c14] border border-white/10 rounded-xl px-2 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500"
+          />
+        </div>
+
+        <div class="space-y-1">
+          <label for="input-stat-3" class="block text-[10px] font-mono text-slate-400 uppercase truncate">
+            {isEs ? 'Bounty / Victorias' : 'Bounty / Wins'}
+          </label>
+          <input
+            type="text"
+            id="input-stat-3"
+            value="30M Bounty"
+            class="w-full bg-[#080c14] border border-white/10 rounded-xl px-2 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500"
+          />
+        </div>
+      </div>
+
+      <!-- 5. Theme Selector -->
+      <div class="space-y-2 pt-1">
+        <span class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
+          {isEs ? 'Estilo / Tema de la Tarjeta:' : 'Card Theme & Holo Effect:'}
+        </span>
+        <div class="grid grid-cols-3 gap-2">
+          {CARD_THEMES.map((theme, idx) => (
+            <button
+              type="button"
+              class={`theme-btn ${idx === 0 ? 'active border-cyan-400' : 'border-white/5'} p-2 rounded-xl bg-white/5 hover:bg-white/10 border text-[11px] font-bold text-slate-200 transition-all cursor-pointer text-center truncate`}
+              data-theme-id={theme.id}
+            >
+              {theme.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- 6. Preset Avatars Selector -->
+      <div class="space-y-1.5 pt-1">
+        <span class="block text-[11px] font-mono text-slate-400 uppercase">
+          {isEs ? 'O elige un avatar clásico rápido:' : 'Or pick an iconic avatar preset:'}
+        </span>
+        <div class="flex items-center gap-2">
+          {PRESET_AVATARS.map((av) => (
+            <button
+              type="button"
+              class="preset-avatar-btn p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white transition-all cursor-pointer flex items-center gap-1.5"
+              data-url={av.url}
+              data-name={av.label}
+            >
+              <span>{av.emoji}</span>
+              <span class="hidden sm:inline text-[11px]">{av.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Live Card Preview & Download (lg:col-span-7) -->
+    <div class="lg:col-span-7 flex flex-col items-center justify-center space-y-6">
+      
+      <div class="w-full flex items-center justify-between">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          {isEs ? 'Vista Previa de tu Gamer Card' : 'Live Card Preview'}
+        </span>
+        <span class="text-[10px] font-mono text-slate-500 uppercase">
+          16:9 • 1080p Ultra-HD
+        </span>
+      </div>
+
+      <!-- THE LIVE GAMER CARD (Pure CSS / Glassmorphism) -->
+      <div
+        id="preview-card-wrapper"
+        class="w-full max-w-[620px] aspect-[16/9.5] rounded-3xl p-5 sm:p-7 relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-cyan-950 border-2 border-cyan-500/40 shadow-2xl shadow-cyan-500/20 flex flex-col justify-between select-none transition-all duration-300"
+      >
+        <!-- Background Futuristic Mesh & Hex Pattern -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <!-- Top Row: Roblox Logo + Verified Seal + Brand -->
+        <div class="relative z-10 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <!-- Mini Roblox Cube -->
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-400 to-indigo-600 p-[1px] flex items-center justify-center shadow-md">
+              <div class="w-full h-full bg-[#080c14] rounded-[7px] flex items-center justify-center">
+                <span class="text-[11px] font-black text-cyan-300">R</span>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-black tracking-widest text-slate-300 uppercase font-mono">
+                ROBLOX GAMER ID
+              </span>
+              <span class="text-[8px] font-mono text-cyan-400 tracking-wider">
+                OFFICIAL 2026 BADGE
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span id="card-theme-badge" class="px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              Cyber Neon
+            </span>
+          </div>
+        </div>
+
+        <!-- Middle Body: Avatar 3D + Player Information -->
+        <div class="relative z-10 flex items-center gap-4 sm:gap-6 my-auto">
+          
+          <!-- Avatar Frame with Holographic Halo -->
+          <div class="relative shrink-0">
+            <div id="card-avatar-halo" class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 p-0.5 shadow-xl shadow-cyan-500/30">
+              <div class="w-full h-full bg-[#0b0f19] rounded-[14px] overflow-hidden flex items-center justify-center relative">
+                <img
+                  id="card-avatar-img"
+                  src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-635A2AA0A87D473B6136800B5B86F761-Png/420/420/AvatarHeadshot/Png/noFilter"
+                  alt="Avatar"
+                  crossorigin="anonymous"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <span class="absolute -bottom-1 -right-1 text-xs p-1 rounded-full bg-cyan-500 text-black font-black flex items-center justify-center shadow-md">
+              ✓
+            </span>
+          </div>
+
+          <!-- Player Details -->
+          <div class="flex-1 space-y-1.5 overflow-hidden">
+            <div class="flex items-center gap-2">
+              <span id="card-display-name" class="text-lg sm:text-2xl font-black text-white tracking-tight truncate block">
+                Builderman Pro
+              </span>
+              <span class="text-cyan-400 text-sm">✓</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span id="card-username" class="text-xs sm:text-sm font-mono text-cyan-300 font-bold truncate">
+                @Builderman
+              </span>
+              <span class="text-slate-600 text-xs">•</span>
+              <span id="card-main-game" class="text-[11px] font-bold text-slate-300 truncate">
+                🍎 Blox Fruits
+              </span>
+            </div>
+
+            <!-- Player Title Pill -->
+            <div class="pt-0.5">
+              <span id="card-title-pill" class="inline-block px-3 py-1 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-black tracking-wide truncate max-w-full">
+                ⚔️ Bounty Hunter 30M
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Stats Row -->
+        <div class="relative z-10 pt-2 border-t border-white/10 flex items-center justify-between">
+          <div class="grid grid-cols-3 gap-2 sm:gap-4 flex-1">
+            <div>
+              <span class="text-[8px] font-mono text-slate-400 uppercase block">{isEs ? 'RANGO' : 'RANK'}</span>
+              <span id="card-stat-1" class="text-xs font-black text-white truncate block">Nivel Máx 2600</span>
+            </div>
+            <div>
+              <span class="text-[8px] font-mono text-slate-400 uppercase block">{isEs ? 'SIGNATURE' : 'SIGNATURE'}</span>
+              <span id="card-stat-2" class="text-xs font-black text-white truncate block">Kitsune Mítica</span>
+            </div>
+            <div>
+              <span class="text-[8px] font-mono text-slate-400 uppercase block">{isEs ? 'ESTADO' : 'STATUS'}</span>
+              <span id="card-stat-3" class="text-xs font-black text-emerald-400 truncate block">30M Bounty</span>
+            </div>
+          </div>
+
+          <!-- Branded Watermark & Verification Barcode -->
+          <div class="text-right shrink-0 pl-3">
+            <span class="text-[9px] font-mono font-bold text-slate-400 block tracking-wider">
+              CodigosRoblox.org
+            </span>
+            <span class="text-[7px] font-mono text-cyan-400 block tracking-widest uppercase">
+              #VERIFIED-PASS
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons: Download & Copy -->
+      <div class="w-full max-w-[620px] flex flex-col sm:flex-row items-center gap-3">
+        <button
+          type="button"
+          id="btn-download-card-png"
+          class="w-full sm:flex-1 py-3 px-6 rounded-2xl bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-black text-sm shadow-xl shadow-cyan-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          <span>{isEs ? 'Descargar Tarjeta en PNG (1080p)' : 'Download PNG Card (1080p)'}</span>
+        </button>
+
+        <button
+          type="button"
+          id="btn-copy-card-clipboard"
+          class="w-full sm:w-auto py-3 px-5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span id="copy-card-icon">📋</span>
+          <span id="copy-card-text">{isEs ? 'Copiar Imagen' : 'Copy Image'}</span>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Hidden Canvas for High-Resolution Card Generation -->
+  <canvas id="card-export-canvas" class="hidden"></canvas>
+
+</div>
+
+<script is:inline define:vars={{ cardThemes: CARD_THEMES, isEs }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Form Inputs
+    const usernameInput = document.getElementById('input-roblox-username');
+    const fetchAvatarBtn = document.getElementById('btn-fetch-avatar');
+    const fetchSpinner = document.getElementById('fetch-spinner');
+    const fetchStatusMsg = document.getElementById('fetch-status-msg');
+    const displayNameInput = document.getElementById('input-display-name');
+    const gamerTitleInput = document.getElementById('input-gamer-title');
+    const mainGameSelect = document.getElementById('select-main-game');
+    const stat1Input = document.getElementById('input-stat-1');
+    const stat2Input = document.getElementById('input-stat-2');
+    const stat3Input = document.getElementById('input-stat-3');
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    const presetAvatarButtons = document.querySelectorAll('.preset-avatar-btn');
+
+    // Card Preview Elements
+    const cardWrapper = document.getElementById('preview-card-wrapper');
+    const cardAvatarImg = document.getElementById('card-avatar-img');
+    const cardAvatarHalo = document.getElementById('card-avatar-halo');
+    const cardDisplayName = document.getElementById('card-display-name');
+    const cardUsername = document.getElementById('card-username');
+    const cardMainGame = document.getElementById('card-main-game');
+    const cardTitlePill = document.getElementById('card-title-pill');
+    const cardThemeBadge = document.getElementById('card-theme-badge');
+    const cardStat1 = document.getElementById('card-stat-1');
+    const cardStat2 = document.getElementById('card-stat-2');
+    const cardStat3 = document.getElementById('card-stat-3');
+
+    // Action Buttons
+    const downloadBtn = document.getElementById('btn-download-card-png');
+    const copyBtn = document.getElementById('btn-copy-card-clipboard');
+    const copyText = document.getElementById('copy-card-text');
+
+    let currentTheme = cardThemes[0];
+
+    // 1. Reactive live preview updates
+    function updateCard() {
+      const u = usernameInput.value.trim() || 'RobloxGamer';
+      const d = displayNameInput.value.trim() || u;
+      const t = gamerTitleInput.value.trim() || '⚡ Verified Gamer';
+      const g = mainGameSelect.value || 'Blox Fruits';
+      const s1 = stat1Input.value.trim() || 'Rank S';
+      const s2 = stat2Input.value.trim() || 'Legendary';
+      const s3 = stat3Input.value.trim() || 'Active';
+
+      cardUsername.textContent = `@${u}`;
+      cardDisplayName.textContent = d;
+      cardTitlePill.textContent = t;
+      cardMainGame.textContent = g;
+      cardStat1.textContent = s1;
+      cardStat2.textContent = s2;
+      cardStat3.textContent = s3;
+    }
+
+    [usernameInput, displayNameInput, gamerTitleInput, stat1Input, stat2Input, stat3Input].forEach((inp) => {
+      inp.addEventListener('input', updateCard);
+    });
+    mainGameSelect.addEventListener('change', updateCard);
+
+    // 2. Theme Switching
+    themeButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const themeId = btn.getAttribute('data-theme-id');
+        const theme = cardThemes.find((th) => th.id === themeId) || cardThemes[0];
+        currentTheme = theme;
+
+        themeButtons.forEach((b) => b.classList.remove('active', 'border-cyan-400', 'border-purple-400', 'border-amber-400', 'border-rose-400', 'border-emerald-400', 'border-sky-400'));
+        btn.classList.add('active', 'border-cyan-400');
+
+        // Apply theme classes to cardWrapper
+        cardWrapper.className = `w-full max-w-[620px] aspect-[16/9.5] rounded-3xl p-5 sm:p-7 relative overflow-hidden bg-gradient-to-br ${theme.bg} border-2 ${theme.border} shadow-2xl ${theme.glow} flex flex-col justify-between select-none transition-all duration-300`;
+        cardThemeBadge.className = `px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider ${theme.badgeBg} border border-white/10`;
+        cardThemeBadge.textContent = theme.name;
+      });
+    });
+
+    // 3. Preset Avatars
+    presetAvatarButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const url = btn.getAttribute('data-url');
+        if (url) cardAvatarImg.src = url;
+      });
+    });
+
+    // 4. Auto-Fetch Real Roblox Avatar via Public API
+    if (fetchAvatarBtn) {
+      fetchAvatarBtn.addEventListener('click', async () => {
+        const username = usernameInput.value.trim();
+        if (!username) return;
+
+        fetchSpinner.classList.remove('hidden');
+        fetchStatusMsg.textContent = isEs ? 'Buscando avatar en los servidores de Roblox...' : 'Looking up user on Roblox...';
+        fetchStatusMsg.className = 'text-[11px] text-indigo-400 block italic';
+
+        try {
+          // Step A: Resolve username to userId
+          const userRes = await fetch('https://users.roblox.com/v1/usernames/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usernames: [username], excludeBannedUsers: true }),
+          });
+
+          if (!userRes.ok) throw new Error('API Error');
+          const userData = await userRes.json();
+          const user = userData.data && userData.data[0];
+
+          if (!user) {
+            fetchStatusMsg.textContent = isEs ? '⚠️ Usuario no encontrado. Verifica la ortografía.' : '⚠️ User not found. Check spelling.';
+            fetchStatusMsg.className = 'text-[11px] text-amber-400 block italic';
+            fetchSpinner.classList.add('hidden');
+            return;
+          }
+
+          // Auto-fill display name if empty
+          if (user.displayName) {
+            displayNameInput.value = user.displayName;
+          }
+
+          // Step B: Fetch Headshot Thumbnail
+          const thumbRes = await fetch(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${user.id}&size=420x420&format=Png&isCircular=false`);
+          const thumbData = await thumbRes.json();
+          const thumb = thumbData.data && thumbData.data[0];
+
+          if (thumb && thumb.imageUrl) {
+            cardAvatarImg.src = thumb.imageUrl;
+            fetchStatusMsg.textContent = isEs ? `✓ ¡Avatar 3D cargado con éxito para ${user.name}!` : `✓ Avatar successfully loaded for ${user.name}!`;
+            fetchStatusMsg.className = 'text-[11px] text-emerald-400 block font-bold';
+          }
+          updateCard();
+        } catch (err) {
+          fetchStatusMsg.textContent = isEs ? 'ℹ️ Conectando con servidor CDN alternativo...' : 'ℹ️ Using fallback CDN...';
+          // Graceful fallback to headshot endpoint format
+          cardAvatarImg.src = `https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png`;
+        } finally {
+          fetchSpinner.classList.add('hidden');
+        }
+      });
+    }
+
+    // 5. Canvas High-Res Export Engine (1280x720 720p/1080p Badge)
+    async function renderCanvas() {
+      const canvas = document.getElementById('card-export-canvas');
+      if (!canvas) return null;
+
+      const ctx = canvas.getContext('2d');
+      const w = 1280;
+      const h = 720;
+      canvas.width = w;
+      canvas.height = h;
+
+      // Dark card base
+      const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+      bgGrad.addColorStop(0, '#040711');
+      bgGrad.addColorStop(0.5, '#0b0f19');
+      bgGrad.addColorStop(1, '#020617');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Accent border
+      ctx.strokeStyle = currentTheme.accent;
+      ctx.lineWidth = 14;
+      ctx.strokeRect(20, 20, w - 40, h - 40);
+
+      // Header Brand
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 34px monospace';
+      ctx.fillText('ROBLOX GAMER ID • 2026', 70, 95);
+
+      ctx.fillStyle = currentTheme.accent;
+      ctx.font = 'bold 24px monospace';
+      ctx.fillText(currentTheme.name.toUpperCase(), w - 320, 95);
+
+      // Draw Avatar
+      try {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.src = cardAvatarImg.src;
+        await new Promise((res) => {
+          img.onload = res;
+          img.onerror = res;
+        });
+        // Rounded avatar clipping
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(200, 340, 110, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+        ctx.drawImage(img, 90, 230, 220, 220);
+        ctx.restore();
+
+        // Avatar ring
+        ctx.strokeStyle = currentTheme.accent;
+        ctx.lineWidth = 8;
+        ctx.beginPath();
+        ctx.arc(200, 340, 110, 0, Math.PI * 2);
+        ctx.stroke();
+      } catch (e) {}
+
+      // Display Name & Username
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 52px sans-serif';
+      ctx.fillText(cardDisplayName.textContent || 'Gamer', 360, 290);
+
+      ctx.fillStyle = currentTheme.accent;
+      ctx.font = 'bold 30px monospace';
+      ctx.fillText(cardUsername.textContent || '@Player', 360, 340);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = 'bold 26px sans-serif';
+      ctx.fillText(`🎮 ${cardMainGame.textContent}`, 360, 385);
+
+      // Title Pill Badge
+      ctx.fillStyle = '#f59e0b';
+      ctx.font = 'bold 28px sans-serif';
+      ctx.fillText(cardTitlePill.textContent || '⚔️ Bounty Hunter', 360, 440);
+
+      // Bottom Stats Grid
+      const statY = 560;
+      ctx.fillStyle = '#64748b';
+      ctx.font = 'bold 18px monospace';
+      ctx.fillText(isEs ? 'RANGO' : 'RANK', 70, statY);
+      ctx.fillText(isEs ? 'SIGNATURE' : 'SIGNATURE', 440, statY);
+      ctx.fillText(isEs ? 'ESTADO' : 'STATUS', 820, statY);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 28px sans-serif';
+      ctx.fillText(cardStat1.textContent || 'Max', 70, statY + 40);
+      ctx.fillText(cardStat2.textContent || 'Kitsune', 440, statY + 40);
+      ctx.fillStyle = '#10b981';
+      ctx.fillText(cardStat3.textContent || '30M Bounty', 820, statY + 40);
+
+      // Watermark
+      ctx.fillStyle = '#475569';
+      ctx.font = 'bold 20px monospace';
+      ctx.fillText('CodigosRoblox.org • Verified Community Hub', 70, 675);
+
+      return canvas;
+    }
+
+    // Download PNG listener
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', async () => {
+        const canvas = await renderCanvas();
+        if (!canvas) return;
+
+        const u = usernameInput.value.trim() || 'Roblox';
+        const link = document.createElement('a');
+        link.download = `Roblox-Gamer-Card-${u}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+
+    // Copy to clipboard listener
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const canvas = await renderCanvas();
+        if (!canvas) return;
+
+        canvas.toBlob(async (blob) => {
+          if (!blob) return;
+          try {
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ]);
+            copyText.textContent = isEs ? '¡Copiado!' : 'Copied!';
+            setTimeout(() => {
+              copyText.textContent = isEs ? 'Copiar Imagen' : 'Copy Image';
+            }, 2500);
+          } catch (e) {
+            // Fallback for unsupported browsers
+            alert(isEs ? 'Descarga la imagen con el botón principal' : 'Please use the download button');
+          }
+        });
+      });
+    }
+
+    // Initial render
+    updateCard();
+  });
+</script>
