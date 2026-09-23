@@ -69,7 +69,7 @@ const { fruits, locale } = Astro.props;
               <span class="fruit-emoji text-3xl"></span>
               <span class="fruit-name text-xs font-bold text-white line-clamp-1"></span>
               <span class="fruit-val font-mono text-[10px] text-amber-300"></span>
-              <span class="remove-btn absolute top-1 right-1.5 text-xs text-slate-500 hover:text-rose-400 font-bold">✕</span>
+              <span class="remove-btn absolute top-1 right-1.5 text-xs text-slate-400 hover:text-rose-400 font-bold">✕</span>
             </div>
           </button>
         ))}
@@ -80,7 +80,7 @@ const { fruits, locale } = Astro.props;
         <span class="text-slate-400">{locale === 'es' ? 'Valor de Mercado:' : 'Market Value:'}</span>
         <span class="text-sm font-black text-amber-300" id="left-total-value">0</span>
       </div>
-      <div class="flex items-center justify-between text-[11px] font-mono text-slate-500 -mt-2">
+      <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 -mt-2">
         <span>{locale === 'es' ? 'Precio Beli Físico:' : 'Dealer Beli Price:'}</span>
         <span id="left-total-beli">$0</span>
       </div>
@@ -130,7 +130,7 @@ const { fruits, locale } = Astro.props;
               <span class="fruit-emoji text-3xl"></span>
               <span class="fruit-name text-xs font-bold text-white line-clamp-1"></span>
               <span class="fruit-val font-mono text-[10px] text-amber-300"></span>
-              <span class="remove-btn absolute top-1 right-1.5 text-xs text-slate-500 hover:text-rose-400 font-bold">✕</span>
+              <span class="remove-btn absolute top-1 right-1.5 text-xs text-slate-400 hover:text-rose-400 font-bold">✕</span>
             </div>
           </button>
         ))}
@@ -141,7 +141,7 @@ const { fruits, locale } = Astro.props;
         <span class="text-slate-400">{locale === 'es' ? 'Valor de Mercado:' : 'Market Value:'}</span>
         <span class="text-sm font-black text-amber-300" id="right-total-value">0</span>
       </div>
-      <div class="flex items-center justify-between text-[11px] font-mono text-slate-500 -mt-2">
+      <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 -mt-2">
         <span>{locale === 'es' ? 'Precio Beli Físico:' : 'Dealer Beli Price:'}</span>
         <span id="right-total-beli">$0</span>
       </div>

@@ -71,7 +71,7 @@ const initialRatio = Math.round((baseUpvotes / (baseUpvotes + baseDownvotes)) * 
         <span class="up-count text-emerald-400 font-bold">{baseUpvotes}</span>
       </button>
 
-      <span class="text-slate-600 text-[10px]">|</span>
+      <span class="text-slate-400 text-[10px]">|</span>
 
       <button
         type="button"
@@ -80,7 +80,7 @@ const initialRatio = Math.round((baseUpvotes / (baseUpvotes + baseDownvotes)) * 
         onclick={`window.voteCode('${codeItem.code}', 'down', this)`}
       >
         <span class="text-xs">👎</span>
-        <span class="down-count text-slate-500 font-medium">{baseDownvotes}</span>
+        <span class="down-count text-slate-400 font-medium">{baseDownvotes}</span>
       </button>
 
       <span class="verified-pct text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-bold ml-0.5">
