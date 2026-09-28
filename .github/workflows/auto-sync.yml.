@@ -1,0 +1,28 @@
+name: Auto-Sync Roblox Codes                                                                                                                                    
+                                                                                                                                                                    
+    on:                                                                                                                                                             
+      schedule:
+        # Se ejecuta cada 4 horas
+        - cron: '0 */4 * * *'
+      workflow_dispatch: # Permite pulsar "Run workflow" manualmente cuando quieras
+  
+    jobs:
+      sync:
+        runs-on: ubuntu-latest
+        permissions:
+          contents: write
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v4
+  
+          - name: Setup Node.js
+            uses: actions/setup-node@v4
+            with:
+              node-version: 22
+  
+          - name: Run Auto-Sync
+            run: |
+              chmod +x scripts/auto-sync.sh
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
+              bash scripts/auto-sync.sh
