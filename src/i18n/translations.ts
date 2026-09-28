@@ -88,7 +88,7 @@ export const translations = {
       clearFilter: 'Mostrar todos los juegos',
     },
     footer: {
-      disclaimer: 'CodigosRoblox.org es un portal comunitario independiente de guías y códigos. No estamos afiliados, patrocinados ni asociados con Roblox Corporation.',
+      disclaimer: 'No estamos afiliados, asociados ni respaldados por Roblox Corporation. Roblox es una marca registrada de Roblox Corporation. CódigosRoblox.org es un portal comunitario independiente de guías, herramientas y códigos verificados.',
       quickLinks: 'Enlaces Rápidos',
       legal: 'Información Legal',
       legalNotice: 'Aviso Legal (LSSI-CE)',
@@ -186,7 +186,7 @@ export const translations = {
       clearFilter: 'Show all games',
     },
     footer: {
-      disclaimer: 'RobloxCodes.org is an independent community hub for gaming guides and codes. We are not affiliated with, sponsored, or endorsed by Roblox Corporation.',
+      disclaimer: 'We are not affiliated with, associated with, or endorsed by Roblox Corporation. Roblox is a registered trademark of Roblox Corporation. RobloxCodes.org is an independent community hub for gaming guides, tools, and verified codes.',
       quickLinks: 'Quick Links',
       legal: 'Legal Info',
       legalNotice: 'Legal Notice & Disclaimers',

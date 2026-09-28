@@ -37,10 +37,44 @@ const rootSchema = {
       }
     </script>
   </head>
-  <body class="bg-slate-950 text-white flex items-center justify-center min-h-screen font-sans">
-    <div class="text-center space-y-4">
-      <div class="inline-block animate-spin w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full"></div>
-      <p class="text-slate-400 text-sm">Cargando códigos de Roblox...</p>
-    </div>
+  <body class="bg-[#080c14] text-white flex items-center justify-center min-h-screen font-sans p-4">
+    <main class="text-center max-w-md w-full space-y-6 p-8 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur shadow-2xl">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mx-auto">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+        </svg>
+      </div>
+
+      <div>
+        <h1 class="text-2xl font-black text-white tracking-tight">CódigosRoblox.org</h1>
+        <p class="text-slate-400 text-sm mt-2">
+          Portal de códigos de Roblox actualizados hoy con copia en 1 clic.
+        </p>
+        <p class="text-slate-500 text-xs mt-1">
+          Redirigiendo automáticamente / Redirecting automatically...
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <a 
+          href="/es/" 
+          class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40"
+        >
+          <span>🇪🇸</span>
+          <span>Versión en Español</span>
+        </a>
+        <a 
+          href="/en/" 
+          class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-sm transition-all border border-slate-700"
+        >
+          <span>🇬🇧</span>
+          <span>English Version</span>
+        </a>
+      </div>
+
+      <div class="pt-4 border-t border-white/5 text-[11px] leading-relaxed text-slate-500">
+        <p>No estamos afiliados, asociados ni respaldados por Roblox Corporation. Roblox es una marca registrada de Roblox Corporation.</p>
+      </div>
+    </main>
   </body>
 </html>

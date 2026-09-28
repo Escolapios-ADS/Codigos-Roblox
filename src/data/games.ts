@@ -2794,6 +2794,475 @@ export const gamesData: GameItem[] = [
         }
       ]
     }
+  },
+  {
+    "id": "the-strongest-battlegrounds",
+    "slug": "the-strongest-battlegrounds",
+    "title": "The Strongest Battlegrounds",
+    "tagline": {
+      "es": "Domina el combate PvP definitivo, combos destructivos y desbloquea emotes exclusivos.",
+      "en": "Master ultimate PvP combat, devastating combos, and unlock exclusive emotes."
+    },
+    "badge": {
+      "es": "🥊 Top PvP Arena",
+      "en": "🥊 Top PvP Arena"
+    },
+    "category": "action",
+    "categoryLabel": {
+      "es": "Acción / Combate PvP",
+      "en": "Action / PvP Combat"
+    },
+    "developer": "Yielding Arts",
+    "likes": "2.9M+",
+    "visits": "6.8B+",
+    "activePlayers": "68.000+",
+    "robloxUrl": "https://www.roblox.com/games/10449761463/The-Strongest-Battlegrounds",
+    "accentColor": "rose",
+    "iconGradient": "from-rose-600 via-red-600 to-orange-600",
+    "emoji": "🥊",
+    "lastUpdated": "2026-09-28",
+    "metaDescription": {
+      "es": "Códigos actualizados de The Strongest Battlegrounds en Roblox. Reclama emotes exclusivos, giros cosméticos y títulos PvP gratis.",
+      "en": "Updated The Strongest Battlegrounds codes on Roblox. Claim exclusive emotes, cosmetic spins, and free PvP titles."
+    },
+    "howToRedeem": {
+      "es": {
+        "title": "Cómo canjear códigos en The Strongest Battlegrounds",
+        "steps": [
+          "Entra a The Strongest Battlegrounds en Roblox.",
+          "Haz clic en el icono de Ajustes (rueda de engranaje) o en el menú superior izquierdo.",
+          "Selecciona la opción de códigos de recompensa.",
+          "Escribe el código tal como aparece en nuestra lista y presiona Intro o Canjear."
+        ],
+        "tip": "Muchos códigos otorgan emotes o títulos cosméticos exclusivos para tu perfil en el servidor."
+      },
+      "en": {
+        "title": "How to Redeem Codes in The Strongest Battlegrounds",
+        "steps": [
+          "Launch The Strongest Battlegrounds on Roblox.",
+          "Click the Settings gear icon or open the top-left menu.",
+          "Locate the reward codes input field.",
+          "Enter an active code from our table and press Enter or Redeem."
+        ],
+        "tip": "Most battlegrounds codes grant exclusive server kill-sound effects, title banners, or emote animations."
+      }
+    },
+    "activeCodes": [
+      {
+        "code": "ultimatemove",
+        "reward": {
+          "es": "Emote exclusivo de celebración",
+          "en": "Exclusive celebration emote"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "strongestseason",
+        "reward": {
+          "es": "Título cosmético de combate",
+          "en": "Cosmetic combat title"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      }
+    ],
+    "expiredCodes": [
+      {
+        "code": "freeemote2025",
+        "reward": {
+          "es": "Emote de temporada",
+          "en": "Seasonal Emote"
+        }
+      }
+    ],
+    "faqs": {
+      "es": [
+        {
+          "q": "¿Qué recompensas dan los códigos de The Strongest Battlegrounds?",
+          "a": "Generalmente ofrecen emotes especiales, animaciones de remate (finishers), efectos cosméticos y títulos exclusivos para tu personaje."
+        },
+        {
+          "q": "¿Cómo mejorar combos en The Strongest Battlegrounds?",
+          "a": "Practica la cancelación de dash (dash cancel) y combina ataques ligeros M1 con habilidades de agarre antes de activar tu Despertar (Awakening)."
+        }
+      ],
+      "en": [
+        {
+          "q": "What rewards do The Strongest Battlegrounds codes offer?",
+          "a": "Codes primarily reward cosmetic emotes, custom finisher animations, kill effects, and server titles."
+        },
+        {
+          "q": "How do you perform combo extensions in TSB?",
+          "a": "Practice side-dash cancels during basic M1 strings and chain your knockback skills into wall bounces before popping your Awakening."
+        }
+      ]
+    }
+  },
+  {
+    "id": "type-soul",
+    "slug": "type-soul",
+    "title": "Type Soul",
+    "tagline": {
+      "es": "Forja tu destino como Shinigami, Hollow o Quincy con rerolls y elixires gratis.",
+      "en": "Forge your destiny as a Shinigami, Hollow, or Quincy with free rerolls and elixirs."
+    },
+    "badge": {
+      "es": "⚔️ RPG Bleach",
+      "en": "⚔️ Bleach RPG"
+    },
+    "category": "anime",
+    "categoryLabel": {
+      "es": "Anime / Bleach RPG",
+      "en": "Anime / Bleach RPG"
+    },
+    "developer": "TYPE // SOUL",
+    "likes": "880K+",
+    "visits": "890M+",
+    "activePlayers": "32.000+",
+    "robloxUrl": "https://www.roblox.com/games/14069678431/TYPE-SOUL",
+    "accentColor": "cyan",
+    "iconGradient": "from-cyan-600 via-blue-600 to-indigo-700",
+    "emoji": "⚔️",
+    "lastUpdated": "2026-09-28",
+    "metaDescription": {
+      "es": "Códigos actualizados de Type Soul en Roblox. Consigue locked weapon rerolls, clan rerolls y elixires azules gratis.",
+      "en": "Updated Type Soul codes on Roblox. Claim locked weapon rerolls, clan rerolls, and free blue elixirs."
+    },
+    "howToRedeem": {
+      "es": {
+        "title": "Cómo canjear códigos en Type Soul paso a paso",
+        "steps": [
+          "Inicia Type Soul en Roblox y entra a un servidor.",
+          "Haz clic en el icono de regalo en la esquina superior izquierda de la pantalla.",
+          "Pega o escribe tu código activo en la casilla de texto.",
+          "Presiona la tecla Enter en tu teclado para recibir tus rerolls de arma o clan."
+        ],
+        "tip": "Asegúrate de estar en una zona segura antes de canjear o usar rerolls para evitar ser emboscado durante la animación."
+      },
+      "en": {
+        "title": "How to Redeem Codes in Type Soul Step-by-Step",
+        "steps": [
+          "Launch Type Soul on Roblox and join a live server.",
+          "Click the Gift box icon in the upper-left corner of the screen.",
+          "Type or paste your active code into the text input area.",
+          "Press Enter on your keyboard to instantly redeem your weapon or clan rerolls."
+        ],
+        "tip": "Make sure you are standing in a safe zone before using elixirs or rolling elements to prevent getting attacked."
+      }
+    },
+    "activeCodes": [
+      {
+        "code": "typesoulrework",
+        "reward": {
+          "es": "Locked Weapon Reroll + Blue Elixir",
+          "en": "Locked Weapon Reroll + Blue Elixir"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "soulreaperupdate",
+        "reward": {
+          "es": "Element Reroll + Shikai Reset",
+          "en": "Element Reroll + Shikai Reset"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "segundorolls",
+        "reward": {
+          "es": "10 Locked Clan Rerolls",
+          "en": "10 Locked Clan Rerolls"
+        },
+        "verifiedDate": "Hoy"
+      }
+    ],
+    "expiredCodes": [
+      {
+        "code": "shutdowncode2025",
+        "reward": {
+          "es": "Blue Elixir",
+          "en": "Blue Elixir"
+        }
+      },
+      {
+        "code": "sorryforbugz",
+        "reward": {
+          "es": "Clan Reroll",
+          "en": "Clan Reroll"
+        }
+      }
+    ],
+    "faqs": {
+      "es": [
+        {
+          "q": "¿Qué son los Locked Weapon Rerolls en Type Soul?",
+          "a": "Permiten cambiar la apariencia y estadísticas de tu arma conservando la rareza o elementos bloqueados para optimizar tu build."
+        },
+        {
+          "q": "¿Cómo convertirse en Vizard o desbloquear Bankai?",
+          "a": "Debes alcanzar el rango de Grado 2 (Grade 2), derrotar a tu espíritu interior en el mundo de meditación y completar los desafíos de grietas dimensionales."
+        }
+      ],
+      "en": [
+        {
+          "q": "What are Locked Weapon Rerolls in Type Soul?",
+          "a": "They allow you to re-roll your weapon archetype and moveset while locking in your preferred core element or rarity tier."
+        },
+        {
+          "q": "How do you achieve Bankai or become a Vizard?",
+          "a": "Reach Grade 2, complete meditation sequences to commune with your sword spirit, and conquer raid and division quest milestones."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tower-defense-simulator",
+    "slug": "tower-defense-simulator",
+    "title": "Tower Defense Simulator",
+    "tagline": {
+      "es": "Coloca torres legendarias, supera hordas de zombis y desbloquea skins con códigos.",
+      "en": "Deploy legendary towers, defeat zombie hordes, and unlock exclusive skins with codes."
+    },
+    "badge": {
+      "es": "🏰 Clásico TD",
+      "en": "🏰 TD Classic"
+    },
+    "category": "action",
+    "categoryLabel": {
+      "es": "Estrategia / Tower Defense",
+      "en": "Strategy / Tower Defense"
+    },
+    "developer": "Paradoxum Games",
+    "likes": "3.3M+",
+    "visits": "3.9B+",
+    "activePlayers": "42.000+",
+    "robloxUrl": "https://www.roblox.com/games/3260590327/Tower-Defense-Simulator",
+    "accentColor": "purple",
+    "iconGradient": "from-purple-600 via-indigo-600 to-violet-700",
+    "emoji": "🏰",
+    "lastUpdated": "2026-09-28",
+    "metaDescription": {
+      "es": "Códigos actualizados de Tower Defense Simulator (TDS) en Roblox. Consigue gemas, monedas, skins de cazador y cajas premium gratis.",
+      "en": "Updated Tower Defense Simulator (TDS) codes on Roblox. Claim free gems, coins, hunter skins, and premium crates."
+    },
+    "howToRedeem": {
+      "es": {
+        "title": "Cómo canjear códigos en Tower Defense Simulator",
+        "steps": [
+          "Entra al lobby principal de Tower Defense Simulator en Roblox.",
+          "Haz clic en el icono del carrito de la compra / tienda en la barra lateral izquierda.",
+          "En la parte inferior o pestaña de códigos, introduce el código activo.",
+          "Haz clic en Canjear para recibir tus monedas o skins de tropas."
+        ],
+        "tip": "Los códigos de skins exclusivas también desbloquean la torre correspondiente si no la posees previamente."
+      },
+      "en": {
+        "title": "How to Redeem Codes in Tower Defense Simulator",
+        "steps": [
+          "Enter the Tower Defense Simulator main lobby in Roblox.",
+          "Click the shopping cart or store icon on the bottom-left sidebar.",
+          "Find the code redemption box labeled 'Enter Code Here'.",
+          "Type or paste an active code and press Redeem."
+        ],
+        "tip": "Codes offering unique tower skins may also grant temporary trial access to the underlying troop!"
+      }
+    },
+    "activeCodes": [
+      {
+        "code": "NAMETAG",
+        "reward": {
+          "es": "Nametag exclusivo de jugador + Monedas",
+          "en": "Exclusive player nametag + Coins"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "COMMUNITY2026",
+        "reward": {
+          "es": "1,000 Monedas + Skin Hunter",
+          "en": "1,000 Coins + Hunter Skin"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "TDS5YEARS",
+        "reward": {
+          "es": "250 Gemas y Caja Premium",
+          "en": "250 Gems and Premium Crate"
+        },
+        "verifiedDate": "Hoy"
+      }
+    ],
+    "expiredCodes": [
+      {
+        "code": "02MOMENT",
+        "reward": {
+          "es": "Skin de Cazador",
+          "en": "Hunter Skin"
+        }
+      },
+      {
+        "code": "delayedupdate",
+        "reward": {
+          "es": "Premium Crate",
+          "en": "Premium Crate"
+        }
+      }
+    ],
+    "faqs": {
+      "es": [
+        {
+          "q": "¿Para qué sirven las gemas en Tower Defense Simulator?",
+          "a": "Las gemas son la moneda especial del modo Hardcore y se usan para comprar torres de élite como Accelerator, Necromancer y Engineer."
+        },
+        {
+          "q": "¿Cuál es la mejor estrategia para ganar en modo Molten?",
+          "a": "Usa torres de generación de dinero temprano (Farm), defensas de daño rápido como Scout o Shotgunner, y maximiza DPS con Minigunner y Commander en oleadas tardías."
+        }
+      ],
+      "en": [
+        {
+          "q": "What are Gems used for in TDS?",
+          "a": "Gems are the exclusive hardcore currency required to unlock end-game towers including Accelerator, Engineer, and Necromancer."
+        },
+        {
+          "q": "What is the fastest strategy for Molten Mode speedruns?",
+          "a": "Deploy Farms early, set up Shotgunner/Golden Scout defense, and burst the Molten Boss using Commander Call to Arms buffed Minigunners."
+        }
+      ]
+    }
+  },
+  {
+    "id": "bee-swarm-simulator",
+    "slug": "bee-swarm-simulator",
+    "title": "Bee Swarm Simulator",
+    "tagline": {
+      "es": "Cría tu propio enjambre de abejas, recolecta polen y obtén miel con códigos oficiales.",
+      "en": "Grow your swarm of bees, collect pollen, and make honey with official codes."
+    },
+    "badge": {
+      "es": "🐝 Simulador Clásico",
+      "en": "🐝 Classic Simulator"
+    },
+    "category": "simulator",
+    "categoryLabel": {
+      "es": "Simulador / Aventura",
+      "en": "Simulator / Adventure"
+    },
+    "developer": "Onett",
+    "likes": "3.6M+",
+    "visits": "2.7B+",
+    "activePlayers": "26.000+",
+    "robloxUrl": "https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator",
+    "accentColor": "amber",
+    "iconGradient": "from-amber-500 via-yellow-500 to-orange-600",
+    "emoji": "🐝",
+    "lastUpdated": "2026-09-28",
+    "metaDescription": {
+      "es": "Códigos actualizados de Bee Swarm Simulator en Roblox. Consigue tickets, miel gratis, marshmallow bees, jelly beans y potenciadores.",
+      "en": "Updated Bee Swarm Simulator codes on Roblox. Claim free tickets, honey boosts, marshmallow bees, jelly beans, and buffs."
+    },
+    "howToRedeem": {
+      "es": {
+        "title": "Cómo canjear códigos en Bee Swarm Simulator paso a paso",
+        "steps": [
+          "Abre Bee Swarm Simulator en Roblox.",
+          "Haz clic en el icono de la rueda de ajustes (engranaje) en la esquina superior izquierda.",
+          "Verás un cuadro en la parte superior que dice 'Promo Codes'.",
+          "Escribe el código respetando mayúsculas y minúsculas y pulsa el botón verde 'Redeem'."
+        ],
+        "tip": "Muchos códigos activan boosts temporales de campos de flores (Pollen Boost). ¡Actívalos cuando tu mochila esté vacía para aprovecharlos al 100%!"
+      },
+      "en": {
+        "title": "How to Redeem Codes in Bee Swarm Simulator Step-by-Step",
+        "steps": [
+          "Launch Bee Swarm Simulator on Roblox.",
+          "Click the gear Settings icon in the top-left corner of the screen.",
+          "Locate the 'Promo Codes' text box at the very top of the settings window.",
+          "Type the code with exact casing and click the green 'Redeem' arrow button."
+        ],
+        "tip": "Field boosts activate immediately upon code redemption. Empty your pollen bag and equip your best field gear before redeeming!"
+      }
+    },
+    "activeCodes": [
+      {
+        "code": "5MFavs",
+        "reward": {
+          "es": "Marshmallow Bee, 1h Conversion Boost, 5x Jelly Beans",
+          "en": "Marshmallow Bee, 1h Conversion Boost, 5x Jelly Beans"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "BeesBuzz123",
+        "reward": {
+          "es": "5 Tickets, 5 Gumdrops, 1 Cloud Vial",
+          "en": "5 Tickets, 5 Gumdrops, 1 Cloud Vial"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Wax",
+        "reward": {
+          "es": "5,000 Miel (Honey) + 5 Tickets",
+          "en": "5,000 Honey + 5 Tickets"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Crawlers",
+        "reward": {
+          "es": "5 Tickets + Morfo de Rana temporal",
+          "en": "5 Tickets + Frog morph"
+        },
+        "verifiedDate": "Hoy"
+      }
+    ],
+    "expiredCodes": [
+      {
+        "code": "beesmas2025",
+        "reward": {
+          "es": "Festive Gift Box",
+          "en": "Festive Gift Box"
+        }
+      },
+      {
+        "code": "clubbeans",
+        "reward": {
+          "es": "Magic Beans",
+          "en": "Magic Beans"
+        }
+      }
+    ],
+    "faqs": {
+      "es": [
+        {
+          "q": "¿Cómo conseguir abejas míticas (Mythic Bees) en Bee Swarm?",
+          "a": "Se obtienen usando Royal Jelly en colmenas con la opción de auto-jelly para míticas (probabilidad ~1 en 25,000), completando misiones de Black Bear o abriendo Mythic Eggs."
+        },
+        {
+          "q": "¿Cuál es la forma más rápida de farmear tickets?",
+          "a": "Superar jefes como King Beetle y Tunnel Bear, capturar Fireflies (luciérnagas) por la noche, usar el dispensador de tickets con miel y canjear códigos promocionales."
+        }
+      ],
+      "en": [
+        {
+          "q": "How do you obtain Mythic Bees in Bee Swarm Simulator?",
+          "a": "Roll Royal Jellies with auto-mythic enabled (~1 in 25,000 chance), complete Black Bear storyline quests, or hatch Mythic Eggs from event stores."
+        },
+        {
+          "q": "What is the most efficient way to farm tickets?",
+          "a": "Defeat daily mini-bosses (King Beetle, Tunnel Bear), catch night fireflies, trigger the wealth clock regularly, and redeem active promo codes."
+        }
+      ]
+    }
   }
 ];
 
