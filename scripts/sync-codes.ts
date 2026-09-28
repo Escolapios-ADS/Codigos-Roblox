@@ -145,6 +145,42 @@ const SYNC_CONFIGS: GameSyncConfig[] = [
     fandomPage: 'Codes',
     customParser: parseGenericWiki,
   },
+  {
+    id: 'the-strongest-battlegrounds',
+    title: 'The Strongest Battlegrounds',
+    placeId: '10449761463',
+    universeId: 3808081382,
+    fandomWiki: 'the-strongest-battlegrounds',
+    fandomPage: 'Codes',
+    customParser: parseGenericWiki,
+  },
+  {
+    id: 'type-soul',
+    title: 'Type Soul',
+    placeId: '14069678431',
+    universeId: 4871329703,
+    fandomWiki: 'type-soul',
+    fandomPage: 'Codes',
+    customParser: parseGenericWiki,
+  },
+  {
+    id: 'tower-defense-simulator',
+    title: 'Tower Defense Simulator',
+    placeId: '3260590327',
+    universeId: 1176784616,
+    fandomWiki: 'tds',
+    fandomPage: 'Codes',
+    customParser: parseGenericWiki,
+  },
+  {
+    id: 'bee-swarm-simulator',
+    title: 'Bee Swarm Simulator',
+    placeId: '1537690962',
+    universeId: 601130232,
+    fandomWiki: 'bee-swarm-simulator',
+    fandomPage: 'Codes',
+    customParser: parseGenericWiki,
+  },
 ];
 
 // Helper: Strip MediaWiki markup into clean plain text
