@@ -2,48 +2,42 @@
 import type { SupportedLocale } from '../i18n/translations';
 
 interface Props {
-  slotType: 'horizontal' | 'rectangle' | 'in-feed' | 'leaderboard' | 'billboard';
+  slotType?: 'horizontal' | 'rectangle' | 'in-feed' | 'leaderboard' | 'billboard' | string;
   locale?: SupportedLocale;
   className?: string;
   slotId?: string;
+  format?: string;
+  slot?: string;
 }
 
-const { slotType, locale = 'es', className = '', slotId } = Astro.props;
+const { locale = 'es', className = '', slotId } = Astro.props;
+const ADSENSE_CLIENT_ID = import.meta.env.PUBLIC_ADSENSE_ID || 'ca-pub-4557351708776634';
 
-const dimensions = {
-  leaderboard: 'min-h-[90px] sm:min-h-[100px] max-w-5xl',
-  billboard: 'min-h-[160px] sm:min-h-[250px] max-w-5xl',
-  horizontal: 'min-h-[100px] sm:min-h-[120px] max-w-4xl',
-  rectangle: 'min-h-[250px] w-full max-w-[300px] sm:max-w-[336px]',
-  'in-feed': 'min-h-[90px] sm:min-h-[100px] w-full',
-};
-
-const slotTitles = {
-  leaderboard: 'LEADERBOARD 728x90 / 970x90',
-  billboard: 'BILLBOARD 970x250',
-  horizontal: 'BANNER HORIZONTAL RESPONSIVO',
-  rectangle: 'RECTÁNGULO MEDIO 300x250',
-  'in-feed': 'IN-FEED NATIVO AUTOMÁTICO',
-};
+// Only render dedicated manual ad blocks when a valid numeric AdSense slot ID is configured.
+// For automated placements, Google AdSense Auto Ads intelligently injects responsive ads.
+const isRealAdUnit = Boolean(slotId && /^\d{5,}$/.test(slotId));
 ---
 
-<div class={`ad-container my-6 mx-auto text-center ${dimensions[slotType]} ${className}`}>
-  <!-- Mandatory AdSense disclosure label -->
-  <div class="text-[9px] uppercase font-mono tracking-widest text-slate-400 mb-1 flex items-center justify-center gap-1.5">
-    <span>—</span>
-    <span>{locale === 'es' ? 'Publicidad' : 'Advertisement'}</span>
-    {slotId && <span class="text-slate-400 font-mono">({slotId})</span>}
-    <span>—</span>
-  </div>
-
-  <!-- Ad Slot Box (Prepared for Google AdSense / Mediavine / Ezoic) -->
-  <div class="w-full h-full bg-[#0b101d]/75 border border-dashed border-white/10 hover:border-indigo-500/30 rounded-2xl flex flex-col items-center justify-center p-3.5 text-slate-400 transition-colors shadow-sm">
-    <div class="flex items-center gap-2 text-xs font-semibold text-slate-300">
-      <span class="w-2 h-2 rounded-full bg-emerald-500/80 animate-pulse"></span>
-      <span class="font-mono text-[11px] text-indigo-300">{slotTitles[slotType]}</span>
+{isRealAdUnit && (
+  <div class={`ad-container my-6 mx-auto text-center ${className}`}>
+    <div class="text-[9px] uppercase font-mono tracking-widest text-slate-500 mb-1 flex items-center justify-center gap-1.5">
+      <span>—</span>
+      <span>{locale === 'es' ? 'Publicidad' : 'Advertisement'}</span>
+      <span>—</span>
     </div>
-    <span class="text-[10px] text-slate-400 mt-1">
-      {locale === 'es' ? 'Espacio Reservado para Google AdSense' : 'Reserved for Google AdSense Ads'}
-    </span>
+
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={ADSENSE_CLIENT_ID}
+      data-ad-slot={slotId}
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script is:inline>
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    </script>
   </div>
-</div>
+)}
