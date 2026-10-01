@@ -45,6 +45,9 @@ const unifiedSchema = buildUnifiedGraph({
 
 // Google Analytics 4 Measurement ID
 const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_ID || 'G-YSBE19CC5T';
+
+// Google AdSense Publisher Client ID
+const ADSENSE_CLIENT_ID = import.meta.env.PUBLIC_ADSENSE_ID || 'ca-pub-4557351708776634';
 ---
 
 <!doctype html>
@@ -170,6 +173,10 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_ID || 'G-YSBE19CC5T';
         });
       }
     </script>
+
+    <!-- Google AdSense Account Verification & Auto-Ads -->
+    <meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />
+    <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`} crossorigin="anonymous"></script>
 
     <!-- Google Analytics 4 (GA4) with Google Consent Mode v2 -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>

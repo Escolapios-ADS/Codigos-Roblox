@@ -1,4 +1,3 @@
 # Google AdSense Authorized Digital Sellers (ads.txt)
 # https://support.google.com/adsense/answer/12169018
-# Reemplaza pub-0000000000000000 con tu ID de editor de Google AdSense una vez aprobada tu cuenta:
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-4557351708776634, DIRECT, f08c47fec0942fa0
