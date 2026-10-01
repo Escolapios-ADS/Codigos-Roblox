@@ -14,8 +14,8 @@ export interface SocialConfig {
 export const socialConfig: SocialConfig = {
   youtube: {
     name: 'YouTube',
-    url: 'https://www.youtube.com/@codigosroblox',
-    handle: '@codigosroblox',
+    url: 'https://www.youtube.com/@CodigosRoblox_org',
+    handle: '@CodigosRoblox_org',
   },
   tiktok: {
     name: 'TikTok',
