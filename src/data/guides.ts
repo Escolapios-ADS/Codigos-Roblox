@@ -31,7 +31,7 @@ export const guidesData: GuideItem[] = [
       avatar: '👑',
     },
     publishedDate: '2026-09-15',
-    updatedDate: '2026-09-22',
+    updatedDate: '2026-10-01',
     emoji: '🍈',
     badge: {
       es: '🔥 Guía Destacada',
@@ -151,7 +151,7 @@ export const guidesData: GuideItem[] = [
       avatar: '🛡️',
     },
     publishedDate: '2026-09-10',
-    updatedDate: '2026-09-22',
+    updatedDate: '2026-10-01',
     emoji: '💎',
     badge: {
       es: '🛡️ Guía Esencial',
@@ -263,7 +263,7 @@ export const guidesData: GuideItem[] = [
       avatar: '⚡',
     },
     publishedDate: '2026-09-18',
-    updatedDate: '2026-09-22',
+    updatedDate: '2026-10-01',
     emoji: '⚔️',
     sections: [
       {
@@ -350,7 +350,7 @@ export const guidesData: GuideItem[] = [
       avatar: '👗',
     },
     publishedDate: '2026-09-17',
-    updatedDate: '2026-09-22',
+    updatedDate: '2026-10-01',
     emoji: '👗',
     sections: [
       {

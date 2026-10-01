@@ -17,7 +17,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '🧔',
     badge: { es: '🔥 Muy Popular', en: '🔥 Top Pick' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'bundle-cindy',
@@ -33,7 +33,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Navigate to the product page on the official Roblox marketplace and click "Get" to unlock Cindy\'s full outfit and hairstyle.',
     },
     emoji: '👩',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'bundle-junkbot',
@@ -50,7 +50,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '🤖',
     badge: { es: '⭐ Meme Clásico', en: '⭐ Classic Meme' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'bundle-city-life-woman',
@@ -66,7 +66,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Features brown hair, custom torso, and stylized limbs favored by roleplay fans in Brookhaven RP.',
     },
     emoji: '💃',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- CABELLO & PEINADOS GRATIS ---
@@ -84,7 +84,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'The classic iconic Roblox hair. Claim it for 0 Robux and pair it with any accessory.',
     },
     emoji: '💇‍♂️',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'hair-colorful-braids',
@@ -101,7 +101,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '💇‍♀️',
     badge: { es: '✨ Aesthetic', en: '✨ Aesthetic' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'hair-belle-belfast',
@@ -117,7 +117,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Flowing natural wavy red hair. Available at zero cost in the marketplace head accessories section.',
     },
     emoji: '👩‍🦰',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'hair-brown-charmer',
@@ -133,7 +133,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'One of the cleanest and most versatile male haircuts in the entire free Roblox catalog.',
     },
     emoji: '💁‍♂️',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- GORROS & SOMBREROS ---
@@ -152,7 +152,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '🥷',
     badge: { es: '⚔️ Estilo RPG', en: '⚔️ RPG Style' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'hat-encanto-mirabel-bag',
@@ -168,7 +168,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Official Disney x Roblox collaboration drop. Click "Get" to claim this floral embroidered bag.',
     },
     emoji: '👜',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'hat-international-fedora',
@@ -184,7 +184,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Classic formal fedora adorned with international national flags (Spain, Mexico, USA, etc.).',
     },
     emoji: '👒',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- ACCESORIOS DE ESPALDA & ALAS ---
@@ -203,7 +203,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '🦖',
     badge: { es: '🦕 Dinosaurio', en: '🦕 Dino Drop' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'back-godzilla-wings',
@@ -220,7 +220,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '🦅',
     badge: { es: '🔥 Efecto Fuego', en: '🔥 Fiery Wings' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'back-ghastly-spine',
@@ -236,7 +236,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Inside Mansion of Wonder, talk to the Fox NPC at the podium and redeem the special promo code: Glimmer.',
     },
     emoji: '🔮',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- EVENTOS & MARCAS ---
@@ -255,7 +255,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '👟',
     badge: { es: '✔️ Nike Oficial', en: '✔️ Official Nike' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'event-spotify-boombox',
@@ -272,7 +272,7 @@ export const freeItemsData: FreeItem[] = [
     },
     emoji: '🎧',
     badge: { es: '🎵 Spotify', en: '🎵 Spotify Drop' },
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- EMOTES & ANIMACIONES ---
@@ -290,7 +290,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Claim this victory animation from the marketplace for 0 Robux. Equip it in your emote wheel to clap in any game.',
     },
     emoji: '👏',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'emote-shrug',
@@ -306,7 +306,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'The classic comedic shrug gesture to use during fun multiplayer encounters.',
     },
     emoji: '🤷',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'emote-tilt',
@@ -322,7 +322,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'Groovy rhythmic dance emote that tilts your avatar along with the beat.',
     },
     emoji: '🕺',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'emote-hello',
@@ -338,7 +338,7 @@ export const freeItemsData: FreeItem[] = [
       en: 'The friendliest hand-wave greeting to welcome new players into your party.',
     },
     emoji: '👋',
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 ];
 

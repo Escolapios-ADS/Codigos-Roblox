@@ -20,13 +20,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "Gamer Robot Inc",
     "likes": "6.8M+",
-    "visits": "64.7B+",
-    "activePlayers": "224.000+",
+    "visits": "64.8B+",
+    "activePlayers": "230.000+",
     "robloxUrl": "https://www.roblox.com/games/2753915549/Blox-Fruits",
     "accentColor": "indigo",
     "iconGradient": "from-blue-600 via-indigo-600 to-purple-600",
     "emoji": "🍎",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Lista actualizada de códigos activos de Blox Fruits en Roblox. Canjea 2x de experiencia, reinicio de stats y títulos exclusivos.",
       "en": "Updated list of active Blox Fruits codes in Roblox. Redeem 2x EXP boosts, stat resets, and exclusive titles."
@@ -350,12 +350,12 @@ export const gamesData: GameItem[] = [
     "developer": "Wiggity.",
     "likes": "4.2M+",
     "visits": "6.5B+",
-    "activePlayers": "25.000+",
+    "activePlayers": "20.000+",
     "robloxUrl": "https://www.roblox.com/games/13772394625/Blade-Ball",
     "accentColor": "rose",
     "iconGradient": "from-rose-600 via-pink-600 to-amber-600",
     "emoji": "⚔️",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos activos de Blade Ball para Roblox. Consigue tiradas de ruleta gratis (Spins) y monedas para desbloquear espadas y explosiones.",
       "en": "Active Blade Ball codes for Roblox. Claim free wheel spins and coins to unlock swords and finisher explosions."
@@ -608,12 +608,12 @@ export const gamesData: GameItem[] = [
     "developer": "Dress To Impress Group",
     "likes": "3.9M+",
     "visits": "11.1B+",
-    "activePlayers": "69.000+",
+    "activePlayers": "53.000+",
     "robloxUrl": "https://www.roblox.com/games/15101393044/Dress-To-Impress",
     "accentColor": "purple",
     "iconGradient": "from-fuchsia-600 via-purple-600 to-pink-600",
     "emoji": "👗",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Todos los códigos secretos de Dress to Impress (DTI) en Roblox. Desbloquea ropa exclusiva, vestidos de gala y zapatos sin gastar Robux.",
       "en": "All secret Dress to Impress (DTI) codes in Roblox. Unlock exclusive dresses, runway outfits, and heels without spending Robux."
@@ -774,12 +774,12 @@ export const gamesData: GameItem[] = [
     "developer": "Anime Defenders",
     "likes": "1.9M+",
     "visits": "3.4B+",
-    "activePlayers": "162+",
+    "activePlayers": "259+",
     "robloxUrl": "https://www.roblox.com/games/17017769292/Anime-Defenders",
     "accentColor": "amber",
     "iconGradient": "from-amber-500 via-orange-600 to-red-600",
     "emoji": "🛡️",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos activos de Anime Defenders en Roblox. Consigue miles de gemas gratis y cristales para tirar por unidades míticas y secretas.",
       "en": "Active Anime Defenders codes for Roblox. Claim thousands of free gems and trait crystals to roll for mythic and secret units."
@@ -1185,7 +1185,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "cyan",
     "iconGradient": "from-cyan-500 via-blue-600 to-indigo-700",
     "emoji": "🎁",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Lista completa de códigos promocionales de Roblox (Roblox Promo Codes). Consigue mascotas de hombro gratis, mochilas y alas para tu avatar.",
       "en": "Complete list of active Roblox Promo Codes. Claim free shoulder pets, backpacks, and accessories for your avatar."
@@ -1344,12 +1344,12 @@ export const gamesData: GameItem[] = [
     "developer": "Venture Lagoons",
     "likes": "2.5M+",
     "visits": "4.1B+",
-    "activePlayers": "5000+",
+    "activePlayers": "6000+",
     "robloxUrl": "https://www.roblox.com/games/4520749081/King-Legacy",
     "accentColor": "emerald",
     "iconGradient": "from-emerald-500 via-teal-600 to-blue-700",
     "emoji": "👑",
-    "lastUpdated": "2026-09-23",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos válidos de King Legacy en Roblox. Reclama gemas, millones de Beli gratis y reinicio de estadísticas para maximizar tu fruta.",
       "en": "Valid King Legacy codes in Roblox. Claim gems, millions of free Beli, and stat resets to master your fruit powers."
@@ -1516,12 +1516,12 @@ export const gamesData: GameItem[] = [
     "developer": "Wolfpaq",
     "likes": "6.5M+",
     "visits": "88.1B+",
-    "activePlayers": "365.000+",
+    "activePlayers": "327.000+",
     "robloxUrl": "https://www.roblox.com/games/4924922222/Brookhaven-RP",
     "accentColor": "indigo",
     "iconGradient": "from-blue-500 via-indigo-600 to-purple-700",
     "emoji": "🏡",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Lista de códigos de música ID para Brookhaven RP en Roblox. Canciones en español, hits virales de TikTok y temas de moda para tu coche.",
       "en": "Music ID codes for Brookhaven RP in Roblox. Viral TikTok songs, trending beats, and top music IDs for your car stereo."
@@ -1627,12 +1627,12 @@ export const gamesData: GameItem[] = [
     "developer": "Woozy Nite",
     "likes": "1.8M+",
     "visits": "5.0B+",
-    "activePlayers": "73.000+",
+    "activePlayers": "69.000+",
     "robloxUrl": "https://www.roblox.com/games/16732694052/Fisch",
     "accentColor": "cyan",
     "iconGradient": "from-cyan-600 via-teal-600 to-emerald-600",
     "emoji": "🐟",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Lista actualizada de códigos activos de Fisch en Roblox. Canjea C$ gratis, cebos especiales y títulos exclusivos para pescar criaturas míticas.",
       "en": "Active Fisch codes for Roblox. Claim free C$ cash, bait crates, and unique bobbers to catch mythical fish."
@@ -1821,12 +1821,12 @@ export const gamesData: GameItem[] = [
     "developer": "Kitawari",
     "likes": "1.6M+",
     "visits": "2.1B+",
-    "activePlayers": "18.000+",
+    "activePlayers": "16.000+",
     "robloxUrl": "https://www.roblox.com/games/16146832113/Anime-Vanguards",
     "accentColor": "rose",
     "iconGradient": "from-red-600 via-rose-600 to-amber-600",
     "emoji": "⛩️",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos activos de Anime Vanguards en Roblox. Consigue miles de gemas y super rerolls para desbloquear personajes míticos.",
       "en": "Active Anime Vanguards codes for Roblox. Claim thousands of free gems and super rerolls to unlock mythic anime heroes."
@@ -1943,12 +1943,12 @@ export const gamesData: GameItem[] = [
     "developer": "BIG Games Pets",
     "likes": "2.9M+",
     "visits": "2.7B+",
-    "activePlayers": "60.000+",
+    "activePlayers": "32.000+",
     "robloxUrl": "https://www.roblox.com/games/8737899170/Pet-Simulator-99",
     "accentColor": "indigo",
     "iconGradient": "from-blue-600 via-indigo-600 to-cyan-500",
     "emoji": "🐾",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos activos de Pet Simulator 99 (PS99) en Roblox. Consigue miles de diamantes gratis, pociones de suerte tier X y paquetes de monedas.",
       "en": "Active Pet Simulator 99 (PS99) codes for Roblox. Claim free diamonds, lucky potions, and coin bundles to hatch huge pets."
@@ -2052,7 +2052,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "amber",
     "iconGradient": "from-amber-600 via-orange-600 to-red-600",
     "emoji": "🚽",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos válidos de Toilet Tower Defense (TTD) en Roblox. Reclama monedas gratis y cajas de unidades para derrotar a los jefes.",
       "en": "Valid Toilet Tower Defense (TTD) codes for Roblox. Claim free coins and summoning crates to defeat relentless waves."
@@ -2142,12 +2142,12 @@ export const gamesData: GameItem[] = [
     "developer": "Nikilis",
     "likes": "18.5M+",
     "visits": "30.9B+",
-    "activePlayers": "241.000+",
+    "activePlayers": "180.000+",
     "robloxUrl": "https://www.roblox.com/games/142823291/Murder-Mystery-2",
     "accentColor": "rose",
     "iconGradient": "from-red-600 via-rose-600 to-amber-600",
     "emoji": "🔪",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Lista completa y verificada de códigos activos de Murder Mystery 2 (MM2) en Roblox. Desbloquea cuchillos gratis y mascotas exclusivas.",
       "en": "Complete and verified list of active Murder Mystery 2 (MM2) codes in Roblox. Unlock free knife skins and rare pets."
@@ -2292,12 +2292,12 @@ export const gamesData: GameItem[] = [
     "developer": "Da Hood Entertainment",
     "likes": "2.9M+",
     "visits": "3.0B+",
-    "activePlayers": "2000+",
+    "activePlayers": "1000+",
     "robloxUrl": "https://www.roblox.com/games/2788229376/Da-Hood",
     "accentColor": "amber",
     "iconGradient": "from-amber-600 via-orange-600 to-red-600",
     "emoji": "🥊",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos activos de Da Hood en Roblox actualizados hoy. Canjea cientos de miles de Da Hood Cash y cajas de armas gratis.",
       "en": "Active Da Hood codes in Roblox verified today. Claim free Da Hood Cash, weapon crates, and exclusive rolls."
@@ -2410,13 +2410,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "Nosniy Games",
     "likes": "1.4M+",
-    "visits": "18.4B+",
-    "activePlayers": "148.000+",
+    "visits": "18.5B+",
+    "activePlayers": "158.000+",
     "robloxUrl": "https://www.roblox.com/games/17625359962/RIVALS",
     "accentColor": "emerald",
     "iconGradient": "from-emerald-500 via-teal-600 to-cyan-600",
     "emoji": "🎯",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos más recientes de Rivals en Roblox. Consigue skins de armas, llaves de cajas y potenciadores gratis para dominar el PvP.",
       "en": "Latest verified Rivals codes in Roblox. Unlock free weapon wraps, crate keys, and competitive boosts."
@@ -2591,7 +2591,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "purple",
     "iconGradient": "from-purple-600 via-indigo-600 to-pink-600",
     "emoji": "🌟",
-    "lastUpdated": "2026-09-23",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos activos de All Star Tower Defense (ASTD) para conseguir gemas, Stardust y tiradas de invocación gratis en Roblox.",
       "en": "Active All Star Tower Defense (ASTD) codes. Redeem free Gems, Stardust, and summons in Roblox."
@@ -2710,7 +2710,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "orange",
     "iconGradient": "from-orange-500 via-red-600 to-amber-600",
     "emoji": "🍥",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos actualizados de Shindo Life en Roblox. Consigue miles de spins gratis y RELL Coins para conseguir Bloodlines legendarios.",
       "en": "Updated Shindo Life codes on Roblox. Claim thousands of free spins and RELL Coins to roll legendary Bloodlines."
@@ -2824,12 +2824,12 @@ export const gamesData: GameItem[] = [
     "developer": "Yielding Arts",
     "likes": "2.9M+",
     "visits": "19.3B+",
-    "activePlayers": "42.000+",
+    "activePlayers": "55.000+",
     "robloxUrl": "https://www.roblox.com/games/10449761463/The-Strongest-Battlegrounds",
     "accentColor": "rose",
     "iconGradient": "from-rose-600 via-red-600 to-orange-600",
     "emoji": "🥊",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos actualizados de The Strongest Battlegrounds en Roblox. Reclama emotes exclusivos, giros cosméticos y títulos PvP gratis.",
       "en": "Updated The Strongest Battlegrounds codes on Roblox. Claim exclusive emotes, cosmetic spins, and free PvP titles."
@@ -2928,12 +2928,12 @@ export const gamesData: GameItem[] = [
     "developer": "TYPE // SOUL",
     "likes": "880K+",
     "visits": "818.2M+",
-    "activePlayers": "152+",
+    "activePlayers": "372+",
     "robloxUrl": "https://www.roblox.com/games/14069678431/TYPE-SOUL",
     "accentColor": "cyan",
     "iconGradient": "from-cyan-600 via-blue-600 to-indigo-700",
     "emoji": "⚔️",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos actualizados de Type Soul en Roblox. Consigue locked weapon rerolls, clan rerolls y elixires azules gratis.",
       "en": "Updated Type Soul codes on Roblox. Claim locked weapon rerolls, clan rerolls, and free blue elixirs."
@@ -3047,12 +3047,12 @@ export const gamesData: GameItem[] = [
     "developer": "Paradoxum Games",
     "likes": "3.3M+",
     "visits": "5.0B+",
-    "activePlayers": "14.000+",
+    "activePlayers": "12.000+",
     "robloxUrl": "https://www.roblox.com/games/3260590327/Tower-Defense-Simulator",
     "accentColor": "purple",
     "iconGradient": "from-purple-600 via-indigo-600 to-violet-700",
     "emoji": "🏰",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos actualizados de Tower Defense Simulator (TDS) en Roblox. Consigue gemas, monedas, skins de cazador y cajas premium gratis.",
       "en": "Updated Tower Defense Simulator (TDS) codes on Roblox. Claim free gems, coins, hunter skins, and premium crates."
@@ -3166,12 +3166,12 @@ export const gamesData: GameItem[] = [
     "developer": "Onett",
     "likes": "3.6M+",
     "visits": "4.6B+",
-    "activePlayers": "23.000+",
+    "activePlayers": "24.000+",
     "robloxUrl": "https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator",
     "accentColor": "amber",
     "iconGradient": "from-amber-500 via-yellow-500 to-orange-600",
     "emoji": "🐝",
-    "lastUpdated": "2026-09-28",
+    "lastUpdated": "2026-10-01",
     "metaDescription": {
       "es": "Códigos actualizados de Bee Swarm Simulator en Roblox. Consigue tickets, miel gratis, marshmallow bees, jelly beans y potenciadores.",
       "en": "Updated Bee Swarm Simulator codes on Roblox. Claim free tickets, honey boosts, marshmallow bees, jelly beans, and buffs."

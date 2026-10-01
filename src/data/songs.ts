@@ -12,7 +12,7 @@ export const songsData: SongItem[] = [
     plays: '4.8M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood', 'Mic Up'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'gigachad-theme',
@@ -24,7 +24,7 @@ export const songsData: SongItem[] = [
     plays: '8.2M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood', 'Blox Fruits'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'brazilian-danza-kuduro',
@@ -36,7 +36,7 @@ export const songsData: SongItem[] = [
     plays: '3.1M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'murder-in-my-mind',
@@ -48,7 +48,7 @@ export const songsData: SongItem[] = [
     plays: '9.4M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood', 'Rivals'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'automotivo-super-sonic',
@@ -59,7 +59,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Phonk & Bass', en: 'Phonk & Bass' },
     plays: '2.5M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- POP & TIKTOK VIRAL ---
@@ -73,7 +73,7 @@ export const songsData: SongItem[] = [
     plays: '5.6M+',
     verifiedGames: ['Brookhaven RP', 'Dress to Impress', 'Adopt Me!'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'cupid-twin-ver',
@@ -85,7 +85,7 @@ export const songsData: SongItem[] = [
     plays: '6.9M+',
     verifiedGames: ['Brookhaven RP', 'Dress to Impress'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'believer-imagine-dragons',
@@ -96,7 +96,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Pop & Viral Hits', en: 'Pop & Viral Hits' },
     plays: '7.3M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood', 'Blade Ball'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'enemy-arcane',
@@ -107,7 +107,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Pop & Viral Hits', en: 'Pop & Viral Hits' },
     plays: '6.1M+',
     verifiedGames: ['Brookhaven RP', 'Blade Ball', 'Anime Defenders'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'bad-bunny-titi-me-pregunto',
@@ -119,7 +119,7 @@ export const songsData: SongItem[] = [
     plays: '4.2M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'peso-pluma-ella-baila-sola',
@@ -131,7 +131,7 @@ export const songsData: SongItem[] = [
     plays: '3.8M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- ANIME OST & OPENINGS ---
@@ -145,7 +145,7 @@ export const songsData: SongItem[] = [
     plays: '5.2M+',
     verifiedGames: ['Brookhaven RP', 'Blox Fruits', 'Anime Vanguards'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'specialz-jujutsu-kaisen',
@@ -157,7 +157,7 @@ export const songsData: SongItem[] = [
     plays: '6.4M+',
     verifiedGames: ['Brookhaven RP', 'Anime Defenders', 'Blox Fruits'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'gurenge-demon-slayer',
@@ -168,7 +168,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Anime OST & Openings', en: 'Anime OST & Openings' },
     plays: '7.8M+',
     verifiedGames: ['Brookhaven RP', 'Blox Fruits', 'King Legacy'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'blue-bird-naruto',
@@ -179,7 +179,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Anime OST & Openings', en: 'Anime OST & Openings' },
     plays: '5.9M+',
     verifiedGames: ['Brookhaven RP', 'Shindo Life', 'Anime Defenders'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'overtake-blox-fruits-theme',
@@ -191,7 +191,7 @@ export const songsData: SongItem[] = [
     plays: '9.1M+',
     verifiedGames: ['Blox Fruits', 'King Legacy', 'Brookhaven RP'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 
   // --- MEMES & TROLL SOUNDS ---
@@ -205,7 +205,7 @@ export const songsData: SongItem[] = [
     plays: '14.5M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood', 'Mic Up', 'Arsenal'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'astronomia-coffin-dance',
@@ -216,7 +216,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Memes & Trolls', en: 'Memes & Trolls' },
     plays: '11.2M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood', 'Toilet Tower Defense'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'among-us-drip-theme',
@@ -227,7 +227,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Memes & Trolls', en: 'Memes & Trolls' },
     plays: '8.7M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'subway-surfers-beat',
@@ -239,7 +239,7 @@ export const songsData: SongItem[] = [
     plays: '6.4M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood', 'Pet Simulator 99'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'megalovania-undertale',
@@ -250,7 +250,7 @@ export const songsData: SongItem[] = [
     genreLabel: { es: 'Gaming & Soundtracks', en: 'Gaming & Soundtracks' },
     plays: '10.3M+',
     verifiedGames: ['Brookhaven RP', 'Blade Ball', 'Da Hood'],
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
   {
     id: 'tokyo-drift-teriyaki-boyz',
@@ -262,7 +262,7 @@ export const songsData: SongItem[] = [
     plays: '7.5M+',
     verifiedGames: ['Brookhaven RP', 'Da Hood'],
     isTrending: true,
-    verifiedDate: '2026-09-22',
+    verifiedDate: '2026-10-01',
   },
 ];
 
