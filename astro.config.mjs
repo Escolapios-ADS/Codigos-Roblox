@@ -9,6 +9,7 @@ import { getSeoUrls } from './src/utils/seo.ts';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://codigosroblox.org',
+  trailingSlash: 'always',
   i18n: {
     defaultLocale: 'es',
     locales: ['es', 'en'],

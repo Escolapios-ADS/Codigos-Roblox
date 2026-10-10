@@ -28,13 +28,13 @@ const { locale } = Astro.props;
             : 'We use our own and third-party cookies (including Google AdSense) to deliver technical features, measure anonymous traffic, and serve tailored advertisements.'}
           <span class="inline-block mt-0.5">
             <a 
-              href={locale === 'es' ? '/es/politica-de-cookies' : '/en/cookie-policy'}
+              href={locale === 'es' ? '/es/politica-de-cookies/' : '/en/cookie-policy/'}
               class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium mr-2"
             >
               {locale === 'es' ? 'Política de Cookies' : 'Cookie Policy'}
             </a>
             <a 
-              href={locale === 'es' ? '/es/privacidad' : '/en/privacy'}
+              href={locale === 'es' ? '/es/privacidad/' : '/en/privacy/'}
               class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium"
             >
               {locale === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}
