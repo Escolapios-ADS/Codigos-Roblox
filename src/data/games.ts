@@ -20,13 +20,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "Gamer Robot Inc",
     "likes": "6.8M+",
-    "visits": "64.8B+",
+    "visits": "64.9B+",
     "activePlayers": "230.000+",
     "robloxUrl": "https://www.roblox.com/games/2753915549/Blox-Fruits",
     "accentColor": "indigo",
     "iconGradient": "from-blue-600 via-indigo-600 to-purple-600",
     "emoji": "🍎",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Lista actualizada de códigos activos de Blox Fruits en Roblox. Canjea 2x de experiencia, reinicio de stats y títulos exclusivos.",
       "en": "Updated list of active Blox Fruits codes in Roblox. Redeem 2x EXP boosts, stat resets, and exclusive titles."
@@ -55,114 +55,6 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "Bluxxy",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "TantaiGaming",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 Minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Sub2Daigrock",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Sub2NoobMaster123",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Sub2CaptainMaui",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "KittGaming",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "MagicBUS",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "StarcodeHEO",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "JCWK",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Enyu_is_Pro",
-        "reward": {
-          "es": "20 minutos de 2x Experiencia (2x EXP)",
-          "en": "20 minutes of 2x Experience"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Sub2UncleKizaru",
-        "reward": {
-          "es": "Free Reinicio de estadísticas (Stat Reset)",
-          "en": "Free Stat Reset"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "fudd10_V2",
-        "reward": {
-          "es": "Recompensa en el juego",
-          "en": "In-game reward"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
         "code": "EASTEREXP",
         "reward": {
           "es": "20 minutos de 2x Experiencia (2x EXP)",
@@ -174,66 +66,97 @@ export const gamesData: GameItem[] = [
       {
         "code": "KITT_RESET",
         "reward": {
-          "es": "Reinicio gratuito de estadísticas (Stat Reset)",
-          "en": "Free Stat Reset"
+          "es": "Reinicio de estadísticas gratuito (Stat Reset)",
+          "en": "Free Stat Reset / Refund"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "Sub2Fer999",
+        "code": "Sub2CaptainMaui",
         "reward": {
-          "es": "20 minutos de 2x EXP Boost",
-          "en": "20 minutes of 2x EXP Boost"
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
         },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
         "code": "SUB2GAMERROBOT_RESET1",
         "reward": {
-          "es": "Reinicio de estadísticas gratuito",
-          "en": "Free Stat Reset"
+          "es": "Reinicio de estadísticas gratuito (Stat Reset)",
+          "en": "Free Stat Reset / Refund"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "SUB2GAMERROBOT_EXP1",
+        "code": "kittgaming",
         "reward": {
-          "es": "30 minutos de 2x Experiencia Boost",
-          "en": "30 minutes of 2x Experience Boost"
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "StrawHatMaine",
+        "code": "Sub2Fer999",
         "reward": {
-          "es": "20 minutos de 2x EXP Boost",
-          "en": "20 minutes of 2x EXP Boost"
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "Sub2OfficialNoobie",
+        "code": "Enyu_is_Pro",
         "reward": {
-          "es": "20 minutos de 2x EXP Boost",
-          "en": "20 minutes of 2x EXP Boost"
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "THEGREATACE",
+        "code": "MagicBUS",
         "reward": {
-          "es": "20 minutos de 2x EXP Boost",
-          "en": "20 minutes of 2x EXP Boost"
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "AXIORE",
+        "code": "JCWK",
         "reward": {
-          "es": "20 minutos de 2x EXP Boost",
-          "en": "20 minutes of 2x EXP Boost"
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "StarcodeHEO",
+        "reward": {
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Bluxxy",
+        "reward": {
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "fudd10_V2",
+        "reward": {
+          "es": "2 Beli en el juego",
+          "en": "2 Beli in-game currency"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "FUDD10",
+        "reward": {
+          "es": "1 Beli en el juego",
+          "en": "1 Beli in-game currency"
         },
         "verifiedDate": "Hoy"
       },
@@ -246,10 +169,74 @@ export const gamesData: GameItem[] = [
         "verifiedDate": "Hoy"
       },
       {
-        "code": "FUDD10",
+        "code": "THEGREATACE",
         "reward": {
-          "es": "1 Beli en el juego",
-          "en": "1 Beli in-game currency"
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "SUB2GAMERROBOT_EXP1",
+        "reward": {
+          "es": "30 minutos de 2x Experiencia (2x EXP)",
+          "en": "30 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Sub2OfficialNoobie",
+        "reward": {
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "StrawHatMaine",
+        "reward": {
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Sub2NoobMaster123",
+        "reward": {
+          "es": "15 minutos de 2x Experiencia (2x EXP)",
+          "en": "15 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Sub2UncleKizaru",
+        "reward": {
+          "es": "Reinicio de estadísticas gratuito (Stat Reset)",
+          "en": "Free Stat Reset / Refund"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Sub2Daigrock",
+        "reward": {
+          "es": "15 minutos de 2x Experiencia (2x EXP)",
+          "en": "15 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "AXIORE",
+        "reward": {
+          "es": "20 minutos de 2x Experiencia (2x EXP)",
+          "en": "20 minutes of 2x Experience"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "TantaiGaming",
+        "reward": {
+          "es": "15 minutos de 2x Experiencia (2x EXP)",
+          "en": "15 minutes of 2x Experience"
         },
         "verifiedDate": "Hoy"
       },
@@ -263,6 +250,20 @@ export const gamesData: GameItem[] = [
       }
     ],
     "expiredCodes": [
+      {
+        "code": "1LOSTADMIN",
+        "reward": {
+          "es": "20 mins 2x EXP",
+          "en": "20 mins 2x EXP"
+        }
+      },
+      {
+        "code": "LIGHTNINGABUSE",
+        "reward": {
+          "es": "20 mins 2x EXP",
+          "en": "20 mins 2x EXP"
+        }
+      },
       {
         "code": "DRAGONABUSE",
         "reward": {
@@ -355,7 +356,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "rose",
     "iconGradient": "from-rose-600 via-pink-600 to-amber-600",
     "emoji": "⚔️",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos activos de Blade Ball para Roblox. Consigue tiradas de ruleta gratis (Spins) y monedas para desbloquear espadas y explosiones.",
       "en": "Active Blade Ball codes for Roblox. Claim free wheel spins and coins to unlock swords and finisher explosions."
@@ -384,73 +385,10 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "DUNGEONSRELEASE",
+        "code": "SERPENT",
         "reward": {
-          "es": "Enter this code to claim .",
-          "en": "Enter this code to claim ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "GOODVSEVIL",
-        "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "GIVEMELUCK",
-        "reward": {
-          "es": "Enter this code for a '''x4''' Boost for '''10min''' in the AFK World.",
-          "en": "Enter this code for a '''x4''' Boost for '''10min''' in the AFK World."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "RNGEMOTES",
-        "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "SUMMERSTARTSHERE",
-        "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "SUMMERWHEEL",
-        "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "ENERGYSWORDS",
-        "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "FROGS",
-        "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
+          "es": "Participación en sorteo de 3 Serpent Katanas",
+          "en": "Giveaway entry for 3 Serpent Katanas"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -458,17 +396,8 @@ export const gamesData: GameItem[] = [
       {
         "code": "SPOOKYSEASON",
         "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "2BTHANKS",
-        "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
+          "es": "Espada exclusiva de Halloween / Tirada gratis",
+          "en": "Exclusive Halloween Sword / Free Spin"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -476,60 +405,80 @@ export const gamesData: GameItem[] = [
       {
         "code": "4BVISITS",
         "reward": {
-          "es": "Enter this code to claim the Bubble Wand, Skin de espada exclusiva.",
-          "en": "Enter this code to claim the Bubble Wand, sword skin."
+          "es": "Espada Bubble Wand exclusiva",
+          "en": "Exclusive Bubble Wand sword"
         },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "RAMADAN",
+        "code": "SHARKATTACK",
         "reward": {
-          "es": "Enter this code to Consigue gratis un .",
-          "en": "Enter this code to claim a Free ."
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "ELEMENTSFRESH",
-        "reward": {
-          "es": "1 Tirada de Ruleta de Elementos gratis",
-          "en": "1 Free Elements Wheel Spin"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "FROZENFALL",
-        "reward": {
-          "es": "Tirada gratis + 500 Monedas",
-          "en": "Free Spin + 500 Coins"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "BBSUMMER",
-        "reward": {
-          "es": "1 Tirada de Ruleta gratis",
+          "es": "1 Tirada gratis para la ruleta",
           "en": "1 Free Wheel Spin"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "TOURNAMENTS",
+        "code": "RAMADAN",
         "reward": {
-          "es": "1 Entrada de Torneo gratis + Monedas",
-          "en": "1 Free Tournament Ticket + Coins"
+          "es": "1 Tirada gratis para la ruleta",
+          "en": "1 Free Wheel Spin"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "UPD2.9",
+        "code": "SUMMERWHEEL",
         "reward": {
-          "es": "1 Tirada de Ruleta especial",
-          "en": "1 Special Wheel Spin"
+          "es": "1 Tirada gratis para la ruleta",
+          "en": "1 Free Wheel Spin"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "SUMMERSTARTSHERE",
+        "reward": {
+          "es": "1 Tirada gratis para la ruleta",
+          "en": "1 Free Wheel Spin"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ENERGYSWORDS",
+        "reward": {
+          "es": "Espadas de energía y tirada gratis",
+          "en": "Energy swords and Free Spin"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "GIVEMELUCK",
+        "reward": {
+          "es": "Aumento de suerte en RNG World",
+          "en": "Luck boost in RNG World"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "FROGS",
+        "reward": {
+          "es": "1 Tirada gratis para la ruleta",
+          "en": "1 Free Wheel Spin"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "BATTLEROYALE",
+        "reward": {
+          "es": "Ticket Storm para el modo Battle Royale",
+          "en": "Storm Ticket for Battle Royale mode"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "RNGEMOTES",
+        "reward": {
+          "es": "1 Tirada gratis para la ruleta",
+          "en": "1 Free Wheel Spin"
         },
         "verifiedDate": "Hoy"
       },
@@ -540,16 +489,33 @@ export const gamesData: GameItem[] = [
           "en": "1 Free Wheel Spin"
         },
         "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2BTHANKS",
+        "reward": {
+          "es": "1 Tirada gratis para la ruleta",
+          "en": "1 Free Wheel Spin"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "DUNGEONSRELEASE",
+        "reward": {
+          "es": "Tirada gratis y Runas de mazmorra",
+          "en": "Free Spin and Dungeon Runes"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "GOODVSEVIL",
+        "reward": {
+          "es": "1 Tirada gratis para la ruleta",
+          "en": "1 Free Wheel Spin"
+        },
+        "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
-      {
-        "code": "SHARKATTACK",
-        "reward": {
-          "es": "Free Spin",
-          "en": "Free Spin"
-        }
-      },
       {
         "code": "GALAXYSEASON",
         "reward": {
@@ -562,6 +528,41 @@ export const gamesData: GameItem[] = [
         "reward": {
           "es": "Free Spin",
           "en": "Free Spin"
+        }
+      },
+      {
+        "code": "ELEMENTSFRESH",
+        "reward": {
+          "es": "Free Spin",
+          "en": "Free Spin"
+        }
+      },
+      {
+        "code": "FROZENFALL",
+        "reward": {
+          "es": "Free Spin + Coins",
+          "en": "Free Spin + Coins"
+        }
+      },
+      {
+        "code": "BBSUMMER",
+        "reward": {
+          "es": "Free Spin",
+          "en": "Free Spin"
+        }
+      },
+      {
+        "code": "TOURNAMENTS",
+        "reward": {
+          "es": "Tournament Ticket",
+          "en": "Tournament Ticket"
+        }
+      },
+      {
+        "code": "UPD2.9",
+        "reward": {
+          "es": "Special Spin",
+          "en": "Special Spin"
         }
       }
     ],
@@ -608,12 +609,12 @@ export const gamesData: GameItem[] = [
     "developer": "Dress To Impress Group",
     "likes": "3.9M+",
     "visits": "11.1B+",
-    "activePlayers": "53.000+",
+    "activePlayers": "61.000+",
     "robloxUrl": "https://www.roblox.com/games/15101393044/Dress-To-Impress",
     "accentColor": "purple",
     "iconGradient": "from-fuchsia-600 via-purple-600 to-pink-600",
     "emoji": "👗",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Todos los códigos secretos de Dress to Impress (DTI) en Roblox. Desbloquea ropa exclusiva, vestidos de gala y zapatos sin gastar Robux.",
       "en": "All secret Dress to Impress (DTI) codes in Roblox. Unlock exclusive dresses, runway outfits, and heels without spending Robux."
@@ -642,10 +643,91 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "M3GAN",
+        "code": "RDC2026",
         "reward": {
-          "es": "Conjunto completo de muñeca M3GAN (Vestido + Cabello)",
-          "en": "Complete M3GAN doll outfit (Dress + Hair)"
+          "es": "Vestido de perlas de gala de alta costura",
+          "en": "High couture gala Pearl Dress"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "10BILLION",
+        "reward": {
+          "es": "Accesorio de mano Tenedor de Corazón dorado",
+          "en": "Golden Heart Fork hand accessory"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "LANADOLLDRESS",
+        "reward": {
+          "es": "Vestido tutú de Lana completamente rediseñado",
+          "en": "Reworked Lana Tutu Dress"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "CA11MEHHALEY",
+        "reward": {
+          "es": "Set completo de osito (Vestido, orejas y onesie)",
+          "en": "Complete Bear Set (Dress, ears & onesie)"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "CH00P1E_B4CK_AGA1N",
+        "reward": {
+          "es": "Set de ropa urbana Choopie rediseñado",
+          "en": "Reworked Choopie streetwear outfit"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "VANILLAMACE",
+        "reward": {
+          "es": "Pañuelo de seda exclusivo para la cabeza",
+          "en": "Exclusive silk headscarf"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "PIXIIUWU",
+        "reward": {
+          "es": "Vestido de noche largo y elegante",
+          "en": "Elegant long evening dress"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "1CON1CF4TMA",
+        "reward": {
+          "es": "Jersey sweater dress blanco de pasarela",
+          "en": "White runway sweater dress"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ANGELT4NKED",
+        "reward": {
+          "es": "Casco de gato morado futurista",
+          "en": "Purple futuristic cat helmet"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "3NCHANTEDD1ZZY",
+        "reward": {
+          "es": "Varita mágica luminosa de hada",
+          "en": "Enchanted fairy wand accessory"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -653,62 +735,201 @@ export const gamesData: GameItem[] = [
       {
         "code": "BELALASLAY",
         "reward": {
-          "es": "Chaqueta corta brillante y accesorios de fiesta",
-          "en": "Sparkly cropped jacket and party accessories"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "KITTYGAMES",
-        "reward": {
-          "es": "Gorro kawaii de gato y bolso temático",
-          "en": "Kawaii cat beanie and matching purse"
+          "es": "Chaqueta negra de hombros descubiertos y top halter rosa",
+          "en": "Off-shoulder black jacket & pink halter top"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "KREEK",
+        "code": "MEGANPLAYSBOOTS",
         "reward": {
-          "es": "Gorra de béisbol especial de edición limitada",
-          "en": "Special limited edition gamer baseball cap"
+          "es": "Botas altas brillantes con purpurina",
+          "en": "Glitter high heel boots"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "LANATUDO",
+        "code": "CH00P1E_1S_B4CK",
         "reward": {
-          "es": "Vestido glamuroso y calentadores de pierna",
-          "en": "Glamorous dress and leg warmers"
+          "es": "Conjunto urbano Choopie con falda y chaqueta",
+          "en": "Choopie streetwear outfit set"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "LANA",
+        "reward": {
+          "es": "Pantalones cortos blancos, camiseta y calentadores",
+          "en": "White shorts, shirt & legwarmers"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "IBELLASLAY",
+        "reward": {
+          "es": "Peinado tricolor único (rojo, verde y rubio)",
+          "en": "Tri-color hairstyle (red, green & blonde)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "LANABOW",
+        "reward": {
+          "es": "Lazo blanco elegante para el pelo",
+          "en": "White elegant hair bow"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "LANATUTU",
+        "reward": {
+          "es": "Vestido tutú blanco clásico",
+          "en": "Classic white tutu dress"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "C4LLMEHH4LEY",
+        "reward": {
+          "es": "Vestido y diadema de oso kawaii",
+          "en": "Kawaii bear dress & headband"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "TEKKYOOZ",
+        "reward": {
+          "es": "Bolso de mano de perlas de lujo",
+          "en": "Luxury pearl handbag"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "M3RM4ID",
+        "reward": {
+          "es": "Conjunto de sirena naranja brillante",
+          "en": "Orange mermaid outfit set"
         },
         "verifiedDate": "Hoy"
       },
       {
         "code": "SUBM15CY",
         "reward": {
-          "es": "Collar de perlas gargantilla y pestañas",
-          "en": "Pearl choker necklace and custom lashes"
+          "es": "Gargantilla de perlas y pestañas glamurosas",
+          "en": "Pearl choker necklace & glam lashes"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "TEKKYOO2",
+        "code": "ASHLEYBUNNI",
         "reward": {
-          "es": "Bolso de diseñador plateado",
-          "en": "Silver metallic designer handbag"
+          "es": "Zapatillas de estar por casa de conejito blanco",
+          "en": "Cute fluffy white bunny slippers"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "LEAHASHE",
+        "reward": {
+          "es": "Sudadera rosa pastel y pantalón de chándal",
+          "en": "Pastel pink sweatshirt & sweatpants"
         },
         "verifiedDate": "Hoy"
       },
       {
         "code": "LABOOTS",
         "reward": {
-          "es": "Botas altas de tacón estilo pasarela",
-          "en": "Runway high heel stiletto boots"
+          "es": "Botas altas de tacón de aguja negras",
+          "en": "Black runway stiletto heeled boots"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ITSJUSTNICHOLAS",
+        "reward": {
+          "es": "Chaqueta motera de cuero negro",
+          "en": "Black leather biker jacket"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "UMOYAE",
+        "reward": {
+          "es": "Minivestido rosa estilo Chappell Roan",
+          "en": "Chappell Roan style pink minidress"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "KREEK",
+        "reward": {
+          "es": "Gorro beanie de oso gamer exclusivo",
+          "en": "Exclusive gamer bear beanie"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "S3M_0W3N_Y4Y",
+        "reward": {
+          "es": "Hacha de fantasía para la mano",
+          "en": "Fantasy battle axe accessory"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "KITTYUUHH",
+        "reward": {
+          "es": "Mascota gatito negro de hombro",
+          "en": "Cute black cat shoulder companion"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ELLA",
+        "reward": {
+          "es": "Falda corta rosa plisada",
+          "en": "Pink pleated mini skirt"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "D10RST4R",
+        "reward": {
+          "es": "Lazo y bolso de mano estilo diseñador",
+          "en": "Designer bow and handbag"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "M3GAN",
+        "reward": {
+          "es": "Dress + Hair",
+          "en": "Dress + Hair"
+        }
+      },
+      {
+        "code": "KITTYGAMES",
+        "reward": {
+          "es": "Cat Beanie",
+          "en": "Cat Beanie"
+        }
+      },
+      {
+        "code": "LANATUDO",
+        "reward": {
+          "es": "Dress",
+          "en": "Dress"
+        }
+      },
+      {
+        "code": "TEKKYOO2",
+        "reward": {
+          "es": "Handbag",
+          "en": "Handbag"
+        }
+      },
       {
         "code": "CHOOPIE100K",
         "reward": {
@@ -774,12 +995,12 @@ export const gamesData: GameItem[] = [
     "developer": "Anime Defenders",
     "likes": "1.9M+",
     "visits": "3.4B+",
-    "activePlayers": "259+",
+    "activePlayers": "210+",
     "robloxUrl": "https://www.roblox.com/games/17017769292/Anime-Defenders",
     "accentColor": "amber",
     "iconGradient": "from-amber-500 via-orange-600 to-red-600",
     "emoji": "🛡️",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos activos de Anime Defenders en Roblox. Consigue miles de gemas gratis y cristales para tirar por unidades míticas y secretas.",
       "en": "Active Anime Defenders codes for Roblox. Claim thousands of free gems and trait crystals to roll for mythic and secret units."
@@ -808,91 +1029,28 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "sub2nagblox",
+        "code": "REDONE",
         "reward": {
-          "es": "50 Gemas",
-          "en": "50 Gems"
+          "es": "1 Deseo exclusivo (Exclusive Wish)",
+          "en": "1 Exclusive Wish"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "sub2riktime",
+        "code": "ELEMENTS",
         "reward": {
-          "es": "50 Gemas",
-          "en": "50 Gems"
+          "es": "1,000 Reliquias antiguas (Ancient Relics)",
+          "en": "1,000 Ancient Relics"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "sub2jonaslyz",
+        "code": "SKILLTREES",
         "reward": {
-          "es": "50 Gemas",
-          "en": "50 Gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "sub2karizmaqt",
-        "reward": {
-          "es": "50 Gemas",
-          "en": "50 Gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "sub2mozking",
-        "reward": {
-          "es": "50 Gemas",
-          "en": "50 Gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "sub2toadboigaming",
-        "reward": {
-          "es": "50 Gemas",
-          "en": "50 Gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "subcool",
-        "reward": {
-          "es": "50 Gemas",
-          "en": "50 Gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "summertime",
-        "reward": {
-          "es": "800 Gemas",
-          "en": "800 gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "divinespirits",
-        "reward": {
-          "es": "500 Gemas",
-          "en": "500 gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "dragonpart1",
-        "reward": {
-          "es": "1000 Gemas",
-          "en": "1000 gems"
+          "es": "5 Cristales de rasgo divino (Divine Trait Crystals)",
+          "en": "5 Divine Trait Crystals"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -900,236 +1058,244 @@ export const gamesData: GameItem[] = [
       {
         "code": "incredibilli",
         "reward": {
-          "es": "1500 Gemas",
-          "en": "1500 gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "codeis",
-        "reward": {
-          "es": "500 Gemas",
-          "en": "500 gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "fortunetickets",
-        "reward": {
-          "es": "100 tickets",
-          "en": "100 tickets"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "megaupdatex",
-        "reward": {
-          "es": "100 Ficha de Fuego",
-          "en": "100 flame token"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "newrealmx",
-        "reward": {
-          "es": "100 Ficha Aqua",
-          "en": "100 Aqua token"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "athenyxlivex",
-        "reward": {
-          "es": "100 Ficha Solar",
-          "en": "100 Solar token"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "apologydefenders",
-        "reward": {
-          "es": "4 Deseos",
-          "en": "4 Wish"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "adforever",
-        "reward": {
-          "es": "100 Ficha de Fuego",
-          "en": "100 Flame token"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "tyforfeedback",
-        "reward": {
-          "es": "100 Ficha Aqua",
-          "en": "100 Aqua token"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Fivepointfive",
-        "reward": {
-          "es": "100 Ficha Solar",
-          "en": "100 Solar token"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "qolupdate",
-        "reward": {
-          "es": "1,000 Gemas",
-          "en": "1,000 gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "update6",
-        "reward": {
-          "es": "1,000 Gemas",
-          "en": "1,000 gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "skilltrees",
-        "reward": {
-          "es": "5 Cristal de Rasgo Divino",
-          "en": "5 Divine Trait Crystal"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "elements",
-        "reward": {
-          "es": "1000 Reliquia Antigua",
-          "en": "1000 Ancient Relic"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "redone",
-        "reward": {
-          "es": "1 Deseos",
-          "en": "1 Wish"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "sayonaramilton",
-        "reward": {
-          "es": "8 Cristal de Rasgo Divino",
-          "en": "8 Divine Trait Crystal"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "goodbyehelene",
-        "reward": {
-          "es": "800 Reliquia Antigua",
-          "en": "800 Ancient Relic"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "sowy4delay",
-        "reward": {
-          "es": "5 Cristal de Rasgo Divino",
-          "en": "5 Divine Trait Crystal"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "xmassoon",
-        "reward": {
-          "es": "1 Deseos",
-          "en": "1 Wish"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "hollydefenders",
-        "reward": {
-          "es": "1 Deseos",
-          "en": "1 Wish"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "merrychristmas",
-        "reward": {
-          "es": "1,000 Copos de Nieve",
-          "en": "1,000 SnowFlakes"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "RAIDSUPDATE",
-        "reward": {
-          "es": "1,000 Gemas + 5 Cristales de Rasgos",
-          "en": "1,000 Gems + 5 Trait Crystals"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "NEWERA",
-        "reward": {
-          "es": "850 Gemas gratis",
-          "en": "850 Free Gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "DEFENDERS",
-        "reward": {
-          "es": "500 Gemas para invocaciones",
-          "en": "500 Summoning Gems"
+          "es": "1,000 Gemas de invocación",
+          "en": "1,000 Summoning Gems"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "MEGAUPDATE",
+        "code": "subcool",
         "reward": {
-          "es": "1,200 Gemas + 3 Cápsulas de Deseos",
-          "en": "1,200 Gems + 3 Wish Capsules"
+          "es": "50 Gemas de invocación",
+          "en": "50 Summoning Gems"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "SUB2SENO",
+        "code": "sub2toadboigaming",
         "reward": {
-          "es": "150 Gemas gratis",
-          "en": "150 Free Gems"
+          "es": "50 Gemas de invocación",
+          "en": "50 Summoning Gems"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "sub2jonaslyz",
+        "reward": {
+          "es": "50 Gemas de invocación",
+          "en": "50 Summoning Gems"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "sub2riktime",
+        "reward": {
+          "es": "50 Gemas de invocación",
+          "en": "50 Summoning Gems"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "sub2mozking",
+        "reward": {
+          "es": "50 Gemas de invocación",
+          "en": "50 Summoning Gems"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "sub2nagblox",
+        "reward": {
+          "es": "50 Gemas de invocación",
+          "en": "50 Summoning Gems"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "sub2karizmaqt",
+        "reward": {
+          "es": "50 Gemas de invocación",
+          "en": "50 Summoning Gems"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "summertime",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "divinespirits",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "dragonpart1",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "codeis",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "fortunetickets",
+        "reward": {
+          "es": "Tickets",
+          "en": "Tickets"
+        }
+      },
+      {
+        "code": "megaupdatex",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "newrealmx",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "athenyxlivex",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "apologydefenders",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "adforever",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "tyforfeedback",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "Fivepointfive",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "qolupdate",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "update6",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "sayonaramilton",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "goodbyehelene",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "sowy4delay",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "xmassoon",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "hollydefenders",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "merrychristmas",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "RAIDSUPDATE",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "NEWERA",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "DEFENDERS",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "MEGAUPDATE",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
+      {
+        "code": "SUB2SENO",
+        "reward": {
+          "es": "Gems",
+          "en": "Gems"
+        }
+      },
       {
         "code": "RELEASE",
         "reward": {
@@ -1185,7 +1351,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "cyan",
     "iconGradient": "from-cyan-500 via-blue-600 to-indigo-700",
     "emoji": "🎁",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Lista completa de códigos promocionales de Roblox (Roblox Promo Codes). Consigue mascotas de hombro gratis, mochilas y alas para tu avatar.",
       "en": "Complete list of active Roblox Promo Codes. Claim free shoulder pets, backpacks, and accessories for your avatar."
@@ -1216,16 +1382,8 @@ export const gamesData: GameItem[] = [
       {
         "code": "SPIDERCOLA",
         "reward": {
-          "es": "Mascota de hombro Spider Cola (Lata de araña robótica)",
-          "en": "Spider Cola shoulder pet"
-        },
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "TWEETROBLOX",
-        "reward": {
-          "es": "Mascota de hombro The Bird Says (Pajarito azul de Twitter)",
-          "en": "The Bird Says shoulder pet"
+          "es": "Mascota de hombro Spider Cola (Canjear en roblox.com/redeem)",
+          "en": "Spider Cola shoulder pet (Redeem on roblox.com/redeem)"
         },
         "verifiedDate": "Hoy"
       },
@@ -1233,7 +1391,7 @@ export const gamesData: GameItem[] = [
         "code": "StrikeAPose",
         "reward": {
           "es": "Gorra deportiva Hustle Hat (Canjear en Island of Move)",
-          "en": "Hustle Hat cap (Redeem in Island of Move)"
+          "en": "Hustle Hat cap (Island of Move)"
         },
         "verifiedDate": "Hoy"
       },
@@ -1241,7 +1399,7 @@ export const gamesData: GameItem[] = [
         "code": "SettingTheStage",
         "reward": {
           "es": "Mochila Build It Backpack (Canjear en Island of Move)",
-          "en": "Build It Backpack (Redeem in Island of Move)"
+          "en": "Build It Backpack (Island of Move)"
         },
         "verifiedDate": "Hoy"
       },
@@ -1249,22 +1407,22 @@ export const gamesData: GameItem[] = [
         "code": "DIY",
         "reward": {
           "es": "Bastón Kinetic Staff (Canjear en Island of Move)",
-          "en": "Kinetic Staff (Redeem in Island of Move)"
+          "en": "Kinetic Staff (Island of Move)"
         },
         "verifiedDate": "Hoy"
       },
       {
         "code": "WorldAlive",
         "reward": {
-          "es": "Compañero Crystalline (Canjear en Island of Move)",
-          "en": "Crystalline Companion (Redeem in Island of Move)"
+          "es": "Compañero Crystalline Companion (Canjear en Island of Move)",
+          "en": "Crystalline Companion (Island of Move)"
         },
         "verifiedDate": "Hoy"
       },
       {
         "code": "ThingsGoBoom",
         "reward": {
-          "es": "Accesorio de cintura Ghastly Aura (Mansion of Wonder)",
+          "es": "Accesorio de cintura Ghastly Aura (Canjear en Mansion of Wonder)",
           "en": "Ghastly Aura waist accessory (Mansion of Wonder)"
         },
         "verifiedDate": "Hoy"
@@ -1272,13 +1430,47 @@ export const gamesData: GameItem[] = [
       {
         "code": "Glimmer",
         "reward": {
-          "es": "Diadema Head Slime (Mansion of Wonder)",
+          "es": "Gorra Head Slime (Canjear en Mansion of Wonder)",
           "en": "Head Slime hat (Mansion of Wonder)"
         },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Boardwalk",
+        "reward": {
+          "es": "Accesorio Ring of Flames (Canjear en Mansion of Wonder)",
+          "en": "Ring of Flames waist accessory (Mansion of Wonder)"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "FXArtist",
+        "reward": {
+          "es": "Mochila Artist Backpack (Canjear en Mansion of Wonder)",
+          "en": "Artist Backpack (Mansion of Wonder)"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ParticleWizard",
+        "reward": {
+          "es": "Tomos de mago Tomes of the Magus (Canjear en Mansion of Wonder)",
+          "en": "Tomes of the Magus accessories (Mansion of Wonder)"
+        },
+        "isNew": true,
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "TWEETROBLOX",
+        "reward": {
+          "es": "The Bird Says pet",
+          "en": "The Bird Says pet"
+        }
+      },
       {
         "code": "TARGETMINTHAT2021",
         "reward": {
@@ -1344,12 +1536,12 @@ export const gamesData: GameItem[] = [
     "developer": "Venture Lagoons",
     "likes": "2.5M+",
     "visits": "4.1B+",
-    "activePlayers": "6000+",
+    "activePlayers": "7000+",
     "robloxUrl": "https://www.roblox.com/games/4520749081/King-Legacy",
     "accentColor": "emerald",
     "iconGradient": "from-emerald-500 via-teal-600 to-blue-700",
     "emoji": "👑",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos válidos de King Legacy en Roblox. Reclama gemas, millones de Beli gratis y reinicio de estadísticas para maximizar tu fruta.",
       "en": "Valid King Legacy codes in Roblox. Claim gems, millions of free Beli, and stat resets to master your fruit powers."
@@ -1378,72 +1570,17 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "2MFAV",
-        "reward": {
-          "es": "Reinicio de estadísticas (Stat Reset)",
-          "en": "Free Refund Stats"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "FREESTATSRESET",
-        "reward": {
-          "es": "Reinicio de estadísticas (Stat Reset)",
-          "en": "Free Refund Stats"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "DragonColorRefund",
-        "reward": {
-          "es": "50 Gemas (If your Dragon color before Update 7 was the original red, you will only get 10 Gemas)",
-          "en": "50 gems (If your Dragon color before Update 7 was the original red, you will only get 10 gems)"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "WELCOMETOKINGLEGACY",
-        "reward": {
-          "es": "2x EXP gratis durante 30 minutos",
-          "en": "Free 2x EXP for 30 minutes"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
         "code": "<3LEEPUNGG",
         "reward": {
-          "es": "2x EXP gratis durante 30 minutos",
+          "es": "30 minutos de 2x EXP gratis",
           "en": "Free 2x EXP for 30 minutes"
         },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Update7.0",
-        "reward": {
-          "es": "5 Gemas + 500,000 Beli",
-          "en": "5 Gems + 500,000 Beli"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "RainbowDragon",
-        "reward": {
-          "es": "3 Gemas + 30 minutos de 2x EXP",
-          "en": "3 Gems + 30 mins 2x EXP"
-        },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
         "code": "DinoxLive",
         "reward": {
-          "es": "100,000 Beli gratis",
+          "es": "100,000 Beli en el juego",
           "en": "100,000 Free Beli"
         },
         "verifiedDate": "Hoy"
@@ -1451,21 +1588,67 @@ export const gamesData: GameItem[] = [
       {
         "code": "Peodiz",
         "reward": {
-          "es": "100,000 Beli gratis",
+          "es": "100,000 Beli en el juego",
           "en": "100,000 Free Beli"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "WELCOMETOKINGLEGACY",
+        "reward": {
+          "es": "30 minutos de 2x EXP gratis",
+          "en": "Free 2x EXP for 30 minutes"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "FREESTATSRESET",
+        "reward": {
+          "es": "Reinicio de estadísticas gratuito (Stat Reset)",
+          "en": "Free Refund Stats"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2MFAV",
+        "reward": {
+          "es": "Reinicio de estadísticas gratuito (Stat Reset)",
+          "en": "Free Refund Stats"
         },
         "verifiedDate": "Hoy"
       },
       {
         "code": "SKGames",
         "reward": {
-          "es": "Reinicio de Estadísticas (Stat Reset)",
-          "en": "Free Stat Reset"
+          "es": "30 minutos de 2x EXP gratis (Requiere unirse al grupo Sea King Games)",
+          "en": "Free 2x EXP for 30 minutes (Sea King Games group required)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "DragonColorRefund",
+        "reward": {
+          "es": "50 Gemas de reembolso de color Dragón",
+          "en": "50 Dragon color refund gems"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "RainbowDragon",
+        "reward": {
+          "es": "3 Gems + 30 mins 2x EXP",
+          "en": "3 Gems + 30 mins 2x EXP"
+        }
+      },
+      {
+        "code": "Update7.0",
+        "reward": {
+          "es": "5 Gems + 500,000 Beli",
+          "en": "5 Gems + 500,000 Beli"
+        }
+      },
       {
         "code": "Halloween2024",
         "reward": {
@@ -1515,13 +1698,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "Wolfpaq",
     "likes": "6.5M+",
-    "visits": "88.1B+",
-    "activePlayers": "327.000+",
+    "visits": "88.4B+",
+    "activePlayers": "465.000+",
     "robloxUrl": "https://www.roblox.com/games/4924922222/Brookhaven-RP",
     "accentColor": "indigo",
     "iconGradient": "from-blue-500 via-indigo-600 to-purple-700",
     "emoji": "🏡",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Lista de códigos de música ID para Brookhaven RP en Roblox. Canciones en español, hits virales de TikTok y temas de moda para tu coche.",
       "en": "Music ID codes for Brookhaven RP in Roblox. Viral TikTok songs, trending beats, and top music IDs for your car stereo."
@@ -1552,8 +1735,8 @@ export const gamesData: GameItem[] = [
       {
         "code": "1843399042",
         "reward": {
-          "es": "Billie Eilish - Ocean Eyes (Remix)",
-          "en": "Billie Eilish - Ocean Eyes (Remix)"
+          "es": "Rick Astley - Never Gonna Give You Up (Clásico)",
+          "en": "Rick Astley - Never Gonna Give You Up"
         },
         "verifiedDate": "Hoy"
       },
@@ -1568,7 +1751,7 @@ export const gamesData: GameItem[] = [
       {
         "code": "5253604010",
         "reward": {
-          "es": "Capone - Oh No (TikTok viral sound)",
+          "es": "Capone - Oh No (Sonido viral de TikTok)",
           "en": "Capone - Oh No (Viral TikTok sound)"
         },
         "verifiedDate": "Hoy"
@@ -1576,8 +1759,8 @@ export const gamesData: GameItem[] = [
       {
         "code": "1837050903",
         "reward": {
-          "es": "Bizarrap x Quevedo - Bzrp Music Sessions #52 (Intro)",
-          "en": "Bizarrap x Quevedo - Bzrp Music Sessions #52 (Intro)"
+          "es": "Bizarrap x Quevedo - Bzrp Music Sessions #52",
+          "en": "Bizarrap x Quevedo - Bzrp Music Sessions #52"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -1586,8 +1769,26 @@ export const gamesData: GameItem[] = [
         "code": "5925841720",
         "reward": {
           "es": "Phonk Brazil Drift Beat",
-          "en": "Phonk Brazil Drift Beat"
+          "en": "Brazilian Phonk Drift Beat"
         },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "1845554017",
+        "reward": {
+          "es": "Billie Eilish - Ocean Eyes",
+          "en": "Billie Eilish - Ocean Eyes"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "6887728970",
+        "reward": {
+          "es": "Rauw Alejandro - Todo De Ti",
+          "en": "Rauw Alejandro - Todo De Ti"
+        },
+        "isNew": true,
         "verifiedDate": "Hoy"
       }
     ],
@@ -1627,12 +1828,12 @@ export const gamesData: GameItem[] = [
     "developer": "Woozy Nite",
     "likes": "1.8M+",
     "visits": "5.0B+",
-    "activePlayers": "69.000+",
+    "activePlayers": "83.000+",
     "robloxUrl": "https://www.roblox.com/games/16732694052/Fisch",
     "accentColor": "cyan",
     "iconGradient": "from-cyan-600 via-teal-600 to-emerald-600",
     "emoji": "🐟",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Lista actualizada de códigos activos de Fisch en Roblox. Canjea C$ gratis, cebos especiales y títulos exclusivos para pescar criaturas míticas.",
       "en": "Active Fisch codes for Roblox. Claim free C$ cash, bait crates, and unique bobbers to catch mythical fish."
@@ -1661,28 +1862,10 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "SorryForShopShenanigans",
+        "code": "TEMPORARYSUBMARINE",
         "reward": {
-          "es": "150S$, Rainbow Totem",
-          "en": "150S$, Rainbow Totem"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "Sorry4Delay",
-        "reward": {
-          "es": "1,000C$, Shiny Terroscuttler, 🎣 Title, and a Objeto aleatorio: Rainbow Totem or a Aurora Totem",
-          "en": "1,000C$, Shiny Terroscuttler, 🎣 Title, and a random item: Rainbow Totem or a Aurora Totem"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "HarpoonGunsNextWeek",
-        "reward": {
-          "es": "1,000C$, Grandpa Horseshoe Crab (boat),",
-          "en": "1,000C$, Grandpa Horseshoe Crab (boat),"
+          "es": "Partes completas de submarino (Fins, Panels, Submarine Top, Windows)",
+          "en": "Full Submarine parts bundle (Fins, Panels, Top, Windows)"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -1690,8 +1873,8 @@ export const gamesData: GameItem[] = [
       {
         "code": "SCARLET",
         "reward": {
-          "es": "Skin for Nates Blade (Scarlet)",
-          "en": "Skin for Nates Blade (Scarlet)"
+          "es": "Skin de arma Scarlet para Nate's Blade",
+          "en": "Scarlet weapon skin for Nate's Blade"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -1699,85 +1882,98 @@ export const gamesData: GameItem[] = [
       {
         "code": "CARBON",
         "reward": {
-          "es": "Bobber reward (Carbon Bobber)",
-          "en": "Bobber reward (Carbon Bobber)"
+          "es": "Flotador de caña Carbon Bobber",
+          "en": "Carbon Bobber rod accessory"
         },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "TemporarySubmarine",
+        "code": "VroomVroom",
         "reward": {
-          "es": "1x Back Fins, 1x Metal Panels, 1x Side Fins, 1x Submarine Top, 1x Windows",
-          "en": "1x Back Fins, 1x Metal Panels, 1x Side Fins, 1x Submarine Top, 1x Windows"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "SkycrestNextWeek",
-        "reward": {
-          "es": "1000 Monedas, Little Sei Whale boat, 5x Icy Fisch’n Dots, 5x Coral Pearl, 5x Cotton Candy Pieces, 5x Tropical Fruit mix, and a Tótem aleatorio",
-          "en": "1000 Coins, Little Sei Whale boat, 5x Icy Fisch’n Dots, 5x Coral Pearl, 5x Cotton Candy Pieces, 5x Tropical Fruit mix, and a Random Totem"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "SkycrestIsInTheSky",
-        "reward": {
-          "es": "1000 Monedas, Banana boat, 5x Icy Fisch’n Dots, 5x Coral Pearl, 5x Cotton Candy Pieces, 5x Tropical Fruit mix, and a Objeto aleatorio",
-          "en": "1000 Coins, Banana boat, 5x Icy Fisch’n Dots, 5x Coral Pearl, 5x Cotton Candy Pieces, 5x Tropical Fruit mix, and a Random Item"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "LittleBudlingUpdate",
-        "reward": {
-          "es": "1000 Monedas, Walrus boat, 5x Icy Fisch’n Dots, 5x Coral Pearl, 5x Cotton Candy Pieces, 5x Tropical Fruit mix, and a Objeto aleatorio",
-          "en": "1000 Coins, Walrus boat, 5x Icy Fisch’n Dots, 5x Coral Pearl, 5x Cotton Candy Pieces, 5x Tropical Fruit mix, and a Random Item"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "MarianaIsGoingCrazy",
-        "reward": {
-          "es": "1000 Monedas, 10x Capturador Instantáneo, 5x Larva Luminosa, Him Compañero, and a Objeto aleatorio",
-          "en": "1000 Coins, 10x Instant Catcher, 5x Luminous Larva, Him companion, and a Random item"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "FISCHTASTIC",
-        "reward": {
-          "es": "5,000 C$ + 3 Cajas de Cebo Raras",
-          "en": "5,000 C$ + 3 Rare Bait Crates"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "THEDEPEN",
-        "reward": {
-          "es": "2,500 C$ gratis",
-          "en": "2,500 Free C$"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "GOLDENROD",
-        "reward": {
-          "es": "Flotador dorado y 1,000 C$",
-          "en": "Golden Bobber and 1,000 C$"
+          "es": "1,000 Monedas, Skin Pancaked Flimsy Rod, 10x Instant Catchers, 5x Larvas Luminosas",
+          "en": "1,000 Coins, Pancaked Flimsy Rod skin, 10x Instant Catchers, 5x Larva"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "Happy2ndYear",
+        "reward": {
+          "es": "2026 Coins & Boat",
+          "en": "2026 Coins & Boat"
+        }
+      },
+      {
+        "code": "SorryForShopShenanigans",
+        "reward": {
+          "es": "150S$, Rainbow Totem",
+          "en": "150S$, Rainbow Totem"
+        }
+      },
+      {
+        "code": "Sorry4Delay",
+        "reward": {
+          "es": "1,000C$, Terroscuttler",
+          "en": "1,000C$, Terroscuttler"
+        }
+      },
+      {
+        "code": "HarpoonGunsNextWeek",
+        "reward": {
+          "es": "1,000C$, Crab Boat",
+          "en": "1,000C$, Crab Boat"
+        }
+      },
+      {
+        "code": "SkycrestNextWeek",
+        "reward": {
+          "es": "1000 Coins, Whale boat",
+          "en": "1000 Coins, Whale boat"
+        }
+      },
+      {
+        "code": "SkycrestIsInTheSky",
+        "reward": {
+          "es": "1000 Coins, Banana boat",
+          "en": "1000 Coins, Banana boat"
+        }
+      },
+      {
+        "code": "LittleBudlingUpdate",
+        "reward": {
+          "es": "1000 Coins, Walrus boat",
+          "en": "1000 Coins, Walrus boat"
+        }
+      },
+      {
+        "code": "MarianaIsGoingCrazy",
+        "reward": {
+          "es": "1000 Coins, Instant Catchers",
+          "en": "1000 Coins, Instant Catchers"
+        }
+      },
+      {
+        "code": "FISCHTASTIC",
+        "reward": {
+          "es": "5,000 C$ + Bait Crates",
+          "en": "5,000 C$ + Bait Crates"
+        }
+      },
+      {
+        "code": "THEDEPEN",
+        "reward": {
+          "es": "2,500 C$",
+          "en": "2,500 C$"
+        }
+      },
+      {
+        "code": "GOLDENROD",
+        "reward": {
+          "es": "Golden Bobber",
+          "en": "Golden Bobber"
+        }
+      },
       {
         "code": "RELEASE",
         "reward": {
@@ -1821,12 +2017,12 @@ export const gamesData: GameItem[] = [
     "developer": "Kitawari",
     "likes": "1.6M+",
     "visits": "2.1B+",
-    "activePlayers": "16.000+",
+    "activePlayers": "2+",
     "robloxUrl": "https://www.roblox.com/games/16146832113/Anime-Vanguards",
     "accentColor": "rose",
     "iconGradient": "from-red-600 via-rose-600 to-amber-600",
     "emoji": "⛩️",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos activos de Anime Vanguards en Roblox. Consigue miles de gemas y super rerolls para desbloquear personajes míticos.",
       "en": "Active Anime Vanguards codes for Roblox. Claim thousands of free gems and super rerolls to unlock mythic anime heroes."
@@ -1855,10 +2051,55 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "CUPOFJOE",
+        "code": "2ndAnniDay6",
         "reward": {
-          "es": "Gemas y tiradas de rasgos",
-          "en": "Gems & Trait Rerolls"
+          "es": "100 Fragmentos de Memoria (Memoria Shards)",
+          "en": "100 Memoria Shards"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2ndAnniDay5",
+        "reward": {
+          "es": "100 Tiradas de Rasgos (Trait Rerolls)",
+          "en": "100 Trait Rerolls"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2ndAnniDay4",
+        "reward": {
+          "es": "100 Fragmentos de Memoria (Memoria Shards)",
+          "en": "100 Memoria Shards"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2ndAnniDay3",
+        "reward": {
+          "es": "100 Tiradas de Rasgos (Trait Rerolls)",
+          "en": "100 Trait Rerolls"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2ndAnniDay2",
+        "reward": {
+          "es": "100 Fragmentos de Memoria (Memoria Shards)",
+          "en": "100 Memoria Shards"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2ndAnniDay1",
+        "reward": {
+          "es": "100 Tiradas de Rasgos (Trait Rerolls)",
+          "en": "100 Trait Rerolls"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -1866,40 +2107,41 @@ export const gamesData: GameItem[] = [
       {
         "code": "kat",
         "reward": {
-          "es": "doesnt reward anything, just kat :3",
-          "en": "doesnt reward anything, just kat :3"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "AVUPDATE",
-        "reward": {
-          "es": "1,000 Gemas + 3 Super Rerolls",
-          "en": "1,000 Gems + 3 Super Rerolls"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "ROKUSHIKI",
-        "reward": {
-          "es": "500 Gemas gratis",
-          "en": "500 Free Gems"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "STANDPROUD",
-        "reward": {
-          "es": "800 Gemas + 1 Cristal de Rasgo",
-          "en": "800 Gems + 1 Trait Crystal"
+          "es": "Código meme de la comunidad (:3)",
+          "en": "Community meme code (:3)"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "CUPOFJOE",
+        "reward": {
+          "es": "Gems & Trait Rerolls",
+          "en": "Gems & Trait Rerolls"
+        }
+      },
+      {
+        "code": "AVUPDATE",
+        "reward": {
+          "es": "1,000 Gems + 3 Super Rerolls",
+          "en": "1,000 Gems + 3 Super Rerolls"
+        }
+      },
+      {
+        "code": "ROKUSHIKI",
+        "reward": {
+          "es": "500 Free Gems",
+          "en": "500 Free Gems"
+        }
+      },
+      {
+        "code": "STANDPROUD",
+        "reward": {
+          "es": "800 Gems + 1 Trait Crystal",
+          "en": "800 Gems + 1 Trait Crystal"
+        }
+      },
       {
         "code": "RELEASE",
         "reward": {
@@ -1943,12 +2185,12 @@ export const gamesData: GameItem[] = [
     "developer": "BIG Games Pets",
     "likes": "2.9M+",
     "visits": "2.7B+",
-    "activePlayers": "32.000+",
+    "activePlayers": "41.000+",
     "robloxUrl": "https://www.roblox.com/games/8737899170/Pet-Simulator-99",
     "accentColor": "indigo",
     "iconGradient": "from-blue-600 via-indigo-600 to-cyan-500",
     "emoji": "🐾",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos activos de Pet Simulator 99 (PS99) en Roblox. Consigue miles de diamantes gratis, pociones de suerte tier X y paquetes de monedas.",
       "en": "Active Pet Simulator 99 (PS99) codes for Roblox. Claim free diamonds, lucky potions, and coin bundles to hatch huge pets."
@@ -1975,35 +2217,29 @@ export const gamesData: GameItem[] = [
         "tip": "Pop your luck potions right before opening high-tier eggs to boost Huge pet odds!"
       }
     },
-    "activeCodes": [
+    "activeCodes": [],
+    "expiredCodes": [
       {
         "code": "TITANICPET",
         "reward": {
-          "es": "50,000 Diamantes + 5 Pociones de Suerte V",
-          "en": "50,000 Diamonds + 5 Lucky Potions V"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
+          "es": "50,000 Diamonds",
+          "en": "50,000 Diamonds"
+        }
       },
       {
         "code": "DIAMONDSHUNTER",
         "reward": {
-          "es": "25,000 Diamantes gratis",
-          "en": "25,000 Free Diamonds"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
+          "es": "25,000 Diamonds",
+          "en": "25,000 Diamonds"
+        }
       },
       {
         "code": "UPDATEPETS",
         "reward": {
-          "es": "Paquete de Pociones de Daño y Velocidad",
-          "en": "Damage and Speed Potion Bundle"
-        },
-        "verifiedDate": "Hoy"
-      }
-    ],
-    "expiredCodes": [
+          "es": "Potions Bundle",
+          "en": "Potions Bundle"
+        }
+      },
       {
         "code": "RELEASE",
         "reward": {
@@ -2047,12 +2283,12 @@ export const gamesData: GameItem[] = [
     "developer": "Telanthric Development",
     "likes": "2.1M+",
     "visits": "6.2B+",
-    "activePlayers": "3000+",
+    "activePlayers": "5000+",
     "robloxUrl": "https://www.roblox.com/games/13775256536/Toilet-Tower-Defense",
     "accentColor": "amber",
     "iconGradient": "from-amber-600 via-orange-600 to-red-600",
     "emoji": "🚽",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos válidos de Toilet Tower Defense (TTD) en Roblox. Reclama monedas gratis y cajas de unidades para derrotar a los jefes.",
       "en": "Valid Toilet Tower Defense (TTD) codes for Roblox. Claim free coins and summoning crates to defeat relentless waves."
@@ -2079,26 +2315,22 @@ export const gamesData: GameItem[] = [
         "tip": "Join the official Roblox development group to unlock an extra passive +100 coin bonus!"
       }
     },
-    "activeCodes": [
+    "activeCodes": [],
+    "expiredCodes": [
       {
         "code": "SummonTitan",
         "reward": {
-          "es": "500 Monedas + 1 Caja de Suerte",
+          "es": "500 Coins + 1 Lucky Crate",
           "en": "500 Coins + 1 Lucky Crate"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
+        }
       },
       {
         "code": "SpeakerUpgrade",
         "reward": {
-          "es": "300 Monedas gratis",
+          "es": "300 Free Coins",
           "en": "300 Free Coins"
-        },
-        "verifiedDate": "Hoy"
-      }
-    ],
-    "expiredCodes": [
+        }
+      },
       {
         "code": "CameraMan",
         "reward": {
@@ -2141,13 +2373,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "Nikilis",
     "likes": "18.5M+",
-    "visits": "30.9B+",
-    "activePlayers": "180.000+",
+    "visits": "31.2B+",
+    "activePlayers": "194.000+",
     "robloxUrl": "https://www.roblox.com/games/142823291/Murder-Mystery-2",
     "accentColor": "rose",
     "iconGradient": "from-red-600 via-rose-600 to-amber-600",
     "emoji": "🔪",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Lista completa y verificada de códigos activos de Murder Mystery 2 (MM2) en Roblox. Desbloquea cuchillos gratis y mascotas exclusivas.",
       "en": "Complete and verified list of active Murder Mystery 2 (MM2) codes in Roblox. Unlock free knife skins and rare pets."
@@ -2174,59 +2406,50 @@ export const gamesData: GameItem[] = [
         "tip": "Keep newly unlocked code knives safe: they hold great collectible value in MM2 trading hubs!"
       }
     },
-    "activeCodes": [
+    "activeCodes": [],
+    "expiredCodes": [
       {
         "code": "COMB4T2",
         "reward": {
-          "es": "Cuchillo exclusivo Combat II Knife",
-          "en": "Exclusive Combat II Knife"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
+          "es": "Combat II Knife",
+          "en": "Combat II Knife"
+        }
       },
       {
         "code": "PR1SM",
         "reward": {
-          "es": "Cuchillo Prism Knife gratis",
-          "en": "Free Prism Knife"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
+          "es": "Prism Knife",
+          "en": "Prism Knife"
+        }
       },
       {
         "code": "AL3X",
         "reward": {
-          "es": "Mascota Alex Pet de acompañamiento",
-          "en": "Alex Pet companion"
-        },
-        "verifiedDate": "Hoy"
+          "es": "Alex Pet",
+          "en": "Alex Pet"
+        }
       },
       {
         "code": "CORL",
         "reward": {
-          "es": "Mascota Corl Pet coleccionable",
-          "en": "Collectible Corl Pet"
-        },
-        "verifiedDate": "Hoy"
+          "es": "Corl Pet",
+          "en": "Corl Pet"
+        }
       },
       {
         "code": "SK3TCH",
         "reward": {
-          "es": "Mascota Sketchy Pet",
+          "es": "Sketchy Pet",
           "en": "Sketchy Pet"
-        },
-        "verifiedDate": "Hoy"
+        }
       },
       {
         "code": "INF3CT3D",
         "reward": {
-          "es": "Cuchillo temático Infected Knife",
-          "en": "Infected Knife theme skin"
-        },
-        "verifiedDate": "Hoy"
-      }
-    ],
-    "expiredCodes": [
+          "es": "Infected Knife",
+          "en": "Infected Knife"
+        }
+      },
       {
         "code": "G003Y",
         "reward": {
@@ -2292,12 +2515,12 @@ export const gamesData: GameItem[] = [
     "developer": "Da Hood Entertainment",
     "likes": "2.9M+",
     "visits": "3.0B+",
-    "activePlayers": "1000+",
+    "activePlayers": "2000+",
     "robloxUrl": "https://www.roblox.com/games/2788229376/Da-Hood",
     "accentColor": "amber",
     "iconGradient": "from-amber-600 via-orange-600 to-red-600",
     "emoji": "🥊",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos activos de Da Hood en Roblox actualizados hoy. Canjea cientos de miles de Da Hood Cash y cajas de armas gratis.",
       "en": "Active Da Hood codes in Roblox verified today. Claim free Da Hood Cash, weapon crates, and exclusive rolls."
@@ -2326,41 +2549,141 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "DAHOOD2026",
+        "code": "BUFF",
         "reward": {
-          "es": "250,000 Da Hood Cash",
-          "en": "250,000 Da Hood Cash"
+          "es": "3,500,000 Da Hood Cash (DHC) gratis",
+          "en": "3,500,000 Free Da Hood Cash (DHC)"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "TRADINGUPD",
+        "code": "WORLDCUP26",
         "reward": {
-          "es": "100,000 Cash + 2 Cajas de Armas",
-          "en": "100,000 Cash + 2 Weapon Crates"
+          "es": "2,000,000 Da Hood Cash (DHC) gratis",
+          "en": "2,000,000 Free Da Hood Cash (DHC)"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "WINTERHOOD",
+        "code": "FOURTH26",
         "reward": {
-          "es": "150,000 Da Hood Cash gratis",
-          "en": "150,000 Free Da Hood Cash"
+          "es": "2,444,444 Da Hood Cash (DHC) gratis",
+          "en": "2,444,444 Free Da Hood Cash (DHC)"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "CASHCASH",
+        "code": "BUILD",
         "reward": {
-          "es": "100,000 Cash inicial",
-          "en": "100,000 Starter Cash"
+          "es": "1,000,000 Da Hood Cash (DHC) gratis",
+          "en": "1,000,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "DEAGLE",
+        "reward": {
+          "es": "600,000 Da Hood Cash (DHC) gratis",
+          "en": "600,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "PVP",
+        "reward": {
+          "es": "500,000 Da Hood Cash (DHC) gratis",
+          "en": "500,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "PRESIDENT",
+        "reward": {
+          "es": "500,000 Da Hood Cash (DHC) gratis",
+          "en": "500,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "VALENTINES2026",
+        "reward": {
+          "es": "500,000 Da Hood Cash (DHC) gratis",
+          "en": "500,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "SPRING26",
+        "reward": {
+          "es": "400,000 Da Hood Cash (DHC) gratis",
+          "en": "400,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "DOG",
+        "reward": {
+          "es": "300,000 Da Hood Cash (DHC) gratis",
+          "en": "300,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "SHARK",
+        "reward": {
+          "es": "300,000 Da Hood Cash (DHC) gratis",
+          "en": "300,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "BALLOON",
+        "reward": {
+          "es": "300,000 Da Hood Cash (DHC) gratis",
+          "en": "300,000 Free Da Hood Cash (DHC)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "BOSS",
+        "reward": {
+          "es": "300,000 Da Hood Cash (DHC) gratis",
+          "en": "300,000 Free Da Hood Cash (DHC)"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "DAHOOD2026",
+        "reward": {
+          "es": "250,000 Cash",
+          "en": "250,000 Cash"
+        }
+      },
+      {
+        "code": "TRADINGUPD",
+        "reward": {
+          "es": "100,000 Cash",
+          "en": "100,000 Cash"
+        }
+      },
+      {
+        "code": "WINTERHOOD",
+        "reward": {
+          "es": "150,000 Cash",
+          "en": "150,000 Cash"
+        }
+      },
+      {
+        "code": "CASHCASH",
+        "reward": {
+          "es": "100,000 Cash",
+          "en": "100,000 Cash"
+        }
+      },
       {
         "code": "FIREWORKS",
         "reward": {
@@ -2410,13 +2733,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "Nosniy Games",
     "likes": "1.4M+",
-    "visits": "18.5B+",
-    "activePlayers": "158.000+",
+    "visits": "18.6B+",
+    "activePlayers": "214.000+",
     "robloxUrl": "https://www.roblox.com/games/17625359962/RIVALS",
     "accentColor": "emerald",
     "iconGradient": "from-emerald-500 via-teal-600 to-cyan-600",
     "emoji": "🎯",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos más recientes de Rivals en Roblox. Consigue skins de armas, llaves de cajas y potenciadores gratis para dominar el PvP.",
       "en": "Latest verified Rivals codes in Roblox. Unlock free weapon wraps, crate keys, and competitive boosts."
@@ -2445,66 +2768,68 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
+        "code": "FREE201",
+        "reward": {
+          "es": "3 Llaves de cajas gratis",
+          "en": "3 Free Crate Keys"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
         "code": "FREE200",
         "reward": {
-          "es": "x3 Llaves",
-          "en": "x3 Keys"
+          "es": "3 Llaves de cajas gratis",
+          "en": "3 Free Crate Keys"
         },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "NOSNIYGAMESONTOP",
-        "reward": {
-          "es": "The RIA Best Studio Emote",
-          "en": "The RIA Best Studio Emote"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "BACK2BACK",
-        "reward": {
-          "es": "The RIA 26 Best Shooter Charm",
-          "en": "The RIA 26 Best Shooter Charm"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "ROBLOX_RTC",
-        "reward": {
-          "es": "x5 Llaves",
-          "en": "x5 Keys"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "BOOST",
-        "reward": {
-          "es": "x1 Llaves",
-          "en": "x1 Key"
-        },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
         "code": "FREE199",
         "reward": {
-          "es": "x3 Llaves",
-          "en": "x3 Keys"
+          "es": "3 Llaves de cajas gratis",
+          "en": "3 Free Crate Keys"
         },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
         "code": "COMMUNITY26",
         "reward": {
-          "es": "1x Envoltorio de armas comunitario (Random Weapon)",
-          "en": "1x Community Wrap (Random Weapon)"
+          "es": "1 Skin de arma Community Wrap aleatoria",
+          "en": "1 Random Community Weapon Wrap"
         },
-        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "BACK2BACK",
+        "reward": {
+          "es": "Amuleto The RIA 26 Best Shooter Charm",
+          "en": "The RIA 26 Best Shooter Charm"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "NOSNIYGAMESONTOP",
+        "reward": {
+          "es": "Emote The RIA Best Studio Emote",
+          "en": "The RIA Best Studio Emote"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ROBLOX_RTC",
+        "reward": {
+          "es": "5 Llaves de cajas gratis",
+          "en": "5 Free Crate Keys"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "BOOST",
+        "reward": {
+          "es": "1 Llave de caja gratis",
+          "en": "1 Free Crate Key"
+        },
         "verifiedDate": "Hoy"
       },
       {
@@ -2513,16 +2838,6 @@ export const gamesData: GameItem[] = [
           "es": "Wrap exclusivo de arma comunitario",
           "en": "Exclusive Community Weapon Wrap"
         },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "RELEASE",
-        "reward": {
-          "es": "100 Llaves + Caja de Inicio",
-          "en": "100 Keys + Starter Crate"
-        },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
@@ -2536,13 +2851,20 @@ export const gamesData: GameItem[] = [
       {
         "code": "BONUS",
         "reward": {
-          "es": "1x Potenciador de EXP en partidas",
-          "en": "1x Match EXP Booster"
+          "es": "1 Potenciador de EXP en partidas",
+          "en": "1 Match EXP Booster"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "RELEASE",
+        "reward": {
+          "es": "100 Keys + Starter Crate",
+          "en": "100 Keys + Starter Crate"
+        }
+      },
       {
         "code": "BETA1",
         "reward": {
@@ -2591,7 +2913,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "purple",
     "iconGradient": "from-purple-600 via-indigo-600 to-pink-600",
     "emoji": "🌟",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos activos de All Star Tower Defense (ASTD) para conseguir gemas, Stardust y tiradas de invocación gratis en Roblox.",
       "en": "Active All Star Tower Defense (ASTD) codes. Redeem free Gems, Stardust, and summons in Roblox."
@@ -2620,41 +2942,118 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "ASTD2026",
+        "code": "ReturnOfTheLobbies",
         "reward": {
-          "es": "500 Stardust + 1,000 Gemas",
-          "en": "500 Stardust + 1,000 Gems"
+          "es": "4,000 Gemas + 150 Stardust (Requiere Nivel 50+)",
+          "en": "4,000 Gems + 150 Stardust (Level 50+)"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "SUMMONUPDATE",
+        "code": "ALateSummerAwaits",
         "reward": {
-          "es": "300 Stardust + 800 Gemas",
-          "en": "300 Stardust + 800 Gems"
+          "es": "4,000 Gemas + 100 Stardust (Requiere Nivel 50+)",
+          "en": "4,000 Gems + 100 Stardust (Level 50+)"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "SUPERSUMMON",
+        "code": "AwesomeBeginnerCode",
         "reward": {
-          "es": "400 Gemas + 150 Stardust",
-          "en": "400 Gems + 150 Stardust"
+          "es": "4,000 Gemas + 50 Stardust + Pepinillo cósmico (Nivel 50+)",
+          "en": "4,000 Gems + 50 Stardust + Otherworldly Pickle (Level 50+)"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "FusionReborn",
+        "reward": {
+          "es": "4,000 Gemas + 200 Stardust (Requiere Nivel 50+)",
+          "en": "4,000 Gems + 200 Stardust (Level 50+)"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "NEWEXP",
+        "code": "TheOverlordArrives",
         "reward": {
-          "es": "Poción de 2x Experiencia",
-          "en": "2x Experience Potion"
+          "es": "4,000 Gemas + 280 Stardust (Requiere Nivel 50+)",
+          "en": "4,000 Gems + 280 Stardust (Level 50+)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "tboicats",
+        "reward": {
+          "es": "3,000 Gemas + 170 Stardust (Requiere Nivel 50+)",
+          "en": "3,000 Gems + 170 Stardust (Level 50+)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "sorryfordelayandmonkeyking",
+        "reward": {
+          "es": "4,000 Gemas + 280 Stardust",
+          "en": "4,000 Gems + 280 Stardust"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "yickadee",
+        "reward": {
+          "es": "2,000 Gemas + 230 Stardust + Unidad Especial (Nivel 100+)",
+          "en": "2,000 Gems + 230 Stardust + Special Unit (Level 100+)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "game11",
+        "reward": {
+          "es": "300 Gemas + 100 Stardust",
+          "en": "300 Gems + 100 Stardust"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ultramicro",
+        "reward": {
+          "es": "300 Gemas + 100 Stardust",
+          "en": "300 Gems + 100 Stardust"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "ASTD2026",
+        "reward": {
+          "es": "500 Stardust + 1,000 Gems",
+          "en": "500 Stardust + 1,000 Gems"
+        }
+      },
+      {
+        "code": "SUMMONUPDATE",
+        "reward": {
+          "es": "300 Stardust + 800 Gems",
+          "en": "300 Stardust + 800 Gems"
+        }
+      },
+      {
+        "code": "SUPERSUMMON",
+        "reward": {
+          "es": "400 Gems + 150 Stardust",
+          "en": "400 Gems + 150 Stardust"
+        }
+      },
+      {
+        "code": "NEWEXP",
+        "reward": {
+          "es": "2x EXP Potion",
+          "en": "2x EXP Potion"
+        }
+      },
       {
         "code": "world3update",
         "reward": {
@@ -2710,7 +3109,7 @@ export const gamesData: GameItem[] = [
     "accentColor": "orange",
     "iconGradient": "from-orange-500 via-red-600 to-amber-600",
     "emoji": "🍥",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos actualizados de Shindo Life en Roblox. Consigue miles de spins gratis y RELL Coins para conseguir Bloodlines legendarios.",
       "en": "Updated Shindo Life codes on Roblox. Claim thousands of free spins and RELL Coins to roll legendary Bloodlines."
@@ -2739,41 +3138,126 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "RELLGems2026!",
+        "code": "ShindoLife2026Peak!",
         "reward": {
-          "es": "100,000 RELL Coins + 500 Tiradas (Spins)",
-          "en": "100,000 RELL Coins + 500 Free Spins"
+          "es": "25,000 RELL Coins + 250 Giros (Spins)",
+          "en": "25,000 RELL Coins + 250 Free Spins"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "ShindoSpinsNow!",
+        "code": "2mLikesC0d3d!",
         "reward": {
-          "es": "200 Tiradas ninja gratis",
-          "en": "200 Free Ninja Spins"
+          "es": "40,000 RELL Coins + 400 Giros (Spins)",
+          "en": "40,000 RELL Coins + 400 Free Spins"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "ShinobiStory!",
+        "code": "WalkingOnTheWalls!",
         "reward": {
-          "es": "50,000 RELL Coins + 100 Spins",
-          "en": "50,000 RELL Coins + 100 Spins"
+          "es": "25,000 RELL Coins + 250 Giros (Spins)",
+          "en": "25,000 RELL Coins + 250 Free Spins"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "RELLGIFTbag!",
+        "reward": {
+          "es": "Desbloqueo de Bloodline Bag permanente",
+          "en": "Permanent Bloodline Bag unlock"
         },
         "verifiedDate": "Hoy"
       },
       {
-        "code": "NinjaStormUpdate!",
+        "code": "RELLGIFTsc!",
         "reward": {
-          "es": "150 Tiradas ninja",
-          "en": "150 Ninja Spins"
+          "es": "Desbloqueo de Creador de Servidores",
+          "en": "Server Creator unlock"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "NewBugPatchandFixes250!",
+        "reward": {
+          "es": "10,000 RELL Coins + 100 Giros",
+          "en": "10,000 RELL Coins + 100 Spins"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "NewFREEFALLings2026!",
+        "reward": {
+          "es": "10,000 RELL Coins + 100 Giros",
+          "en": "10,000 RELL Coins + 100 Spins"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "20NewCloaksAdded!",
+        "reward": {
+          "es": "10,000 RELL Coins + 100 Giros",
+          "en": "10,000 RELL Coins + 100 Spins"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "FixUpdateIsOutEarly!",
+        "reward": {
+          "es": "10,000 RELL Coins + 100 Giros",
+          "en": "10,000 RELL Coins + 100 Spins"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "6YearsofShindoSoon!",
+        "reward": {
+          "es": "10,000 RELL Coins + 100 Giros",
+          "en": "10,000 RELL Coins + 100 Spins"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Shindo4Life2026!",
+        "reward": {
+          "es": "10,000 RELL Coins + 100 Giros",
+          "en": "10,000 RELL Coins + 100 Spins"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "RELLGems2026!",
+        "reward": {
+          "es": "RELL Coins & Spins",
+          "en": "RELL Coins & Spins"
+        }
+      },
+      {
+        "code": "ShindoSpinsNow!",
+        "reward": {
+          "es": "200 Spins",
+          "en": "200 Spins"
+        }
+      },
+      {
+        "code": "ShinobiStory!",
+        "reward": {
+          "es": "50,000 RELL Coins",
+          "en": "50,000 RELL Coins"
+        }
+      },
+      {
+        "code": "NinjaStormUpdate!",
+        "reward": {
+          "es": "150 Spins",
+          "en": "150 Spins"
+        }
+      },
       {
         "code": "rellcoin2025!",
         "reward": {
@@ -2823,13 +3307,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "Yielding Arts",
     "likes": "2.9M+",
-    "visits": "19.3B+",
-    "activePlayers": "55.000+",
+    "visits": "19.4B+",
+    "activePlayers": "58.000+",
     "robloxUrl": "https://www.roblox.com/games/10449761463/The-Strongest-Battlegrounds",
     "accentColor": "rose",
     "iconGradient": "from-rose-600 via-red-600 to-orange-600",
     "emoji": "🥊",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos actualizados de The Strongest Battlegrounds en Roblox. Reclama emotes exclusivos, giros cosméticos y títulos PvP gratis.",
       "en": "Updated The Strongest Battlegrounds codes on Roblox. Claim exclusive emotes, cosmetic spins, and free PvP titles."
@@ -2858,29 +3342,89 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "ultimatemove",
+        "code": "168208965",
         "reward": {
-          "es": "Emote exclusivo de celebración",
-          "en": "Exclusive celebration emote"
+          "es": "Whatcha Say (Jason Derulo) Kill Sound ID",
+          "en": "Whatcha Say (Jason Derulo) Kill Sound ID"
         },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "strongestseason",
+        "code": "937885646",
         "reward": {
-          "es": "Título cosmético de combate",
-          "en": "Cosmetic combat title"
+          "es": "Efecto Ultra Kill Sound Effect ID",
+          "en": "Ultra Kill Sound Effect ID"
         },
-        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "754995791",
+        "reward": {
+          "es": "Efecto de sonido Windows Error Kill Sound ID",
+          "en": "Windows Error Sound Effect ID"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "1391727615",
+        "reward": {
+          "es": "Efecto de explosión Explosion Kill Sound ID",
+          "en": "Explosion Kill Sound Effect ID"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "271580013",
+        "reward": {
+          "es": "Risa Bob Esponja SpongeBob Laugh Sound ID",
+          "en": "SpongeBob Laugh Sound Effect ID"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "198606040",
+        "reward": {
+          "es": "Efecto Neck Snap Kill Sound ID",
+          "en": "Neck Snap Kill Sound ID"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "792323017",
+        "reward": {
+          "es": "Sonido de Alarma Alarm Warning Kill Sound ID",
+          "en": "Alarm Warning Sound ID"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "1837879082",
+        "reward": {
+          "es": "Sonido Paradise Falls Sound Effect ID",
+          "en": "Paradise Falls Sound Effect ID"
+        },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
       {
+        "code": "ultimatemove",
+        "reward": {
+          "es": "Emote cosmético",
+          "en": "Cosmetic emote"
+        }
+      },
+      {
+        "code": "strongestseason",
+        "reward": {
+          "es": "Título cosmético",
+          "en": "Cosmetic title"
+        }
+      },
+      {
         "code": "freeemote2025",
         "reward": {
-          "es": "Emote de temporada",
+          "es": "Seasonal Emote",
           "en": "Seasonal Emote"
         }
       }
@@ -2927,13 +3471,13 @@ export const gamesData: GameItem[] = [
     },
     "developer": "TYPE // SOUL",
     "likes": "880K+",
-    "visits": "818.2M+",
-    "activePlayers": "372+",
+    "visits": "818.7M+",
+    "activePlayers": "403+",
     "robloxUrl": "https://www.roblox.com/games/14069678431/TYPE-SOUL",
     "accentColor": "cyan",
     "iconGradient": "from-cyan-600 via-blue-600 to-indigo-700",
     "emoji": "⚔️",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos actualizados de Type Soul en Roblox. Consigue locked weapon rerolls, clan rerolls y elixires azules gratis.",
       "en": "Updated Type Soul codes on Roblox. Claim locked weapon rerolls, clan rerolls, and free blue elixirs."
@@ -2962,33 +3506,79 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "typesoulrework",
+        "code": "Cristi2026",
         "reward": {
-          "es": "Locked Weapon Reroll + Blue Elixir",
-          "en": "Locked Weapon Reroll + Blue Elixir"
+          "es": "Elixires y Rerolls gratuitos (Semi-Grado 2+)",
+          "en": "Free Elixirs & Rerolls (Semi-Grade 2+)"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "soulreaperupdate",
+        "code": "TypeBugIsMYFavouriteGame",
         "reward": {
-          "es": "Element Reroll + Shikai Reset",
-          "en": "Element Reroll + Shikai Reset"
+          "es": "Elixires azules y Rerolls de Clan",
+          "en": "Blue Elixirs & Clan Rerolls"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "segundorolls",
+        "code": "PALACEUPDATE2060",
         "reward": {
-          "es": "10 Locked Clan Rerolls",
-          "en": "10 Locked Clan Rerolls"
+          "es": "Elixires y Rerolls de arma bloqueada",
+          "en": "Locked Weapon Rerolls & Elixirs"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "BalanceStage",
+        "reward": {
+          "es": "Rerolls, Elixires y Cajas de habilidad (Skill Boxes)",
+          "en": "Rerolls, Elixirs & Skill Boxes"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "TheSecretIsInUpdateLogs",
+        "reward": {
+          "es": "Rerolls, Elixires y Cajas de habilidad (Skill Boxes)",
+          "en": "Rerolls, Elixirs & Skill Boxes"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "waittypesoulistillneedyou",
+        "reward": {
+          "es": "Recompensas variadas de clan y arma",
+          "en": "Clan & weapon rerolls rewards"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "typesoulrework",
+        "reward": {
+          "es": "Weapon Reroll",
+          "en": "Weapon Reroll"
+        }
+      },
+      {
+        "code": "soulreaperupdate",
+        "reward": {
+          "es": "Element Reroll",
+          "en": "Element Reroll"
+        }
+      },
+      {
+        "code": "segundorolls",
+        "reward": {
+          "es": "Clan Rerolls",
+          "en": "Clan Rerolls"
+        }
+      },
       {
         "code": "shutdowncode2025",
         "reward": {
@@ -3047,12 +3637,12 @@ export const gamesData: GameItem[] = [
     "developer": "Paradoxum Games",
     "likes": "3.3M+",
     "visits": "5.0B+",
-    "activePlayers": "12.000+",
+    "activePlayers": "27.000+",
     "robloxUrl": "https://www.roblox.com/games/3260590327/Tower-Defense-Simulator",
     "accentColor": "purple",
     "iconGradient": "from-purple-600 via-indigo-600 to-violet-700",
     "emoji": "🏰",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos actualizados de Tower Defense Simulator (TDS) en Roblox. Consigue gemas, monedas, skins de cazador y cajas premium gratis.",
       "en": "Updated Tower Defense Simulator (TDS) codes on Roblox. Claim free gems, coins, hunter skins, and premium crates."
@@ -3081,37 +3671,51 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
+        "code": "1MILCOMMUNITY",
+        "reward": {
+          "es": "Gemas y monedas comunitarias",
+          "en": "Community Gems & Coins"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "2MILLION",
+        "reward": {
+          "es": "Skin de tropa exclusiva Mercenary Pursuit",
+          "en": "Exclusive Mercenary Pursuit Troop Skin"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
         "code": "NAMETAG",
         "reward": {
-          "es": "Nametag exclusivo de jugador + Monedas",
-          "en": "Exclusive player nametag + Coins"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "COMMUNITY2026",
-        "reward": {
-          "es": "1,000 Monedas + Skin Hunter",
-          "en": "1,000 Coins + Hunter Skin"
-        },
-        "isNew": true,
-        "verifiedDate": "Hoy"
-      },
-      {
-        "code": "TDS5YEARS",
-        "reward": {
-          "es": "250 Gemas y Caja Premium",
-          "en": "250 Gems and Premium Crate"
+          "es": "Nametag exclusivo de jugador personalizado",
+          "en": "Exclusive player custom nametag"
         },
         "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
       {
+        "code": "COMMUNITY2026",
+        "reward": {
+          "es": "1,000 Coins + Hunter Skin",
+          "en": "1,000 Coins + Hunter Skin"
+        }
+      },
+      {
+        "code": "TDS5YEARS",
+        "reward": {
+          "es": "250 Gems + Premium Crate",
+          "en": "250 Gems + Premium Crate"
+        }
+      },
+      {
         "code": "02MOMENT",
         "reward": {
-          "es": "Skin de Cazador",
+          "es": "Hunter Skin",
           "en": "Hunter Skin"
         }
       },
@@ -3166,12 +3770,12 @@ export const gamesData: GameItem[] = [
     "developer": "Onett",
     "likes": "3.6M+",
     "visits": "4.6B+",
-    "activePlayers": "24.000+",
+    "activePlayers": "29.000+",
     "robloxUrl": "https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator",
     "accentColor": "amber",
     "iconGradient": "from-amber-500 via-yellow-500 to-orange-600",
     "emoji": "🐝",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-10",
     "metaDescription": {
       "es": "Códigos actualizados de Bee Swarm Simulator en Roblox. Consigue tickets, miel gratis, marshmallow bees, jelly beans y potenciadores.",
       "en": "Updated Bee Swarm Simulator codes on Roblox. Claim free tickets, honey boosts, marshmallow bees, jelly beans, and buffs."
@@ -3200,10 +3804,19 @@ export const gamesData: GameItem[] = [
     },
     "activeCodes": [
       {
-        "code": "5MFavs",
+        "code": "FOURtunate",
         "reward": {
-          "es": "Marshmallow Bee, 1h Conversion Boost, 5x Jelly Beans",
-          "en": "Marshmallow Bee, 1h Conversion Boost, 5x Jelly Beans"
+          "es": "1 Marshmallow Bee, 4 Strawberries, 4 Seeds, 4 Micro-Converters, 4 Jelly Beans, 4 Stingers",
+          "en": "1 Marshmallow Bee, 4 Strawberries, 4 Seeds, 4 Micro-Converters, 4 Jelly Beans, 4 Stingers"
+        },
+        "isNew": true,
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "15MMembers",
+        "reward": {
+          "es": "1 Red Balloon, 1 Marshmallow Bee, 15 Frutas, Buffs de campo (Club BSS)",
+          "en": "1 Red Balloon, 1 Marshmallow Bee, 15 Fruits, Field Buffs (BSS Club)"
         },
         "isNew": true,
         "verifiedDate": "Hoy"
@@ -3214,14 +3827,29 @@ export const gamesData: GameItem[] = [
           "es": "5 Tickets, 5 Gumdrops, 1 Cloud Vial",
           "en": "5 Tickets, 5 Gumdrops, 1 Cloud Vial"
         },
-        "isNew": true,
         "verifiedDate": "Hoy"
       },
       {
-        "code": "Wax",
+        "code": "38217",
         "reward": {
-          "es": "5,000 Miel (Honey) + 5 Tickets",
-          "en": "5,000 Honey + 5 Tickets"
+          "es": "5 Tickets gratis",
+          "en": "5 Free Tickets"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Bopmaster",
+        "reward": {
+          "es": "5 Tickets gratis",
+          "en": "5 Free Tickets"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Connoisseur",
+        "reward": {
+          "es": "5 Tickets gratis",
+          "en": "5 Free Tickets"
         },
         "verifiedDate": "Hoy"
       },
@@ -3232,9 +3860,64 @@ export const gamesData: GameItem[] = [
           "en": "5 Tickets + Frog morph"
         },
         "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Nectar",
+        "reward": {
+          "es": "5,000 Miel (Honey)",
+          "en": "5,000 Honey"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Roof",
+        "reward": {
+          "es": "5 Tickets gratis",
+          "en": "5 Free Tickets"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "Wax",
+        "reward": {
+          "es": "5,000 Miel + 5 Tickets",
+          "en": "5,000 Honey + 5 Tickets"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ClubBean",
+        "reward": {
+          "es": "1 Magic Bean + Potenciadores (Requiere Club BSS)",
+          "en": "1 Magic Bean + Field Boosts (BSS Club required)"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "ThreeBeeVee",
+        "reward": {
+          "es": "Recompensas exclusivas de Club BSS",
+          "en": "Exclusive BSS Club Rewards"
+        },
+        "verifiedDate": "Hoy"
+      },
+      {
+        "code": "GumdropsForScience",
+        "reward": {
+          "es": "Potenciadores y Gumdrops (Requiere Club BSS)",
+          "en": "Field Boosts & Gumdrops (BSS Club required)"
+        },
+        "verifiedDate": "Hoy"
       }
     ],
     "expiredCodes": [
+      {
+        "code": "5MFavs",
+        "reward": {
+          "es": "Marshmallow Bee",
+          "en": "Marshmallow Bee"
+        }
+      },
       {
         "code": "beesmas2025",
         "reward": {

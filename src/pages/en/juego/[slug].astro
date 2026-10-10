@@ -89,15 +89,17 @@ const pageSchema = {
 
         <!-- Action Buttons: Single Dominant Primary CTA + Secondary Roblox Link -->
         <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full sm:w-auto shrink-0">
-          <button
-            type="button"
-            onclick={`window.copyAllCodes(${JSON.stringify(game.activeCodes.map(c => c.code))}, this)`}
-            class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 border border-indigo-400/40 transition-all flex items-center gap-2 min-h-[40px] active:scale-95 cursor-pointer"
-            title="Copy all working codes for consecutive redemption"
-          >
-            <span>📋</span>
-            <span>Copy All ({game.activeCodes.length})</span>
-          </button>
+          {game.activeCodes.length > 0 && (
+            <button
+              type="button"
+              onclick={`window.copyAllCodes(${JSON.stringify(game.activeCodes.map(c => c.code))}, this)`}
+              class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 border border-indigo-400/40 transition-all flex items-center gap-2 min-h-[40px] active:scale-95 cursor-pointer"
+              title="Copy all working codes for consecutive redemption"
+            >
+              <span>📋</span>
+              <span>Copy All ({game.activeCodes.length})</span>
+            </button>
+          )}
           
           <a 
             href={game.robloxUrl} 
@@ -121,7 +123,7 @@ const pageSchema = {
       <div class="mt-6 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4 text-xs">
         <div class="flex items-center gap-2 text-emerald-400 font-medium">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>{t.gameDetail.verifiedToday} (September 2026)</span>
+          <span>{t.gameDetail.verifiedToday} (October 2026)</span>
         </div>
         <div class="flex items-center gap-4 text-slate-400">
           <span>👍 {game.likes} likes</span>
@@ -140,8 +142,8 @@ const pageSchema = {
         <div>
           <h2 class="text-2xl font-black text-white tracking-tight flex items-center gap-2">
             <span>{t.gameDetail.activeCodesTitle} {game.title}</span>
-            <span class="text-xs px-2.5 py-0.5 rounded-full font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-              {game.activeCodes.length} ACTIVE
+            <span class={`text-xs px-2.5 py-0.5 rounded-full font-mono font-bold border ${game.activeCodes.length > 0 ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' : 'bg-amber-500/20 text-amber-300 border-amber-500/30'}`}>
+              {game.activeCodes.length > 0 ? `${game.activeCodes.length} ACTIVE` : '0 ACTIVE'}
             </span>
           </h2>
           <p class="text-xs sm:text-sm text-slate-400 mt-1">
@@ -151,15 +153,17 @@ const pageSchema = {
 
         <!-- Quick actions: Copy all & Share -->
         <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full sm:w-auto shrink-0">
-          <button
-            type="button"
-            onclick={`window.copyAllCodes(${JSON.stringify(game.activeCodes.map(c => c.code))}, this)`}
-            class="flex-1 sm:flex-none justify-center px-3.5 py-2.5 sm:py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold text-xs shadow-lg shadow-indigo-600/20 border border-indigo-400/30 transition-all flex items-center gap-1.5 min-h-[38px]"
-            title="Copy all working codes for consecutive redemption"
-          >
-            <span>📋</span>
-            <span>Copy All ({game.activeCodes.length})</span>
-          </button>
+          {game.activeCodes.length > 0 && (
+            <button
+              type="button"
+              onclick={`window.copyAllCodes(${JSON.stringify(game.activeCodes.map(c => c.code))}, this)`}
+              class="flex-1 sm:flex-none justify-center px-3.5 py-2.5 sm:py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold text-xs shadow-lg shadow-indigo-600/20 border border-indigo-400/30 transition-all flex items-center gap-1.5 min-h-[38px]"
+              title="Copy all working codes for consecutive redemption"
+            >
+              <span>📋</span>
+              <span>Copy All ({game.activeCodes.length})</span>
+            </button>
+          )}
           <button
             type="button"
             onclick={`window.sharePage('${game.title} Active Codes 2026', window.location.href, this)`}
@@ -174,9 +178,23 @@ const pageSchema = {
 
       <!-- Codes list -->
       <div class="space-y-3">
-        {game.activeCodes.map((codeItem) => (
-          <CodeCard codeItem={codeItem} locale={locale} />
-        ))}
+        {game.activeCodes.length > 0 ? (
+          game.activeCodes.map((codeItem) => (
+            <CodeCard codeItem={codeItem} locale={locale} />
+          ))
+        ) : (
+          <div class="p-6 sm:p-8 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center">
+            <div class="w-12 h-12 mx-auto rounded-full bg-amber-500/20 flex items-center justify-center text-2xl mb-3">
+              ⏳
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-2">
+              Currently no active codes available for {game.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+              The developer has not released valid new public codes this month or previous rewards have expired. Check the expired list below so you do not waste time testing retired codes. We update this table immediately when a new code is confirmed!
+            </p>
+          </div>
+        )}
       </div>
     </section>
 
