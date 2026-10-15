@@ -1,25 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildCookiePolicySchema } from '../../utils/structuredData';
 
 const locale = 'en';
 const t = getTranslations(locale);
 const lastUpdated = 'September 23, 2026';
 
+const canonicalUrl = 'https://codigosroblox.org/en/cookie-policy/';
 const pageTitle = 'Cookie Policy & Consent Management | RobloxCodes';
 const pageDescription = 'Detailed guide on cookies used on RobloxCodes, Google AdSense cookies, retention periods, and how to configure or revoke your consent.';
 
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: pageTitle,
-  description: pageDescription,
-  inLanguage: 'en',
-  publisher: {
-    '@type': 'Organization',
-    name: 'RobloxCodes',
-    url: 'https://codigosroblox.org/en'
-  }
+  '@graph': buildCookiePolicySchema(locale, canonicalUrl)
 };
 ---
 

@@ -1,25 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildPrivacyPageSchema } from '../../utils/structuredData';
 
 const locale = 'es';
 const t = getTranslations(locale);
 const lastUpdated = '23 de septiembre de 2026';
 
+const canonicalUrl = 'https://codigosroblox.org/es/privacidad/';
 const pageTitle = 'Política de Privacidad y Cookies | CódigosRoblox.org';
 const pageDescription = 'Política de privacidad y cookies de CódigosRoblox.org en cumplimiento estricto del RGPD (UE 2016/679), LOPDGDD, CCPA y las directrices de Google AdSense.';
 
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: pageTitle,
-  description: pageDescription,
-  inLanguage: 'es',
-  publisher: {
-    '@type': 'Organization',
-    name: 'CódigosRoblox.org',
-    url: 'https://codigosroblox.org'
-  }
+  '@graph': buildPrivacyPageSchema(locale, canonicalUrl)
 };
 ---
 

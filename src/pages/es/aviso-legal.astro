@@ -1,25 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildLegalNoticePageSchema } from '../../utils/structuredData';
 
 const locale = 'es';
 const t = getTranslations(locale);
 const lastUpdated = '23 de septiembre de 2026';
 
+const canonicalUrl = 'https://codigosroblox.org/es/aviso-legal/';
 const pageTitle = 'Aviso Legal y Condiciones de Uso | CódigosRoblox';
 const pageDescription = 'Aviso legal oficial de CódigosRoblox.org en cumplimiento de la LSSI-CE (Ley 34/2002), exención de responsabilidad de Roblox Corporation y condiciones de uso.';
 
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: pageTitle,
-  description: pageDescription,
-  inLanguage: 'es',
-  publisher: {
-    '@type': 'Organization',
-    name: 'CódigosRoblox.org',
-    url: 'https://codigosroblox.org'
-  }
+  '@graph': buildLegalNoticePageSchema(locale, canonicalUrl)
 };
 ---
 

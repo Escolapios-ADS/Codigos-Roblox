@@ -1,25 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildLegalNoticePageSchema } from '../../utils/structuredData';
 
 const locale = 'en';
 const t = getTranslations(locale);
 const lastUpdated = 'September 23, 2026';
 
+const canonicalUrl = 'https://codigosroblox.org/en/legal-notice/';
 const pageTitle = 'Legal Notice & Terms of Use | RobloxCodes';
 const pageDescription = 'Official legal notice, LSSI-CE compliance, Roblox Corporation non-affiliation disclaimer, intellectual property rights, and terms of use for RobloxCodes.';
 
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: pageTitle,
-  description: pageDescription,
-  inLanguage: 'en',
-  publisher: {
-    '@type': 'Organization',
-    name: 'RobloxCodes',
-    url: 'https://codigosroblox.org/en'
-  }
+  '@graph': buildLegalNoticePageSchema(locale, canonicalUrl)
 };
 ---
 

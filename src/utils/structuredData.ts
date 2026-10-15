@@ -62,8 +62,9 @@ export function getWebPageSchema(params: {
   description: string;
   locale: 'es' | 'en';
   pageType?: string;
+  hasBreadcrumbs?: boolean;
 }) {
-  return {
+  const schema: any = {
     '@type': params.pageType || 'WebPage',
     '@id': `${params.canonicalUrl}#webpage`,
     url: params.canonicalUrl,
@@ -71,9 +72,14 @@ export function getWebPageSchema(params: {
     description: params.description,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     inLanguage: params.locale === 'es' ? 'es-ES' : 'en-US',
-    breadcrumb: { '@id': `${params.canonicalUrl}#breadcrumb` },
     dateModified: '2026-03-23'
   };
+
+  if (params.hasBreadcrumbs) {
+    schema.breadcrumb = { '@id': `${params.canonicalUrl}#breadcrumb` };
+  }
+
+  return schema;
 }
 
 export function buildGameSchema(game: GameItem, locale: 'es' | 'en', canonicalUrl: string) {
@@ -382,6 +388,111 @@ export function buildTermsPageSchema(locale: 'es' | 'en', canonicalUrl: string) 
   ];
 }
 
+export function buildPrivacyPageSchema(locale: 'es' | 'en', canonicalUrl: string) {
+  const homeTitle = locale === 'es' ? 'Inicio' : 'Home';
+  const privacyTitle = locale === 'es' ? 'Política de Privacidad' : 'Privacy Policy';
+
+  return [
+    {
+      '@type': 'WebPage',
+      '@id': `${canonicalUrl}#privacy`,
+      name: locale === 'es' ? 'Política de Privacidad y Cookies' : 'Privacy & Cookie Policy',
+      description: locale === 'es'
+        ? 'Política de privacidad y cookies de CódigosRoblox.org en cumplimiento estricto del RGPD (UE 2016/679), LOPDGDD, CCPA y las directrices de Google AdSense.'
+        : 'Comprehensive Privacy & Cookie Policy for RobloxCodes in strict compliance with GDPR (EU 2016/679), CCPA/CPRA, and Google AdSense publisher policies.',
+      breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: homeTitle,
+          item: `${SITE_URL}/${locale}/`
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: privacyTitle,
+          item: canonicalUrl
+        }
+      ]
+    }
+  ];
+}
+
+export function buildLegalNoticePageSchema(locale: 'es' | 'en', canonicalUrl: string) {
+  const homeTitle = locale === 'es' ? 'Inicio' : 'Home';
+  const legalTitle = locale === 'es' ? 'Aviso Legal' : 'Legal Notice';
+
+  return [
+    {
+      '@type': 'WebPage',
+      '@id': `${canonicalUrl}#legal`,
+      name: locale === 'es' ? 'Aviso Legal y Condiciones de Uso' : 'Legal Notice & Terms of Use',
+      description: locale === 'es'
+        ? 'Aviso legal oficial de CódigosRoblox.org en cumplimiento de la LSSI-CE (Ley 34/2002), exención de responsabilidad de Roblox Corporation y condiciones de uso.'
+        : 'Official legal notice, LSSI-CE compliance, Roblox Corporation non-affiliation disclaimer, intellectual property rights, and terms of use for RobloxCodes.',
+      breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: homeTitle,
+          item: `${SITE_URL}/${locale}/`
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: legalTitle,
+          item: canonicalUrl
+        }
+      ]
+    }
+  ];
+}
+
+export function buildCookiePolicySchema(locale: 'es' | 'en', canonicalUrl: string) {
+  const homeTitle = locale === 'es' ? 'Inicio' : 'Home';
+  const cookieTitle = locale === 'es' ? 'Política de Cookies' : 'Cookie Policy';
+
+  return [
+    {
+      '@type': 'WebPage',
+      '@id': `${canonicalUrl}#cookies`,
+      name: locale === 'es' ? 'Política de Cookies y Guía de Consentimiento' : 'Cookie Policy & Consent Management',
+      description: locale === 'es'
+        ? 'Información detallada sobre las cookies utilizadas en CódigosRoblox.org, finalidades, cookies de Google AdSense, duración y cómo gestionarlas o revocarlas.'
+        : 'Detailed guide on cookies used on RobloxCodes, Google AdSense cookies, retention periods, and how to configure or revoke your consent.',
+      breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: homeTitle,
+          item: `${SITE_URL}/${locale}/`
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: cookieTitle,
+          item: canonicalUrl
+        }
+      ]
+    }
+  ];
+}
+
 export function buildHomePageSchema(games: GameItem[], locale: 'es' | 'en', canonicalUrl: string) {
   const isEs = locale === 'es';
   return [
@@ -447,26 +558,32 @@ export function buildUnifiedGraph(params: {
 }) {
   const { canonicalUrl, title, description, locale, pageType, customSchema } = params;
 
+  // Extract custom items
+  let customItems: any[] = [];
+  if (customSchema) {
+    if (Array.isArray(customSchema['@graph'])) {
+      customItems = customSchema['@graph'];
+    } else if (customSchema['@type']) {
+      customItems = [customSchema];
+    } else if (Array.isArray(customSchema)) {
+      customItems = customSchema;
+    }
+  }
+
+  const hasBreadcrumbs = customItems.some(item => item && item['@type'] === 'BreadcrumbList');
+
   // Base graph items
   const baseItems: any[] = [
     ORGANIZATION_SCHEMA,
     getWebsiteSchema(locale),
-    getWebPageSchema({ canonicalUrl, title, description, locale, pageType })
+    getWebPageSchema({ canonicalUrl, title, description, locale, pageType, hasBreadcrumbs })
   ];
 
-  if (!customSchema) {
+  if (!customSchema || customItems.length === 0) {
     return {
       '@context': 'https://schema.org',
       '@graph': baseItems
     };
-  }
-
-  // Extract custom items
-  let customItems: any[] = [];
-  if (Array.isArray(customSchema['@graph'])) {
-    customItems = customSchema['@graph'];
-  } else if (customSchema['@type']) {
-    customItems = [customSchema];
   }
 
   // Filter out any duplicates if custom schema already provided Organization or WebSite

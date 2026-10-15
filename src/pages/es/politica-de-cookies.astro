@@ -1,25 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildCookiePolicySchema } from '../../utils/structuredData';
 
 const locale = 'es';
 const t = getTranslations(locale);
 const lastUpdated = '23 de septiembre de 2026';
 
+const canonicalUrl = 'https://codigosroblox.org/es/politica-de-cookies/';
 const pageTitle = 'Política de Cookies y Guía de Consentimiento | CódigosRoblox.org';
 const pageDescription = 'Información detallada sobre las cookies utilizadas en CódigosRoblox.org, finalidades, cookies de Google AdSense, duración y cómo gestionarlas o revocarlas.';
 
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: pageTitle,
-  description: pageDescription,
-  inLanguage: 'es',
-  publisher: {
-    '@type': 'Organization',
-    name: 'CódigosRoblox.org',
-    url: 'https://codigosroblox.org'
-  }
+  '@graph': buildCookiePolicySchema(locale, canonicalUrl)
 };
 ---
 

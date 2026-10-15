@@ -1,25 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n/translations';
+import { buildPrivacyPageSchema } from '../../utils/structuredData';
 
 const locale = 'en';
 const t = getTranslations(locale);
 const lastUpdated = 'September 23, 2026';
 
+const canonicalUrl = 'https://codigosroblox.org/en/privacy/';
 const pageTitle = 'Privacy & Cookie Policy | RobloxCodes';
 const pageDescription = 'Comprehensive Privacy & Cookie Policy for RobloxCodes in strict compliance with GDPR (EU 2016/679), CCPA/CPRA, and Google AdSense publisher policies.';
 
 const pageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: pageTitle,
-  description: pageDescription,
-  inLanguage: 'en',
-  publisher: {
-    '@type': 'Organization',
-    name: 'RobloxCodes',
-    url: 'https://codigosroblox.org/en'
-  }
+  '@graph': buildPrivacyPageSchema(locale, canonicalUrl)
 };
 ---
 
