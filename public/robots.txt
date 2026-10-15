@@ -24,6 +24,10 @@ Allow: /_astro/
 User-agent: Googlebot-Image
 Allow: /
 
+# Google AdSense Content & ads.txt Crawler
+User-agent: Mediapartners-Google
+Allow: /
+
 # Bingbot & Major Search Engines
 User-agent: Bingbot
 Allow: /
